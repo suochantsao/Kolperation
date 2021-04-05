@@ -1,0 +1,57 @@
+#app{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 5%;
+
+}
+header{
+    display: flex;
+    // border: 1px solid pink;
+
+    h1{
+        display: flex;
+        margin-right: 60%;
+
+        .logo{
+            margin: 20% 10% 20% 0;
+        }
+        .brandName{
+            color: rgb(86, 104, 122);
+            margin: 24% 0;
+            font-size: 1.5rem;
+            font-family: NotoSansCJKtc-Medium;
+            // border: pink solid 1px;
+        }
+    }
+
+    li{
+        margin: 5% 2%;
+        color: rgb(86, 104, 122);
+        font-family:  NotoSansCJKtc-DemiLight;
+        cursor: pointer;
+    }
+
+}
+
+nav{
+    margin: 4% 0;
+    display: flex;
+    // border: 1px solid pink;
+    background-color: #E6E6E6;
+    li{
+        width: 13%;
+        // border: 1px solid pink;
+
+    }
+    .servDescrip{
+        padding: 31% 0 0 5%;
+        font-size: 1.2rem;
+        font-family: NotoSansCJKtc-Medium;
+        
+        span{
+            display: block;
+            margin-top: 13%;
+            font-size: 12px;
+        }
+    }
+}
