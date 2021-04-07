@@ -56,7 +56,7 @@
       return {
         swiperOption: {
           slidesPerView: 2,
-          spaceBetween: -40,
+          spaceBetween: -30,
           slidesPerGroup: 2,
           loop: true,
           loopFillGroupWithBlank: true,

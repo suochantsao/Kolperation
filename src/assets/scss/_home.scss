@@ -5,6 +5,10 @@
         color: white;
         background-color: $brand_blue;
     }
+    .txtBlue{
+        text-decoration: none;
+        color: $brand_blue;
+    }
 }
 header{
     display: flex;
@@ -12,10 +16,10 @@ header{
     margin: 0 auto;
     padding: 0 5%;
     // border: 1px solid pink;
-
+    
     h1{
         display: flex;
-        margin: 5% 54% 0 0;
+        margin: 5.5% 50% 0 0;
         cursor: pointer;
         // border: 1px solid pink;
 
@@ -33,10 +37,10 @@ header{
     }
 
     li{
-        width: 16%;
+        width: 100%;
         padding-left: 0.7%;
-        margin: 5.8% 0 0 0;
-        line-height: 3rem;
+        margin: 5.8% 2% 0 0;
+        line-height: 3.5rem;
         text-align: center;
         color: $dark_grey;
         letter-spacing: 0.2rem;
@@ -46,12 +50,19 @@ header{
         cursor: pointer;
         // border: pink solid 1px;
 
+        .linkStyle{
+            text-decoration: none;
+            color: $dark_grey;
+        }
+
     }
+
 
 }
 
 nav{
-    margin: 3% auto 7% auto;
+    padding: 2% 0;
+    margin: 3% auto 6% auto;
     background-color: $nav_bgc;
 
     ul{
@@ -68,6 +79,7 @@ nav{
         }
         .servDescrip{
             padding: 14% 0 0 5%;
+            letter-spacing: 0.1rem;
             font-size: $font-l;
             font-family: NotoSansCJKtc-Medium;
 
@@ -76,6 +88,7 @@ nav{
                 display: block;
                 margin: 13% 0 25% 0;
                 font-size: 13px;
+                letter-spacing: 0;
                 // border: 1px solid pink;
 
             }
@@ -120,9 +133,6 @@ footer{
         margin: 0 auto;
         max-width: 1000px;
 
-        li{
-            // border: 1px solid pink;
-        }
         .footLogo{
             display: flex;
             flex-direction: column;
@@ -131,6 +141,7 @@ footer{
             span{
                 display: block; 
                 margin-top: 8%;
+                cursor: pointer;
             }
             .footTitle{
                 padding: 34% 8% 0 0;
@@ -154,6 +165,7 @@ footer{
                 text-align: center;
                 border-radius: 300px;
                 border: 1px solid $brand_lightBlue;
+                cursor: pointer;
 
             }
         }

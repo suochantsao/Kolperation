@@ -1,0 +1,21 @@
+.trialContent{
+    height: 600px;
+    margin: 5% auto;
+    // background-color: $nav_bgc;
+    border-radius: 20px;
+    border: 5px solid $nav_bgc;
+
+    h2{
+        margin: 4% 0 0 5%;
+        // border: 1px solid pink;
+    }
+
+    .titleDescrip{
+        display: block;
+        margin: 2% 0 0 5.5%;
+        letter-spacing: 0.1rem;
+        font-family: NotoSansCJKtc-Light;
+
+    }
+
+}
