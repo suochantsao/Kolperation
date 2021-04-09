@@ -3,22 +3,26 @@ import Vue       from 'vue'
 import VueRouter from 'vue-router'
 
 // Views
-import home  from '../views/home.vue'
-import trial from '../views/trial.vue'
+import Home  from '../views/Home.vue'
+import Trial from '../views/Trial.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
     {
         path: '/',
-        name: 'Kolperation home',
-        component: home
+        name: Home,
+        component: Home
     },
     {
         path: '/trial',
-        name: 'trial platform',
-        component: trial
-
+        name: Trial,
+        component: Trial,
+        children:[
+            {
+                path: 'First'
+            }
+        ]
     }
 ]
 const router = new VueRouter({
