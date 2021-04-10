@@ -1,7 +1,5 @@
 // Frameworks and other tools
 import Vue from 'vue'
-import VueAwesomeSwiper from 'vue-awesome-swiper'
-import swiper, {Navigation, Pagination, Autoplay } from 'swiper'
 import App from './App.vue'
 import router from './router'
 
@@ -9,8 +7,38 @@ import router from './router'
 import 'swiper/swiper-bundle.min.css'
 
 // Swiper
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import swiper, {Navigation, Pagination, Autoplay } from 'swiper'
 Vue.use(VueAwesomeSwiper);
 swiper.use([Navigation,Pagination,Autoplay]);
+
+// Font Awesome
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faAddressCard,
+         faGamepad,
+         faVideo,
+         faBasketballBall,
+         faUtensils,
+         faDesktop,
+         faGlasses,
+         faBuilding,
+         faPaw
+       } from '@fortawesome/free-solid-svg-icons'
+
+library.add(
+  faAddressCard, 
+  faGamepad,
+  faVideo,
+  faBasketballBall,
+  faUtensils,
+  faDesktop,
+  faGlasses,
+  faBuilding,
+  faPaw
+  )
+Vue.component('fa-icon',FontAwesomeIcon)
+
 
 Vue.config.productionTip = false
 

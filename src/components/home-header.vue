@@ -9,7 +9,9 @@
         <li>
             <router-link class="linkStyle" to= "/trial">平台試用</router-link>
         </li>
-        <li class="specBtn">註冊/登入</li>
+        <li class="specBtn">
+            <router-link class="linkStyleWhite" to="/login">註冊/登入</router-link>
+        </li>
     </header>
 </template>
 

@@ -9,6 +9,14 @@
         text-decoration: none;
         color: $brand_blue;
     }
+    .linkStyle{
+        text-decoration: none;
+        color: $dark_grey;
+    }
+    .linkStyleWhite{
+        text-decoration: none;
+        color: white;
+    }
 }
 header{
     display: flex;
@@ -49,11 +57,6 @@ header{
         font-family:  NotoSansCJKtc-DemiLight;
         cursor: pointer;
         // border: pink solid 1px;
-
-        .linkStyle{
-            text-decoration: none;
-            color: $dark_grey;
-        }
 
     }
 
