@@ -12,7 +12,8 @@ export default {
 </script>
 
 <style>
-/* SCSS */
+/* CSS */
+/* @import "../node_modules/bootstrap/dist/css/bootstrap.min.css"; */
 @import "../css/main.min.css";
 
 </style>

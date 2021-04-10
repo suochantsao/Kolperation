@@ -98,6 +98,61 @@
         }
 
     }
+    .resultBlock{
+        display: flex;
+        flex-direction: column;
+        margin: 2% auto;
+        // border: 1px solid pink;
 
+        .resultItem{
+            display: flex;
+            margin: 3% 0 0 1%;
+            // padding: 3%;
+            border-radius: 10px;
+            color: $brand_blue;
+            border: 5px solid $brand_lightBlue;
+
+            .icon{
+                font-size: 4rem;
+                padding: 3% 4%;
+                margin: 3% 3% 3% 5%;
+                color: white;
+                border-radius: 50%;
+                background-color: $brand_lightBlue;
+                // border: 1px solid pink;
+            }
+            .caseTitle{
+                font-size: $font-m;
+                line-height: 10rem;
+                font-family: NotoSansCJKtc-Medium;
+
+            }
+            .caseDescrip{
+                display: block;
+                color: $brand_blue;
+                width: 130px;
+                margin: 40% 22%;
+                text-align: center;
+                // padding: 2% 20%;
+                border-radius: 300px;
+                line-height: 3rem;
+                border: 3px solid $brand_blue;
+            }
+
+
+        }
+
+    }
+    a{
+        text-decoration: none;
+    }
+    .moreBtn{
+        text-align: center;
+        margin: 4% 35%;
+        line-height: 3rem;
+        border-radius: 300px;
+        background-color: $brand_blue;
+        color: white;
+    }
 }
 
