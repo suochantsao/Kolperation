@@ -1,6 +1,9 @@
 #app{
     margin: 0;
 
+    a{
+        text-decoration: none;
+    }
     .specBtn{
         color: white;
         background-color: $brand_blue;

@@ -12,7 +12,7 @@
                 </router-link>
             </li>
             <li>
-                <img src="https://blush.design/api/download?shareUri=GNi9hwRrvV3jnfI9&c=Hair_0%7E878787-0.2%7Effc943_Skin_0%7E7d4439-0.2%7Ef6cbc3&bg=e6e6e6&w=800&h=800&fm=png">
+                <img width="400%" src="https://blush.design/api/download?shareUri=GNi9hwRrvV3jnfI9&c=Hair_0%7E878787-0.2%7Effc943_Skin_0%7E7d4439-0.2%7Ef6cbc3&bg=e6e6e6&w=800&h=800&fm=png">
             </li>
         </ul>
     </nav>

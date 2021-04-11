@@ -10,6 +10,10 @@ import Trial_second from '../views/Trial_second.vue'
 import Trial_loader from '../views/Trial_loader.vue'
 import Trial_result from '../views/Trial_result.vue'
 import Login from '../views/Login.vue'
+import SignUp from '../views/SignUp.vue'
+import SignUp_kol from '../views/SignUp_kol.vue'
+import SignUp_firm from '../views/SignUp_firm.vue'
+import SignUp_loader from '../views/SignUp_loader.vue'
 
 Vue.use(VueRouter)
 
@@ -51,6 +55,28 @@ const routes = [
         path: '/login',
         name: 'Login',
         component: Login
+    },
+    {
+        path: '/loader',
+        name: 'Loader',
+        component: SignUp_loader
+    },
+    {
+        path: '/signup',
+        name: 'SignUp',
+        component: SignUp,
+        children:[
+            {
+                path: 'kol',
+                name: 'SignUp_kol',
+                component: SignUp_kol
+            },
+            {
+                path: 'firm',
+                name: 'SignUp_firm',
+                component: SignUp_firm
+            }
+        ]
     }
 ]
 const router = new VueRouter({

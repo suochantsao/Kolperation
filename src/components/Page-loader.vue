@@ -15,13 +15,7 @@
 
 <script>
 export default {
-    name: 'pageLoader',
-    created(){
-      setTimeout(()=>
-        this.$router.push({ path: "/trial/result"}),
-        2000
-      );
-    }
+    name: 'pageLoader'
 }
 </script>
 
@@ -59,7 +53,7 @@ export default {
   width: 20px;
   height: 20px;
   border-radius: 10px;
-  background: #333;
+  background: #344068;
   position: absolute;
 }
 
