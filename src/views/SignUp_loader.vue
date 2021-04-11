@@ -1,6 +1,10 @@
 <template>
-    <div id="app">
-        <page-loader></page-loader>
+    <div class="dialogBg">
+        <ul class="dialogBlock">
+          <li class="loaderBlock">
+            <page-loader></page-loader>
+          </li>
+        </ul>
     </div>
 </template>
 
@@ -14,9 +18,10 @@ export default {
     },
     created(){
       setTimeout(()=>
-        this.$router.push({ path: "/trial/result"}),
-        2000
+        this.$router.push({ path: "/"}),
+        2500
       );
     }
 }
 </script>
+

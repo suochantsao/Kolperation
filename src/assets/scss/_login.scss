@@ -9,37 +9,187 @@
     background-color: rgba(0, 0, 0, 0.4);
     align-items: center;
 
-    .dialogBlock{
-        opacity: 1;
+    a{
+        text-decoration: none;
+    }
+}
+.dialogBlock{
+    opacity: 1;
+    display: flex;
+    width: 1000px;
+    margin: 0 auto;
+    background-color: white;
+    font-family: NotoSansCJKtc-Medium;
+
+    .signUpArea{
+        width: 50%;
+        box-sizing: border-box;
+        padding: 2% 7%;
+        margin: 4% 0;
         display: flex;
-        width: 1000px;
-        margin: 0 auto;
-        background-color: white;
-        font-family: NotoSansCJKtc-Medium;
-
-        .loginArea{
-            width: 50%;
-            box-sizing: border-box;
-            padding: 5% 7%;
-            display: flex;
-            flex-direction: column;
-            
-            .logo{
-                // border: 1px solid pink;
-            }
-            .imgBlock{
-                margin: 0 auto;
-                // border: 1px solid pink;
-            }
-            span{
-                margin: 2% 0 6% 0;
-            }
+        flex-direction: column;
+        
+        .imgBlock{
+            margin: 5% auto;
+            padding-left: 7%;
         }
-        .signUpArea{
-            width: 50%;
+        .brandTitle{
+            letter-spacing: 0.1rem;
+            margin: 2% 0 6% 0;
+        }
+        .signUpTitle{
+            font-size: 1.2rem;
+        }
+        .signUpDescrip{
+            margin: 3% 0 8% 0;
+            font-size: $font-s;
+            font-family: NotoSansCJKtc-DemiLight;
+            
+        }
+        .btnBlock{
+            display: flex;
 
-            // height: 500px;
-            background-color: $brand_lightBlue;  
+            a{
+                margin: 0 2%;
+                width: 100%;
+                // border: 1px solid pink;
+            }
+
+            .btnItem{
+                text-align: center;
+                line-height: 3rem;
+                border-radius: 300px;
+                // border: 1px solid pink;
+
+            }
+            .kolBtn{
+                color: $brand_lightBlue;
+                border: 2px solid $brand_lightBlue;
+                // background-color: $brand_lightBlue;
+            }
+            .businesBtn{
+                color: $brand_blue;
+                border: 2px solid $brand_blue;
+            }
+            .icon{
+                margin-right: 6%;
+            }
+            
         }
     }
+    .loginArea{
+        width: 50%;
+        color: white;
+        background-color: $brand_lightBlue; 
+
+        h2{
+            width: 75%;
+            margin: 20% auto 10% auto;
+            font-size: $font-l;
+            letter-spacing: 0.1rem;
+            // border: 1px solid pink;
+        }
+
+        .crossIcon{
+            color: white;
+            font-size: $font-m;
+            margin: 5% 0 0 91%;
+            // border: 1px solid pink;
+        }
+        
+        .inputItems{
+            width: 75%;
+            box-sizing: border-box;
+            margin: 0 auto 2% auto;
+            display: flex;
+            // border: 1px solid pink;
+
+            input{
+                display: block;
+                width: 85%;
+                padding-left: 5%;
+                font-size: 1rem;
+                line-height: $font-m;
+                outline: none;
+                border: 1px solid white;
+            }
+            .icon{
+                padding: 4% 0 4% 5%;
+                color: $brand_blue;
+                font-size: 1rem;
+                background-color: white;
+            }
+            
+        }
+        .loginBtn{
+            width: 75%;
+            margin: 6% auto 0 auto;
+            display: block;
+            text-align: center;
+            line-height: 3rem;
+            letter-spacing: 0.1rem;
+            border-radius: 300px;
+            color: white;
+            background-color: $brand_blue;
+            // border: 1px solid pink;
+        }
+        .loginDescrip{
+            display: block;
+            width: 75%;
+            margin: 10% auto 8% auto;
+            text-align: center;
+            font-family: NotoSansCJKtc-DemiLight;
+            // border: 1px solid pink;
+        }
+
+        .btnBlock{
+            width: 75%;
+            margin: 0 auto;
+            display: flex;
+            // border: 1px solid pink;
+
+            a{
+                margin: 0 2%;
+                width: 100%;
+                // border: 1px solid pink;
+            }
+            .btnItems{
+                display: flex;
+                color: white;
+                line-height: 3rem;
+                border-radius: 300px;
+                background-color: pink;
+                // border: 1px solid pink;
+                
+                span{
+                    display: block;
+                    font-size: $font-s;
+                    margin-left: 3%;
+                    // border: 1px solid pink;
+                }
+                .icon{
+                    font-size: 1rem;
+                    margin-left: 10%;
+                    padding: 10% 5%;
+                    // border: 1px solid pink;
+                }
+                
+            }
+            .googleBtn{
+                background-color: $google_red;
+            }
+            .fbBtn{
+                background-color: $fb_blue;
+            }
+        }
+        
+
+    }
+    .loaderBlock{
+        width: 100%;
+        margin: 0 auto;
+        padding: 6% 0 5% 0;
+        background-color: $brand_lightBlue;
+    }
+    
 }

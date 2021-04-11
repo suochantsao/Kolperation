@@ -23,7 +23,18 @@ import { faAddressCard,
          faDesktop,
          faGlasses,
          faBuilding,
-         faPaw
+         faPaw,
+         faPhotoVideo,
+         faBriefcase,
+         faTimes,
+         faUser,
+         faLock,
+         faUsers,
+         faEnvelope,
+         faPhone,
+         faCashRegister,
+
+
        } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -35,8 +46,18 @@ library.add(
   faDesktop,
   faGlasses,
   faBuilding,
-  faPaw
-  )
+  faPaw,
+  faPhotoVideo,
+  faBriefcase,
+  faTimes,
+  faUser,
+  faLock,
+  faUsers,
+  faEnvelope,
+  faPhone,
+  faCashRegister
+
+)
 Vue.component('fa-icon',FontAwesomeIcon)
 
 
