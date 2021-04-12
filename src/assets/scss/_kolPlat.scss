@@ -1,0 +1,64 @@
+.kolHeader{
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    // border: 1px solid pink;
+
+    h1{
+        display: flex;
+        margin: 4% 7% 4% 0;
+        // border: 1px solid pink;
+
+        .logo{
+            padding-right: 8%;
+
+        }
+        .brandName{
+            color: $brand_blue;
+            line-height: 3.5rem;
+            font-size: $font-m;
+            font-family: NotoSansCJKtc-Medium;
+            // border: pink solid 1px;
+        }
+    }
+
+    .tabBlock{
+        display: flex;
+        width: 100%;
+        font-family: NotoSansCJKtc-Medium;
+        align-items: flex-end;
+        // border: 1px solid pink;
+
+        a{
+            width: 100%;
+            text-decoration: none;
+        }
+
+        li{
+            display: flex;
+            padding: 15% 0 8% 0;
+            margin-left: 10%;
+            color: $tab_color;
+            font-size: $font-tab;
+            border-bottom: 3px solid $nav_bgc;
+            // border: 1px solid pink;
+
+            span{
+                display: block;
+            }
+            .icon{
+                margin: 0 5% 0 22%;
+            }
+            .specIcon{
+                margin-left: 18%;
+            }
+        }
+        .selectTab{
+            color: $brand_blue;
+            border-bottom: 3px solid $brand_blue;
+
+        }
+    }
+    
+}

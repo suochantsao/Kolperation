@@ -14,18 +14,19 @@ import SignUp from '../views/SignUp.vue'
 import SignUp_kol from '../views/SignUp_kol.vue'
 import SignUp_firm from '../views/SignUp_firm.vue'
 import SignUp_loader from '../views/SignUp_loader.vue'
+import Kol from '../views/Kol.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
     {
         path: '/',
-        name: Home,
+        name: 'Home',
         component: Home
     },
     {
         path: '/trial',
-        name: Trial,
+        name: 'Trial',
         component: Trial,
         redirect: '/trial/first',
         children:[
@@ -58,7 +59,7 @@ const routes = [
     },
     {
         path: '/loader',
-        name: 'Loader',
+        name: 'SignUp_loader',
         component: SignUp_loader
     },
     {
@@ -77,6 +78,11 @@ const routes = [
                 component: SignUp_firm
             }
         ]
+    },
+    {
+        path: '/kolplat',
+        name: 'KolPlat',
+        component: Kol
     }
 ]
 const router = new VueRouter({

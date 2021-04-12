@@ -7,6 +7,10 @@
                 <input type="text" placeholder="請輸入帳號">
             </li>
             <li class="signUpItem">
+                <fa-icon icon="id-card-alt" class="icon" />
+                <input type="text" placeholder="請輸入使用者名稱">
+            </li>
+            <li class="signUpItem">
                 <fa-icon icon="lock" class="icon" />
                 <input type="password" placeholder="請輸入密碼 ( 6 ~ 12個字元 )">
             </li>

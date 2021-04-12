@@ -36,15 +36,28 @@
                 <ul class="inputBlock">
                     <li class="inputItems">
                         <fa-icon icon="user" class="icon" />
-                        <input type="text" placeholder="請輸入帳號">
+                        <input 
+                          type="text" 
+                          placeholder="請輸入帳號" 
+                          v-model="userAccount"
+                        >
                     </li>
                     <li class="inputItems">
                         <fa-icon icon="lock" class="icon" />
-                        <input type="password" placeholder="請輸入密碼">
+                        <input 
+                          type="password" 
+                          placeholder="請輸入密碼" 
+                          v-model="userCode"
+                          v-on:keyup.enter="getUsersInfo()"
+                        >
                     </li>
                 </ul>
                 <router-link to="/loader">
-                <span class="loginBtn">登入 Sign In</span>
+                <span 
+                  class="loginBtn"
+                  @click="getUsersInfo()"
+                >
+                登入 Sign In</span>
                 </router-link>
 
                 <span class="loginDescrip">透過Google或Facebook登入</span>
@@ -74,6 +87,36 @@
 
 export default {
     name: 'login',
+    data(){
+        return{
+            'userAccount': null,
+            'userCode': null,
+        }
+    },
+    methods:{
+        getUsersInfo(){
+            console.log(this.userAccount);
+            console.log(this.userCode);
+
+            const userName = this.userAccount;
+            const userCode = this.userCode;
+            const loginAPI = 'http://kolperation.rocket-coding.com/api/Login';
+
+            this.$http
+              .post(loginAPI,{
+                  "Account":userName,
+                  "Password":userCode
+              })
+              .then( res => {
+                  console.log('LOGIN sucessed');
+                  console.log(res);
+              })
+              .catch( err => {
+                  console.error(err);
+              })
+
+        }
+    }
 
 }
 </script>

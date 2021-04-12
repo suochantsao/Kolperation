@@ -3,14 +3,24 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
-// CSS
-import 'swiper/swiper-bundle.min.css'
+// Axios
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+Vue.use(VueAxios,axios)
 
 // Swiper
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import swiper, {Navigation, Pagination, Autoplay } from 'swiper'
+import 'swiper/swiper-bundle.min.css'
+
 Vue.use(VueAwesomeSwiper);
 swiper.use([Navigation,Pagination,Autoplay]);
+
+// Bootstrap
+import BootstrapVue from 'bootstrap-vue'
+Vue.use(BootstrapVue)
+// import 'bootstrap/dist/css/bootstrap.css'
+// import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 // Font Awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -33,7 +43,8 @@ import { faAddressCard,
          faEnvelope,
          faPhone,
          faCashRegister,
-
+         faIdCardAlt,
+         
 
        } from '@fortawesome/free-solid-svg-icons'
 
@@ -55,7 +66,8 @@ library.add(
   faUsers,
   faEnvelope,
   faPhone,
-  faCashRegister
+  faCashRegister,
+  faIdCardAlt,
 
 )
 Vue.component('fa-icon',FontAwesomeIcon)

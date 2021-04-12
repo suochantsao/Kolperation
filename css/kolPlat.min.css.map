@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,AAAA,CACN,SAAS,CAAE,MAAM,CACpB",
+    "sources": [
+        "../src/assets/scss/kolPlat.scss"
+    ],
+    "names": [],
+    "file": "kolPlat.min.css"
+}
