@@ -1,13 +1,15 @@
 .kolHeader{
-    max-width: 1250px;
+    max-width: 1550px;
     margin: 0 auto;
-    padding: 0;
+    padding: 0 5%;
     display: flex;
     // border: 1px solid pink;
 
     h1{
         display: flex;
-        margin: 4% 7% 4% 0;
+        margin: 4% 10% 4% 0;
+        padding-right: 5%;
+        cursor: default;
         // border: 1px solid pink;
 
         .logo{
@@ -37,11 +39,11 @@
 
         li{
             display: flex;
-            padding: 15% 0 8% 0;
-            margin-left: 10%;
+            padding: 8% 0;
+            margin-left: 8%;
             color: $tab_color;
             font-size: $font-tab;
-            border-bottom: 3px solid $nav_bgc;
+            border-bottom: 3px solid $tab_color;
             // border: 1px solid pink;
 
             span{
@@ -57,8 +59,274 @@
         .selectTab{
             color: $brand_blue;
             border-bottom: 3px solid $brand_blue;
-
+        }
+        .tab:hover{
+            color: $brand_blue;
+            border-bottom: 3px solid $brand_blue;
         }
     }
     
+}
+.kolContent{
+    display: flex;
+
+    .navbar{
+        width: 32%;
+        background-color: $brand_lightBlue;
+        color: white;
+        // border: 1px solid pink;
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        .hamIcon{
+            color: white;
+            margin: 5% 0 0 90%;
+            font-size: $font-m;
+            cursor: pointer;
+            // border: 1px solid pink;
+        }
+        .avatar{
+            width: 150px;
+            margin: 1% auto 20% auto;
+            height: 150px;
+            border-radius: 50%;
+            background-color: white;
+            box-shadow: 5px 5px 10px $shadow_color;
+            // border: 1px solid rgb(143, 63, 76);
+            img{
+                display: block;
+                margin: 0 auto;
+                padding-top: 10%;
+            }
+            span{
+                display: block;
+                margin-top: 16%;
+                padding: 3% 0;
+                color: white;
+                text-align: center;
+                font-size: $font-l;
+                font-family: NotoSansCJKtc-Medium;
+                // border: 1px solid pink;
+
+            }
+        }
+        .countBlock{
+            display: flex;
+            width: 60%;
+            margin: 0 auto 10% auto;
+            // border: 1px solid pink;
+
+            .countItem{
+                display: flex;
+                flex-direction: column;
+                margin: 0 auto;
+                padding: 8% 5%;
+                border-radius: 20px;
+                background-color: $tab_color;
+                font-family: NotoSansCJKtc-DemiLight;
+                box-shadow: 5px 5px 10px $shadow_color;
+
+                .count{
+                    display: block;
+                    text-align: center;
+                    padding-top: 15%;
+                    font-size: $font-m;
+                    font-family: NotoSansCJKtc-Medium;
+                }
+            }
+            .successItem{
+                background-color: $pink_bgc;
+            }
+            
+        }
+        .navBtn{
+            width: 52%;
+            margin: 4% auto 0 auto;
+            padding: 3% 0;
+            display: flex;
+            border-radius: 300px;
+            color: $brand_lightBlue;
+            background-color: white;
+            // border: 1px solid pink;
+
+            .icon{
+                display: block;
+                margin: 0 5% 0 32%;
+                // border: 1px solid pink;
+            }
+            span{
+                display: block;
+                // border: 1px solid pink;
+
+            }
+        }
+        .logoutBtn{
+            margin: 20% auto;
+            color: white;
+            background-color: $brand_blue;
+        }
+        
+    }
+    .navBtn:hover{
+        color: $brand_blue;
+        font-weight: bolder;
+        transition:all .1s ease-in-out;
+        box-shadow: 5px 5px 10px $shadow_color;
+    }
+    .logoutBtn:hover{
+        color: $brand_blue;
+        background-color: white;
+        transition:all .3s ease-in-out;
+    }
+    
+}
+.kolMesBlock{
+    background-color: $nav_bgc;
+    width: 68%;
+    // border: 1px solid pink;
+
+    h2{
+        margin: 5% 10% 3% 10%;
+        letter-spacing: 0.1rem;
+        color: $brand_blue;
+        font-size: $font-l;
+        font-family: NotoSansCJKtc-Medium;
+        // border: 1px solid pink;
+    }
+    .topTitle{
+        margin: 6% 10% 3% 10%;
+    }
+
+    .alertArea{
+        margin: 0 10%;
+        height: 270px;
+        overflow-y: auto;
+        border-radius: 20px;
+        background-color: white;
+        // border: 2px solid pink;
+
+        .caseItem{
+            display: flex;
+            margin: 4% 6%;
+            color: $brand_blue;
+            background-color: white;
+            border-radius: 20px;
+            border: 3px solid $brand_lightBlue;
+            box-shadow: 1px 2px 8px $shadow_color;
+
+            
+            img{
+                padding: 4% 15%;
+                border-radius: 20px 0 0 20px;
+                background-color: $grey_bgc;
+            }
+            .strBlock{
+                margin-left: 5%;
+                // border: 1px solid pink;
+                
+                .itemTitle{
+                    margin: 12% auto 0 auto;
+                    letter-spacing: 0.1rem;
+                    font-size: $font-m;
+                    font-family: NotoSansCJKtc-Medium;
+                    // border: 1px solid pink;
+                }
+
+                .firmName{
+                    margin: 5% auto;
+                    padding-left: 1%;
+                }
+
+                .btnBlock{
+                    display: flex;
+                    margin: 8% auto;
+                    
+                    // border: 1px solid pink;
+                    
+                    a{
+                        display: block;
+                        width: 145px;
+                        margin: 0 6% 0 0;
+                        padding: 4% 6%;    
+                        border-radius: 300px;
+                        color: white;
+                        background-color: $brand_lightBlue;
+                        // border: 1px solid pink;
+                    }
+                    a:hover{
+                        box-shadow: 2px 2px 8px $shadow_color;
+                        font-weight: bolder;
+
+                    }
+                    
+                    .btn{
+                        display: flex;
+
+                        span{
+                            display: block;
+                            padding-left: 8%;
+                        }
+                    }
+                    
+                    .confirmBtn{
+                        background-color: $pink_bgc;
+                    }
+
+                
+                }
+            }
+        }
+    }
+    .mesArea{
+        height: 340px;
+        // border: 1px solid pink;
+        .caseItem{
+
+            img{
+                padding: 3% 1% 3% 6%;
+                background-color: white;
+                // border: 1px solid pink;
+            }
+            .strBlock{
+                margin-top: 2%;
+                
+                .firmMsg{
+                    margin-top: 8%;
+                    font-size: $font-s;
+                    color: $dark_grey;
+                }
+                
+            }
+            .btn{
+                display: flex;
+                width: 120px;
+                margin: 85% 0 0 40%;
+                padding: 12% 0;
+                text-align: center;
+                border-radius: 300px;
+                color: white;
+                background-color: $brand_lightBlue;
+
+                span{
+                    display: block;
+                    margin-left: 8%;
+                }
+                .icon{
+                    margin-left: 26%;
+                }
+
+            }
+            .btn:hover{
+                background-color: $brand_blue;
+                transition:all .3s ease-in-out;
+                box-shadow: 2px 2px 8px $shadow_color;
+            }
+        }
+    }
+    
+}
+
+.scrollStyle::-webkit-scrollbar {
+    background-color: $brand_lightBlue;
 }

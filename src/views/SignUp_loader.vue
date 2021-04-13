@@ -18,7 +18,7 @@ export default {
     },
     created(){
       setTimeout(()=>
-        this.$router.push({ path: "/kolplat"}),
+        this.$router.push({ path: "/kolplat/msg"}),
         2500
       );
     }

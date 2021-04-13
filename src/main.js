@@ -3,6 +3,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
+// Router
+
+
 // Axios
 import axios from 'axios'
 import VueAxios from 'vue-axios'
@@ -44,6 +47,18 @@ import { faAddressCard,
          faPhone,
          faCashRegister,
          faIdCardAlt,
+         faBars,
+         faHeart,
+         faCalendarCheck,
+         faCog,
+         faSignOutAlt,
+         faListUl,
+         faCheckCircle,
+         faCommentDots,
+         faEnvelopeOpenText,
+         faCommentDollar,
+         faCheckSquare,
+         faSearch,
          
 
        } from '@fortawesome/free-solid-svg-icons'
@@ -68,7 +83,18 @@ library.add(
   faPhone,
   faCashRegister,
   faIdCardAlt,
-
+  faBars,
+  faHeart,
+  faCalendarCheck,
+  faCog,
+  faSignOutAlt,
+  faListUl,
+  faCheckCircle,
+  faCommentDots,
+  faEnvelopeOpenText,
+  faCommentDollar,
+  faCheckSquare,
+  faSearch
 )
 Vue.component('fa-icon',FontAwesomeIcon)
 

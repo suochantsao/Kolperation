@@ -15,6 +15,7 @@ import SignUp_kol from '../views/SignUp_kol.vue'
 import SignUp_firm from '../views/SignUp_firm.vue'
 import SignUp_loader from '../views/SignUp_loader.vue'
 import Kol from '../views/Kol.vue'
+import Kol_msg from '../views/Kol_msg.vue'
 
 Vue.use(VueRouter)
 
@@ -82,11 +83,22 @@ const routes = [
     {
         path: '/kolplat',
         name: 'KolPlat',
-        component: Kol
+        component: Kol,
+        children:[
+            {
+                path: 'msg',
+                name: 'Kol_msg',
+                component: Kol_msg
+            }
+        ]
     }
 ]
+
 const router = new VueRouter({
-    routes
+    routes,
+    scrollBehavior () {
+        return { x: 0, y: 0 }
+    }
 })
 
 export default router
