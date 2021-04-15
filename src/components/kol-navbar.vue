@@ -19,30 +19,30 @@
             </li>
         </ul>
 
-        <a href="#">
+        <router-link to="/kolplat/savefirm">
         <li class="navBtn">
             <fa-icon icon="briefcase" class="icon" />
             <span>儲存公司</span>
         </li>
-        </a>
-        <a href="#">
+        </router-link>
+        <router-link to="/kolplat/savecase">
         <li class="navBtn">
             <fa-icon icon="heart" class="icon" />
             <span>儲存案件</span>
         </li>
-        </a>
-        <a href="#">
+        </router-link>
+        <router-link to="/kolplat/passcase">
         <li class="navBtn">
             <fa-icon icon="calendar-check" class="icon" />
             <span>過往案件</span>
         </li>
-        </a>
-        <a href="#">
+        </router-link>
+        <router-link to="/kolplat/setting">
         <li class="navBtn">
             <fa-icon icon="cog" class="icon" />
             <span>帳號設定</span>
         </li>
-        </a>
+        </router-link>
         <router-link to="/" >
         <li class="navBtn logoutBtn">
             <fa-icon icon="sign-out-alt" class="icon" />

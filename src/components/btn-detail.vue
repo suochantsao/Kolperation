@@ -1,8 +1,8 @@
 <template>
-    <a href="#">
-        <li class="btn infoBtn">
-            <fa-icon icon="list-ul" class="icon" />
-            <span>詳細內容</span>
+    <a class="infoBtn" href="#">
+        <li class="btn">
+            <fa-icon icon="times-circle" class="icon" />
+            <span>婉拒邀請</span>
         </li>    
     </a>
 </template>

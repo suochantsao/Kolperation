@@ -63,6 +63,8 @@
         .tab:hover{
             color: $brand_blue;
             border-bottom: 3px solid $brand_blue;
+            transition:all .2s ease-in-out;
+
         }
     }
     
@@ -187,7 +189,7 @@
     // border: 1px solid pink;
 
     h2{
-        margin: 5% 10% 3% 10%;
+        margin: 7% 10% 3% 10%;
         letter-spacing: 0.1rem;
         color: $brand_blue;
         font-size: $font-l;
@@ -200,7 +202,7 @@
 
     .alertArea{
         margin: 0 10%;
-        height: 270px;
+        height: 300px;
         overflow-y: auto;
         border-radius: 20px;
         background-color: white;
@@ -269,7 +271,7 @@
                         }
                     }
                     
-                    .confirmBtn{
+                    .infoBtn{
                         background-color: $pink_bgc;
                     }
 
@@ -279,7 +281,7 @@
         }
     }
     .mesArea{
-        height: 340px;
+        height: 700px;
         // border: 1px solid pink;
         .caseItem{
 
@@ -324,9 +326,136 @@
             }
         }
     }
-    
+    .applyArea{
+        height: 300px;
+        
+        .caseItem{
+            
+            .strBlock{
+                .statusStr{
+                    font-weight: bold;
+                }
+            }
+            .btn{
+                width: 150px;
+                margin: 68% 0 0 14%;
+
+                span{
+                    margin-left: 5%;
+                    letter-spacing: 0.1rem;
+                }
+                .icon{
+                    margin-left: 20%;
+                }
+            }
+        }
+        
+    }
+    .sucessArea{
+        margin: 0 6%;
+        background-color: $nav_bgc;
+        
+        .caseItem{
+
+            img{
+                padding: 3% 0% 3% 5%;
+            }
+
+            .strBlock{
+                margin: 1.5% 2.5% 0 6%;
+                // border: 1px solid pink;
+                .sucessDate{
+                    width: 80%;
+                    padding: 4% 3%;
+                    text-align: center;
+                    color: white;
+                    font-size: 1rem;
+                    letter-spacing: 0.1rem;
+                    background-color: $pink_bgc;
+                     box-shadow: $dark_grey 6px 6px 0px 0px;
+
+                }
+            }
+            .btn{
+                width: 150px;
+                margin: 32% 0 0 20%;
+
+                span{
+                    margin-left: 5%;
+                    letter-spacing: 0.1rem;
+                }
+                .icon{
+                    margin-left: 20%;
+                }
+
+                
+            }
+            .likeIcon{
+                color: $pink_bgc;
+                margin: 25% 0 0 95%;
+                font-size: $font-m;
+                
+            }
+        }
+        
+    }
+    .sucessDescript{
+        display: block;
+        margin-left: 10.5%;
+        color: $brand_blue;
+        letter-spacing: 0.1rem;
+        
+    }
+    .sucessH2{
+        margin: 7% 10% 1.5% 10%;
+            
+    }
+    .saveFirmArea{
+        margin: 3% 10% 0 10%;
+        background-color: white;
+
+        .caseItem{
+            padding: 2% 0;
+
+            img{
+                padding: 3% 0% 3% 5%;
+
+            }
+            .strBlock{
+                margin: 0% 1% 0 4%;
+
+                .firmLable{
+                    margin: 8% auto;
+                    font-size: $font-m;
+
+                    .lableIcon{
+                        margin-right: 6%;
+                        color: $brand_lightBlue;
+
+                    }
+                }
+                .corpNum{
+                    color: $brand_blue;
+                    border: 2px solid $brand_blue;
+                    background-color: white;
+                }
+            }
+            .sucessBtnBlock{
+                .likeIcon{
+                    margin-left: 80%;
+                }
+                .btn{
+                    margin: 37% 0 0 10%;
+                }
+            }
+        }
+    }
 }
 
 .scrollStyle::-webkit-scrollbar {
     background-color: $brand_lightBlue;
+}
+
+.scrollSpecial::-webkit-scrollbar {
+    background-color: $nav_bgc;
 }

@@ -16,9 +16,16 @@
         text-decoration: none;
         color: $dark_grey;
     }
+    .linkStyle:hover{
+        color: $brand_lightBlue;
+    }
     .linkStyleWhite{
         text-decoration: none;
         color: white;
+    }
+    .specBtn:hover{
+        background-color: $brand_lightBlue;
+        box-shadow: 5px 5px 10px $shadow_color;
     }
 }
 .homeHeader{
@@ -84,10 +91,11 @@ nav{
     
         }
         .servDescrip{
-            padding: 14% 0 0 5%;
+            padding: 14% 1% 0 5%;
             letter-spacing: 0.1rem;
             font-size: $font-l;
             font-family: NotoSansCJKtc-Medium;
+            // border: 1px solid pink;
 
             
             span{
@@ -106,6 +114,11 @@ nav{
                 background-color: #fff;
                 cursor: pointer;
                 // border: 1px solid pink;
+            }
+            .btn:hover{
+                color: white;
+                background-color: $brand_lightBlue;
+                box-shadow: 5px 5px 10px $shadow_color;
             }
         }
     }
@@ -170,9 +183,13 @@ footer{
                 margin: 12% 0 0 0;
                 text-align: center;
                 border-radius: 300px;
-                border: 1px solid $brand_lightBlue;
+                border: 2px solid $brand_lightBlue;
                 cursor: pointer;
 
+            }
+            span:hover{
+                background-color: $brand_lightBlue;
+                // box-shadow: 5px 5px 10px $shadow_color;
             }
         }
     }

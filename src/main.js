@@ -59,7 +59,7 @@ import { faAddressCard,
          faCommentDollar,
          faCheckSquare,
          faSearch,
-         
+         faTimesCircle,
 
        } from '@fortawesome/free-solid-svg-icons'
 
@@ -94,7 +94,8 @@ library.add(
   faEnvelopeOpenText,
   faCommentDollar,
   faCheckSquare,
-  faSearch
+  faSearch,
+  faTimesCircle
 )
 Vue.component('fa-icon',FontAwesomeIcon)
 

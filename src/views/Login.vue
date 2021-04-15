@@ -52,7 +52,7 @@
                         >
                     </li>
                 </ul>
-                <router-link to="/loader">
+                <router-link :to="{ name: 'SignUp_loader', query: { loadPath: 'Kolplat/msg'}}">
                 <span 
                   class="loginBtn"
                   @click="getUsersInfo()"
@@ -108,7 +108,7 @@ export default {
                   "Password":userCode
               })
               .then( res => {
-                  console.log('LOGIN sucessed');
+                  console.log('LOGIN SUCCEED');
                   console.log(res);
               })
               .catch( err => {

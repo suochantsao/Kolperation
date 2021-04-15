@@ -4,29 +4,54 @@
             <h2>創作者註冊 KOL Sign Up</h2>
             <li class="signUpItem">
                 <fa-icon icon="user" class="icon" />
-                <input type="text" placeholder="請輸入帳號">
+                <input 
+                  type="text" 
+                  placeholder="請輸入帳號"
+                  v-model="userAccount"
+                >
             </li>
             <li class="signUpItem">
                 <fa-icon icon="id-card-alt" class="icon" />
-                <input type="text" placeholder="請輸入使用者名稱">
+                <input 
+                  type="text" 
+                  placeholder="請輸入使用者名稱"
+                  v-model="userName"
+                >
             </li>
             <li class="signUpItem">
                 <fa-icon icon="lock" class="icon" />
-                <input type="password" placeholder="請輸入密碼 ( 6 ~ 12個字元 )">
+                <input 
+                  type="password" 
+                  placeholder="請輸入密碼 ( 6 ~ 12個字元 )"
+                  v-model="psw"
+                >
             </li>
             <li class="signUpItem">
                 <fa-icon icon="lock" class="icon" />
-                <input type="password" placeholder="密碼再次確認">
+                <input 
+                  type="password" 
+                  placeholder="密碼再次確認"
+                  v-model="checkPsw"
+                >
             </li>
             <li class="signUpItem">
                 <fa-icon icon="envelope" class="icon" />
-                <input type="text" placeholder="請輸入電子信箱">
+                <input 
+                  type="text" 
+                  placeholder="請輸入電子信箱"
+                  v-model="email"
+                >
             </li>
             <li class="signUpItem">
                 <fa-icon icon="phone" class="icon" />
-                <input type="text" placeholder="請輸入手機號碼">
+                <input 
+                  type="text" 
+                  placeholder="請輸入手機號碼"
+                  v-model="phoneNum"
+                >
             </li>
 
+            <span class="wrnDescript dpNone">請填入紅框內的資料後再點擊註冊</span>
             <span class="socialDescript">使用中的平台</span>
 
             <ul class="socialBlock">
@@ -44,8 +69,11 @@
                 </li>
             </ul>
 
-            <router-link to="/loader">
-                <span class="signUpBtn">註冊 Sign Up</span>
+            <router-link :to="{ name: 'SignUp_loader', query: { loadPath: 'login'}}">
+                <span 
+                  class="signUpBtn"
+                  @click="signUpInfo()"
+                >註冊 Sign Up</span>
             </router-link>
             
         </ul>
@@ -64,3 +92,58 @@
         </ul>
     </div>
 </template>
+
+<script>
+export default {
+    name: 'signUp_kol',
+    data(){
+        return{
+            'userAccount': null,
+            'userName': null,
+            'psw': null,
+            'checkPsw': null,
+            'email': null,
+            'phoneNum': null,
+            'usingPlat': null,
+            'path': 'login'
+        }
+    },
+    methods:{
+        signUpInfo(){
+            console.log(this.userAccount);
+            console.log(this.userName);
+            console.log(this.psw);
+            console.log(this.email);
+            console.log(this.phoneNum);
+            console.log(this);
+
+            const signUpAPI = 'http://kolperation.rocket-coding.com/api/KOLRegister';
+
+            let signUpItem = {
+                "AccountId": {},
+                "Username": {},
+                "Password": {},
+                "Email": {},
+                "Phone": {},  
+            }
+
+            signUpItem.AccountId = this.userAccount;
+            signUpItem.Username  = this. userName;
+            signUpItem.Password  = this.psw;
+            signUpItem.Email     = this.email;
+            signUpItem.Phone     = this.phoneNum;
+
+            this.$http
+              .post(signUpAPI,signUpItem)
+              .then( res => {
+                  console.log('SIGN UP SUCESSED');
+                  console.log(res);
+              })
+              .catch( err => {
+                  console.error(err);
+              })
+
+        }
+    }
+}
+</script>

@@ -16,6 +16,13 @@ import SignUp_firm from '../views/SignUp_firm.vue'
 import SignUp_loader from '../views/SignUp_loader.vue'
 import Kol from '../views/Kol.vue'
 import Kol_msg from '../views/Kol_msg.vue'
+import Kol_consult from '../views/Kol_consult.vue'
+import Kol_sucess from '../views/Kol_sucess.vue'
+import Kol_search from '../views/Kol_search.vue'
+import Kol_saveFirm from '../views/Kol_saveFirm.vue'
+import Kol_saveCase from '../views/Kol_saveCase.vue'
+import Kol_passCase from '../views/Kol_passCase.vue'
+import Kol_setting from '../views/Kol_setting.vue'
 
 Vue.use(VueRouter)
 
@@ -89,7 +96,43 @@ const routes = [
                 path: 'msg',
                 name: 'Kol_msg',
                 component: Kol_msg
+            },
+            {
+                path: 'consult',
+                name: 'Kol_consult',
+                component: Kol_consult
+            },
+            {
+                path: 'sucess',
+                name: 'Kol_sucess',
+                component: Kol_sucess
+            },
+            {
+                path: 'search',
+                name: 'Kol_search',
+                component: Kol_search
+            },
+            {
+                path: 'savefirm',
+                name: 'Kol_saveFirm',
+                component: Kol_saveFirm
+            },
+            {
+                path: 'savecase',
+                name: 'Kol_saveCase',
+                component: Kol_saveCase
+            },
+            {
+                path: 'passcase',
+                name: 'Kol_passCase',
+                component: Kol_passCase
+            },
+            {
+                path: 'setting',
+                name: 'Kol_setting',
+                component: Kol_setting
             }
+            
         ]
     }
 ]

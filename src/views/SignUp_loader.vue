@@ -16,10 +16,19 @@ export default {
     components: {
         PageLoader
     },
+    data(){
+      return{
+        pathStr: '',
+      }
+    },
     created(){
-      setTimeout(()=>
-        this.$router.push({ path: "/kolplat/msg"}),
-        2500
+      console.log(this)
+
+      setTimeout(()=>{
+        this.pathStr = this.$route.query.loadPath
+        this.$router.push({ path: `/${this.pathStr}`})
+      }
+      ,2000
       );
     }
 }

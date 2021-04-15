@@ -48,7 +48,7 @@
                 </li>
             </ul>
 
-            <router-link to="/loader">
+            <router-link :to="{ name: 'SignUp_loader', query: { loadPath: 'login'}}">
                 <span class="signUpBtn">註冊 Sign Up</span>
             </router-link>
             

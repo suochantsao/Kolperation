@@ -58,7 +58,11 @@
         font-family: NotoSansCJKtc-Medium;
         border-radius: 300px;
         border: 3px solid $brand_lightBlue;
-
+    }
+    .nxtBtn:hover{
+        color: white;
+        background-color: $brand_lightBlue;
+        transition:all .3s ease-in-out;
     }
     .industryBlock{
         margin: 5% auto 0% auto;
