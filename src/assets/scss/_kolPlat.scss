@@ -186,6 +186,7 @@
 .kolMesBlock{
     background-color: $nav_bgc;
     width: 68%;
+    height: 900px;
     // border: 1px solid pink;
 
     h2{
@@ -194,15 +195,13 @@
         color: $brand_blue;
         font-size: $font-l;
         font-family: NotoSansCJKtc-Medium;
-        // border: 1px solid pink;
     }
     .topTitle{
         margin: 6% 10% 3% 10%;
     }
-
     .alertArea{
         margin: 0 10%;
-        height: 300px;
+        height: 33%;
         overflow-y: auto;
         border-radius: 20px;
         background-color: white;
@@ -216,16 +215,17 @@
             border-radius: 20px;
             border: 3px solid $brand_lightBlue;
             box-shadow: 1px 2px 8px $shadow_color;
-
             
             img{
+                margin-right: 4%;
                 padding: 4% 15%;
                 border-radius: 20px 0 0 20px;
                 background-color: $grey_bgc;
+                // border: 3px solid pink;
             }
             .strBlock{
-                margin-left: 5%;
-                // border: 1px solid pink;
+                margin: auto 0;
+                // border: 3px solid pink;
                 
                 .itemTitle{
                     margin: 12% auto 0 auto;
@@ -242,16 +242,15 @@
 
                 .btnBlock{
                     display: flex;
+                    width: 300px;
                     margin: 8% auto;
-                    
                     // border: 1px solid pink;
-                    
                     a{
-                        display: block;
-                        width: 145px;
-                        margin: 0 6% 0 0;
-                        padding: 4% 6%;    
+                        // display: block;
+                        margin-right: 5%;
+                        padding: 4% 5%;  
                         border-radius: 300px;
+                        letter-spacing: 0.1rem;
                         color: white;
                         background-color: $brand_lightBlue;
                         // border: 1px solid pink;
@@ -264,7 +263,9 @@
                     
                     .btn{
                         display: flex;
-
+                        width: 110px;
+                        padding-left: 6%;
+                        // border: 1px solid pink;
                         span{
                             display: block;
                             padding-left: 8%;
@@ -281,44 +282,54 @@
         }
     }
     .mesArea{
-        height: 700px;
+        height: 80%;
         // border: 1px solid pink;
         .caseItem{
 
             img{
-                padding: 3% 1% 3% 6%;
+                padding: 3% 2% 3% 6%;
                 background-color: white;
                 // border: 1px solid pink;
             }
             .strBlock{
-                margin-top: 2%;
-                
+                .itemTitle{
+                    margin-top: 5%;
+                }
                 .firmMsg{
-                    margin-top: 8%;
+                    margin-top: 5%;
                     font-size: $font-s;
                     color: $dark_grey;
                 }
                 
             }
-            .btn{
+            a{
                 display: flex;
-                width: 120px;
-                margin: 85% 0 0 40%;
-                padding: 12% 0;
-                text-align: center;
-                border-radius: 300px;
-                color: white;
-                background-color: $brand_lightBlue;
-
-                span{
-                    display: block;
-                    margin-left: 8%;
+                margin: 5% 0 5% 6%;
+                align-items: flex-end;
+                // border: 1px solid pink;
+                
+                .btn{
+                    display: flex;
+                    width: 120px;
+                    margin: 0;
+                    padding: 12% 0;
+                    border-radius: 300px;
+                    text-align: center;
+                    color: white;
+                    background-color: $brand_lightBlue;
+                    // border: 1px solid pink;
+    
+    
+                    span{
+                        margin-left: 5%;
+                        letter-spacing: 0.1rem;
+                    }
+                    .icon{
+                        margin-left: 26%;
+                    }
                 }
-                .icon{
-                    margin-left: 26%;
-                }
-
             }
+            
             .btn:hover{
                 background-color: $brand_blue;
                 transition:all .3s ease-in-out;
@@ -327,27 +338,44 @@
         }
     }
     .applyArea{
-        height: 300px;
+        height: 33%;
         
         .caseItem{
             
             .strBlock{
+                margin: auto 0;
+
+                .itemTitle{
+                    margin-top: 5%;
+                }
+
                 .statusStr{
                     font-weight: bold;
                 }
             }
-            .btn{
-                width: 150px;
-                margin: 68% 0 0 14%;
-
-                span{
-                    margin-left: 5%;
-                    letter-spacing: 0.1rem;
-                }
-                .icon{
-                    margin-left: 20%;
+            a{
+                display: flex;
+                margin: 5% 0 5% 2%;
+                align-items: flex-end;
+                // border: 1px solid pink;
+                
+                .btn{
+                    width: 150px;
+                    margin: 0;
+                    padding: 10% 0;
+                    // border: 1px solid pink;
+    
+    
+                    span{
+                        margin-left: 5%;
+                        letter-spacing: 0.1rem;
+                    }
+                    .icon{
+                        margin-left: 20%;
+                    }
                 }
             }
+            
         }
         
     }
@@ -357,47 +385,146 @@
         
         .caseItem{
 
+            a{
+                margin: 0;
+            }
+
             img{
-                padding: 3% 0% 3% 5%;
+                // padding: 3% 0% 3% 5%;
+                padding: 7% 8% 7% 8%;
+                border-radius: 20px 0 0 20px;
+                background-color: $grey_bgc;
             }
 
             .strBlock{
-                margin: 1.5% 2.5% 0 6%;
+                margin: auto 0;
+
+                .itemTitle{
+                    margin-top: 0;
+                }
                 // border: 1px solid pink;
                 .sucessDate{
                     width: 80%;
+                    margin-top: 10%;
                     padding: 4% 3%;
                     text-align: center;
                     color: white;
                     font-size: 1rem;
                     letter-spacing: 0.1rem;
                     background-color: $pink_bgc;
-                     box-shadow: $dark_grey 6px 6px 0px 0px;
+                    box-shadow: $dark_grey 6px 6px 0px 0px;
 
                 }
             }
-            .btn{
-                width: 150px;
-                margin: 32% 0 0 20%;
+            .sucessBtnBlock{
+                margin: auto 0 auto 1%;
+                // border: 1px solid pink;
 
-                span{
-                    margin-left: 5%;
-                    letter-spacing: 0.1rem;
+                a{
+                    .btn{
+                        width: 150px;
+                        padding: 10% 0;
+                        // border: 1px solid pink;
+        
+                        .icon{
+                            margin-left: 18%;
+                        }
+                    }
                 }
-                .icon{
-                    margin-left: 20%;
+                .likeIcon{
+                    color: $pink_bgc;
+                    margin: 0 0 42% 75%;
+                    font-size: $font-m;
+                    
                 }
 
-                
-            }
-            .likeIcon{
-                color: $pink_bgc;
-                margin: 25% 0 0 95%;
-                font-size: $font-m;
-                
             }
         }
         
+    }
+    .saveFirmArea{
+        margin: 3% 10% 0 10%;
+        background-color: white;
+
+        .caseItem{
+
+            img{
+                padding: 3% 5%;
+
+            }
+            .strBlock{
+
+                .firmLable{
+                    margin: 8% auto 4% auto;
+                    font-size: $font-m;
+
+                    .lableIcon{
+                        margin-right: 6%;
+                        color: $brand_lightBlue;
+
+                    }
+                }
+                .corpNum{
+                    width: 60%;
+                    margin-top: 6%;
+                    color: $brand_blue;
+                    border: 2px solid $brand_blue;
+                    font-size: $font-s;
+                    background-color: white;
+                }
+            }
+            .sucessBtnBlock{
+                .likeIcon{
+                    margin: 5% 0 40% 65%;
+                }
+                .btn{
+                    margin: 0 10% 0 0;
+                }
+            }
+        }
+    }
+    .saveCaseArea{
+        height: 80%;
+
+        .caseItem{
+            img{
+                padding: 7% 8%;
+                border-radius: 20px 0 0 20px;
+                background-color: $grey_bgc;
+            }
+            .strBlock{
+                margin: auto 3% auto 0;
+                .firmName{
+                    margin-bottom: 8%;
+                }
+
+                .cdDate{
+                    width: 80%;
+                    padding: 3% 0;
+                    text-align: center;
+                    font-size: $font-s;
+                    font-weight: bolder;
+                    letter-spacing: 0.1rem;
+                    color: $google_red;
+                    border: 2px solid $google_red;
+                    box-shadow: $google_red 3px 3px 0px 0px;
+                }
+            }
+        }
+        .saveCaseBtn{
+            margin: auto 5% auto 0;
+            // border: 1px solid pink;
+            .likeIcon{
+                margin: 10% 0 25% 65%;
+                font-size: $font-m;
+                color: $pink_bgc;
+            }
+            .btn{
+                margin: 35% 0 0 0;
+                width: 135px;
+                
+            }
+        }
     }
     .sucessDescript{
         display: block;
@@ -409,46 +536,6 @@
     .sucessH2{
         margin: 7% 10% 1.5% 10%;
             
-    }
-    .saveFirmArea{
-        margin: 3% 10% 0 10%;
-        background-color: white;
-
-        .caseItem{
-            padding: 2% 0;
-
-            img{
-                padding: 3% 0% 3% 5%;
-
-            }
-            .strBlock{
-                margin: 0% 1% 0 4%;
-
-                .firmLable{
-                    margin: 8% auto;
-                    font-size: $font-m;
-
-                    .lableIcon{
-                        margin-right: 6%;
-                        color: $brand_lightBlue;
-
-                    }
-                }
-                .corpNum{
-                    color: $brand_blue;
-                    border: 2px solid $brand_blue;
-                    background-color: white;
-                }
-            }
-            .sucessBtnBlock{
-                .likeIcon{
-                    margin-left: 80%;
-                }
-                .btn{
-                    margin: 37% 0 0 10%;
-                }
-            }
-        }
     }
 }
 

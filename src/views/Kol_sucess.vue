@@ -5,7 +5,7 @@
         <div class="mesArea alertArea sucessArea scrollStyle scrollSpecial">
             
             <ul class="caseItem">
-                <img width="20%" src="https://blush.design/api/download?shareUri=UJFfjsWIEtdRN23W&c=Hair_0%7E9b5120_Skin_0%7Ec26e5e&w=800&h=800&fm=png" alt="">
+                <img width="18%" src="https://blush.design/api/download?shareUri=ohIQ2_4rspulZPQE&bg=f5f5f5&w=800&h=800&fm=png" alt="">
                 <ul class="strBlock">
 
                     <li class="itemTitle">KOL共享空間體驗合作</li>
@@ -25,7 +25,7 @@
                 
             </ul>
             <ul class="caseItem">
-                <img width="20%" src="https://blush.design/api/download?shareUri=UJFfjsWIEtdRN23W&c=Hair_0%7E9b5120_Skin_0%7Ec26e5e&w=800&h=800&fm=png" alt="">
+                <img width="18%" src="https://blush.design/api/download?shareUri=ohIQ2_4rspulZPQE&bg=f5f5f5&w=800&h=800&fm=png" alt="">
                 <ul class="strBlock">
 
                     <li class="itemTitle">KOL共享空間體驗合作</li>
@@ -45,7 +45,7 @@
                 
             </ul>
             <ul class="caseItem">
-                <img width="20%" src="https://blush.design/api/download?shareUri=UJFfjsWIEtdRN23W&c=Hair_0%7E9b5120_Skin_0%7Ec26e5e&w=800&h=800&fm=png" alt="">
+                <img width="18%" src="https://blush.design/api/download?shareUri=ohIQ2_4rspulZPQE&bg=f5f5f5&w=800&h=800&fm=png" alt="">
                 <ul class="strBlock">
 
                     <li class="itemTitle">KOL共享空間體驗合作</li>
@@ -65,7 +65,7 @@
                 
             </ul>
             <ul class="caseItem">
-                <img width="20%" src="https://blush.design/api/download?shareUri=UJFfjsWIEtdRN23W&c=Hair_0%7E9b5120_Skin_0%7Ec26e5e&w=800&h=800&fm=png" alt="">
+                <img width="18%" src="https://blush.design/api/download?shareUri=ohIQ2_4rspulZPQE&bg=f5f5f5&w=800&h=800&fm=png" alt="">
                 <ul class="strBlock">
 
                     <li class="itemTitle">KOL共享空間體驗合作</li>
