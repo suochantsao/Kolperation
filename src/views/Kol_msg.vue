@@ -11,12 +11,12 @@
                     <li class="firmName firmMsg">: Lorem ipsum dolor sitdaf dsaffpsupsu psu</li>
 
                 </ul>
-                <a href="#">
+                <router-link to="/kolplat/msgDialog">
                 <li class="btn">
                     <fa-icon icon="comment-dots" class="icon" />
                     <span>回覆</span>
                 </li>    
-                </a>
+                </router-link>
             </ul>
             <ul class="caseItem">
                 <img width="20%" src="https://blush.design/api/download?shareUri=UJFfjsWIEtdRN23W&c=Hair_0%7E9b5120_Skin_0%7Ec26e5e&w=800&h=800&fm=png" alt="">
@@ -27,12 +27,12 @@
                     <li class="firmName firmMsg">: Lorem ipsum dolor sitdaf dsaffpsupsu psu</li>
 
                 </ul>
-                <a href="#">
+                <router-link to="/kolplat/msgDialog">
                 <li class="btn">
                     <fa-icon icon="comment-dots" class="icon" />
                     <span>回覆</span>
                 </li>    
-                </a>
+                </router-link>
             </ul>
             <ul class="caseItem">
                 <img width="20%" src="https://blush.design/api/download?shareUri=UJFfjsWIEtdRN23W&c=Hair_0%7E9b5120_Skin_0%7Ec26e5e&w=800&h=800&fm=png" alt="">
@@ -43,12 +43,12 @@
                     <li class="firmName firmMsg">: Lorem ipsum dolor sitdaf dsaffpsupsu psu</li>
 
                 </ul>
-                <a href="#">
+                <router-link to="/kolplat/msgDialog">
                 <li class="btn">
                     <fa-icon icon="comment-dots" class="icon" />
                     <span>回覆</span>
                 </li>    
-                </a>
+                </router-link>
             </ul>
             <ul class="caseItem">
                 <img width="20%" src="https://blush.design/api/download?shareUri=UJFfjsWIEtdRN23W&c=Hair_0%7E9b5120_Skin_0%7Ec26e5e&w=800&h=800&fm=png" alt="">
@@ -59,13 +59,14 @@
                     <li class="firmName firmMsg">: Lorem ipsum dolor sitdaf dsaffpsupsu psu</li>
 
                 </ul>
-                <a href="#">
+                <router-link to="/kolplat/msgDialog">
                 <li class="btn">
                     <fa-icon icon="comment-dots" class="icon" />
                     <span>回覆</span>
                 </li>    
-                </a>
+                </router-link>
             </ul>
+            
         </div>
     </div>
         

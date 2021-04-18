@@ -9,7 +9,7 @@
 
                     <li class="itemTitle">KOL共享空間體驗合作</li>
                     <li class="firmName">優雅客新北台北橋創業空間</li>
-                    <li class="firmMsg sucessDate corpNum cdDate">案件截止日：2021.05.05</li>
+                    <li class="firmMsg sucessDate corpNum cdDate">2021.05.05 洽談成功</li>
 
                 </ul>
 
@@ -31,7 +31,7 @@
 
                     <li class="itemTitle">KOL共享空間體驗合作</li>
                     <li class="firmName">優雅客新北台北橋創業空間</li>
-                    <li class="firmMsg sucessDate corpNum cdDate">案件截止日：2021.05.05</li>
+                    <li class="firmMsg sucessDate corpNum cdDate">2021.05.05 洽談成功</li>
 
                 </ul>
 
@@ -53,7 +53,7 @@
 
                     <li class="itemTitle">KOL共享空間體驗合作</li>
                     <li class="firmName">優雅客新北台北橋創業空間</li>
-                    <li class="firmMsg sucessDate corpNum cdDate">案件截止日：2021.05.05</li>
+                    <li class="firmMsg sucessDate corpNum cdDate">2021.05.05 洽談成功</li>
 
                 </ul>
 
@@ -75,7 +75,7 @@
 
                     <li class="itemTitle">KOL共享空間體驗合作</li>
                     <li class="firmName">優雅客新北台北橋創業空間</li>
-                    <li class="firmMsg sucessDate corpNum cdDate">案件截止日：2021.05.05</li>
+                    <li class="firmMsg sucessDate corpNum cdDate">2021.05.05 洽談成功</li>
 
                 </ul>
 

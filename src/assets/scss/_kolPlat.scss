@@ -1,7 +1,7 @@
 .kolHeader{
     max-width: 1550px;
     margin: 0 auto;
-    padding: 0 5%;
+    padding: 0 3% 0 5%;
     display: flex;
     // border: 1px solid pink;
 
@@ -536,6 +536,16 @@
     .sucessH2{
         margin: 7% 10% 1.5% 10%;
             
+    }
+}
+.msgDialogBlock{
+    background-color: $nav_bgc;
+    width: 68%;
+    height: 900px;
+    .icon{
+        padding: 2.5% 3%;
+        font-size: $font-m;
+        color: $brand_blue;
     }
 }
 

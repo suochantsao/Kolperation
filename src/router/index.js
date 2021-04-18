@@ -3,32 +3,33 @@ import Vue       from 'vue'
 import VueRouter from 'vue-router'
 
 // * Views
-import Home  from '../views/Home.vue'
+import Home from '../views/Home.vue'
 
 // Trial
-import Trial from '../views/Trial.vue'
-import Trial_first from '../views/Trial_first.vue'
-import Trial_second from '../views/Trial_second.vue'
-import Trial_loader from '../views/Trial_loader.vue'
-import Trial_result from '../views/Trial_result.vue'
+import Trial         from '../views/Trial.vue'
+import Trial_first   from '../views/Trial_first.vue'
+import Trial_second  from '../views/Trial_second.vue'
+import Trial_loader  from '../views/Trial_loader.vue'
+import Trial_result  from '../views/Trial_result.vue'
 
 // Login and Sign Up
-import Login from '../views/Login.vue'
-import SignUp from '../views/SignUp.vue'
-import SignUp_kol from '../views/SignUp_kol.vue'
-import SignUp_firm from '../views/SignUp_firm.vue'
+import Login         from '../views/Login.vue'
+import SignUp        from '../views/SignUp.vue'
+import SignUp_kol    from '../views/SignUp_kol.vue'
+import SignUp_firm   from '../views/SignUp_firm.vue'
 import SignUp_loader from '../views/SignUp_loader.vue'
 
 // KOL
-import Kol from '../views/Kol.vue'
-import Kol_msg from '../views/Kol_msg.vue'
-import Kol_consult from '../views/Kol_consult.vue'
-import Kol_sucess from '../views/Kol_sucess.vue'
-import Kol_search from '../views/Kol_search.vue'
-import Kol_saveFirm from '../views/Kol_saveFirm.vue'
-import Kol_saveCase from '../views/Kol_saveCase.vue'
-import Kol_passCase from '../views/Kol_passCase.vue'
-import Kol_setting from '../views/Kol_setting.vue'
+import Kol           from '../views/Kol.vue'
+import Kol_msg       from '../views/Kol_msg.vue'
+import Kol_msgDialog from '../views/Kol_msgDialog.vue'
+import Kol_consult   from '../views/Kol_consult.vue'
+import Kol_sucess    from '../views/Kol_sucess.vue'
+import Kol_search    from '../views/Kol_search.vue'
+import Kol_saveFirm  from '../views/Kol_saveFirm.vue'
+import Kol_saveCase  from '../views/Kol_saveCase.vue'
+import Kol_passCase  from '../views/Kol_passCase.vue'
+import Kol_setting   from '../views/Kol_setting.vue'
 
 // * Router
 Vue.use(VueRouter)
@@ -102,6 +103,11 @@ const routes = [
                 path: 'msg',
                 name: 'Kol_msg',
                 component: Kol_msg
+            },
+            {
+                path: 'msgDialog',
+                name: 'Kol_msgDialog',
+                component: Kol_msgDialog
             },
             {
                 path: 'consult',
