@@ -1,10 +1,9 @@
 // Frameworks and other tools
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
 
 // Router
-
+import router from './router'
 
 // Axios
 import axios from 'axios'
@@ -28,77 +27,11 @@ Vue.use(BootstrapVue)
 // Font Awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faAddressCard,
-         faGamepad,
-         faVideo,
-         faBasketballBall,
-         faUtensils,
-         faDesktop,
-         faGlasses,
-         faBuilding,
-         faPaw,
-         faPhotoVideo,
-         faBriefcase,
-         faTimes,
-         faUser,
-         faLock,
-         faUsers,
-         faEnvelope,
-         faPhone,
-         faCashRegister,
-         faIdCardAlt,
-         faBars,
-         faHeart,
-         faCalendarCheck,
-         faCog,
-         faSignOutAlt,
-         faListUl,
-         faCheckCircle,
-         faCommentDots,
-         faEnvelopeOpenText,
-         faCommentDollar,
-         faCheckSquare,
-         faSearch,
-         faTimesCircle,
-         faArrowLeft,
-         
-       } from '@fortawesome/free-solid-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
 
-library.add(
-  faAddressCard, 
-  faGamepad,
-  faVideo,
-  faBasketballBall,
-  faUtensils,
-  faDesktop,
-  faGlasses,
-  faBuilding,
-  faPaw,
-  faPhotoVideo,
-  faBriefcase,
-  faTimes,
-  faUser,
-  faLock,
-  faUsers,
-  faEnvelope,
-  faPhone,
-  faCashRegister,
-  faIdCardAlt,
-  faBars,
-  faHeart,
-  faCalendarCheck,
-  faCog,
-  faSignOutAlt,
-  faListUl,
-  faCheckCircle,
-  faCommentDots,
-  faEnvelopeOpenText,
-  faCommentDollar,
-  faCheckSquare,
-  faSearch,
-  faTimesCircle,
-  faArrowLeft
-)
+library.add(fas, far, fab)
 Vue.component('fa-icon',FontAwesomeIcon)
 
 

@@ -71,11 +71,14 @@
 }
 .kolContent{
     display: flex;
+    height: 100%;
 
     .navbar{
         width: 32%;
         background-color: $brand_lightBlue;
         color: white;
+        // overflow-y: hidden;
+        // overflow-x: hidden;
         // border: 1px solid pink;
         a{
             text-decoration: none;
@@ -187,6 +190,7 @@
     background-color: $nav_bgc;
     width: 68%;
     height: 900px;
+    // overflow-y: scroll;
     // border: 1px solid pink;
 
     h2{
@@ -542,10 +546,163 @@
     background-color: $nav_bgc;
     width: 68%;
     height: 900px;
+    overflow-y: scroll;
+
     .icon{
         padding: 2.5% 3%;
         font-size: $font-m;
         color: $brand_blue;
+    }
+    .userInfo{
+        width: 82.5%;
+        margin: 0 auto 4% auto;
+        display: flex;
+        // border: 2px solid pink;
+
+        img{
+            padding: 1%;
+            margin: 0 3% 0 5%;
+            border-radius: 50%;
+            background-color: white;
+        }
+        .caseBlock{
+            display: flex;
+            flex-direction: column;
+            margin: auto 0;
+            color: $brand_blue;
+            // border: 2px solid pink;
+
+            a{
+                color: $brand_blue;
+                text-decoration: none;
+            }
+            .firmTitle{
+                margin: 4% 0;
+                font-size: $font-m;
+                font-family: NotoSansCJKtc-Medium;
+                letter-spacing: 0.1rem;
+            }
+        }
+        .btnBlock{
+            display: flex;
+            flex-direction: column;
+            margin: auto 0 auto 12%;
+            // border: 2px solid pink;
+            
+            li{
+                width: 100%;
+                margin: 4% auto;
+                padding: 5% 15%;
+                border-radius: 300px;
+                text-align: center;
+                letter-spacing: 0.1rem;
+                word-break: keep-all;
+                // border: 2px solid pink;
+            }
+            a{
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                color: white;
+                // border: 1px solid pink;
+            }
+            .icon{
+                color: white;
+                font-size: $font-tab;
+                margin-right: 2%;
+            }
+            .detailBtn{
+                background-color: white;
+                border: 2px solid $brand_lightBlue;
+                a{
+                    color: $brand_lightBlue;
+                }
+                .icon{
+                    color: $brand_lightBlue;
+                }
+            }
+            .confirmBtn{
+                background-color: $pink_bgc;
+                border: 2px solid $pink_bgc;
+
+            }
+        }
+    }
+    .dialogDetail{
+        width: 82.5%;
+        margin: 0 auto 5% auto;
+        background-color: white;
+        border: 1px solid white;
+
+        .dialogStyle{
+            display: flex;
+            margin: 5% 6%;
+            color: $brand_blue;
+            font-family: NotoSansCJKtc-DemiLight;
+            img{
+                padding: 2%;
+                // border: 1px solid pink;
+            }
+            p{
+                padding: 3% 5%;
+                letter-spacing: 0.1rem;
+                line-height: $font-tab;
+                border-radius: 5px;
+                border: 2px solid $brand_lightBlue;
+            }
+        }
+        .myReply{
+            color: white;
+            p{
+                
+                margin-left: 20%;
+                background-color: $brand_blue;
+                border: 2px solid $brand_blue;
+            }
+        }
+        .btnBlock{
+            width: 82.5%;
+            margin: 0 auto 6% auto;
+            display: flex;
+            // border: 1px solid pink;
+            input{
+                width: 80%;
+                margin: 0 3%;
+                padding: 0 0 8% 2%;
+                line-height: $font-l;
+                font-size: $font-tab;
+                outline: none;
+                border-radius: 5px;
+                border: 2px solid $brand_lightBlue;
+            }
+            a{
+                margin: auto 0;
+                display: block;
+                padding: 6% 3%;
+                color: white;
+                border-radius: 5px;
+                background-color: $brand_lightBlue;
+                // border: 1px solid pink;
+            }
+        }
+    }
+
+}
+.consultDetailBlock{
+    .consultDetArea{
+        width: 82.5%;
+        margin: 0 auto 5% auto;
+        background-color: white;
+        
+        .caseInfo{
+            display: flex;
+            padding: 3% 5%;
+            border: 1px solid pink;
+            
+            img{
+                border: 2px solid pink;
+            }
+        }
     }
 }
 
@@ -556,3 +713,4 @@
 .scrollSpecial::-webkit-scrollbar {
     background-color: $nav_bgc;
 }
+

@@ -1,5 +1,5 @@
 <template>
-    <ul class="navbar">
+    <ul class="navbar scrollStyle">
         <li>
             <fa-icon icon="bars" class="icon hamIcon" />
         </li>

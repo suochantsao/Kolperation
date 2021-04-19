@@ -2,7 +2,7 @@
     <div class="kolMesBlock">
         <h2 class="topTitle">業主邀請</h2>
         <div class="alertArea scrollStyle">
-            <a href="#">
+            <router-link to="/kolplat/consultDetail">
             <ul class="caseItem">
                 <img width="18%" src="https://blush.design/api/download?shareUri=ohIQ2_4rspulZPQE&bg=f5f5f5&w=800&h=800&fm=png" alt="">
                 <ul class="strBlock">
@@ -17,8 +17,8 @@
 
                 </ul>
             </ul>
-            </a>
-            <a href="#">
+            </router-link>
+            <router-link to="/kolplat/consultDetail">
             <ul class="caseItem">
                 <img width="18%" src="https://blush.design/api/download?shareUri=ohIQ2_4rspulZPQE&bg=f5f5f5&w=800&h=800&fm=png" alt="">
                 <ul class="strBlock">
@@ -33,8 +33,8 @@
 
                 </ul>
             </ul>
-            </a>
-            <a href="#">
+            </router-link>
+            <router-link to="/kolplat/consultDetail">
             <ul class="caseItem">
                 <img width="18%" src="https://blush.design/api/download?shareUri=ohIQ2_4rspulZPQE&bg=f5f5f5&w=800&h=800&fm=png" alt="">
                 <ul class="strBlock">
@@ -49,7 +49,7 @@
 
                 </ul>
             </ul>
-            </a>
+            </router-link>
         </div>
         
         <h2>報名案件</h2>
@@ -63,12 +63,12 @@
                     <li class="firmName statusStr">目前狀態：等候回覆中</li>
 
                 </ul>
-                <a href="#">
+                <router-link to="/kolplat/sucessDetail">
                 <li class="btn">
                     <fa-icon icon="list-ul" class="icon" />
                     <span>詳細資訊</span>
                 </li>    
-                </a>
+                </router-link>
             </ul>
             <ul class="caseItem">
                 <img width="20%" src="https://blush.design/api/download?shareUri=UJFfjsWIEtdRN23W&c=Hair_0%7E9b5120_Skin_0%7Ec26e5e&w=800&h=800&fm=png" alt="">
@@ -79,12 +79,12 @@
                     <li class="firmName statusStr">目前狀態：等候回覆中</li>
 
                 </ul>
-                <a href="#">
+                <router-link to="/kolplat/sucessDetail">
                 <li class="btn">
                     <fa-icon icon="list-ul" class="icon" />
                     <span>詳細資訊</span>
                 </li>    
-                </a>
+                </router-link>
             </ul>
             <ul class="caseItem">
                 <img width="20%" src="https://blush.design/api/download?shareUri=UJFfjsWIEtdRN23W&c=Hair_0%7E9b5120_Skin_0%7Ec26e5e&w=800&h=800&fm=png" alt="">
@@ -95,12 +95,12 @@
                     <li class="firmName statusStr">目前狀態：等候回覆中</li>
 
                 </ul>
-                <a href="#">
+                <router-link to="/kolplat/sucessDetail">
                 <li class="btn">
                     <fa-icon icon="list-ul" class="icon" />
                     <span>詳細資訊</span>
                 </li>    
-                </a>
+                </router-link>
             </ul>
         </div>
     </div>

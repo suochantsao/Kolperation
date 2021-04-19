@@ -20,16 +20,18 @@ import SignUp_firm   from '../views/SignUp_firm.vue'
 import SignUp_loader from '../views/SignUp_loader.vue'
 
 // KOL
-import Kol           from '../views/Kol.vue'
-import Kol_msg       from '../views/Kol_msg.vue'
-import Kol_msgDialog from '../views/Kol_msgDialog.vue'
-import Kol_consult   from '../views/Kol_consult.vue'
-import Kol_sucess    from '../views/Kol_sucess.vue'
-import Kol_search    from '../views/Kol_search.vue'
-import Kol_saveFirm  from '../views/Kol_saveFirm.vue'
-import Kol_saveCase  from '../views/Kol_saveCase.vue'
-import Kol_passCase  from '../views/Kol_passCase.vue'
-import Kol_setting   from '../views/Kol_setting.vue'
+import Kol               from '../views/Kol.vue'
+import Kol_msg           from '../views/Kol_msg.vue'
+import Kol_msgDialog     from '../views/Kol_msgDialog.vue'
+import Kol_consult       from '../views/Kol_consult.vue'
+import Kol_consultDetail from '../views/Kol_consultDetail.vue'
+import Kol_sucess        from '../views/Kol_sucess.vue'
+import Kol_sucessDetail  from '../views/Kol_sucessDetail.vue'
+import Kol_search        from '../views/Kol_search.vue'
+import Kol_saveFirm      from '../views/Kol_saveFirm.vue'
+import Kol_saveCase      from '../views/Kol_saveCase.vue'
+import Kol_passCase      from '../views/Kol_passCase.vue'
+import Kol_setting       from '../views/Kol_setting.vue'
 
 // * Router
 Vue.use(VueRouter)
@@ -38,6 +40,16 @@ const routes = [
         path: '/',
         name: 'Home',
         component: Home
+    },
+    {
+        path: '/login',
+        name: 'Login',
+        component: Login
+    },
+    {
+        path: '/loader',
+        name: 'SignUp_loader',
+        component: SignUp_loader
     },
     {
         path: '/trial',
@@ -66,16 +78,6 @@ const routes = [
                 component: Trial_result
             }
         ]
-    },
-    {
-        path: '/login',
-        name: 'Login',
-        component: Login
-    },
-    {
-        path: '/loader',
-        name: 'SignUp_loader',
-        component: SignUp_loader
     },
     {
         path: '/signup',
@@ -115,9 +117,19 @@ const routes = [
                 component: Kol_consult
             },
             {
+                path: 'consultDetail',
+                name: 'Kol_consultDetail',
+                component: Kol_consultDetail
+            },
+            {
                 path: 'sucess',
                 name: 'Kol_sucess',
                 component: Kol_sucess
+            },
+            {
+                path: 'sucessDetail',
+                name: 'Kol_sucessDetail',
+                component: Kol_sucessDetail
             },
             {
                 path: 'search',
