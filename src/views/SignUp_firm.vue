@@ -4,31 +4,59 @@
             <h2>業者註冊 Firm Sign Up</h2>
             <li class="signUpItem">
                 <fa-icon icon="user" class="icon" />
-                <input type="text" placeholder="請輸入帳號">
+                <input 
+                  type="text" 
+                  placeholder="請輸入帳號"
+                  v-model="userAccount"
+                >
             </li>
             <li class="signUpItem">
                 <fa-icon icon="briefcase" class="icon" />
-                <input type="text" placeholder="請輸入公司名稱">
+                <input 
+                  type="text" 
+                  placeholder="請輸入公司名稱"
+                  v-model="firmName"
+                >
             </li>
             <li class="signUpItem">
                 <fa-icon icon="lock" class="icon" />
-                <input type="password" placeholder="請輸入密碼 ( 6 ~ 12個字元 )">
+                <input 
+                  type="password" 
+                  placeholder="請輸入密碼 ( 6 ~ 12個字元 )"
+                  v-model="psw"
+                >
             </li>
             <li class="signUpItem">
                 <fa-icon icon="lock" class="icon" />
-                <input type="password" placeholder="密碼再次確認">
+                <input 
+                  type="password" 
+                  placeholder="密碼再次確認"
+                  v-model="checkPsw"
+                >
             </li>
             <li class="signUpItem">
                 <fa-icon icon="envelope" class="icon" />
-                <input type="text" placeholder="請輸入電子信箱">
+                <input 
+                  type="text" 
+                  placeholder="請輸入電子信箱"
+                  v-model="email"
+                >
             </li>
             <li class="signUpItem">
                 <fa-icon icon="phone" class="icon" />
-                <input type="text" placeholder="請輸入手機號碼">
+                <input 
+                  type="text" 
+                  placeholder="請輸入手機號碼"
+                  v-model="phoneNum"
+                >
             </li>
             <li class="signUpItem">
                 <fa-icon icon="cash-register" class="icon" />
-                <input type="text" placeholder="請輸入公司統一編號">
+                <input 
+                  type="text" 
+                  placeholder="請輸入公司統一編號"
+                  v-model="firmId"
+                >
             </li>
 
             <span class="socialDescript">使用中的平台</span>
@@ -49,7 +77,10 @@
             </ul>
 
             <router-link :to="{ name: 'SignUp_loader', query: { loadPath: 'login'}}">
-                <span class="signUpBtn">註冊 Sign Up</span>
+                <span 
+                  class="signUpBtn"
+                  @click="signUpInfo()"
+                >註冊 Sign Up</span>
             </router-link>
             
         </ul>
@@ -68,3 +99,61 @@
         </ul>
     </div>
 </template>
+
+<script>
+export default {
+    name: 'signUp_firm',
+    data(){
+        return{
+            'userAccount': null,
+            'firmName': null,
+            'psw': null,
+            'checkPsw': null,
+            'email': null,
+            'phoneNum': null,
+            'firmId': null,
+            'path': 'login'
+        }
+    },
+    methods:{
+        signUpInfo(){
+            console.log(this.userAccount);
+            console.log(this.firmName);
+            console.log(this.psw);
+            console.log(this.email);
+            console.log(this.phoneNum);
+            console.log(this);
+
+            const signUpAPI = 'http://kolperation.rocket-coding.com/api/CompanyRegister';
+
+            let signUpItem = {
+                "AccountId": {},
+                "Password": {},
+                "TaxIdNumber": {},
+                "Company": {},
+                "Email": {},
+                "Cellphone": {},
+                // "ChannelTags":,  
+            }
+
+            signUpItem.AccountId    = this.userAccount;
+            signUpItem.Password     = this.psw;
+            signUpItem.TaxIdNumber  = this.firmId;
+            signUpItem.Company      = this.firmName;
+            signUpItem.Email        = this.email;
+            signUpItem.Cellphone    = this.phoneNum;
+
+            this.$http
+              .post(signUpAPI,signUpItem)
+              .then( res => {
+                  console.log('SIGN UP SUCESSED');
+                  console.log(res);
+              })
+              .catch( err => {
+                  console.error(err);
+              })
+
+        }
+    }
+}
+</script>

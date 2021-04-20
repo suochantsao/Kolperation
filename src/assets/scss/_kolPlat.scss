@@ -296,13 +296,17 @@
                 // border: 1px solid pink;
             }
             .strBlock{
+                width: 38%;
+                // margin-right: 5%;
                 .itemTitle{
                     margin-top: 5%;
                 }
                 .firmMsg{
+                    width: 100%;
                     margin-top: 5%;
                     font-size: $font-s;
                     color: $dark_grey;
+                    // border: 1px solid pink;
                 }
                 
             }
@@ -694,14 +698,143 @@
         margin: 0 auto 5% auto;
         background-color: white;
         
+        .caseBasic{
+            display: flex;
+            padding: 5% 4%;
+            // border: 1px solid pink;
+        
+            .conditionBlock{
+                // border: 1px solid pink;
+                h1{
+                    margin: 5% 0;
+                    font-size: $font-m;
+                    font-family: NotoSansCJKtc-Medium;
+                }
+                .budget{
+                    margin: 8% 0;
+                    padding: 2% 2% 2% 8%;
+                    line-height: $font-m;
+                    font-size: $font-s;
+                    font-weight: bolder;
+                    letter-spacing: 0.1rem;
+                    box-shadow: $brand_blue 6px 6px 0px 0px;
+                    color: white;
+                    background-color: $pink_bgc;
+                }
+                .needsNum{
+                    padding: 2% 2% 2% 8%;
+                    font-size: $font-s;
+                    line-height: $font-m;
+                    letter-spacing: 0.1rem;
+                    box-shadow: $brand_blue 6px 6px 0px 0px;
+                    color: white;
+                    background-color: $brand_lightBlue;
+                }
+                .mediaRequest{
+                    margin: 18% 0 5% 0;
+                    // border: 1px solid pink;
+                    .icon{
+                        margin-right: 5%;
+                        width: $font-m;
+                        height: $font-m;
+                        color: white;
+                        border-radius: 60%;
+                        background-color: $brand_lightBlue;
+                    }
+                }
+            }
+            .favIcon{
+                margin: 1% 0 0 8%;
+                font-size: $font-m;
+                cursor: pointer;
+                // border: 1px solid pink;
+            }
+        }
         .caseInfo{
             display: flex;
-            padding: 3% 5%;
-            border: 1px solid pink;
-            
-            img{
-                border: 2px solid pink;
+
+            .blockTitle{
+                font-size: $font-m;
             }
+            
+            .caseDetail{
+                width: 70%;
+                padding: 3% 2% 3% 5%;
+                // border: 1px solid pink;
+                p{
+                    margin: 7% 1%;
+                    line-height: $font-tab;
+                    letter-spacing: 0.1rem;
+                }
+                
+                .btnBlock{
+                    margin: 7% 0 4% 0;
+                    display: flex;
+                    // border: 1px solid pink;
+                    a{
+                        width: 50%;
+                        color: white;
+                    }
+                    li{
+                        display: flex;
+                        margin: 0 8% 0 0;
+                        padding: 5% 0 5% 15%;
+                        border-radius: 300px;
+                        background-color: $brand_lightBlue;
+
+                        .icon{
+                            color: white;
+                        }
+                        span{
+                            margin: auto 0 auto 5%;
+                        }
+                        
+                    }
+                    .applyBtn{
+                        background-color: $pink_bgc;
+                    }
+                    .askBtn{
+                        color: $brand_lightBlue;
+                        background-color: white;
+                        border: 2px solid $brand_lightBlue;
+                        .icon{
+                            color: $brand_lightBlue;
+                        }
+                    }
+                }
+            }
+            .caseRequire{
+                width: 50%;
+                padding: 3% 2%;
+                // border: 1px solid pink;
+
+                .requireBlock{
+                    margin: 10% 15% 8% 2%;
+                    padding: 5% 6%;
+                    background-color: $nav_bgc;
+                    // border: 1px solid pink;
+
+                    li{
+                        display: flex;
+                        margin: 6%;
+                        span{
+                            color: $brand_blue;
+                            margin: auto 0 auto 5%;
+                            font-size: $font-s;
+                            font-family: NotoSansCJKtc-Medium;
+                        }
+                        .icon{
+                            width: 25px;
+                            height: 25px;
+                            padding: 5%;
+                            border-radius: 50%;
+                            color: $tab_color;
+                            background-color: white;
+                        }
+                    }
+                }
+            }
+            
         }
     }
 }

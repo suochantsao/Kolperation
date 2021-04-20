@@ -105,7 +105,8 @@ export default {
             'email': null,
             'phoneNum': null,
             'usingPlat': null,
-            'path': 'login'
+            'path': 'login',
+            'token': null
         }
     },
     methods:{
@@ -132,6 +133,7 @@ export default {
             signUpItem.Password  = this.psw;
             signUpItem.Email     = this.email;
             signUpItem.Phone     = this.phoneNum;
+
 
             this.$http
               .post(signUpAPI,signUpItem)

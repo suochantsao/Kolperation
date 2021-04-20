@@ -34,6 +34,9 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 library.add(fas, far, fab)
 Vue.component('fa-icon',FontAwesomeIcon)
 
+// Global Variable
+import login from './views/Login.vue'
+Vue.prototype.GLOBAL = login
 
 Vue.config.productionTip = false
 

@@ -14,10 +14,10 @@
                 </li>
                 <ul class="btnBlock">
                     <li class="detailBtn">
-                    <a href="#">
+                    <router-link to="/kolplat/sucessDetail">
                         <fa-icon icon="list-ul" class="icon" />
                         <span>案件詳細資料</span>
-                    </a>
+                    </router-link>
                     </li>
                     <li class="confirmBtn">
                     <a href="#" >

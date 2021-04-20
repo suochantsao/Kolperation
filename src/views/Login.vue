@@ -84,6 +84,7 @@
 </template>
 
 <script>
+// let userToken = {};
 
 export default {
     name: 'login',
@@ -91,6 +92,8 @@ export default {
         return{
             'userAccount': null,
             'userCode': null,
+            'userToken': null,
+            'userName': null,
         }
     },
     methods:{
@@ -110,6 +113,11 @@ export default {
               .then( res => {
                   console.log('LOGIN SUCCEED');
                   console.log(res);
+                  this.userToken = res.data.Token;
+                //   console.log(this.userToken);
+
+                  localStorage.setItem('token', res.data.Token)
+
               })
               .catch( err => {
                   console.error(err);
