@@ -10,14 +10,6 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 Vue.use(VueAxios,axios)
 
-// Swiper
-import VueAwesomeSwiper from 'vue-awesome-swiper'
-import swiper, {Navigation, Pagination, Autoplay } from 'swiper'
-import 'swiper/swiper-bundle.min.css'
-
-Vue.use(VueAwesomeSwiper);
-swiper.use([Navigation,Pagination,Autoplay]);
-
 // Bootstrap
 import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue)
@@ -34,9 +26,19 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 library.add(fas, far, fab)
 Vue.component('fa-icon',FontAwesomeIcon)
 
-// Global Variable
-import login from './views/Login.vue'
-Vue.prototype.GLOBAL = login
+// Swiper
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import swiper, {Navigation, Pagination, Autoplay } from 'swiper'
+import 'swiper/swiper-bundle.min.css'
+
+Vue.use(VueAwesomeSwiper);
+swiper.use([Navigation,Pagination,Autoplay]);
+
+// SweetAlert
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+Vue.use(VueSweetalert2);
+
 
 Vue.config.productionTip = false
 

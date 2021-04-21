@@ -60,8 +60,13 @@
                 登入 Sign In</span>
                 </router-link>
 
-                <span class="loginDescrip">透過Google或Facebook登入</span>
-                <ul class="btnBlock">
+                <span class="loginDescrip">忘記密碼了嗎？</span>
+                <span 
+                  class="loginBtn resetBtn"
+                  @click="resetCode()"
+                >
+                重設密碼</span>
+                <!-- <ul class="btnBlock">
                     <a href="#">
                     <li class="btnItems googleBtn">
                         <fa-icon icon="users" class="icon" />
@@ -75,7 +80,7 @@
                         <span>Facebook登入</span>
                     </li>
                     </a>
-                </ul>
+                </ul> -->
 
             </li>
 
@@ -107,22 +112,31 @@ export default {
 
             this.$http
               .post(loginAPI,{
-                  "Account":userName,
-                  "Password":userCode
-              })
+                "Account":userName,
+                "Password":userCode
+            })
               .then( res => {
-                  console.log('LOGIN SUCCEED');
-                  console.log(res);
-                  this.userToken = res.data.Token;
+                console.log('LOGIN SUCCEED');
+                console.log(res);
+                this.userToken = res.data.Token;
                 //   console.log(this.userToken);
 
-                  localStorage.setItem('token', res.data.Token)
+                localStorage.setItem('token', res.data.Token)
 
-              })
+            })
               .catch( err => {
-                  console.error(err);
-              })
+                console.error(err);
+            })
 
+        },
+        resetCode(){
+            this.$swal({
+                title: '請輸入您的電子郵件信箱',
+                input: 'text',
+                confirmButtonText: '確認信寄出',
+                showCancelButton: false,
+                showLoaderOnConfirm: true
+            });
         }
     }
 

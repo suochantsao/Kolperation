@@ -2,95 +2,12 @@
     <div class="kolMesBlock">
         <h2>儲存案件</h2>
         <div class="mesArea alertArea applyArea saveCaseArea scrollStyle">
-            <ul class="caseItem">
-                <img width="18%" src="https://blush.design/api/download?shareUri=ohIQ2_4rspulZPQE&bg=f5f5f5&w=800&h=800&fm=png" alt="">
-                <ul class="strBlock">
-
-                    <li class="itemTitle">共享空間體驗合作</li>
-                    <li class="firmName">優雅客新北台北橋創業空間</li>
-                    <li class="firmMsg sucessDate corpNum cdDate">案件截止日：2021.05.05</li>
-
-                </ul>
-
-                <ul class="sucessBtnBlock saveCaseBtn">
-
-                    <fa-icon icon="heart" class="icon likeIcon" />
-                    <a href="#">
-                    <li class="btn">
-                        <fa-icon icon="list-ul" class="icon" />
-                        <span>詳細資訊</span>
-                    </li>    
-                    </a>
-                    
-                </ul>
-            </ul>
-            <ul class="caseItem">
-                <img width="18%" src="https://blush.design/api/download?shareUri=ohIQ2_4rspulZPQE&bg=f5f5f5&w=800&h=800&fm=png" alt="">
-                <ul class="strBlock">
-
-                    <li class="itemTitle">共享空間體驗合作</li>
-                    <li class="firmName">優雅客新北台北橋創業空間</li>
-                    <li class="firmMsg sucessDate corpNum cdDate">案件截止日：2021.05.05</li>
-
-                </ul>
-
-                <ul class="sucessBtnBlock saveCaseBtn">
-
-                    <fa-icon icon="heart" class="icon likeIcon" />
-                    <a href="#">
-                    <li class="btn">
-                        <fa-icon icon="list-ul" class="icon" />
-                        <span>詳細資訊</span>
-                    </li>    
-                    </a>
-                    
-                </ul>
-            </ul>
-            <ul class="caseItem">
-                <img width="18%" src="https://blush.design/api/download?shareUri=ohIQ2_4rspulZPQE&bg=f5f5f5&w=800&h=800&fm=png" alt="">
-                <ul class="strBlock">
-
-                    <li class="itemTitle">共享空間體驗合作</li>
-                    <li class="firmName">優雅客新北台北橋創業空間</li>
-                    <li class="firmMsg sucessDate corpNum cdDate">案件截止日：2021.05.05</li>
-
-                </ul>
-
-                <ul class="sucessBtnBlock saveCaseBtn">
-
-                    <fa-icon icon="heart" class="icon likeIcon" />
-                    <a href="#">
-                    <li class="btn">
-                        <fa-icon icon="list-ul" class="icon" />
-                        <span>詳細資訊</span>
-                    </li>    
-                    </a>
-                    
-                </ul>
-            </ul>
-            <ul class="caseItem">
-                <img width="18%" src="https://blush.design/api/download?shareUri=ohIQ2_4rspulZPQE&bg=f5f5f5&w=800&h=800&fm=png" alt="">
-                <ul class="strBlock">
-
-                    <li class="itemTitle">共享空間體驗合作</li>
-                    <li class="firmName">優雅客新北台北橋創業空間</li>
-                    <li class="firmMsg sucessDate corpNum cdDate">案件截止日：2021.05.05</li>
-
-                </ul>
-
-                <ul class="sucessBtnBlock saveCaseBtn">
-
-                    <fa-icon icon="heart" class="icon likeIcon" />
-                    <a href="#">
-                    <li class="btn">
-                        <fa-icon icon="list-ul" class="icon" />
-                        <span>詳細資訊</span>
-                    </li>    
-                    </a>
-                    
-                </ul>
-            </ul>
-            
+            <kol-save-item
+              :caseItem="item"
+              :key="item.SponsoredContentId"
+              v-for="item in saveCaseList" 
+            >
+            </kol-save-item>
         </div>
     </div>
         
@@ -98,9 +15,33 @@
 
 <script>
 // Components
+import KolSaveItem from '../components/kol-saveItem.vue'
 
 export default {
     components:{
+        KolSaveItem,
+    },
+    data(){
+        return{
+            'saveCaseList': [],
+            'caseId': null,
+            'userToken': null,
+        }
+    },
+    created(){
+        this.userToken = window.localStorage.getItem('token');
+        const saveCaseAPI   = 'http://kolperation.rocket-coding.com/api/GetKOLFavoriteSCs';
+        const config   = { headers: { Authorization: `Bearer ${this.userToken}` } };
+
+        this.$http
+          .get( saveCaseAPI, config)
+          .then( res => {
+              this.saveCaseList = res.data
+              console.log(this.saveCaseList);
+          })
+          .catch( err => {
+                  console.error(err);
+          })
     }
     
 }

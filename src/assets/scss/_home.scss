@@ -27,6 +27,9 @@
         background-color: $brand_lightBlue;
         box-shadow: 5px 5px 10px $shadow_color;
     }
+    .dpNone{
+        display: none;
+    }
 }
 .homeHeader{
     display: flex;

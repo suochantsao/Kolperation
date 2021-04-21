@@ -2,9 +2,12 @@
     <div class="kolMesBlock">
         <h2>訊息通知</h2>
         <div class="mesArea alertArea scrollStyle">
-            <msg-item :msgPack = "msgObject"></msg-item>
-            
-            
+            <msg-item 
+              :msgInfo = "item"
+              :key="item.MsgId"
+              v-for="item in msgList" 
+            >
+            </msg-item>
         </div>
     </div>
         
@@ -20,7 +23,7 @@ export default {
     },
     data(){
         return{
-            'msgObject': null,
+            'msgList'  : [],
             'userToken': null,
         }
     },
@@ -33,9 +36,8 @@ export default {
           .get(msgAPI,config)
           .then( res => {
               console.log(res);
-              this.msgObject = res.data[0];
-              console.log(this.msgObject);
-          })
+              this.msgList = res.data;
+          });
     }
 
 }

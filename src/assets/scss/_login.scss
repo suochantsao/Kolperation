@@ -155,10 +155,17 @@
         .loginDescrip{
             display: block;
             width: 75%;
-            margin: 10% auto 8% auto;
+            margin: 13% auto 0 auto;
             text-align: center;
             font-family: NotoSansCJKtc-DemiLight;
             // border: 1px solid pink;
+        }
+        .resetBtn{
+            width: 28%;
+            margin-top: 5%;
+            color: $brand_blue;
+            background-color: white;
+            cursor: pointer;
         }
 
         .btnBlock{

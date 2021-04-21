@@ -425,7 +425,7 @@
                 }
             }
             .sucessBtnBlock{
-                margin: auto 0 auto 1%;
+                margin: auto 0;
                 // border: 1px solid pink;
 
                 a{
@@ -525,6 +525,13 @@
             .likeIcon{
                 margin: 10% 0 25% 65%;
                 font-size: $font-m;
+                color: $pink_bgc;
+                cursor: pointer;
+            }
+            .unlikeIcon{
+                color: $brand_blue;
+            }
+            .unlikeIcon:hover{
                 color: $pink_bgc;
             }
             .btn{
@@ -704,14 +711,16 @@
             // border: 1px solid pink;
         
             .conditionBlock{
+                width: 28%;
                 // border: 1px solid pink;
                 h1{
                     margin: 5% 0;
+                    // color: $brand_blue;
                     font-size: $font-m;
                     font-family: NotoSansCJKtc-Medium;
                 }
                 .budget{
-                    margin: 8% 0;
+                    margin: 15% 0 8% 0;
                     padding: 2% 2% 2% 8%;
                     line-height: $font-m;
                     font-size: $font-s;
@@ -731,24 +740,20 @@
                     background-color: $brand_lightBlue;
                 }
                 .mediaRequest{
-                    margin: 18% 0 5% 0;
+                    margin: 10% 0 5% 0;
                     // border: 1px solid pink;
                     .icon{
                         margin-right: 5%;
+                        padding: 5%;
                         width: $font-m;
                         height: $font-m;
                         color: white;
                         border-radius: 60%;
-                        background-color: $brand_lightBlue;
+                        background-color: $brand_blue;
                     }
                 }
             }
-            .favIcon{
-                margin: 1% 0 0 8%;
-                font-size: $font-m;
-                cursor: pointer;
-                // border: 1px solid pink;
-            }
+            
         }
         .caseInfo{
             display: flex;
@@ -763,6 +768,7 @@
                 // border: 1px solid pink;
                 p{
                     margin: 7% 1%;
+                    color: $brand_blue;
                     line-height: $font-tab;
                     letter-spacing: 0.1rem;
                 }
@@ -793,6 +799,10 @@
                     .applyBtn{
                         background-color: $pink_bgc;
                     }
+                    .applyBtn:hover{
+                        box-shadow: 5px 5px 10px $shadow_color;
+                        
+                    }
                     .askBtn{
                         color: $brand_lightBlue;
                         background-color: white;
@@ -800,7 +810,17 @@
                         .icon{
                             color: $brand_lightBlue;
                         }
+                        
                     }
+                    .askBtn:hover{
+                        color: white;
+                        background-color: $brand_blue;
+                        border: 2px solid $brand_blue;
+                        box-shadow: 5px 5px 10px $shadow_color;
+                        
+                    }
+                    
+
                 }
             }
             .caseRequire{
@@ -838,7 +858,89 @@
         }
     }
 }
+.kolSetBlock{
+    .setTitle{
+        display: flex;
+        margin: 7% 10% 3% 11%;
+        // border: 1px solid pink;
+        h1{
+            font-size: $font-l;
+        }
+        li{
+            width: 12%;
+            margin-left: 63%;
+            padding: 2% 3%;
+            display: flex;
+            align-items: center;
+            border-radius: 300px;
+            color: white;
+            cursor: pointer;
 
+        }
+        span{
+            margin-left: 11%;
+        }
+    }
+    .userInfoArea{
+        display: flex;
+        .picBlock{
+            width: 45%;
+            img{
+                padding: 5%;
+                margin: 0 auto;
+            }
+            li{
+                display: flex;
+            }
+        }
+        .inputBlock{
+            width: 55%;
+            padding: 3% 4%;
+            background-color: $brand_lightBlue;
+            
+            .infoItem{
+                display: flex;
+                margin: 4% auto;
+                // border: 1px solid pink;
+        
+                .icon{
+                    padding: 3% 3% 3% 5%;
+                    font-size: 1rem;
+                    color: $brand_blue;
+                    background-color: white;
+                    font-size: $font-tab;
+                    // border: 1px solid pink;
+                }
+                input{
+                    width: 100%;
+                    outline: none;
+                    border: none;
+                    line-height: $font-l;
+                }
+            }
+        }
+    }
+}
+
+
+// FavBtn Style
+.favBtnBlock{
+    margin: 1% 0 0 5%;
+
+    .favIcon{
+        font-size: $font-m;
+        cursor: pointer;
+        // border: 1px solid pink;
+    }
+    .favIcon:hover{
+        color: $pink_bgc;
+    }
+    .selectedIcon{
+        color: $pink_bgc;
+    }
+}
+
+// Scroll Style
 .scrollStyle::-webkit-scrollbar {
     background-color: $brand_lightBlue;
 }

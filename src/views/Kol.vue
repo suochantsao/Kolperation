@@ -37,7 +37,6 @@ export default {
 
       const casesAPI = 'http://kolperation.rocket-coding.com/api/GetCasesNum'
       const userAPI  = 'http://kolperation.rocket-coding.com/api/GetKOLforEditing'
-
       const config   = { headers: { Authorization: `Bearer ${this.userToken}` } };
 
       this.$http
@@ -48,7 +47,7 @@ export default {
           this.casesNum.goingCases   = res.data.OnGoingCases;
           this.casesNum.successCases = res.data.SuccessfulCases; 
         })
-        .catch( err =>{
+        .catch( err => {
           console.error(err);
         });
 
@@ -61,7 +60,7 @@ export default {
           console.log(res.data);
           // console.log(this.userName);
         })
-        .catch( err =>{
+        .catch( err => {
           console.error(err);
         });
     
