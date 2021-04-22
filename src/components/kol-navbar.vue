@@ -44,7 +44,10 @@
         </li>
         </router-link>
         <router-link to="/" >
-        <li class="navBtn logoutBtn">
+        <li 
+          class="navBtn logoutBtn"
+          @click="logOut"
+        >
             <fa-icon icon="sign-out-alt" class="icon" />
             <span>登出平台</span>
         </li>
@@ -59,10 +62,11 @@ export default {
         'caseCount',
         'name'
     ],
-    watch:{
-        caseCount:{
-            immediate: true
+    methods:{
+        logOut(){
+            localStorage.clear()
         }
+
     }
 
 }

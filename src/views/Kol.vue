@@ -43,9 +43,9 @@ export default {
         .get(casesAPI,config)
         .then( res => {
           console.log('CASE NUM GET SUCCEED');
-          // console.log(res);
           this.casesNum.goingCases   = res.data.OnGoingCases;
           this.casesNum.successCases = res.data.SuccessfulCases; 
+          // console.log(res);
         })
         .catch( err => {
           console.error(err);
@@ -54,10 +54,9 @@ export default {
       this.$http
         .get(userAPI,config)
         .then( res => {
-          console.log('USER INFO GET SUCCEED');
-          
-          this.userName = res.data[0].AccountId;
-          console.log(res.data);
+          this.userName = res.data[0].Username;
+          // console.log('USER INFO GET SUCCEED');
+          // console.log(res.data);
           // console.log(this.userName);
         })
         .catch( err => {

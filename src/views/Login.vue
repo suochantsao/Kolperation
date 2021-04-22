@@ -63,7 +63,7 @@
                 <span class="loginDescrip">忘記密碼了嗎？</span>
                 <span 
                   class="loginBtn resetBtn"
-                  @click="resetCode()"
+                  @click="resetCode"
                 >
                 重設密碼</span>
                 <!-- <ul class="btnBlock">
@@ -130,13 +130,46 @@ export default {
 
         },
         resetCode(){
+            const forgotAPI = 'http://kolperation.rocket-coding.com/SendEmail';
+            
             this.$swal({
                 title: '請輸入您的電子郵件信箱',
                 input: 'text',
                 confirmButtonText: '確認信寄出',
                 showCancelButton: false,
-                showLoaderOnConfirm: true
-            });
+                showLoaderOnConfirm: true,
+                preConfirm: (login) => {
+
+                    console.log(login)
+                    this.$http
+                      .post(forgotAPI,{
+                        "Email": login,
+                      })
+                      .then( res => {
+                        console.log('POST API SUCCEED');
+                        console.log(res);
+                      })
+                      .catch( err => {
+                        console.error(err);
+                      })
+                },
+                allowOutsideClick: () => this.$swal.isLoading()})
+                .then((result) => {
+
+                    if (result.isConfirmed) {
+                        this.successAlert();
+                    }
+                }
+            )},
+
+        successAlert(){
+            this.$swal({
+                position: 'top-end',
+                icon: 'success',
+                title: '寄件成功 請至信箱領取暫時密碼',
+                showConfirmButton: false,
+                timer: 2500
+            })
         }
     }
 

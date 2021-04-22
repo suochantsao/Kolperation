@@ -956,7 +956,15 @@
                     line-height: $font-l;
 
                 }
-                
+            }
+            .cantChange{
+                pointer-events: none;
+                .icon{
+                    color: $tab_color;
+                }
+                input{
+                    color: $tab_color;
+                }
             }
             .socialMediaItem{
                 // border: 1px solid $brand_blue;
@@ -969,6 +977,7 @@
                 display: flex;
                 margin-top: 34%;
                 // border: 1px solid pink;
+
                 .btn{
                     width: 30%;
                     padding: 4% 5%;
@@ -980,6 +989,7 @@
                     border-radius: 300px;
                     border: 2px solid $brand_blue;
                     cursor: pointer;
+
                     .icon{
                         margin-right: 8%;
                     }
@@ -989,17 +999,18 @@
                     background-color: $brand_blue;
                 }
                 .delBtn{
-                    color: white;
-                    background-color: $google_red;
+                    color: $google_red;
+                    background-color: white;
                     border: 2px solid $google_red;
                 }
                 .delBtn:hover{
-                    color: $google_red;
-                    background-color: white;
+                    color: white;
+                    background-color: $google_red;
                     
                 }
             }
         }
+
     }
 }
 
