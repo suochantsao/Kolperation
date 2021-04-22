@@ -2,106 +2,24 @@
     <div class="kolMesBlock">
         <h2 class="topTitle">業主邀請</h2>
         <div class="alertArea scrollStyle">
-            <router-link to="/kolplat/consultDetail">
-            <ul class="caseItem">
-                <img width="18%" src="https://blush.design/api/download?shareUri=ohIQ2_4rspulZPQE&bg=f5f5f5&w=800&h=800&fm=png" alt="">
-                <ul class="strBlock">
+            
+        <kol-invite-item
+            :caseItem="item"
+            :key="item.SponsoredContentId"
+            v-for="item in inviteCaseList" 
+        ></kol-invite-item>
 
-                    <li class="itemTitle">母親節檔期圖文</li>
-                    <li class="firmName">全國電子</li>
-
-                    <ul class="btnBlock">
-                        <btn-confirm></btn-confirm>
-                        <btn-detail></btn-detail>
-                    </ul>
-
-                </ul>
-            </ul>
-            </router-link>
-            <router-link to="/kolplat/consultDetail">
-            <ul class="caseItem">
-                <img width="18%" src="https://blush.design/api/download?shareUri=ohIQ2_4rspulZPQE&bg=f5f5f5&w=800&h=800&fm=png" alt="">
-                <ul class="strBlock">
-
-                    <li class="itemTitle">母親節檔期圖文</li>
-                    <li class="firmName">全國電子</li>
-
-                    <ul class="btnBlock">
-                        <btn-confirm></btn-confirm>
-                        <btn-detail></btn-detail>
-                    </ul>
-
-                </ul>
-            </ul>
-            </router-link>
-            <router-link to="/kolplat/consultDetail">
-            <ul class="caseItem">
-                <img width="18%" src="https://blush.design/api/download?shareUri=ohIQ2_4rspulZPQE&bg=f5f5f5&w=800&h=800&fm=png" alt="">
-                <ul class="strBlock">
-
-                    <li class="itemTitle">母親節檔期圖文</li>
-                    <li class="firmName">全國電子</li>
-
-                    <ul class="btnBlock">
-                        <btn-confirm></btn-confirm>
-                        <btn-detail></btn-detail>
-                    </ul>
-
-                </ul>
-            </ul>
-            </router-link>
         </div>
         
         <h2>報名案件</h2>
         <div class="mesArea alertArea applyArea scrollStyle">
-            <ul class="caseItem">
-                <img width="20%" src="https://blush.design/api/download?shareUri=UJFfjsWIEtdRN23W&c=Hair_0%7E9b5120_Skin_0%7Ec26e5e&w=800&h=800&fm=png" alt="">
-                <ul class="strBlock">
 
-                    <li class="itemTitle">KOL共享空間體驗合作</li>
-                    <li class="firmName">優雅客新北台北橋創業空間</li>
-                    <li class="firmName statusStr">目前狀態：等候回覆中</li>
-
-                </ul>
-                <router-link to="/kolplat/sucessDetail">
-                <li class="btn">
-                    <fa-icon icon="list-ul" class="icon" />
-                    <span>詳細資訊</span>
-                </li>    
-                </router-link>
-            </ul>
-            <ul class="caseItem">
-                <img width="20%" src="https://blush.design/api/download?shareUri=UJFfjsWIEtdRN23W&c=Hair_0%7E9b5120_Skin_0%7Ec26e5e&w=800&h=800&fm=png" alt="">
-                <ul class="strBlock">
-
-                    <li class="itemTitle">KOL共享空間體驗合作</li>
-                    <li class="firmName">優雅客新北台北橋創業空間</li>
-                    <li class="firmName statusStr">目前狀態：等候回覆中</li>
-
-                </ul>
-                <router-link to="/kolplat/sucessDetail">
-                <li class="btn">
-                    <fa-icon icon="list-ul" class="icon" />
-                    <span>詳細資訊</span>
-                </li>    
-                </router-link>
-            </ul>
-            <ul class="caseItem">
-                <img width="20%" src="https://blush.design/api/download?shareUri=UJFfjsWIEtdRN23W&c=Hair_0%7E9b5120_Skin_0%7Ec26e5e&w=800&h=800&fm=png" alt="">
-                <ul class="strBlock">
-
-                    <li class="itemTitle">KOL共享空間體驗合作</li>
-                    <li class="firmName">優雅客新北台北橋創業空間</li>
-                    <li class="firmName statusStr">目前狀態：等候回覆中</li>
-
-                </ul>
-                <router-link to="/kolplat/sucessDetail">
-                <li class="btn">
-                    <fa-icon icon="list-ul" class="icon" />
-                    <span>詳細資訊</span>
-                </li>    
-                </router-link>
-            </ul>
+            <kol-apply-item
+                :caseItem="item"
+                :key="item.SponsoredContentId"
+                v-for="item in applyCaseList" 
+            ></kol-apply-item>
+            
         </div>
     </div>
         
@@ -109,14 +27,49 @@
 
 <script>
 // Components
-import btnConfirm from '../components/btn-confirm.vue'
-import btnDetail from '../components/btn-detail.vue'
+import kolInviteItem from '../components/kol-inviteItem.vue'
+import KolApplyItem from '../components/kol-applyItem.vue';
+
 
 export default {
-    components:{
-        btnConfirm,
-        btnDetail
+    components: { 
+        kolInviteItem,
+        KolApplyItem
+    },
+    data(){
+        return{
+            'inviteCaseList': [],
+            'applyCaseList': [],
+            'userToken': null,
+        }
+    },
+    created(){
+        this.userToken        = window.localStorage.getItem('token');
+        const inviteCaseAPI   = 'http://kolperation.rocket-coding.com/api/GetKOLinvitatedCoop';
+        const applyCaseAPI    = 'http://kolperation.rocket-coding.com/api/GetKOLsentCoop';
+        const config          = { headers: { Authorization: `Bearer ${this.userToken}` } };
+
+        this.$http
+          .get( inviteCaseAPI, config)
+          .then( res => {
+              this.inviteCaseList = res.data
+              console.log(this.inviteCaseList);
+          })
+          .catch( err => {
+              console.error(err);
+          });
+
+        this.$http
+          .get( applyCaseAPI, config)
+          .then( res => {
+              this.applyCaseList = res.data
+            //   console.log(this.applyCaseList);
+          })
+          .catch( err => {
+              console.error(err);
+          });
     }
+    
     
 }
 </script>

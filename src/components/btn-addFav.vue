@@ -19,17 +19,27 @@
 export default {
     name: 'btnAddFav',
     props:[
-        'contentId'
+        'contentId',
+        'definedId',
+        'boolStr'
     ],
     methods:{
         favAdd(){
             this.commonFun();
-            
-            const addAPI = `http://kolperation.rocket-coding.com/api/AddThisSCToMyFavorites/${this.contentId}`
+            let addAPI = "";
+
+            if(this.definedId === "company"){
+                addAPI = `http://kolperation.rocket-coding.com/api/AddThisCompanyToMyFavorites/${this.contentId}`
+            }
+            else{
+                addAPI = `http://kolperation.rocket-coding.com/api/AddThisSCToMyFavorites/${this.contentId}`
+            }
+
             this.$http
               .put(addAPI,this.contentId,this.config)
               .then( res => {
                   console.log(res);
+                  console.log("儲存成功");
               })
               .catch( err => {
                   console.error(err);
@@ -38,12 +48,20 @@ export default {
         },
         favRemove(){
             this.commonFun();
+            let removeAPI = "";
 
-            const removeAPI = `http://kolperation.rocket-coding.com/api/RemoveThisSCFromMyFavorites/${this.contentId}` 
+            if(this.definedId === "company"){
+                removeAPI = `http://kolperation.rocket-coding.com/api/RemoveThisCompanyFromMyFavorites/${this.contentId}`
+            }
+            else{
+                removeAPI = `http://kolperation.rocket-coding.com/api/RemoveThisSCFromMyFavorites/${this.contentId}`
+            }
+
             this.$http
               .delete(removeAPI,this.config)
               .then( res => {
                   console.log(res);
+                  console.log("移除成功");
               })
               .catch( err => {
                   console.error(err);
@@ -54,14 +72,13 @@ export default {
             this.favBool = !this.favBool;
             this.userToken = window.localStorage.getItem('token');
             this.config = { headers: { Authorization: `Bearer ${this.userToken}` } };
-            console.log(this.contentId);
         }
     },
     data(){
         return{
             'favBool'  : true,
-            'userToken': null,
             'config'   : null,
+            'userToken': null,
         }
     }
 }

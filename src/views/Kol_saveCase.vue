@@ -24,7 +24,6 @@ export default {
     data(){
         return{
             'saveCaseList': [],
-            'caseId': null,
             'userToken': null,
         }
     },
@@ -37,7 +36,7 @@ export default {
           .get( saveCaseAPI, config)
           .then( res => {
               this.saveCaseList = res.data
-              console.log(this.saveCaseList);
+            //   console.log(this.saveCaseList);
           })
           .catch( err => {
                   console.error(err);

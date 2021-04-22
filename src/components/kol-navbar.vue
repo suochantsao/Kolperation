@@ -59,6 +59,11 @@ export default {
         'caseCount',
         'name'
     ],
+    watch:{
+        caseCount:{
+            immediate: true
+        }
+    }
 
 }
 </script>

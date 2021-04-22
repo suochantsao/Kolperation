@@ -12,6 +12,7 @@
         <ul class="sucessBtnBlock saveCaseBtn">
             <btn-add-fav
               :contentId = "caseId"
+              :definedId = "definedStr"
             ></btn-add-fav>
 
             <a href="#">
@@ -36,14 +37,15 @@ export default {
         return{
             'dateStr': null,
             'caseId' : null,
+            'definedStr' : 'case',
         }
     },
     components: { 
         btnAddFav 
     },
     created(){
-        this.dateStr = this.caseItem.EndTime.slice(0,10).replace(/-/g,".");
-        this.caseId  = this.caseItem.SponsoredContentId;
+        this.dateStr    = this.caseItem.EndTime.slice(0,10).replace(/-/g,".");
+        this.caseId     = this.caseItem.SponsoredContentId;
     }
     
 }

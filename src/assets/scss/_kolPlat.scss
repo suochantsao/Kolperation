@@ -885,17 +885,55 @@
         display: flex;
         .picBlock{
             width: 45%;
+            // border: 1px solid pink;
+
             img{
                 padding: 5%;
                 margin: 0 auto;
             }
             li{
                 display: flex;
+                margin: 2% 12%;
+                // border: 1px solid pink;
+
+                span{
+                    padding: 5% 9%;
+                    margin: 0 auto;
+                    border-radius: 300px;
+                    color: white;
+                    background-color: $brand_lightBlue;
+                    cursor: pointer;
+                    border: 1px solid $brand_lightBlue;
+                }
+                .uploadBtn:hover{
+                    background-color: $brand_blue;
+                }
+                .removeBtn{
+                    color: $pink_bgc;
+                    background-color: white;
+                    border: 2px solid $pink_bgc;
+                }
+                .removeBtn:hover{
+                    color: white;
+                    background-color: $pink_bgc;
+                }
+
+            }
+            .createDate{
+                display: block;
+                margin: 85% 15% 0 15%;
+                padding: 3%;
+                text-align: center;
+                color: white;
+                font-size: 1rem;
+                letter-spacing: 0.1rem;
+                background-color: $pink_bgc;
+                box-shadow: $dark_grey 6px 6px 0px 0px;
             }
         }
         .inputBlock{
             width: 55%;
-            padding: 3% 4%;
+            padding: 4%;
             background-color: $brand_lightBlue;
             
             .infoItem{
@@ -916,6 +954,49 @@
                     outline: none;
                     border: none;
                     line-height: $font-l;
+
+                }
+                
+            }
+            .socialMediaItem{
+                // border: 1px solid $brand_blue;
+                .urlBlock{
+                    padding: 0 auto;
+                    border-left: 2px double $nav_bgc;
+                }
+            }
+            .btnBlock{
+                display: flex;
+                margin-top: 34%;
+                // border: 1px solid pink;
+                .btn{
+                    width: 30%;
+                    padding: 4% 5%;
+                    text-align: center;
+                    margin: 0 auto;
+                    color: $brand_blue;
+                    font-weight: bolder;
+                    background-color: white;
+                    border-radius: 300px;
+                    border: 2px solid $brand_blue;
+                    cursor: pointer;
+                    .icon{
+                        margin-right: 8%;
+                    }
+                }
+                .btn:hover{
+                    color: white;
+                    background-color: $brand_blue;
+                }
+                .delBtn{
+                    color: white;
+                    background-color: $google_red;
+                    border: 2px solid $google_red;
+                }
+                .delBtn:hover{
+                    color: $google_red;
+                    background-color: white;
+                    
                 }
             }
         }
