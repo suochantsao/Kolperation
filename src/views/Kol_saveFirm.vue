@@ -33,6 +33,7 @@ export default {
     created(){
         this.userToken = window.localStorage.getItem('token');
         const saveFirmAPI   = 'http://kolperation.rocket-coding.com/api/GetKOLFavoriteCompanies';
+        const firmTagAPI   = 'http://kolperation.rocket-coding.com/api/TagSectors';
         const config   = { headers: { Authorization: `Bearer ${this.userToken}` } };
 
         this.$http
@@ -43,7 +44,17 @@ export default {
           })
           .catch( err => {
                   console.error(err);
+          });
+
+        this.$http
+          .get( firmTagAPI, config)
+          .then( res => {
+              console.log('取得產業標籤');
+              console.log(res);
           })
+          .catch( err => {
+                  console.error(err);
+          });
     }
     
 }

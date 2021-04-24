@@ -40,6 +40,8 @@ export default {
               .then( res => {
                   console.log(res);
                   console.log("儲存成功");
+                  this.successAlert('儲存成功')
+
               })
               .catch( err => {
                   console.error(err);
@@ -62,11 +64,21 @@ export default {
               .then( res => {
                   console.log(res);
                   console.log("移除成功");
+                  this.successAlert('移除成功')
               })
               .catch( err => {
                   console.error(err);
               })
 
+        },
+        successAlert(str){
+            this.$swal({
+                position: 'top-end',
+                icon: 'success',
+                title: str,
+                showConfirmButton: false,
+                timer: 1600
+            })
         },
         commonFun(){
             this.favBool = !this.favBool;
@@ -76,7 +88,7 @@ export default {
     },
     data(){
         return{
-            'favBool'  : true,
+            'favBool'  : this.boolStr,
             'config'   : null,
             'userToken': null,
         }

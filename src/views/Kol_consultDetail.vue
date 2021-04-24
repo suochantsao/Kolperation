@@ -1,8 +1,8 @@
 <template>
     <div class="consultDetailBlock msgDialogBlock scrollSpecial">
-        <router-link to="/kolplat/consult">
+        <a @click="routerSet">
         <fa-icon icon="arrow-left" class="icon" />
-        </router-link>
+        </a>
         <div class="consultDetArea">
             <ul class="caseBasic">
                 <img width="60%" src="https://blush.design/api/download?shareUri=Qnt8NFR94jtAwxnw&c=Hair_0%7E9b5120-0.1.0%7E0f0f0f-0.1.1%7Ec38741-0.1.2%7Ec38741_Skin_0%7E7d4439-0.1.0%7Ef6cbc3-0.1.1%7Ec26e5e-0.1.2%7E7d4439&w=800&h=800&fm=png">                
@@ -11,13 +11,18 @@
                     <li>{{caseDetail.Company}}</li>
                     <li class="budget">合作預算： ${{caseDetail.Budget}}</li>
                     <li class="needsNum">截止日期： {{dateStr}}</li>
-                    <li class="mediaRequest">
-                        <fa-icon :icon="['fab', 'instagram']" class="icon" />
-                        <fa-icon :icon="['fab', 'facebook-square']" class="icon" />
-                        <fa-icon :icon="['fab', 'youtube']" class="icon" />
-                    </li>
+
+                    <kol-channel-item
+                        :channels = "channelList"
+                    ></kol-channel-item>
+
                 </ul>
-                <btn-add-fav></btn-add-fav>
+
+                <btn-add-fav
+                    :contentId = "caseId"
+                    :boolStr   = "favBool"
+                >
+                </btn-add-fav>
                 
             </ul>
 
@@ -30,14 +35,20 @@
                         3.文章連結與圖文須同意我們作為廣告連結(Google & FB) 或使用.修改或重製您提供的照片.影音等素材或引用部分內容使用於後續銷售宣傳 
                     </p>
                     <ul class="btnBlock">
-                        <a href="#">
-                        <li class="applyBtn">
+                        <a>
+                        <li 
+                          class="applyBtn"
+                          @click="applyCase"
+                        >
                             <fa-icon :icon="['far', 'handshake']" class="icon" />
                             <span>我要報名</span>
                         </li>
                         </a>
-                        <a href="#">
-                        <li class="askBtn">
+                        <a>
+                        <li 
+                          class="askBtn"
+                          @click="contactFirm"
+                        >
                             <fa-icon icon="comments" class="icon" />
                             <span>站內詢問</span>
                         </li>
@@ -53,11 +64,11 @@
                         </li>
                         <li>
                             <fa-icon icon="user-tie" class="icon" />
-                            <span>需求人數：15人</span>
+                            <span>需求人數：{{caseDetail.PeopleRequired}}人</span>
                         </li>
                         <li>
-                            <fa-icon icon="chart-pie" class="icon" />
-                            <span>餐飲相關產業</span>
+                            <fa-icon icon="comment-dots" class="icon" />
+                            <span>{{caseDetail.MinimumRequirement}}</span>
                         </li>
                     </ul>
                 </ul>
@@ -69,39 +80,110 @@
 
 <script>
 import btnAddFav from '../components/btn-addFav.vue';
+import KolChannelItem from '../components/kol-channelItem.vue';
 
 export default {
+    inject:['reload'],
     components: { 
-        btnAddFav 
+        btnAddFav,
+        KolChannelItem 
     },
     methods:{
-        
+        applyCase(){
+            const applyAPI = `http://kolperation.rocket-coding.com/api/KolAppliedTo/${this.caseId}`
+            
+            this.$http
+              .put(applyAPI,this.caseId,this.config)
+              .then( res => {
+                  console.log(res);
+                  console.log("確認報名成功");
+                  this.successAlert('確認報名成功');
+                  this.$router.push({ path: `/kolplat/sucessDetail?msg=${this.caseId}`})
+              })
+              .catch( err => {
+                  console.error(err);
+              })
+            
+        },
+        contactFirm(){
+
+            const contactFirmAPI = `http://kolperation.rocket-coding.com/api/PostMessagebyKOL`
+
+            let contactItem = {
+                "SponsoredContentId": this.caseId
+            }
+
+            this.$http
+              .post(contactFirmAPI,contactItem,this.config)
+              .then( res => {
+                  console.log(res.data[0]);
+                  console.log("聯繫廠商成功");
+                
+                  this.msgId = res.data[0].MsgId
+                  this.$router.push({ path: `/kolplat/msgDialog?msg=${this.msgId}`})
+
+              })
+              .catch( err => {
+                  console.error(err);
+              })
+
+        },
+        routerSet(){
+            this.$router.back(-1);
+        },
+        successAlert(str){
+            this.$swal({
+                position: 'top-end',
+                icon: 'success',
+                title: str,
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
     },
     data(){
         return{
-            'caseDetail': null,
-            'dateStr': null,
-            'favBool': null,
+            'caseDetail'  : null,
+            'dateStr'     : null,
+            'favBool'     : null,
+            'caseId'      : null,
+            'msgId'       : null,
+            'config'      : null,
+            'userToken'   : null,
+            'channelList' : [],
         }
     },
     created(){
-        this.userToken = window.localStorage.getItem('token');
+        this.caseId     = this.$route.query.msg;
+        this.userToken  = window.localStorage.getItem('token');
+        this.config     = { headers: { Authorization: `Bearer ${this.userToken}` } };
 
-        const detailAPI  = 'http://kolperation.rocket-coding.com/api/GetSponsoredContent/1';
-        const config   = { headers: { Authorization: `Bearer ${this.userToken}` } };
+        const detailAPI = `http://kolperation.rocket-coding.com/api/GetSponsoredContent/${this.caseId}`;
+        const platAPI   = 'http://kolperation.rocket-coding.com/api/TagChannels';
 
         this.$http
-          .get(detailAPI,config)
+          .get(detailAPI,this.config)
           .then( res => {
-              console.log(res.data);
-              this.caseDetail = res.data;
-              this.dateStr = this.caseDetail.EndTime.slice(0,10).replace(/-/g,".");
-              this.favBool = this.caseDetail.Favorite;
+              this.caseDetail  = res.data;
+              this.dateStr     = this.caseDetail.EndTime.slice(0,10).replace(/-/g,".");
+              this.favBool     = this.caseDetail.Favorite;
+              this.channelList = this.caseDetail.Channels;
 
+              console.log(res.data);
           })
           .catch( err => {
               console.error(err);
+          });
+
+        this.$http
+          .get(platAPI,this.config)
+          .then( () => {
+            //   console.log(res.data);
           })
+          .catch( err => {
+              console.error(err);
+          });
+
     }
 
 }

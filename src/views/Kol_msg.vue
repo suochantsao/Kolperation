@@ -32,8 +32,6 @@ export default {
         const msgAPI   = 'http://kolperation.rocket-coding.com/api/GetMessageHistories';
         const config   = { headers: { Authorization: `Bearer ${this.userToken}` } };
 
-        console.log(this.userToken);
-        
         this.$http
           .get(msgAPI,config)
           .then( res => {

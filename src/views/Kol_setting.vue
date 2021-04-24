@@ -12,9 +12,12 @@
         </ul>
         <div class="mesArea alertArea userInfoArea">
             <ul class="picBlock">
-                <img width="90%" src="https://blush.design/api/download?shareUri=lWYd9h26cKmtH3pi&c=Hair_0%7E9b5120_Skin_0%7Ef6cbc3&w=500&h=500&fm=png" alt="" srcset="">
+                <img width="70%" :src="infoData.KOLavatar" alt="" srcset="">
                 <li>
-                    <span class="uploadBtn">上傳圖片</span>
+                    <span 
+                      class="uploadBtn"
+                      @click="uploadPic"
+                    >上傳圖片</span>
                     <span class="removeBtn">移除圖片</span>
                 </li>
                 <span class="createDate">加入日期：2021.04.21</span>
@@ -123,15 +126,16 @@
 
 <script>
 export default {
+    inject:['reload'],
     name:'kolSetting',
     methods:{
-
         delAccount(){
             console.log('del Btn');
 
             this.$swal({
-                title: '請問確認要刪除此帳號嗎?',
+                title: '確認要刪除此帳號嗎?',
                 showDenyButton: true,
+                icon: 'warning',
                 confirmButtonText: `取消`,
                 denyButtonText: `確認刪除`,
                 })
@@ -148,37 +152,61 @@ export default {
                             this.$router.push({ path: `/`})
                         }
                         ,1500);
-                        this.delApi();
+
+                        const delUserAPI = `http://kolperation.rocket-coding.com/api/DeleteKOLAccount/${this.kolUserId}`
+
+                        this.$http
+                        .delete(delUserAPI,this.config)
+                        .then( res => {
+                            console.log(res);
+                            console.log("刪除帳號成功");
+                        })
+                        .catch( err => {
+                            console.error(err);
+                        });
 
                     }
             });
 
         },
         resetCode(){
-            console.log('Reset Code');
-        },
-        delApi(){
-            const delUserAPI = `http://kolperation.rocket-coding.com/api/DeleteKOLAccount/${this.kolUserId}`
 
-            this.$http
-              .delete(delUserAPI,this.config)
-              .then( res => {
-                  console.log(res);
-                  console.log("刪除帳號成功");
-              })
-              .catch( err => {
-                  console.error(err);
-              });
-
-        },
-        successAlert(str){
             this.$swal({
-                position: 'top-end',
-                icon: 'success',
-                title: str,
-                showConfirmButton: false,
-                timer: 1500
+                title: '請輸入您的新密碼',
+                input: 'password',
+                inputLabel: ' ',
+                inputPlaceholder: '新密碼輸入',
+                inputAttributes: {
+                    maxlength: 50,
+                    autocapitalize: 'off',
+                    autocorrect: 'off'
+                }
             })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    console.log(result.value);
+                    
+                    let newCode = {
+                        "UserId": this.kolUserId,
+                        // "OldPassword": "lol",
+                        "NewPassword": result.value,
+                        // "NewPasswordConfirmation": "lol"
+                    }
+                    console.log(newCode);
+                    
+                    const setCodeAPI = `http://kolperation.rocket-coding.com/api/PutKOLPass/${this.kolUserId}`
+            
+                    this.$http
+                      .put(setCodeAPI,newCode,this.config)
+                      .then( res => {
+                          console.log(res);
+                          console.log("修改密碼成功");
+                          this.successAlert('修改密碼成功')
+                      })
+                      .catch( err => {
+                          console.error(err);
+                      })
+            }})
         },
         confirmChange(){
             
@@ -207,13 +235,53 @@ export default {
               .then( res => {
                   console.log(res);
                   console.log("修改成功");
+                  this.reload();
                   this.successAlert('會員資料修改成功')
-
+                    
               })
               .catch( err => {
                   console.error(err);
               })
-        }
+        },
+        uploadPic(){
+            console.log('上傳圖片測試');
+
+            this.$swal({
+                title: '請選擇您要上傳的圖片',
+                input: 'file',
+                inputAttributes: {
+                    'accept': 'image/*',
+                    'aria-label': 'Upload your profile picture'
+                }
+            })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    console.log(result.value);
+
+                    const uploadAPI = `http://kolperation.rocket-coding.com/api/UploadFile`;
+
+                    this.$http
+                    .post(uploadAPI,result.value,this.config)
+                    .then( res => {
+                        console.log('照片上傳成功');
+                        console.log(res);
+                        this.successAlert('個人頭像更新成功')
+                    })
+                    .catch( err => {
+                        console.error(err);
+                    });
+                }
+            })
+        },
+        successAlert(str){
+            this.$swal({
+                position: 'top-end',
+                icon: 'success',
+                title: str,
+                showConfirmButton: false,
+                timer: 1800
+            })
+        },
     },
     data(){
         return{

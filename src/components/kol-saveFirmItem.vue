@@ -18,6 +18,7 @@
             <btn-add-fav
                 :contentId = "caseId"
                 :definedId = "definedStr"
+                :boolStr   = true
             >
             </btn-add-fav>
             

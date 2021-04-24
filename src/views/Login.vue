@@ -52,13 +52,14 @@
                         >
                     </li>
                 </ul>
-                <router-link :to="{ name: 'SignUp_loader', query: { loadPath: 'Kolplat/msg'}}">
+
+                <!-- <router-link :to="{ name: 'SignUp_loader', query: { loadPath: 'Kolplat/msg'}}"> -->
                 <span 
                   class="loginBtn"
                   @click="getUsersInfo()"
                 >
                 登入 Sign In</span>
-                </router-link>
+                <!-- </router-link> -->
 
                 <span class="loginDescrip">忘記密碼了嗎？</span>
                 <span 
@@ -96,9 +97,9 @@ export default {
     data(){
         return{
             'userAccount': null,
-            'userCode': null,
-            'userToken': null,
-            'userName': null,
+            'userCode'   : null,
+            'userToken'  : null,
+            'userName'   : null,
         }
     },
     methods:{
@@ -119,13 +120,17 @@ export default {
                 console.log('LOGIN SUCCEED');
                 console.log(res);
                 this.userToken = res.data.Token;
-                //   console.log(this.userToken);
 
                 localStorage.setItem('token', res.data.Token)
+                this.$router.push({ path: `/loader?loadPath=Kolplat/msg`})
+
 
             })
               .catch( err => {
                 console.error(err);
+                this.wrongAlert();
+                this.userAccount = null;
+                this.userCode    = null;
             })
 
         },
@@ -133,10 +138,12 @@ export default {
             const forgotAPI = 'http://kolperation.rocket-coding.com/SendEmail';
             
             this.$swal({
-                title: '請輸入您的電子郵件信箱',
-                input: 'text',
+                title: '請輸入電子郵件信箱',
+                input: 'email',
+                inputLabel: '我們將會給您新的密碼登入',
+                inputPlaceholder: '您註冊的電子郵件信箱',
                 confirmButtonText: '確認信寄出',
-                showCancelButton: false,
+                showCancelButton: true,
                 showLoaderOnConfirm: true,
                 preConfirm: (login) => {
 
@@ -159,8 +166,9 @@ export default {
                     if (result.isConfirmed) {
                         this.successAlert();
                     }
-                }
-            )},
+                })
+            
+        },
 
         successAlert(){
             this.$swal({
@@ -169,6 +177,13 @@ export default {
                 title: '寄件成功 請至信箱領取暫時密碼',
                 showConfirmButton: false,
                 timer: 2500
+            })
+        },
+        wrongAlert(){
+            this.$swal({
+                icon: 'error',
+                title: '登入失敗',
+                text: '您的帳號或密碼輸入錯誤',
             })
         }
     }

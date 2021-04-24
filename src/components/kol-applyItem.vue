@@ -8,7 +8,8 @@
             <li class="firmName statusStr">目前狀態：等候回覆中</li>
 
         </ul>
-        <router-link to="/kolplat/sucessDetail">
+
+        <router-link :to="{ name: 'Kol_sucessDetail', query: { msg: this.caseId }}">
         <li class="btn">
             <fa-icon icon="list-ul" class="icon" />
             <span>詳細資訊</span>
@@ -23,5 +24,14 @@ export default {
     props:[
         'caseItem'
     ],
+    data(){
+        return{
+            'caseId': null,
+        }
+    },
+    created(){
+        console.log(this.caseItem);
+        this.caseId = this.caseItem.SponsoredContentId;
+    }
 }
 </script>

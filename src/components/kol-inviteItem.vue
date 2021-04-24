@@ -1,11 +1,13 @@
 <template>
-    <router-link to="/kolplat/consultDetail">
+    <router-link 
+      :to="{ name: 'Kol_sucessDetail', query: { msg: this.confirmId }}"
+    >
     <ul class="caseItem">
         <img width="18%" src="https://blush.design/api/download?shareUri=ohIQ2_4rspulZPQE&bg=f5f5f5&w=800&h=800&fm=png" alt="">
         <ul class="strBlock">
 
             <li class="itemTitle">{{caseItem.CaseTitle}}</li>
-            <li class="firmName">{{caseItem.CaseDetail}}</li>
+            <li class="firmName">{{caseItem.CompanyName}}</li>
 
             <ul class="btnBlock">
                 <btn-confirm
@@ -44,6 +46,7 @@ export default {
     created(){
         this.confirmId = this.caseItem.SponsoredContentId;
         this.delId     = this.caseItem.CoopId;
+
     }
 }
 </script>

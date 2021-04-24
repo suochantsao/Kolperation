@@ -13,14 +13,18 @@
             <btn-add-fav
               :contentId = "caseId"
               :definedId = "definedStr"
+              :boolStr   = true
+
             ></btn-add-fav>
 
-            <a href="#">
+            <router-link
+              :to="{ name: 'Kol_consultDetail', query: { msg: this.caseId }}"
+            >
             <li class="btn">
                 <fa-icon icon="list-ul" class="icon" />
                 <span>詳細資訊</span>
             </li>    
-            </a>
+            </router-link>
             
         </ul>
     </ul>

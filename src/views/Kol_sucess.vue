@@ -39,7 +39,7 @@ export default {
           .get( successAPI, config)
           .then( res => {
               this.successList = res.data
-              console.log(this.successList);
+            //   console.log(this.successList);
           })
           .catch( err => {
                   console.error(err);

@@ -1,6 +1,6 @@
 <template>
   
-  <router-view />
+  <router-view v-if="isRouterAlive" />
   
 
 </template>
@@ -13,12 +13,24 @@ export default {
   data(){
     return{
       'token': null,
+      'isRouterAlive': true,
     }
+  },
+  provide(){
+    return{
+      reload: this.reload
+    };
   },
   methods:{
     test(){
       console.log(login.token);
       console.log(this.token);
+    },
+    reload(){
+      this.isRouterAlive = false;
+      this.$nextTick( () => {
+        this.isRouterAlive = true;
+      })
     }
   }
   

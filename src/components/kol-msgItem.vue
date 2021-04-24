@@ -8,7 +8,9 @@
             <li class="firmName firmMsg"></li>
 
         </ul>
-        <router-link to="/kolplat/msgDialog">
+        <router-link 
+          :to="{ name: 'Kol_msgDialog', query: { msg: this.msgId }}"
+        >
         <li class="btn">
             <fa-icon icon="comment-dots" class="icon" />
             <span>回覆</span>
@@ -22,6 +24,12 @@ export default {
     name: 'msgItem',
     props:[
         'msgInfo',
-    ]
+    ],
+    data(){
+        return{
+            msgId : this.msgInfo.MsgId,
+        }
+    }
+
 }
 </script>

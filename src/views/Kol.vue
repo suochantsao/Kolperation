@@ -32,6 +32,8 @@ export default {
     kolHeader,
     KolNavbar,
   },
+  inject:['reload']
+  ,
   created(){
       this.userToken = window.localStorage.getItem('token');
 
