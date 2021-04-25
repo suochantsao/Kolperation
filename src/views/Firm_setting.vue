@@ -1,5 +1,5 @@
 <template>
-    <div class="kolMesBlock kolSetBlock">
+    <div class="kolMesBlock kolSetBlock firmSetBlock">
         <ul class="setTitle">
             <h1>帳號設定</h1>
             <li 
@@ -12,7 +12,7 @@
         </ul>
         <div class="mesArea alertArea userInfoArea">
             <ul class="picBlock">
-                <img width="70%" :src="infoData.KOLavatar" alt="" srcset="">
+                <img width="70%" :src="infoData.CompanyLogo" alt="" srcset="">
                 <li>
                     <span 
                       class="uploadBtn"
@@ -20,7 +20,6 @@
                     >上傳圖片</span>
                     <span class="removeBtn">移除圖片</span>
                 </li>
-                <span class="createDate">加入日期：{{dateStr}}</span>
 
             </ul>
             <ul class="inputBlock">
@@ -37,7 +36,7 @@
                     <input 
                     type="text" 
                     placeholder="請輸入新的使用者名稱"
-                    v-model="infoData.Username"
+                    v-model="infoData.Company"
                     >
                 </li>
                 <li class="infoItem">
@@ -56,6 +55,23 @@
                     v-model="infoData.Phone"
                     >
                 </li>
+
+                <li class="infoItem">
+                    <fa-icon icon="user-plus" class="icon" />
+                    <input 
+                    type="text" 
+                    placeholder="接洽人"
+                    v-model="infoData.PersonInCharge"
+                    >
+                </li>
+                <li class="infoItem">
+                    <fa-icon icon="cash-register" class="icon" />
+                    <input 
+                        type="text" 
+                        placeholder="公司統一編號"
+                        v-model="infoData.TaxIdNumber"
+                    >
+                </li>
                 <li 
                   class="infoItem socialMediaItem"
                   :class="fbBool === true ? 'usingMediaItem' : '' "
@@ -68,7 +84,7 @@
                     <fa-icon icon="users" class="icon urlBlock" />
                     <input 
                     type="text" 
-                    placeholder="Facebook 粉絲人數"
+                    placeholder="Facebook 帳號"
                     >
                 </li>
                 <li 
@@ -83,7 +99,7 @@
                     <fa-icon icon="users" class="icon urlBlock" />
                     <input 
                     type="text" 
-                    placeholder="Instagram 粉絲人數"
+                    placeholder="Instagram 帳號"
                     >
                 </li>
                 <li 
@@ -98,15 +114,7 @@
                     <fa-icon icon="users" class="icon urlBlock" />
                     <input 
                     type="text" 
-                    placeholder="YouTube 粉絲人數"
-                    >
-                </li>
-                <li class="infoItem">
-                    <fa-icon icon="user-plus" class="icon" />
-                    <input 
-                    type="text" 
-                    placeholder="個人簡介"
-                    v-model="infoData.KOLProfile"
+                    placeholder="YouTube 帳號"
                     >
                 </li>
 
@@ -118,13 +126,7 @@
                         <fa-icon icon="user-lock" class="icon" />
                         <span>修改密碼</span>
                     </li> 
-                    <li 
-                      class="btn delBtn"
-                      @click="delAccount"
-                    >
-                        <fa-icon icon="exclamation-circle" class="icon" />
-                        <span>刪除帳號</span>
-                    </li> 
+                    
                 </ul>
             </ul>
 
@@ -138,46 +140,6 @@ export default {
     inject:['reload'],
     name:'kolSetting',
     methods:{
-        delAccount(){
-            console.log('del Btn');
-
-            this.$swal({
-                title: '確認要刪除此帳號嗎?',
-                showDenyButton: true,
-                icon: 'warning',
-                confirmButtonText: `取消`,
-                denyButtonText: `確認刪除`,
-                })
-                .then((result) => {
-                    if (result.isConfirmed) {
-                        console.log('取消刪除');
-                    } 
-                    else if (result.isDenied) {
-                        this.successAlert('帳號刪除成功');
-                        localStorage.clear();
-                        this.$router.push({ path: `/${this.pathStr}`})
-                        setTimeout(()=>{
-                            this.pathStr = this.$route.query.loadPath
-                            this.$router.push({ path: `/`})
-                        }
-                        ,1500);
-
-                        const delUserAPI = `http://kolperation.rocket-coding.com/api/DeleteKOLAccount/${this.kolUserId}`
-
-                        this.$http
-                        .delete(delUserAPI,this.config)
-                        .then( res => {
-                            console.log(res);
-                            console.log("刪除帳號成功");
-                        })
-                        .catch( err => {
-                            console.error(err);
-                        });
-
-                    }
-            });
-
-        },
         resetCode(){
 
             this.$swal({
@@ -196,14 +158,14 @@ export default {
                     console.log(result.value);
                     
                     let newCode = {
-                        "UserId": this.kolUserId,
-                        // "OldPassword": "lol",
+                        "UserId": this.firmUserId,
                         "NewPassword": result.value,
+                        // "OldPassword": "lol",
                         // "NewPasswordConfirmation": "lol"
                     }
                     console.log(newCode);
                     
-                    const setCodeAPI = `http://kolperation.rocket-coding.com/api/PutKOLPass/${this.kolUserId}`
+                    const setCodeAPI = `http://kolperation.rocket-coding.com/api/PutCompanyPass/${this.firmUserId}`
             
                     this.$http
                       .put(setCodeAPI,newCode,this.config)
@@ -219,23 +181,21 @@ export default {
         },
         confirmChange(){
             
-            const changeAPI = `http://kolperation.rocket-coding.com/api/PutKOL/${this.kolUserId}`
+            const changeAPI = `http://kolperation.rocket-coding.com/api/PutCompany/${this.firmUserId}`
 
             let infoItem = {
-                "KolId": this.kolUserId,
+                
+                "ComId":this.firmUserId,
+                "Company": this.infoData.Company,
+                "CompanyProfile": null,
                 "Email": this.infoData.Email,
                 "Phone": this.infoData.Phone,
-                "Username": this.infoData.Username,
-                "KOLProfile": this.infoData.KOLProfile,
-                "Avatar": null,
-                "SectorTags": "01,05",
-                "ChannelDetails": [
-                    {
-                        "ChannelId": 1,
-                        "Url": null,
-                        "FansNumber":200000
-                    }
-                ]
+                "PersonInCharge": this.infoData.PersonInCharge,
+                // "ChannelTags":"03,05",
+                // "SectorTags": "06,07,08",
+                // "Website":"xxxx"
+                // "CompanyLogo": "fff.png",
+                // "Address": "",
             }
             console.log(infoItem);
 
@@ -295,10 +255,9 @@ export default {
     data(){
         return{
             'infoData' : null,
-            'kolUserId': null,
+            'firmUserId': null,
             'userToken': null,
             'config'   : null,
-            'dateStr'  : null,
             'fbBool'   : false,
             'igBool'   : false,
             'ytBool'   : false,
@@ -308,20 +267,20 @@ export default {
         this.userToken = window.localStorage.getItem('token');
         this.config    = { headers: { Authorization: `Bearer ${this.userToken}` } };
 
-        const userAPI  = 'http://kolperation.rocket-coding.com/api/GetKOLforEditing'
+        const firmAPI  = 'http://kolperation.rocket-coding.com/api/GetCompanyforEditing'
 
         this.$http
-          .get(userAPI,this.config)
+          .get(firmAPI,this.config)
           .then( res => {
             console.log('USER INFO GET SUCCEED');
-            this.infoData  = res.data[0];
-            this.kolUserId = this.infoData.KolId;
-            this.dateStr   = this.infoData.JoinedDate.slice(0,10).replace(/-/g,".");
-            this.fbBool    = this.infoData.Channels[0].booling;
-            this.igBool    = this.infoData.Channels[1].booling;
-            this.ytBool    = this.infoData.Channels[2].booling;
+            console.log(res);
+            this.infoData   = res.data;
+            this.firmUserId = this.infoData.ComId;
+            this.fbBool     = this.infoData.Channels[0].booling;
+            this.igBool     = this.infoData.Channels[1].booling;
+            this.ytBool     = this.infoData.Channels[2].booling;
 
-            console.log(this.infoData);
+            console.log(this.firmUserId);
           })
           .catch( err => {
             console.error(err);

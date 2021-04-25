@@ -1,5 +1,5 @@
 <template>
-    <li class="favBtnBlock">
+    <li class="favBtnBlock kolFavBlock">
         <fa-icon 
             :icon="['far', 'heart']" 
             class="favIcon likeIcon" 
@@ -31,8 +31,11 @@ export default {
             if(this.definedId === "company"){
                 addAPI = `http://kolperation.rocket-coding.com/api/AddThisCompanyToMyFavorites/${this.contentId}`
             }
-            else{
+            else if (this.defineId === "case"){
                 addAPI = `http://kolperation.rocket-coding.com/api/AddThisSCToMyFavorites/${this.contentId}`
+            }
+            else if (this.definedId === "kol"){
+                addAPI = `http://kolperation.rocket-coding.com/api/AddThisKOLToMyFavorites/${this.contentId}`
             }
 
             this.$http
@@ -52,12 +55,15 @@ export default {
             this.commonFun();
             let removeAPI = "";
 
-            if(this.definedId === "company"){
+            if( this.definedId === "company" ){
                 removeAPI = `http://kolperation.rocket-coding.com/api/RemoveThisCompanyFromMyFavorites/${this.contentId}`
             }
-            else{
+            else if ( this.definedId === "case" ){
                 removeAPI = `http://kolperation.rocket-coding.com/api/RemoveThisSCFromMyFavorites/${this.contentId}`
             }
+            else ( this.definedId === "kol" )
+                removeAPI = `http://kolperation.rocket-coding.com/api/RemoveThisKOLFromMyFavorites/${this.contentId}`
+            
 
             this.$http
               .delete(removeAPI,this.config)

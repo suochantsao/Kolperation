@@ -1,0 +1,164 @@
+.firmHeader{
+    .tabBlock{
+        .selectTab{
+            color: $brand_blue;
+            border-bottom: 3px solid $brand_blue;
+        }
+        .tab:hover{
+            color: $brand_blue;
+            border-bottom: 3px solid $brand_blue;
+            transition:all .2s ease-in-out;
+
+        }
+    }
+}
+.firmPlat{
+    .firmContent{
+        .navbar{
+            background-color: $brand_blue;
+            .hamIcon{
+                color: $brand_blue;
+            }
+            .countBlock{
+                .countItem{
+                    box-shadow: none;
+
+                }    
+            }
+            .navBtn{
+                color: $brand_blue;
+                font-family: NotoSansCJKtc-Medium;
+                border: 5px solid $brand_blue;
+            }
+            .logoutBtn{
+                margin: 20% auto;
+                color: white;
+                background-color: $brand_lightBlue;
+            }
+            .navBtn:hover{
+                // background-color: $brand_lightBlue;
+                border: 5px solid $brand_lightBlue;
+                font-weight: bolder;
+                transition:all .1s ease-in-out;
+                box-shadow: none;
+
+            }
+            .logoutBtn:hover{
+                color: $brand_blue;
+                background-color: white;
+                transition:all .3s ease-in-out;
+                box-shadow: none;
+
+            }
+        }
+        
+    }
+}
+.firmMsgBlock{
+    .alertArea{
+        .caseItem{
+            border: none;
+            border: 3px solid $brand_blue;
+            a{
+                .btn{
+                    background-color: $brand_blue;
+                }
+            }
+        }
+        
+    }
+    .sucessArea{
+        .caseItem{
+            .sucessBtnBlock{
+                .likeIcon{
+                    color: white;
+                }
+            }
+            .kolFavBlock{
+                .likeIcon{
+                    color: $pink_bgc;
+                }
+            }
+        }
+    }
+    .applyArea{
+        height: 80%;
+        .caseItem{
+            .strBlock{
+                .statusStr{
+                    width: 70%;
+                    margin-top: 5%;
+                    padding: 4% 3%;
+                    text-align: center;
+                    color: white;
+                    font-size: 1rem;
+                    letter-spacing: 0.1rem;
+                    background-color: $brand_lightBlue;
+                    box-shadow: $shadow_color 6px 6px 0px 0px;
+                }
+                .itemTitle{
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}
+.firmDiaBlock{
+    .userInfo{
+        .btnBlock{
+            .detailBtn{
+                border: 2px solid $brand_blue;
+                a{
+                    color:$brand_blue;
+                }
+                .icon{
+                    color: $brand_blue;
+                }
+            }
+        }
+    }
+    .dialogDetail{
+        .dialogStyle{
+            p{
+                border: 2px solid $brand_blue;
+            }
+        }
+        .myReply{
+            p{
+                border: 2px solid $brand_blue;
+                background-color: $brand_blue;
+            }
+        }
+        .btnBlock{
+            input{
+                border: 2px solid $brand_blue;
+            }
+        }
+    }
+}
+.firmSetBlock{
+    .userInfoArea{
+        .picBlock{
+            img{
+                border: 4px solid $brand_blue;
+            }
+            li{
+                span{
+                    background-color: $brand_blue;
+                }
+                .uploadBtn:hover{
+                    background-color: $brand_lightBlue;
+                }
+            }
+        }
+        .inputBlock{
+            background-color: $brand_blue;
+            .btnBlock{
+                margin-top: 18%;
+                .btn{
+                    border: 3px solid $brand_lightBlue;
+                }
+            }
+        }
+    }
+}

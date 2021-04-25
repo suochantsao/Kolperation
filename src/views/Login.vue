@@ -53,13 +53,11 @@
                     </li>
                 </ul>
 
-                <!-- <router-link :to="{ name: 'SignUp_loader', query: { loadPath: 'Kolplat/msg'}}"> -->
                 <span 
                   class="loginBtn"
                   @click="getUsersInfo()"
                 >
                 登入 Sign In</span>
-                <!-- </router-link> -->
 
                 <span class="loginDescrip">忘記密碼了嗎？</span>
                 <span 
@@ -100,6 +98,7 @@ export default {
             'userCode'   : null,
             'userToken'  : null,
             'userName'   : null,
+            'userId'     : null,
         }
     },
     methods:{
@@ -118,11 +117,19 @@ export default {
             })
               .then( res => {
                 console.log('LOGIN SUCCEED');
-                console.log(res);
-                this.userToken = res.data.Token;
+                console.log(res.data);
 
+                this.userId    = res.data.Character;
+                this.userToken = res.data.Token;
+                console.log(this.userId);
                 localStorage.setItem('token', res.data.Token)
-                this.$router.push({ path: `/loader?loadPath=Kolplat/msg`})
+
+                if( this.userId === 0 ){
+                    this.$router.push({ path: `/loader?loadPath=kolplat/msg`})
+                }
+                else if ( this.userId === 1 ){
+                    this.$router.push({ path: `/loader?loadPath=firmplat/msg`})
+                }
 
 
             })

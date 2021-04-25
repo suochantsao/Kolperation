@@ -1,15 +1,15 @@
 <template>
-    <div class="kolMesBlock">
+    <div class="kolMesBlock firmMsgBlock">
         <h2 class="sucessH2">洽談成功案件總覽</h2>
         <span class="sucessDescript">僅顯示近期內的成功洽談案件</span>
         <div class="mesArea alertArea sucessArea scrollStyle scrollSpecial">
          
-            <kol-success-item
+            <firm-success-item
               :caseItem="item"
               :key="item.SponsoredContentId"
               v-for="item in successList" 
             >
-            </kol-success-item>
+            </firm-success-item>
          
         </div>
     </div>
@@ -18,11 +18,11 @@
 
 <script>
 // Components
-import KolSuccessItem from '../components/kol-successItem.vue'
+import FirmSuccessItem from '../components/firm-successItem.vue';
 
 export default {
     components:{
-        KolSuccessItem
+        FirmSuccessItem
     },
     data(){
         return{
@@ -32,14 +32,14 @@ export default {
     },
     created(){
         this.userToken = window.localStorage.getItem('token');
-        const successAPI   = 'http://kolperation.rocket-coding.com/api/GetKOLsuccessfulCasesTop10';
+        const successAPI   = 'http://kolperation.rocket-coding.com/api/GetCompanySuccessfulCasesTop10';
         const config   = { headers: { Authorization: `Bearer ${this.userToken}` } };
 
         this.$http
           .get( successAPI, config)
           .then( res => {
               this.successList = res.data
-            //   console.log(this.successList);
+              console.log(this.successList);
           })
           .catch( err => {
                   console.error(err);
