@@ -27,11 +27,17 @@ import Kol_consult       from '../views/Kol_consult.vue'
 import Kol_consultDetail from '../views/Kol_consultDetail.vue'
 import Kol_sucess        from '../views/Kol_sucess.vue'
 import Kol_sucessDetail  from '../views/Kol_sucessDetail.vue'
-import Kol_search        from '../views/Kol_search.vue'
 import Kol_saveFirm      from '../views/Kol_saveFirm.vue'
 import Kol_saveCase      from '../views/Kol_saveCase.vue'
 import Kol_passCase      from '../views/Kol_passCase.vue'
 import Kol_setting       from '../views/Kol_setting.vue'
+import Kol_firmDetail    from '../views/Kol_firmDetail.vue'
+
+// KOL Search
+import Kol_searchPlat    from '../views/Kol_searchPlat.vue'
+import Kol_searchSector  from '../views/Kol_searchSector.vue'
+import Kol_searchLoad    from '../views/Kol_searchLoad.vue' 
+import Kol_searchResult  from '../views/Kol_searchResult.vue'
 
 // * Router
 Vue.use(VueRouter)
@@ -132,11 +138,6 @@ const routes = [
                 component: Kol_sucessDetail
             },
             {
-                path: 'search',
-                name: 'Kol_search',
-                component: Kol_search
-            },
-            {
                 path: 'savefirm',
                 name: 'Kol_saveFirm',
                 component: Kol_saveFirm
@@ -154,8 +155,33 @@ const routes = [
             {
                 path: 'setting',
                 name: 'Kol_setting',
-                component: Kol_setting,
+                component: Kol_setting
                 
+            },
+            {
+                path: 'firmdetail',
+                name: 'Kol_firmDetail',
+                component: Kol_firmDetail
+            },
+            {
+                path: 'searchplat',
+                name: 'Kol_searchPlat',
+                component: Kol_searchPlat,
+            },
+            {
+                path: 'searchsector',
+                name: 'Kol_searchSector',
+                component: Kol_searchSector,
+            },
+            {
+                path: 'searchloader',
+                name: 'Kol_searchLoader',
+                component: Kol_searchLoad,
+            },
+            {
+                path: 'searchresult',
+                name: 'Kol_searchResult',
+                component: Kol_searchResult
             }
             
         ]

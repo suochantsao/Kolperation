@@ -4,11 +4,12 @@
         <ul class="strBlock">
 
             <li class="itemTitle">{{caseItem.Company}}</li>
-            <li class="firmName firmLable">
-                <fa-icon icon="gamepad" class="icon lableIcon" />
-                <fa-icon icon="building" class="icon lableIcon" />
-                <fa-icon icon="video" class="icon lableIcon" />
-            </li>
+            
+            <kol-sector-item
+                :sectors = "sectorList"
+            >
+            </kol-sector-item>
+            
             <li class="firmMsg sucessDate corpNum">過往合作次數： {{caseItem.CoopTimes}} 次</li>
 
         </ul>
@@ -22,12 +23,14 @@
             >
             </btn-add-fav>
             
-            <a href="#">
+            <router-link
+              :to="{ name: 'Kol_firmDetail', query: { firm: this.firmId, company: this.caseId }}"
+            >
             <li class="btn">
                 <fa-icon icon="list-ul" class="icon" />
                 <span>公司詳情</span>
             </li>    
-            </a>
+            </router-link>
             
         </ul>
     </ul>
@@ -36,6 +39,7 @@
 <script>
 // Component
 import btnAddFav from './btn-addFav.vue'
+import KolSectorItem from './kol-sectorItem.vue';
 
 export default {
     name: 'saveFirmItem',
@@ -43,17 +47,24 @@ export default {
         'caseItem'
     ],
     components: { 
-        btnAddFav 
+        btnAddFav,
+        KolSectorItem 
     },
     data(){
         return{
-            'caseId' : null,
             'definedStr' : 'company',
+            'caseId'     : null,
+            'firmId'     : null,
+            'sectorList' : [],
 
         }
     },
     created(){
-        this.caseId  = this.caseItem.CompanyId;
+        this.caseId     = this.caseItem.CompanyId;
+        this.sectorList = this.caseItem.Sectors;
+        this.firmId     = this.caseItem.Guid
+
+        // console.log(this.caseId);
     }
     
 

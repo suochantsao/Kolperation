@@ -66,7 +66,8 @@
             margin: 0 2%;
             padding: 5% 0 4% 6%;
             border-radius: 5%;
-            border: 1px solid $nav_bgc;
+            border: 3px solid $nav_bgc;
+            cursor: pointer;
             
             span{
                 font-size: 0.5rem;
@@ -146,7 +147,8 @@
         background-color: $brand_blue;
 
         .selectItem{
-            border: 2px solid $brand_lightBlue;
+            border: 3px solid $brand_lightBlue;
+            cursor: pointer;
         }
         .signUpBtn{
             background-color: $brand_lightBlue;

@@ -62,15 +62,29 @@
             <span class="socialDescript">使用中的平台</span>
 
             <ul class="socialBlock">
-                <li class="socialItem selectItem">
+                <li 
+                  class="socialItem"
+                  :class="fbBool === true ? 'selectItem' : '' "
+                  @click="selectPlat('fb')"
+                >
                     <img width="70%" src="../assets/img/facebook.svg" alt="">
                     <span>Facebook</span>
                 </li>
-                <li class="socialItem">
+
+                <li 
+                  class="socialItem"
+                  :class="igBool === true ? 'selectItem' : '' "
+                  @click="selectPlat('ig')"
+                >
                     <img width="70%" src="../assets/img/instagram.svg" alt="">
                     <span>instagram</span>
                 </li>
-                <li class="socialItem">
+
+                <li 
+                  class="socialItem"
+                  :class="ytBool === true ? 'selectItem' : '' "
+                  @click="selectPlat('yt')"
+                >
                     <img width="70%" src="../assets/img/youtube.svg" alt="">
                     <span>Youtuber</span>
                 </li>
@@ -106,13 +120,16 @@ export default {
     data(){
         return{
             'userAccount': null,
-            'firmName': null,
-            'psw': null,
-            'checkPsw': null,
-            'email': null,
-            'phoneNum': null,
-            'firmId': null,
-            'path': 'login'
+            'firmName'   : null,
+            'psw'        : null,
+            'checkPsw'   : null,
+            'email'      : null,
+            'phoneNum'   : null,
+            'firmId'     : null,
+            'fbBool'     : false,
+            'igBool'     : false,
+            'ytBool'     : false,
+            'path'       : 'login'
         }
     },
     methods:{
@@ -133,7 +150,7 @@ export default {
                 "Company": {},
                 "Email": {},
                 "Cellphone": {},
-                // "ChannelTags":,  
+                // "ChannelTags": ,  
             }
 
             signUpItem.AccountId    = this.userAccount;
@@ -152,6 +169,18 @@ export default {
               .catch( err => {
                   console.error(err);
               })
+
+        },
+        selectPlat(plat){
+            if( plat === 'fb' ){
+                this.fbBool = !this.fbBool;
+            }
+            else if ( plat === 'ig' ){
+                this.igBool = !this.igBool;
+            }
+            else if ( plat === 'yt' ){
+                this.ytBool = !this.ytBool;
+            }
 
         }
     }

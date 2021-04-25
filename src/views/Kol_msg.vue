@@ -35,12 +35,33 @@ export default {
         this.$http
           .get(msgAPI,config)
           .then( res => {
-              console.log(res);
+            //   console.log(res);
               this.msgList = res.data;
           })
           .catch( err => {
               console.error(err);
           })
+
+        this.$http
+         .get(
+             `http://kolperation.rocket-coding.com/api/TagSectors`,
+             config
+         )
+         .then( res => {
+             console.log('產業別標籤如下');
+             console.log(res);
+             
+         })
+
+        this.$http
+         .get(
+             `http://kolperation.rocket-coding.com/api/TagChannels`,
+             config
+         )
+         .then( res => {
+             console.log('平台別標籤如下');
+             console.log(res);
+         })
 
     }
 

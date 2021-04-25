@@ -56,19 +56,10 @@
                     v-model="infoData.Phone"
                     >
                 </li>
-                <li class="infoItem socialMediaItem">
-                    <fa-icon :icon="['fab', 'instagram']" class="icon" />
-                    <input 
-                    type="text" 
-                    placeholder="Instagram 帳號"
-                    >
-                    <fa-icon icon="users" class="icon urlBlock" />
-                    <input 
-                    type="text" 
-                    placeholder="Instagram 粉絲人數"
-                    >
-                </li>
-                <li class="infoItem socialMediaItem">
+                <li 
+                  class="infoItem socialMediaItem"
+                  :class="fbBool === true ? 'usingMediaItem' : '' "
+                >
                     <fa-icon :icon="['fab', 'facebook-square']" class="icon" />
                     <input 
                     type="text" 
@@ -80,7 +71,25 @@
                     placeholder="Facebook 粉絲人數"
                     >
                 </li>
-                <li class="infoItem socialMediaItem">
+                <li 
+                  class="infoItem socialMediaItem"
+                  :class="igBool === true ? 'usingMediaItem' : '' "
+                >
+                    <fa-icon :icon="['fab', 'instagram']" class="icon" />
+                    <input 
+                    type="text" 
+                    placeholder="Instagram 帳號"
+                    >
+                    <fa-icon icon="users" class="icon urlBlock" />
+                    <input 
+                    type="text" 
+                    placeholder="Instagram 粉絲人數"
+                    >
+                </li>
+                <li 
+                  class="infoItem socialMediaItem"
+                  :class="ytBool === true ? 'usingMediaItem' : '' "
+                >
                     <fa-icon :icon="['fab', 'youtube']" class="icon" />
                     <input 
                     type="text" 
@@ -289,6 +298,9 @@ export default {
             'kolUserId': null,
             'userToken': null,
             'config'   : null,
+            'fbBool'   : false,
+            'igBool'   : false,
+            'ytBool'   : false,
         }
     },
     created(){
@@ -303,8 +315,11 @@ export default {
             console.log('USER INFO GET SUCCEED');
             this.infoData  = res.data[0];
             this.kolUserId = this.infoData.KolId;
+            this.fbBool    = this.infoData.Channels[0].booling;
+            this.igBool    = this.infoData.Channels[1].booling;
+            this.ytBool    = this.infoData.Channels[2].booling;
+
             console.log(this.infoData);
-            console.log(this.kolUserId);
           })
           .catch( err => {
             console.error(err);

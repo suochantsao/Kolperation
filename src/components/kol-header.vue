@@ -39,7 +39,7 @@
                 </li>    
                 </router-link>
 
-                <router-link to="/kolplat/search">
+                <router-link to="/kolplat/searchPlat">
                 <li 
                   class="tab" 
                   :class="tabIndex === 3 ? 'selectTab' : '' "

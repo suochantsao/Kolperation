@@ -13,7 +13,7 @@
             <btn-add-fav
               :contentId = "caseId"
               :definedId = "definedStr"
-              :boolStr   = true
+              :boolStr   = "saveBool"
 
             ></btn-add-fav>
 
@@ -39,8 +39,9 @@ export default {
     ],
     data(){
         return{
-            'dateStr': null,
-            'caseId' : null,
+            'dateStr'    : null,
+            'caseId'     : null,
+            'saveBool'   : null,
             'definedStr' : 'case',
         }
     },
@@ -50,6 +51,14 @@ export default {
     created(){
         this.dateStr    = this.caseItem.EndTime.slice(0,10).replace(/-/g,".");
         this.caseId     = this.caseItem.SponsoredContentId;
+        console.log(this.caseItem.Favorite);
+
+        if ( this.caseItem.Favorite === undefined ){
+            this.saveBool = true;
+        }
+        else{
+            this.saveBool   = this.caseItem.Favorite;
+        }
     }
     
 }

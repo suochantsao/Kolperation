@@ -55,15 +55,29 @@
             <span class="socialDescript">使用中的平台</span>
 
             <ul class="socialBlock">
-                <li class="socialItem selectItem">
+                <li 
+                  class="socialItem"
+                  :class="fbBool === true ? 'selectItem' : '' "
+                  @click="selectPlat('fb')"
+                >
                     <img width="70%" src="../assets/img/facebook.svg" alt="">
                     <span>Facebook</span>
                 </li>
-                <li class="socialItem">
+
+                <li 
+                  class="socialItem"
+                  :class="igBool === true ? 'selectItem' : '' "
+                  @click="selectPlat('ig')"
+                >
                     <img width="70%" src="../assets/img/instagram.svg" alt="">
                     <span>instagram</span>
                 </li>
-                <li class="socialItem">
+
+                <li 
+                  class="socialItem"
+                  :class="ytBool === true ? 'selectItem' : '' "
+                  @click="selectPlat('yt')"
+                >
                     <img width="70%" src="../assets/img/youtube.svg" alt="">
                     <span>Youtuber</span>
                 </li>
@@ -99,14 +113,17 @@ export default {
     data(){
         return{
             'userAccount': null,
-            'userName': null,
-            'psw': null,
-            'checkPsw': null,
-            'email': null,
-            'phoneNum': null,
-            'usingPlat': null,
-            'path': 'login',
-            'token': null
+            'userName'   : null,
+            'psw'        : null,
+            'checkPsw'   : null,
+            'email'      : null,
+            'phoneNum'   : null,
+            'usingPlat'  : null,
+            'token'      : null,
+            'fbBool'     : false,
+            'igBool'     : false,
+            'ytBool'     : false,
+            'path'       : 'login',
         }
     },
     methods:{
@@ -125,7 +142,18 @@ export default {
                 "Username": {},
                 "Password": {},
                 "Email": {},
-                "Phone": {},  
+                "Phone": {}, 
+                "ChannelDetails": [
+                    {
+                        "ChannelId": '',
+                    },
+                    {
+                        "ChannelId":'',
+                    },
+                    {
+                        "ChannelId":'',
+                    }
+                ] 
             }
 
             signUpItem.AccountId = this.userAccount;
@@ -134,6 +162,17 @@ export default {
             signUpItem.Email     = this.email;
             signUpItem.Phone     = this.phoneNum;
 
+            if( this.fbBool === true ){
+                signUpItem.ChannelDetails[0].ChannelId = 1;
+            }
+            if( this.igBool === true ){
+                signUpItem.ChannelDetails[1].ChannelId = 2;
+            }
+            if( this.ytBool === true ){
+                signUpItem.ChannelDetails[2].ChannelId = 3;
+            }
+
+            console.log(signUpItem);
 
             this.$http
               .post(signUpAPI,signUpItem)
@@ -144,6 +183,18 @@ export default {
               .catch( err => {
                   console.error(err);
               })
+
+        },
+        selectPlat(plat){
+            if( plat === 'fb' ){
+                this.fbBool = !this.fbBool;
+            }
+            else if ( plat === 'ig' ){
+                this.igBool = !this.igBool;
+            }
+            else if ( plat === 'yt' ){
+                this.ytBool = !this.ytBool;
+            }
 
         }
     }
