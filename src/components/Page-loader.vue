@@ -25,6 +25,7 @@ export default {
   width: 80px;
   margin: 200px auto;
   height: 70px;
+
 }
 
 .duo {

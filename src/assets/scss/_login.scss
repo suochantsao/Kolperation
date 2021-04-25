@@ -60,7 +60,11 @@
                 line-height: 3rem;
                 border-radius: 300px;
                 // border: 1px solid pink;
-
+            }
+            .btnItem:hover{
+                color: white;
+                background-color: $brand_lightBlue;
+                transition:all .3s ease-in-out;
             }
             .kolBtn{
                 color: $brand_lightBlue;
@@ -70,6 +74,11 @@
             .businesBtn{
                 color: $brand_blue;
                 border: 2px solid $brand_blue;
+            }
+            .businesBtn:hover{
+                color: white;
+                background-color: $brand_blue;
+                transition:all .3s ease-in-out;
             }
             .icon{
                 margin-right: 6%;
@@ -95,6 +104,9 @@
             font-size: $font-m;
             margin: 5% 0 0 91%;
             // border: 1px solid pink;
+        }
+        .crossIcon:hover{
+            color: $brand_blue;
         }
         
         .inputItems{
@@ -131,15 +143,30 @@
             border-radius: 300px;
             color: white;
             background-color: $brand_blue;
+            cursor: pointer;
             // border: 1px solid pink;
+        }
+        .loginBtn:hover{
+            color: $brand_blue;
+            background-color: white;
+            font-family: NotoSansCJKtc-Medium;
+            transition:all .1s ease-in-out;
+            box-shadow: 8px 8px 25px $shadow_color;
         }
         .loginDescrip{
             display: block;
             width: 75%;
-            margin: 10% auto 8% auto;
+            margin: 13% auto 0 auto;
             text-align: center;
             font-family: NotoSansCJKtc-DemiLight;
             // border: 1px solid pink;
+        }
+        .resetBtn{
+            width: 28%;
+            margin-top: 5%;
+            color: $brand_blue;
+            background-color: white;
+            cursor: pointer;
         }
 
         .btnBlock{
@@ -175,6 +202,10 @@
                 }
                 
             }
+            .btnItems:hover{
+                box-shadow: 5px 5px 10px $shadow_color;
+
+            }
             .googleBtn{
                 background-color: $google_red;
             }
@@ -190,6 +221,8 @@
         margin: 0 auto;
         padding: 6% 0 5% 0;
         background-color: $brand_lightBlue;
+        box-shadow: 5px 5px 20px $shadow_color;
+
     }
     
 }

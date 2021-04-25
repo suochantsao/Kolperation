@@ -6,6 +6,7 @@
     a{
         text-decoration: none;
     }
+    
 
 }
 .signUpBlock{
@@ -14,6 +15,7 @@
     box-sizing: border-box;
     color: white;
     background-color: $brand_lightBlue;
+
 
     h2{
         margin-bottom: 15%;
@@ -24,6 +26,16 @@
         display: block;
         margin: 10% 0 7% 0;
         font-size: 1.2rem;
+    }
+    .wrnDescript{
+        display: block;
+        margin-bottom: 0;
+        padding: 5% 0 0 0;
+        color: $google_red;
+        font-size: $font-s;
+        text-align: center;
+        font-family: NotoSansCJKtc-DemiLight;
+
     }
     .signUpItem{
         display: flex;
@@ -54,7 +66,8 @@
             margin: 0 2%;
             padding: 5% 0 4% 6%;
             border-radius: 5%;
-            border: 1px solid $nav_bgc;
+            border: 3px solid $nav_bgc;
+            cursor: pointer;
             
             span{
                 font-size: 0.5rem;
@@ -75,6 +88,15 @@
         color: white;
         background-color: $brand_blue;
     }
+    .signUpBtn:hover{
+        color: $brand_lightBlue;
+        background-color: white;
+        transition:all .1s ease-in-out;
+        box-shadow: 5px 5px 10px $shadow_color;
+    }
+    .dpNone{
+        display: none;
+    }
     
 }
 
@@ -85,8 +107,11 @@
 
     .crossIcon{
         font-size: $font-m;
-        margin: 5% 0 0 91%;
+        margin: 11% 0 0 91%;
         color: $brand_lightBlue;
+    }
+    .crossIcon:hover{
+        color: $brand_blue;
     }
     .logoContent{
         width: 80%;
@@ -99,7 +124,7 @@
     
         .imgBlock{
             width: 100%;
-            margin: 15% auto 8% auto;
+            margin: 23% auto 15% auto;
             // border: 1px solid pink;
         }
     
@@ -122,10 +147,17 @@
         background-color: $brand_blue;
 
         .selectItem{
-            border: 2px solid $brand_lightBlue;
+            border: 3px solid $brand_lightBlue;
+            cursor: pointer;
         }
         .signUpBtn{
             background-color: $brand_lightBlue;
+        }
+        .signUpBtn:hover{
+            color: $brand_blue;
+            background-color: white;
+            transition:all .1s ease-in-out;
+            box-shadow: 5px 5px 10px $shadow_color;
         }
         .crossIcon{
             color: $brand_blue;
@@ -135,4 +167,8 @@
     .firmCross{
         color: $brand_blue;
     }
+    .firmCross:hover{
+        color: $brand_lightBlue;
+    }
 }
+    

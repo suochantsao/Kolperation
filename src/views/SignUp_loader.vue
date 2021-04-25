@@ -16,10 +16,20 @@ export default {
     components: {
         PageLoader
     },
+    data(){
+      return{
+        pathStr: '',
+      }
+    },
     created(){
-      setTimeout(()=>
-        this.$router.push({ path: "/"}),
-        2500
+      console.log(this.$route.query.loadPath)
+
+      setTimeout(()=>{
+        // console.log(this.$route);
+        this.pathStr = this.$route.query.loadPath
+        this.$router.push({ path: `/${this.pathStr}`})
+      }
+      ,2000
       );
     }
 }

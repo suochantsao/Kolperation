@@ -1,64 +1,43 @@
 // Frameworks and other tools
 import Vue from 'vue'
 import App from './App.vue'
+
+// Router
 import router from './router'
 
-// CSS
-import 'swiper/swiper-bundle.min.css'
+// Axios
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+Vue.use(VueAxios,axios)
 
-// Swiper
-import VueAwesomeSwiper from 'vue-awesome-swiper'
-import swiper, {Navigation, Pagination, Autoplay } from 'swiper'
-Vue.use(VueAwesomeSwiper);
-swiper.use([Navigation,Pagination,Autoplay]);
+// Bootstrap
+import BootstrapVue from 'bootstrap-vue'
+Vue.use(BootstrapVue)
+// import 'bootstrap/dist/css/bootstrap.css'
+// import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 // Font Awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faAddressCard,
-         faGamepad,
-         faVideo,
-         faBasketballBall,
-         faUtensils,
-         faDesktop,
-         faGlasses,
-         faBuilding,
-         faPaw,
-         faPhotoVideo,
-         faBriefcase,
-         faTimes,
-         faUser,
-         faLock,
-         faUsers,
-         faEnvelope,
-         faPhone,
-         faCashRegister,
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
 
-
-       } from '@fortawesome/free-solid-svg-icons'
-
-library.add(
-  faAddressCard, 
-  faGamepad,
-  faVideo,
-  faBasketballBall,
-  faUtensils,
-  faDesktop,
-  faGlasses,
-  faBuilding,
-  faPaw,
-  faPhotoVideo,
-  faBriefcase,
-  faTimes,
-  faUser,
-  faLock,
-  faUsers,
-  faEnvelope,
-  faPhone,
-  faCashRegister
-
-)
+library.add(fas, far, fab)
 Vue.component('fa-icon',FontAwesomeIcon)
+
+// Swiper
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import swiper, {Navigation, Pagination, Autoplay } from 'swiper'
+import 'swiper/swiper-bundle.min.css'
+
+Vue.use(VueAwesomeSwiper);
+swiper.use([Navigation,Pagination,Autoplay]);
+
+// SweetAlert
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+Vue.use(VueSweetalert2);
 
 
 Vue.config.productionTip = false

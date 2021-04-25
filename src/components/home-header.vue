@@ -1,5 +1,5 @@
 <template>
-    <header>
+    <header class="homeHeader">
         <h1>
             <img class="logo" src="../assets/img/logo.svg">
             <router-link class="txtBlue" to="/">

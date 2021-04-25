@@ -1,12 +1,71 @@
 <template>
-    <div id="app">
-        
+    <div id="app" class="kolPlat">
+        <kol-header></kol-header>
+        <div class="kolContent">
+            <kol-navbar 
+              :caseCount="casesNum" 
+              :name="userName"
+            ></kol-navbar>
+            <router-view />
+        </div>
     </div>
 </template>
 
-<style scoped>
-/* @import '.../' */
-@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+<script>
+// Components
+import kolHeader from '../components/kol-header.vue'
+import KolNavbar from '../components/kol-navbar.vue'
 
+export default {
+  data(){
+    return{
+      'casesNum': {
+        goingCases   : null,
+        successCases : null
+      },
+      'userToken': null,
+      'userName': null,
 
-</style>
+    }
+  },
+  components: { 
+    kolHeader,
+    KolNavbar,
+  },
+  inject:['reload']
+  ,
+  created(){
+      this.userToken = window.localStorage.getItem('token');
+
+      const casesAPI = 'http://kolperation.rocket-coding.com/api/GetCasesNum'
+      const userAPI  = 'http://kolperation.rocket-coding.com/api/GetKOLforEditing'
+      const config   = { headers: { Authorization: `Bearer ${this.userToken}` } };
+
+      this.$http
+        .get(casesAPI,config)
+        .then( res => {
+          console.log('CASE NUM GET SUCCEED');
+          this.casesNum.goingCases   = res.data.OnGoingCases;
+          this.casesNum.successCases = res.data.SuccessfulCases; 
+          // console.log(res);
+        })
+        .catch( err => {
+          console.error(err);
+        });
+
+      this.$http
+        .get(userAPI,config)
+        .then( res => {
+          this.userName = res.data[0].Username;
+          // console.log('USER INFO GET SUCCEED');
+          // console.log(res.data);
+          // console.log(this.userName);
+        })
+        .catch( err => {
+          console.error(err);
+        });
+    
+  }
+  
+}
+</script>

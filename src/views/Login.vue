@@ -36,19 +36,38 @@
                 <ul class="inputBlock">
                     <li class="inputItems">
                         <fa-icon icon="user" class="icon" />
-                        <input type="text" placeholder="請輸入帳號">
+                        <input 
+                          type="text" 
+                          placeholder="請輸入帳號" 
+                          v-model="userAccount"
+                        >
                     </li>
                     <li class="inputItems">
                         <fa-icon icon="lock" class="icon" />
-                        <input type="password" placeholder="請輸入密碼">
+                        <input 
+                          type="password" 
+                          placeholder="請輸入密碼" 
+                          v-model="userCode"
+                          v-on:keyup.enter="getUsersInfo()"
+                        >
                     </li>
                 </ul>
-                <router-link to="/loader">
-                <span class="loginBtn">登入 Sign In</span>
-                </router-link>
 
-                <span class="loginDescrip">透過Google或Facebook登入</span>
-                <ul class="btnBlock">
+                <!-- <router-link :to="{ name: 'SignUp_loader', query: { loadPath: 'Kolplat/msg'}}"> -->
+                <span 
+                  class="loginBtn"
+                  @click="getUsersInfo()"
+                >
+                登入 Sign In</span>
+                <!-- </router-link> -->
+
+                <span class="loginDescrip">忘記密碼了嗎？</span>
+                <span 
+                  class="loginBtn resetBtn"
+                  @click="resetCode"
+                >
+                重設密碼</span>
+                <!-- <ul class="btnBlock">
                     <a href="#">
                     <li class="btnItems googleBtn">
                         <fa-icon icon="users" class="icon" />
@@ -62,7 +81,7 @@
                         <span>Facebook登入</span>
                     </li>
                     </a>
-                </ul>
+                </ul> -->
 
             </li>
 
@@ -71,9 +90,103 @@
 </template>
 
 <script>
+// let userToken = {};
 
 export default {
     name: 'login',
+    data(){
+        return{
+            'userAccount': null,
+            'userCode'   : null,
+            'userToken'  : null,
+            'userName'   : null,
+        }
+    },
+    methods:{
+        getUsersInfo(){
+            console.log(this.userAccount);
+            console.log(this.userCode);
+
+            const userName = this.userAccount;
+            const userCode = this.userCode;
+            const loginAPI = 'http://kolperation.rocket-coding.com/api/Login';
+
+            this.$http
+              .post(loginAPI,{
+                "Account":userName,
+                "Password":userCode
+            })
+              .then( res => {
+                console.log('LOGIN SUCCEED');
+                console.log(res);
+                this.userToken = res.data.Token;
+
+                localStorage.setItem('token', res.data.Token)
+                this.$router.push({ path: `/loader?loadPath=Kolplat/msg`})
+
+
+            })
+              .catch( err => {
+                console.error(err);
+                this.wrongAlert();
+                this.userAccount = null;
+                this.userCode    = null;
+            })
+
+        },
+        resetCode(){
+            const forgotAPI = 'http://kolperation.rocket-coding.com/SendEmail';
+            
+            this.$swal({
+                title: '請輸入電子郵件信箱',
+                input: 'email',
+                inputLabel: '我們將會給您新的密碼登入',
+                inputPlaceholder: '您註冊的電子郵件信箱',
+                confirmButtonText: '確認信寄出',
+                showCancelButton: true,
+                showLoaderOnConfirm: true,
+                preConfirm: (login) => {
+
+                    console.log(login)
+                    this.$http
+                      .post(forgotAPI,{
+                        "Email": login,
+                      })
+                      .then( res => {
+                        console.log('POST API SUCCEED');
+                        console.log(res);
+                      })
+                      .catch( err => {
+                        console.error(err);
+                      })
+                },
+                allowOutsideClick: () => this.$swal.isLoading()})
+                .then((result) => {
+
+                    if (result.isConfirmed) {
+                        this.successAlert();
+                    }
+                })
+            
+        },
+
+        successAlert(){
+            this.$swal({
+                position: 'top-end',
+                icon: 'success',
+                title: '寄件成功 請至信箱領取暫時密碼',
+                showConfirmButton: false,
+                timer: 2500
+            })
+        },
+        wrongAlert(){
+            this.$swal({
+                icon: 'error',
+                title: '登入失敗',
+                text: '您的帳號或密碼輸入錯誤',
+            })
+        }
+    }
 
 }
 </script>
