@@ -12,11 +12,29 @@ export default {
     components: {
         PageLoader
     },
+    data(){
+        return{
+            'channelList': {},
+            'sectorList' : {}
+        }
+    },
     created(){
-      setTimeout(()=>
-        this.$router.push({ path: "/trial/result"}),
+        this.channelList = this.$route.query.channels;
+        this.sectorList  = this.$route.query.sectors;
+        console.log(this.channelList);
+        console.log(this.sectorList);
+
+        setTimeout(()=>
+        this.$router.push({ 
+            path: "/trial/result",
+            query: {
+                "channelTags": `${this.channelList},`,
+                "sectorTags" : `${this.sectorList}`,
+            }
+        }),
         2000
       );
+
     }
 }
 </script>

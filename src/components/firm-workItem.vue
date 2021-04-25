@@ -9,7 +9,7 @@
 
         </ul>
 
-        <router-link :to="{ name: 'Kol_sucessDetail', query: { msg: this.caseId }}">
+        <router-link :to="{ name: 'firmConsultDetail', query: { msg: this.caseId }}">
         <li class="btn">
             <fa-icon icon="list-ul" class="icon" />
             <span>詳細資訊</span>

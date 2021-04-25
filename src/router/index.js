@@ -38,15 +38,16 @@ import Kol_searchLoad    from '../views/Kol_searchLoad.vue'
 import Kol_searchResult  from '../views/Kol_searchResult.vue'
 
 // Firm
-import Firm              from '../views/Firm.vue'
-import Firm_msg          from '../views/Firm_msg.vue'
-import Firm_consult      from '../views/Firm_consult.vue'
-import Firm_success      from '../views/Firm_success.vue'
-import Firm_searchPlat   from '../views/Firm_searchPlat.vue'
-import Firm_saveKol      from '../views/Firm_saveKol.vue'
-import Firm_passCase     from '../views/Firm_passCase.vue'
-import Firm_setting      from '../views/Firm_setting.vue'
-import Firm_msgDialog    from '../views/Firm_msgDialog.vue'
+import Firm               from '../views/Firm.vue'
+import Firm_msg           from '../views/Firm_msg.vue'
+import Firm_consult       from '../views/Firm_consult.vue'
+import Firm_consultDetail from '../views/Firm_consultDetail.vue'
+import Firm_success       from '../views/Firm_success.vue'
+import Firm_searchPlat    from '../views/Firm_searchPlat.vue'
+import Firm_saveKol       from '../views/Firm_saveKol.vue'
+import Firm_passCase      from '../views/Firm_passCase.vue'
+import Firm_setting       from '../views/Firm_setting.vue'
+import Firm_msgDialog     from '../views/Firm_msgDialog.vue'
 
 // * Router
 Vue.use(VueRouter)
@@ -215,6 +216,11 @@ const routes = [
                 path: 'consult',
                 name: 'Firm_consult',
                 component: Firm_consult
+            },
+            {
+                path: 'consultdetail',
+                name: 'firmConsultDetail',
+                component: Firm_consultDetail
             },
             {
                 path: 'success',

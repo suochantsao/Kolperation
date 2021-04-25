@@ -89,7 +89,7 @@ export default {
               if( this.caseList.length === 0){
                   
                   this.$swal({
-                    icon: 'question',
+                    icon: 'info',
                     title: '沒有符合的搜尋結果',
                     text: '我們將提供您所有的案件結果',
                   })
