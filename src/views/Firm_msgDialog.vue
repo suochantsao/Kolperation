@@ -70,11 +70,12 @@
 import FirmFirmReply from '../components/firm-firmReply.vue'
 
 export default {
+    inject:['reload'],
     name: 'msgDialog',
     methods:{
         confirmCase(){
 
-            const confirmAPI = `http://kolperation.rocket-coding.com/api/CompanyInvited/${this.caseId}`
+            const confirmAPI = `http://kolperation.rocket-coding.com/api/CompanyInvited/${this.kolId}`
             
             let confirmObj = {
                 "SponsoredContentId":this.caseId,
@@ -85,14 +86,13 @@ export default {
               .then( res => {
                   console.log(res);
                   console.log("確認合作成功");
-                  this.reload();
                   this.successAlert('確認合作成功')
+                  this.reload();
 
               })
               .catch( err => {
                   console.error(err);
               })
-            
         },
         sendText(){
             console.log(this.sendMsg);
@@ -126,6 +126,15 @@ export default {
         routerSet(){
             this.$router.back(-1);
         },
+        successAlert(str){
+            this.$swal({
+                position: 'top-end',
+                icon: 'success',
+                title: str,
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
     },
     components: { 
         FirmFirmReply 
@@ -139,6 +148,7 @@ export default {
             'sender'   : null,
             'msgId'    : null,
             'caseId'   : null,
+            'kolId'    : null,
             'msgAlert' : null,
             'msgList'  : [],
         }
@@ -158,6 +168,7 @@ export default {
               this.msgList   = this.msgObject.Message;
               this.msgAlert  = this.msgList.length;
               this.caseId    = this.msgObject.SponsoredContentId;
+              this.kolId     = this.msgObject.KolId;
 
               console.log('獲取訊息詳細內容成功');
               console.log(this.msgObject);

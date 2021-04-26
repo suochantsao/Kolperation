@@ -42,20 +42,7 @@ export default {
     ],
     methods: { 
         routerPage(){
-            console.log(this.msgId);
-            if( this.msgId === 0 ){
-                this.$swal({
-                    icon: 'question',
-                    title: '沒有過往洽談紀錄',
-                    text: '您並沒有和該廠商洽談過唷！',
-                })
-                // this.$router.push({ path: `/kolplat/sucessDetail?msg=${this.caseId}`})
-
-            }
-            else{
-                // this.$router.push({ path: `/kolplat/msgDialog?msg=${this.msgId}`})
-            }
-
+            this.$router.push({ path: `/firmplat/successdetail?msg=${this.caseId}`})
         }
     },
     data(){

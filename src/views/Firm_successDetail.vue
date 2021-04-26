@@ -55,32 +55,6 @@
         </div>
         
         <div class="kolMesBlock firmManageBlock ">
-            <h2 class="topTitle">申請合作KOL</h2>
-            <div class="mesArea alertArea sucessArea saveFirmArea scrollWhite">
-                
-                <firm-kol-apply
-                  :sponId  = "caseId"
-                  :kolInfo = "item"
-                  :key="item.SponsoredContentId"
-                  v-for="item in applyKolList"
-                ></firm-kol-apply>
-
-            </div>
-            
-            <h2>已發送邀請KOL</h2>
-            <div class="mesArea alertArea applyArea scrollGrey">
-                
-                <firm-kol-avatar></firm-kol-avatar>
-                <firm-kol-avatar></firm-kol-avatar>
-                <firm-kol-avatar></firm-kol-avatar>
-                <firm-kol-avatar></firm-kol-avatar>
-                <!-- <kol-invite-item
-                    :caseItem="item"
-                    :key="item.SponsoredContentId"
-                    v-for="item in inviteCaseList" 
-                ></kol-invite-item> -->
-                
-            </div>
 
             <h2>確認洽談成功KOL</h2>
             <div class="mesArea alertArea applyArea scrollGrey">
@@ -92,8 +66,6 @@
                 ></firm-kol-avatar>
                 
             </div>
-            <div></div>
-            <h2 class="padUsing">確認洽談成功KOL</h2>
             
         </div>
 
@@ -102,7 +74,6 @@
 </template>
 
 <script>
-import FirmKolApply from '../components/firm-kolApply.vue';
 import FirmKolAvatar from '../components/firm-kolAvatar.vue';
 import KolChannelItem from '../components/kol-channelItem.vue';
 
@@ -110,7 +81,6 @@ export default {
     inject:['reload'],
     components: { 
         KolChannelItem,
-        FirmKolApply,
         FirmKolAvatar,
     },
     methods:{
@@ -147,7 +117,7 @@ export default {
         this.config     = { headers: { Authorization: `Bearer ${this.userToken}` } };
 
         const detailAPI   = `http://kolperation.rocket-coding.com/api/GetOnGoingCoopSC/${this.caseId}`;
-        const kolApplyAPI = `http://kolperation.rocket-coding.com/api/GetCompanyOnGoingCoopsDetailView`;
+        const successAPI = `http://kolperation.rocket-coding.com/api/GetSuccessCoopSC/${this.caseId}`;
 
         this.$http
           .get(detailAPI,this.config)
@@ -166,9 +136,9 @@ export default {
           });
 
         this.$http
-          .get(kolApplyAPI,this.config)
+          .get(successAPI,this.config)
           .then( res => {
-              console.log('成功取得KOL邀請');
+              console.log('取得成功案件的詳細資料');
               console.log(res);
             //   console.log(res.data);
           })

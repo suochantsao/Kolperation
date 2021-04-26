@@ -26,15 +26,17 @@ export default {
     methods:{
         favAdd(){
             this.commonFun();
-            let addAPI = "";
+            console.log(this.contentId);
 
-            if(this.definedId === "company"){
+            let addAPI = `http://kolperation.rocket-coding.com/api/AddThisSCToMyFavorites/${this.contentId}`;
+
+            if( this.definedId === "company" ){
                 addAPI = `http://kolperation.rocket-coding.com/api/AddThisCompanyToMyFavorites/${this.contentId}`
             }
-            else if (this.defineId === "case"){
+            if (this.defineId === "case"){
                 addAPI = `http://kolperation.rocket-coding.com/api/AddThisSCToMyFavorites/${this.contentId}`
             }
-            else if (this.definedId === "kol"){
+            if (this.definedId === "kol"){
                 addAPI = `http://kolperation.rocket-coding.com/api/AddThisKOLToMyFavorites/${this.contentId}`
             }
 
@@ -53,16 +55,19 @@ export default {
         },
         favRemove(){
             this.commonFun();
+            console.log(this.contentId);
+            
             let removeAPI = "";
 
             if( this.definedId === "company" ){
                 removeAPI = `http://kolperation.rocket-coding.com/api/RemoveThisCompanyFromMyFavorites/${this.contentId}`
             }
-            else if ( this.definedId === "case" ){
+            if ( this.definedId === "case" ){
                 removeAPI = `http://kolperation.rocket-coding.com/api/RemoveThisSCFromMyFavorites/${this.contentId}`
             }
-            else ( this.definedId === "kol" )
+            if( this.definedId === "kol" ){
                 removeAPI = `http://kolperation.rocket-coding.com/api/RemoveThisKOLFromMyFavorites/${this.contentId}`
+            }
             
 
             this.$http

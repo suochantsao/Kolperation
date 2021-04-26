@@ -1,7 +1,12 @@
 <template>
     <div class="kolMesBlock firmMsgBlock">
-        
-        <h2>執行中案件</h2>
+        <ul>
+            <h2>執行中案件</h2>
+            <li>
+                <fa-icon icon="plus-circle" class="icon" />
+                <span>新增案件</span>
+            </li>
+        </ul>
         <div class="mesArea alertArea applyArea scrollWhite">
 
             <firm-work-item

@@ -13,6 +13,7 @@
 <script>
 export default {
     name: 'btnConfirm',
+    inject:['reload'],
     props: [
         'caseId'
     ],
@@ -29,11 +30,22 @@ export default {
               .then( res => {
                   console.log(res);
                   console.log("確認合作成功");
+                  this.successAlert('確認合作成功')
+                  this.reload();
               })
               .catch( err => {
                   console.error(err);
               })
             
+        },
+        successAlert(str){
+            this.$swal({
+                position: 'top-end',
+                icon: 'success',
+                title: str,
+                showConfirmButton: false,
+                timer: 1800
+            })
         }
     },
     data(){

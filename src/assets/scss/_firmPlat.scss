@@ -168,9 +168,67 @@
         width: 100%;
         .applyArea{
             height: 23%;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 1% 4% 0 4%;
+            overflow-x: auto;
         }
         .padUsing{
             color: $nav_bgc;
+        }
+        .mesArea{
+            .caseItem{
+                border: none;
+                a{
+                    .btn{
+                        width: 150px;
+                        padding: 6% 0;
+                        margin: 6% 0;
+                        background-color: $brand_blue;
+                        .icon{
+                            margin-left: 13%;
+                            color: white;
+                        }
+                        span{
+                            margin: auto 0 auto 2%;
+                        }
+                    }
+                    .btn:hover{
+                        background-color: $brand_lightBlue;
+                    }
+                    .confirmBtn{
+                        background-color: $pink_bgc;
+                    }
+                }
+                img{
+                    margin-right: 5%;
+                }
+                .strBlock{
+                    width: 35%;
+                }
+            }
+            .avatar{
+                width: 20%;
+                display: flex;
+                flex-direction: column;
+                // border: 1px solid pink;
+                margin: 2% 4% 2% 1% ;
+                
+                span{
+                    text-align: center;
+                    font-family: NotoSansCJKtc-Medium;
+                    font-size: $font-tab;
+                }
+            }
+        }
+        .btnBlock{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+        }
+        .sucessArea{
+            height: 40%;
         }
     }
     .consultDetArea{
@@ -179,6 +237,16 @@
                 .editIcon:hover{
                     color: $brand_lightBlue;
                 }
+            }
+        }
+    }
+}
+.firmFansBlock{
+    .searchSec{
+        .searchFirmArea{
+            .industItem{
+                width: 8rem;
+                height: 8rem;
             }
         }
     }

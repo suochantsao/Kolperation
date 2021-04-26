@@ -43,7 +43,10 @@ import Firm_msg           from '../views/Firm_msg.vue'
 import Firm_consult       from '../views/Firm_consult.vue'
 import Firm_consultDetail from '../views/Firm_consultDetail.vue'
 import Firm_success       from '../views/Firm_success.vue'
+import Firm_successDetail from '../views/Firm_successDetail.vue'
 import Firm_searchPlat    from '../views/Firm_searchPlat.vue'
+import Firm_searchSector  from '../views/Firm_searchSector.vue'
+import Firm_searchFans    from '../views/Firm_searchFans.vue'
 import Firm_saveKol       from '../views/Firm_saveKol.vue'
 import Firm_passCase      from '../views/Firm_passCase.vue'
 import Firm_setting       from '../views/Firm_setting.vue'
@@ -228,9 +231,24 @@ const routes = [
                 component: Firm_success
             },
             {
+                path: 'successdetail',
+                name: 'Firm_successDetail',
+                component: Firm_successDetail
+            },
+            {
                 path: 'searchplat',
                 name: 'Firm_searchPlat',
                 component: Firm_searchPlat
+            },
+            {
+                path: 'searchsector',
+                name: 'Firm_searchSector',
+                component: Firm_searchSector
+            },
+            {
+                path: 'searchfans',
+                name: 'Firm_searchFans',
+                component: Firm_searchFans
             },
             {
                 path: 'savekol',

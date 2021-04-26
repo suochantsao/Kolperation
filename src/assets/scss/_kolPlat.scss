@@ -1219,6 +1219,10 @@
     background-color: $brand_lightBlue;
 }
 
+.scrollGrey::-webkit-scrollbar {
+    background-color: $tab_color;
+}
+
 .scrollSpecial::-webkit-scrollbar {
     background-color: $nav_bgc;
 }

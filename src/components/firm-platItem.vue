@@ -1,7 +1,7 @@
 <template>
     <li class="firmName firmLable">
         <fa-icon 
-          :icon="['fab', 'facebook']" 
+          :icon="[item.FAid, item.TagName]" 
           class="icon lableIcon" 
           :key= item.TagName
           v-for="item in channels"

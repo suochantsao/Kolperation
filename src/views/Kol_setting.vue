@@ -135,8 +135,8 @@
 
 <script>
 export default {
-    inject:['reload'],
     name:'kolSetting',
+    inject:['reload'],
     methods:{
         delAccount(){
             console.log('del Btn');
