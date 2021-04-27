@@ -99,10 +99,13 @@ export default {
     },
     data(){
         return{
-            'favBool'  : this.boolStr,
+            'favBool'  : null,
             'config'   : null,
             'userToken': null,
         }
+    },
+    created(){
+        this.favBool = this.boolStr;
     }
 }
 </script>

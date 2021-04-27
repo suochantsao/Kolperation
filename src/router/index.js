@@ -47,10 +47,14 @@ import Firm_successDetail from '../views/Firm_successDetail.vue'
 import Firm_searchPlat    from '../views/Firm_searchPlat.vue'
 import Firm_searchSector  from '../views/Firm_searchSector.vue'
 import Firm_searchFans    from '../views/Firm_searchFans.vue'
+import Firm_searchLoad    from '../views/Firm_searchLoad.vue'
+import Firm_searchResult  from '../views/Firm_searchResult.vue'
 import Firm_saveKol       from '../views/Firm_saveKol.vue'
+import Firm_kolDetail     from '../views/Firm_kolDetail.vue'
 import Firm_passCase      from '../views/Firm_passCase.vue'
 import Firm_setting       from '../views/Firm_setting.vue'
 import Firm_msgDialog     from '../views/Firm_msgDialog.vue'
+import Firm_addCase       from '../views/Firm_addCase.vue'
 
 // * Router
 Vue.use(VueRouter)
@@ -251,9 +255,24 @@ const routes = [
                 component: Firm_searchFans
             },
             {
+                path: 'searchloader',
+                name: 'Firm_searchLoad',
+                component: Firm_searchLoad
+            },
+            {
+                path: 'searchresult',
+                name: 'Firm_searchResult',
+                component: Firm_searchResult
+            },
+            {
                 path: 'savekol',
                 name: 'Firm_saveKol',
                 component: Firm_saveKol
+            },
+            {
+                path: 'koldetail',
+                name: 'Firm_kolDetail',
+                component: Firm_kolDetail
             },
             {
                 path: 'passcase',
@@ -264,6 +283,11 @@ const routes = [
                 path: 'setting',
                 name: 'Firm_setting',
                 component: Firm_setting
+            },
+            {
+                path: 'addcase',
+                name: 'Firm_addCase',
+                component: Firm_addCase
             }
         ]
     },

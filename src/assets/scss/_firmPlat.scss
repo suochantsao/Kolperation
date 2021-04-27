@@ -102,6 +102,33 @@
             }
         }
     }
+    .topNavArea{
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        width: 80%;
+        h2{
+            margin: 9% 0 5% 0;
+        }
+        .addCaseBtn{
+            margin: 7.5% 2% auto 0;
+            padding: 2% 5%;
+            display: flex;
+            width: 12%;
+            border: 3px solid $brand_blue;
+            background-color: white;
+            border-radius: 300px;
+            cursor: pointer;
+            span{
+                margin-left: 10%;
+            }
+        }
+        .addCaseBtn:hover{
+            font-weight: bold;
+            box-shadow: 5px 5px 10px $shadow_color;
+            transition:all .15s ease-in-out;
+        }
+    }
 }
 .firmDiaBlock{
     .userInfo{
@@ -247,6 +274,51 @@
             .industItem{
                 width: 8rem;
                 height: 8rem;
+            }
+        }
+    }
+}
+.kolDetailBlock{
+    .firmDetArea{
+        .caseInfo{
+            .caseDetail{
+                width: 85%;
+                .introBlock{
+                    display: flex;
+                    width: 100%;
+                    p{
+                        width: 100%;
+                    }
+                    li{
+                        margin: auto 0 auto 6%;
+                        width:  45%;
+                        padding: 3% 4%;
+                        text-align: center;
+                        border-radius: 300px;
+                        letter-spacing: 0.1rem;;
+                        color: white;
+                        background-color: $brand_lightBlue;
+                        border: 5px solid $brand_lightBlue;
+                        cursor: pointer;
+                    }
+                    li:hover{
+                        color: $brand_blue;
+                        background-color: white;
+                        border: 5px solid $brand_lightBlue;
+                        transition:all .3s ease-in-out;
+                        box-shadow: none;
+                    }
+                }
+            }
+            .caseRequire{
+                .requireBlock{
+                    background-color: $brand_blue;
+                    li{
+                        .icon{
+                            margin-left: 5%;
+                        }
+                    }
+                }
             }
         }
     }

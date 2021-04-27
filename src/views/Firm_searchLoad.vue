@@ -20,21 +20,25 @@ export default {
     data(){
         return{
             'channelList': {},
-            'sectorList' : {}
+            'sectorList' : {},
+            'fansList'   : {},
         }
     },
     created(){
         this.channelList = this.$route.query.channels;
         this.sectorList  = this.$route.query.sectors;
+        this.fansList    = this.$route.query.fans;
         console.log(this.channelList);
         console.log(this.sectorList);
+        console.log(this.fansList);
 
         setTimeout(()=>
         this.$router.push({ 
-            path: "/kolplat/searchresult",
+            path: "/firmplat/searchresult",
             query: {
                 "channelTags": `${this.channelList}`,
                 "sectorTags" : `${this.sectorList}`,
+                "Fans"       : `${this.fansList}`
             }
         }),
         2000

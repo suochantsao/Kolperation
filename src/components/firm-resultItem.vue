@@ -18,7 +18,7 @@
             <btn-add-fav
                 :contentId = "kolId"
                 :definedId = "definedStr"
-                :boolStr   = true
+                :boolStr   = "saveBool"
             >
             </btn-add-fav>
             
@@ -52,6 +52,7 @@ export default {
     data(){
         return{
             'definedStr'  : 'kol',
+            'saveBool'    : null,
             'kolId'       : null,
             'kolGuid'     : null,
             'channelList' : [],
@@ -60,8 +61,10 @@ export default {
     },
     created(){
         this.channelList = this.caseItem.Channels;
-        this.kolId       = this.caseItem.KOLId;
+        this.kolId       = this.caseItem.KolId;
+        this.saveBool    = this.caseItem.Favorite;
         this.kolGuid     = this.caseItem.Guid;
+
         // console.log(this.kolId);
     }
     

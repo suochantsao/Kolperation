@@ -13,41 +13,40 @@
                 >
                     <li 
                       class="industItem"
-                      :class="gameBool === true ? 'selectItem' : '' "
-                      @click="selectPlat('game')"
+                      :class="tenKBool === true ? 'selectItem' : '' "
+                      @click="selectPlat('tenK')"
                     >
                         <fa-icon icon="user" class="icon" />
                         <span>10,000</span>
                     </li>
                     <li 
                       class="industItem"
-                      :class="videoBool === true ? 'selectItem' : '' "
-                      @click="selectPlat('video')"
+                      :class="hundredKBool === true ? 'selectItem' : '' "
+                      @click="selectPlat('hundK')"
                     >
                         <fa-icon icon="user-alt" class="icon" />
                         <span>100,000</span>
                     </li>
                     <li 
                       class="industItem"
-                      :class="sportsBool === true ? 'selectItem' : '' "
-                      @click="selectPlat('sports')"
+                      :class="fHundKBool === true ? 'selectItem' : '' "
+                      @click="selectPlat('fHunKId')"
                     >
                         <fa-icon icon="user-friends" class="icon lineStyle" />
                         <span>500,000</span>
                     </li>
                     <li 
                       class="industItem"
-                      :class="foodsBool === true ? 'selectItem' : '' "
-                      @click="selectPlat('foods')"
+                      :class="thoudKBool === true ? 'selectItem' : '' "
+                      @click="selectPlat('thoudKId')"
                     >
                         <fa-icon icon="users" class="icon lineStyle" />
                         <span>1,000,000</span>
                     </li>
                 </ul>
                 
-                <!-- to="/kolplat/searchloader" -->
                 <router-link 
-                  :to="{ name: 'Firm_searchFans', query: { channels: `${channelItem}`, sectors: `${gameId}${videoId}${sportsId}${foodsId}${techId}${fashionId}${lifeId}${petsId}`}}"
+                  :to="{ name: 'Firm_searchLoad', query: { channels: `${channelItem}`, sectors: `${sectorItem}`, fans: `${tenKId}${hundKId}${fHunKIdId}${thoudKIdId}`}}"
                 >
                     <span class="nxtBtn">下一步</span>
                 </router-link>
@@ -61,34 +60,34 @@ export default {
     name: 'search',
     methods:{
         secSelected(){
-            if( this.gameBool === true ){
-                this.gameId = '03,';
+            if( this.tenKBool === true ){
+                this.tenKId = '10000~50000,';
             }
-            if( this.videoBool=== true ){
-                this.videoId =  '04,';
+            if( this.hundredKBool=== true ){
+                this.hundKId =  '50001~100000,';
             }
-            if( this.sportsBool === true ){
-                this.sportsId = '05,';
+            if( this.fHundKBool === true ){
+                this.fHunKIdId = '100001~500000,';
             }
-            if( this.foodsBool === true ){
-                this.foodsId =  '06,';
+            if( this.thoudKBool === true ){
+                this.thoudKIdId =  '500001~1000000,';
             }
             
         },
         selectPlat(sector){
 
-            if( sector === 'game' ){
-                this.gameBool = !this.gameBool;
+            if( sector === 'tenK' ){
+                this.tenKBool = !this.tenKBool;
                 
             }
-            else if( sector === 'video' ){
-                this.videoBool = !this.videoBool;
+            else if( sector === 'hundK' ){
+                this.hundredKBool = !this.hundredKBool;
             }
-            else if( sector === 'sports' ){
-                this.sportsBool = !this.sportsBool;
+            else if( sector === 'fHunKId' ){
+                this.fHundKBool = !this.fHundKBool;
             }
-            else if( sector === 'foods' ){
-                this.foodsBool = !this.foodsBool;
+            else if( sector === 'thoudKId' ){
+                this.thoudKBool = !this.thoudKBool;
             }
 
         },
@@ -98,20 +97,23 @@ export default {
     },
     data(){
         return{
-            'channelItem': {}, 
-            'gameBool'   : false,
-            'videoBool'  : false,
-            'sportsBool' : false,
-            'foodsBool'  : false,
-            'gameId'     : '',
-            'videoId'    : '',
-            'sportsId'   : '',
-            'foodsId'    : '',
+            'channelItem'  : {}, 
+            'sectorItem'   : {},
+            'tenKBool'     : false,
+            'hundredKBool' : false,
+            'fHundKBool'   : false,
+            'thoudKBool'   : false,
+            'tenKId'       : '',
+            'hundKId'      : '',
+            'fHunKIdId'    : '',
+            'thoudKIdId'   : '',
         }
     },
     created(){
         this.channelItem = this.$route.query.channels;
+        this.sectorItem  = this.$route.query.sectors;
         console.log(this.channelItem);
+        console.log(this.sectorItem);
     }
     
 }

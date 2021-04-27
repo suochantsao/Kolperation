@@ -1,10 +1,12 @@
 <template>
     <div class="kolMesBlock firmMsgBlock">
-        <ul>
+        <ul class="topNavArea">
             <h2>執行中案件</h2>
-            <li>
+            <li class="addCaseBtn">
                 <fa-icon icon="plus-circle" class="icon" />
-                <span>新增案件</span>
+                <span
+                  @click="casePage"
+                >新增案件</span>
             </li>
         </ul>
         <div class="mesArea alertArea applyArea scrollWhite">
@@ -28,6 +30,11 @@ import FirmWorkItem from '../components/firm-workItem.vue';
 export default {
     components: {
         FirmWorkItem 
+    },
+    methods:{
+        casePage(){
+            this.$router.push({ path: `/firmplat/addcase`})
+        }
     },
     data(){
         return{
