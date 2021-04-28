@@ -55,6 +55,7 @@ import Firm_passCase      from '../views/Firm_passCase.vue'
 import Firm_setting       from '../views/Firm_setting.vue'
 import Firm_msgDialog     from '../views/Firm_msgDialog.vue'
 import Firm_addCase       from '../views/Firm_addCase.vue'
+import Firm_editCase      from '../views/Firm_editCase.vue'
 
 // * Router
 Vue.use(VueRouter)
@@ -288,6 +289,11 @@ const routes = [
                 path: 'addcase',
                 name: 'Firm_addCase',
                 component: Firm_addCase
+            },
+            {
+                path: 'editcase',
+                name: 'Firm_editCase',
+                component: Firm_editCase
             }
         ]
     },

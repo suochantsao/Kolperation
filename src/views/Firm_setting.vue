@@ -20,7 +20,6 @@
                     >上傳圖片</span>
                     <span class="removeBtn">移除圖片</span>
                 </li>
-
             </ul>
             <ul class="inputBlock">
                 <li class="infoItem cantChange">

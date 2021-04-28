@@ -5,7 +5,7 @@
         </a>
         <div class="consultDetArea">
             <ul class="caseBasic">
-                <img width="60%" src="https://blush.design/api/download?shareUri=Qnt8NFR94jtAwxnw&c=Hair_0%7E9b5120-0.1.0%7E0f0f0f-0.1.1%7Ec38741-0.1.2%7Ec38741_Skin_0%7E7d4439-0.1.0%7Ef6cbc3-0.1.1%7Ec26e5e-0.1.2%7E7d4439&w=800&h=800&fm=png">                
+                <img width="60%" src="https://blush.design/api/download?shareUri=gI7WaKemxel_NeIp&c=Hair_0%7E0f0f0f-0.1.0%7Ec38741-0.1.1%7E878787-0.1.2%7E711515_Skin_0%7Ec26e5e-0.1.0%7Ec26e5e-0.1.1%7E7d4439-0.1.2%7E7d4439&w=800&h=800&fm=png">                
                 <ul class="conditionBlock">
                     <h1>{{caseDetail.Title}}</h1>
                     <li>{{caseDetail.Company}}</li>
@@ -16,7 +16,10 @@
                         :channels = "channelList"
                     ></kol-channel-item>
                 </ul>
-                <li class="favBtnBlock">
+                <li 
+                  class="favBtnBlock"
+                  @click="editCase"
+                >
                     <fa-icon 
                         :icon="['fas', 'edit']" 
                         class="favIcon likeIcon editIcon" 
@@ -70,10 +73,11 @@
             <h2>已發送邀請KOL</h2>
             <div class="mesArea alertArea applyArea scrollGrey">
                 
-                <firm-kol-avatar></firm-kol-avatar>
-                <firm-kol-avatar></firm-kol-avatar>
-                <firm-kol-avatar></firm-kol-avatar>
-                <firm-kol-avatar></firm-kol-avatar>
+                <firm-kol-avatar
+                    :caseItem="item"
+                    :key="item.SponsoredContentId"
+                    v-for="item in inviteCaseList" 
+                ></firm-kol-avatar>
                 <!-- <kol-invite-item
                     :caseItem="item"
                     :key="item.SponsoredContentId"
@@ -114,6 +118,14 @@ export default {
         FirmKolAvatar,
     },
     methods:{
+        editCase(){
+            this.$router.push({ 
+            path: "/firmplat/editcase",
+            query: {
+                "case": `${this.caseId}`,
+            }
+        })
+        },
         routerSet(){
             this.$router.back(-1);
         },

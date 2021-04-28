@@ -1,13 +1,13 @@
 <template>
     <div class="kolMesBlock kolSetBlock firmSetBlock firmAddBlock">
         <ul class="setTitle">
-            <h1>新增案件</h1>
+            <h1>修改案件</h1>
             <li 
               class="specBtn"
-              @click="addCase"
+              @click="editCase"
             >
                 <fa-icon icon="check" class="icon" />
-                <span>確認新增</span>
+                <span>確認修改</span>
             </li>
         </ul>
         <div class="mesArea alertArea caseInfo">
@@ -32,7 +32,7 @@
                             type="text" 
                             class="longInput"
                             placeholder="案件名稱"
-                            v-model="caseName"
+                            v-model="caseDetail.Title"
                         >
                     </li>
                     
@@ -42,7 +42,7 @@
                             <input 
                                 type="text" 
                                 placeholder="此案件聯絡人"
-                                v-model="contactor"
+                                v-model="caseDetail.PersonInCharge"
                             >
                         </li>          
                         <li class="infoItem padSet">
@@ -50,7 +50,7 @@
                             <input 
                                 type="text" 
                                 placeholder="需求人數"
-                                v-model="requireNum"
+                                v-model="caseDetail.PeopleRequired"
                             >
                         </li> 
                     </ul>
@@ -60,7 +60,7 @@
                             <input 
                                 type="text" 
                                 placeholder="合作預算金額"
-                                v-model="budget"
+                                v-model="caseDetail.Budget"
                             >
                         </li>          
                         <li class="infoItem padSet">
@@ -78,7 +78,7 @@
                             type="text" 
                             class="longInput"
                             placeholder="合作內容"
-                            v-model="caseContent"
+                            v-model="caseDetail.Detail"
                         >
                     </li>
                     
@@ -121,6 +121,21 @@
                         />
                     </li>
                     
+                    
+                    <li 
+                      class="selectBtn closeCase pauseBtn"
+                      @click="closeCase"
+                    >
+                        <fa-icon icon="check" class="icon" />
+                        <span>提前結束</span>
+                    </li>
+                    <li 
+                      class="selectBtn closeCase"
+                      @click="deleteCase"
+                    >
+                        <fa-icon icon="check" class="icon" />
+                        <span>刪除案件</span>
+                    </li>
                 </ul>
                          
             </ul>
@@ -139,38 +154,113 @@ export default {
         Multiselect,
     },
     methods:{
-        addCase(){
+        closeCase(){
+            this.$swal({
+                title: '確認要提前結束此案件嗎?',
+                showDenyButton: true,
+                icon: 'warning',
+                confirmButtonText: `取消`,
+                denyButtonText: `確認`,
+                })
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        console.log('取消提前結束');
+                    } 
+                    else if (result.isDenied) {
+
+                        const closeAPI = `http://kolperation.rocket-coding.com/api/CloseSponsoredContent/${this.caseId}`
+
+                        this.$http
+                        .put(closeAPI,this.caseId,this.config)
+                        .then( res => {
+                            console.log(res);
+                            console.log("提前結束此案件了啦");
+                            this.successAlert('提前結束此案件');
+                            this.$router.push({ path: `/firmplat/consult`})
+
+                        })
+                        .catch( err => {
+                            console.error(err);
+                        });
+
+                    }
+            });
+        },
+        editCase(){
             
-            const addAPI = `http://kolperation.rocket-coding.com/api/PostSponsoredContent`
+            const editAPI = `http://kolperation.rocket-coding.com/api/PutSponsoredContent/${this.caseId}`
 
             let caseInfo = {
                 
-                "Title": this.caseName,
-                "Budget": this.budget,
-                "PeopleRequired": this.requireNum,
-                "Detail": this.caseContent,
-                "PersonInCharge": this.contactor,
+                "Title": this.caseDetail.Title,
+                "Budget": this.caseDetail.Budget,
+                "PeopleRequired": this.caseDetail.PeopleRequired,
+                "Detail": this.caseDetail.Detail,
+                "PersonInCharge": this.caseDetail.PersonInCharge,
                 "EndTime": this.dateStr,
-                // "MinimumRequirement": "目前沒有",
-                // "ChannelTags": "01,02",
-                // "SectorTags": "06,07",
-                // "ProductPicture":"picturename"
+                "MinimumRequirement": "目前沒有",
+                "ChannelTags": "01,02",
+                "SectorTags": "06,07",
+                "ProductPicture":"picturename",
+                "ScId": this.caseId,
             }
             console.log(caseInfo);
 
             this.$http
-              .post(addAPI,caseInfo,this.config)
+              .put(editAPI,caseInfo,this.config)
               .then( res => {
                   console.log(res);
-                  console.log("新增案件成功");
-                  this.successAlert('新增案件成功')
-                  this.$router.push({ path: `/firmplat/consult`})
-
+                  console.log("修改案件成功");
+                  this.successAlert('修改案件成功')
+                  this.$router.back(-1);
               })
               .catch( err => {
                   console.error(err);
 
               })
+        },
+        deleteCase(){
+            this.$swal({
+                title: '確認要刪除此案件嗎?',
+                showDenyButton: true,
+                icon: 'warning',
+                confirmButtonText: `取消`,
+                denyButtonText: `確認刪除`,
+                })
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        console.log('取消刪除');
+                    } 
+                    else if (result.isDenied) {
+                        
+                        const delAPI = `http://kolperation.rocket-coding.com/api/DeleteSponsoredContent/${this.caseId}`
+
+                        if( this.caseDetail.PeopleCoopWith !== 0){
+                            
+                            this.$http
+                            .delete(delAPI,this.config)
+                            .then( res => {
+                                console.log(res);
+                                console.log("刪除案件成功");
+                                this.successAlert('案件刪除成功');
+                                this.$router.push({ path: `/firmplat/consult`})
+    
+                            })
+                            .catch( err => {
+                                console.error(err);
+                            });
+                        }
+                        else{
+                            this.$swal({
+                                icon: 'error',
+                                title: '無法刪除此案件',
+                                text: '您已經有成功洽談的對象，所以無法刪除',
+                            })
+                        }
+                        
+
+                    }
+            });
         },
         uploadPic(){
             console.log('上傳圖片測試');
@@ -218,21 +308,22 @@ export default {
             'sectorsList'  : [],
             'userToken'    : null,
             'config'       : null,
-            'caseName'     : null,
-            'contactor'    : null,
-            'requireNum'   : null,
-            'budget'       : null,
+            'caseId'       : null,
+            'caseDetail'   : null,
             'dateStr'      : null,
-            'caseContent'  : null,
         }
     },
     created(){
         this.userToken = window.localStorage.getItem('token');
         this.config    = { headers: { Authorization: `Bearer ${this.userToken}` } };
+        this.caseId    = this.$route.query.case;
+        console.log(this.caseId);
 
         const channelAPI = `http://kolperation.rocket-coding.com/api/TagChannels`
         const sectorAPI  = `http://kolperation.rocket-coding.com/api/TagSectors`
+        const caseAPI    = `http://kolperation.rocket-coding.com/api/GetOnGoingCoopSC/${this.caseId}`
 
+        // Channels GET
         this.$http
           .get(channelAPI, this.config)
           .then( res => {
@@ -255,7 +346,7 @@ export default {
               console.error(err);
           });
 
-
+        // Sectors GET
         this.$http
           .get(sectorAPI, this.config)
           .then( res => {
@@ -273,6 +364,18 @@ export default {
               });
               
               console.log(this.sectorsList);
+          })
+          .catch( err => {
+              console.error(err);
+          })
+
+        // Case Detail GET
+        this.$http
+          .get(caseAPI, this.config)
+          .then( res => {
+              console.log(res);
+              this.caseDetail = res.data;
+              this.dateStr    = this.caseDetail.EndTime.slice(0,10).replace(/-/g,".");
           })
           .catch( err => {
               console.error(err);

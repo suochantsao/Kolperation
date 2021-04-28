@@ -114,13 +114,15 @@
             margin: 7.5% 2% auto 0;
             padding: 2% 5%;
             display: flex;
-            width: 12%;
+            width: 15%;
             border: 3px solid $brand_blue;
+            letter-spacing: 0.1rem;
             background-color: white;
             border-radius: 300px;
             cursor: pointer;
             span{
-                margin-left: 10%;
+                margin-left: 12%;
+                font-size: $font-tab;
             }
         }
         .addCaseBtn:hover{
@@ -295,15 +297,16 @@
                         padding: 3% 4%;
                         text-align: center;
                         border-radius: 300px;
-                        letter-spacing: 0.1rem;;
-                        color: white;
-                        background-color: $brand_lightBlue;
+                        letter-spacing: 0.1rem;
+                        color: $brand_blue;
+                        background-color: white;
                         border: 5px solid $brand_lightBlue;
+                        
                         cursor: pointer;
                     }
                     li:hover{
-                        color: $brand_blue;
-                        background-color: white;
+                        color: white;
+                        background-color: $brand_lightBlue;
                         border: 5px solid $brand_lightBlue;
                         transition:all .3s ease-in-out;
                         box-shadow: none;
@@ -318,6 +321,137 @@
                             margin-left: 5%;
                         }
                     }
+                }
+            }
+        }
+    }
+}
+.firmAddBlock{
+    .caseInfo{
+        .picBlock{
+            margin: 5% 0 0 8%;
+            display: flex;
+            img{
+                border: 5px solid $brand_blue;
+            }
+            .uploadPicBtn{
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                margin: 1% 0 0% 3%;
+                span{
+                    width: 100%;
+                    padding: 20% 35%;
+                    margin-bottom: 25%;
+                    text-align: center;
+                    color: white;
+                    background-color: $brand_lightBlue;
+                    border-radius: 300px;
+                    border: 3px solid $brand_lightBlue;
+                    cursor: pointer;
+                }
+                .removeBtn{
+                    color: $pink_bgc;
+                    border: 3px solid $pink_bgc;
+                    background-color: white;
+                }
+                span:hover{
+                    box-shadow: 3px 3px 5px $shadow_color;
+                    transition:all .1s ease-in-out;
+
+                }
+            }
+        }
+        .inputBlock{
+            margin-top: 5%;
+            display: flex;
+            background-color: $brand_blue;
+            // border: 1px solid pink;
+            input{
+                outline: none;
+                border: none;
+                line-height: 2rem;
+            }
+            .inputArea{
+                width: 50%;
+                margin: 0 auto;
+                .icon{
+                    color: $brand_blue;
+                    margin: auto 3% auto 0;
+                }
+                .infoItem{
+                    margin-top: 5%;
+                    padding: 0 2%;
+                    border: 1px solid white;
+                    background-color: white;
+                    display: flex;
+
+                    .longInput{
+                        width: 100%;
+                    }
+                }
+                .twoInput{
+                    display: flex;
+                    .icon{
+                        margin: auto 6% auto 0;
+                    }
+                    .padSet{
+                        margin-left: 6%;
+                    }
+                    
+                }
+                .titleInput{
+                    margin-top: 10%;
+                }
+                .contentInput{
+                    margin-bottom: 10%;
+                    input{
+                        padding-bottom: 30%;
+                    }
+                }
+            }
+            .selectBlock{
+                margin: 4% 7% 0% 0%;
+                .selectBtn{
+                    width: 150px;
+                    margin: 4% 5% 8% 0;
+                    background-color: white;
+                    border: 3px solid $brand_lightBlue;
+                    color: $brand_blue;
+                    line-height: 2rem;
+                    text-align: center;
+                    border-radius: 300px;
+                    cursor: pointer;
+
+                    .icon{
+                        margin-right: 8%;
+                    }
+                }
+                .selectBtn:hover{
+                    color: $brand_lightBlue;
+                    border: 3px solid $brand_lightBlue;
+                }
+                .closeCase{
+                    margin: 8% 0 0 15%;
+                    color: $tab_color;
+                    border: 3px solid white;
+                }
+                .closeCase:hover{
+                    color: $pink_bgc;
+                    border: 3px solid $pink_bgc;
+                }
+                .pauseBtn{
+                    margin-top: 28%;
+                }
+                .multiselect-tags{
+                    background-color: white;
+                    margin-top: 0;
+                    .multiselect-tag{
+                        background-color: $brand_lightBlue;
+                    }
+                }
+                .multieBlock{
+                    margin-top: 5%;
                 }
             }
         }

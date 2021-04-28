@@ -79,8 +79,6 @@ export default {
             this.$router.back(-1);
         },
         inviteKol(){
-            console.log('測試按鈕');
-            
             this.$swal({
                 title: '請選擇要合作的案件',
                 input: 'select',
@@ -157,7 +155,7 @@ export default {
             'firmCellphone' : '暫不提供',
             'successNum'    : 0,
             'channelList'   : [],
-            'optionObj'     : [],
+            'optionObj'     : {},
             'kolStr'        : 'kol',
 
         }
