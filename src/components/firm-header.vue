@@ -46,7 +46,7 @@
                   @click="tabChange(3)"
                 >
                     <fa-icon icon="search" class="icon" />
-                    <span>案件搜尋</span>
+                    <span>搜尋KOL</span>
                 </li>    
                 </router-link>
 

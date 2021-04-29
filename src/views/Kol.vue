@@ -4,7 +4,7 @@
         <div class="kolContent">
             <kol-navbar 
               :caseCount="casesNum" 
-              :name="userName"
+              :user="userItem"
             ></kol-navbar>
             <router-view />
         </div>
@@ -24,7 +24,8 @@ export default {
         successCases : null
       },
       'userToken': null,
-      'userName': null,
+      'userName' : null,
+      'userItem' : null,
 
     }
   },
@@ -56,9 +57,9 @@ export default {
       this.$http
         .get(userAPI,config)
         .then( res => {
-          this.userName = res.data[0].Username;
+          this.userItem = res.data[0];
+          console.log(res.data[0]);
           // console.log('USER INFO GET SUCCEED');
-          // console.log(res.data);
           // console.log(this.userName);
         })
         .catch( err => {

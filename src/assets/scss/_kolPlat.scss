@@ -104,6 +104,7 @@
                 display: block;
                 margin: 0 auto;
                 padding-top: 10%;
+                border-radius: 50%;
             }
             span{
                 display: block;
@@ -190,7 +191,7 @@
 .kolMesBlock{
     background-color: $nav_bgc;
     width: 68%;
-    height: 900px;
+    // height: 900px;
     // overflow-y: scroll;
     // border: 1px solid pink;
 
@@ -948,7 +949,7 @@
             }
             .createDate{
                 display: block;
-                margin: 80% 15% 0 15%;
+                margin: 70% 15% 0 15%;
                 padding: 3%;
                 text-align: center;
                 color: white;

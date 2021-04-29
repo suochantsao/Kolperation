@@ -4,8 +4,8 @@
             <fa-icon icon="bars" class="icon hamIcon" />
         </li>
         <li class="avatar">
-            <img width="90%" src="https://blush.design/api/download?shareUri=lWYd9h26cKmtH3pi&c=Hair_0%7E9b5120_Skin_0%7Ef6cbc3&w=500&h=500&fm=png" alt="" srcset="">
-            <span>{{name}}</span>
+            <img width="90%" :src="user.KOLavatar" alt="" srcset="">
+            <span>{{user.Username}}</span>
         </li>
 
         <ul class="countBlock">
@@ -60,7 +60,7 @@ export default {
     name: 'kolNavbar',
     props:[
         'caseCount',
-        'name'
+        'user'
     ],
     methods:{
         logOut(){
