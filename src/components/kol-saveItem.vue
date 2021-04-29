@@ -42,7 +42,7 @@ export default {
             'dateStr'    : null,
             'caseId'     : null,
             'saveBool'   : null,
-            'definedStr' : 'case',
+            'definedStr' : "case",
         }
     },
     components: { 
@@ -51,7 +51,7 @@ export default {
     created(){
         this.dateStr    = this.caseItem.EndTime.slice(0,10).replace(/-/g,".");
         this.caseId     = this.caseItem.SponsoredContentId;
-        console.log(this.caseItem.Favorite);
+        console.log(this.caseId);
 
         if ( this.caseItem.Favorite === undefined ){
             this.saveBool = true;

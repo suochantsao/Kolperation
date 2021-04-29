@@ -29,7 +29,7 @@ export default {
         this.pathStr = this.$route.query.loadPath
         this.$router.push({ path: `/${this.pathStr}`})
       }
-      ,2000
+      ,1800
       );
     }
 }

@@ -20,6 +20,7 @@
                 
                 <btn-add-fav
                     :contentId = "caseId"
+                    :definedId = "definedStr"
                     :boolStr   = "favBool"
                 >
                 </btn-add-fav>
@@ -72,7 +73,7 @@ export default {
             'caseId'      : null,
             'favBool'     : null,
             'channelList' : [],
-
+            'definedStr' : "case",
         }
     },
     created(){

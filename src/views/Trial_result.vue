@@ -3,22 +3,12 @@
     <div id="app">
         <span class="titleDescrip">搜尋結果</span>
 
-        <ul class="resultBlock contentBlock">
-            <li class="resultItem">
-                <fa-icon icon="utensils" class="icon " />
-                <span class="caseTitle">德國航母 TUNE PRO變頻智慧調理機</span>
-                <router-link to="/login">
-                    <span class="caseDescrip">合作詳情</span>
-                </router-link>
-            </li>
-            <li class="resultItem">
-                <fa-icon icon="utensils" class="icon" />
-                <span class="caseTitle"> Snow Bear 智效奶瓶消毒烘乾鍋體驗</span>
-                <router-link to="/login">
-                    <span class="caseDescrip">合作詳情</span>
-                </router-link>
-            </li>
-        </ul>
+        <trial-item
+            :caseItem="item"
+            :key="item.SponsoredContentId"
+            v-for="item in caseList"
+        ></trial-item>
+        
         <router-link to="/login">
             <li class="moreBtn">查看更多搜尋結果</li>
         </router-link>
@@ -27,12 +17,53 @@
 </template>
 
 <script>
+import trialItem from '../components/trial-item.vue';
 export default {
     name: 'trial_result',
+    components: { 
+        trialItem 
+    },
+    data(){
+        return{
+            'caseList' : [],
+            'userToken': null,
+            'config'   : null,
+        }
+    },
+    created(){
+        const channelItem = this.$route.query.channelTags;
+        const sectorList  = this.$route.query.sectorTags;
+        console.log(channelItem);
+        console.log(sectorList);
 
+        let  searchAPI   = `http://kolperation.rocket-coding.com/api/GetSponsoredContentsPreview?channelTags=${channelItem}&sectorTags=${sectorList}`;
+        this.userToken   = window.localStorage.getItem('token');
+        this.config      = { headers: { Authorization: `Bearer ${this.userToken}` } };
+
+        this.$http
+          .get(searchAPI ,this.config)
+          .then( res => {
+              console.log('條件案件搜尋結果');
+              console.log(res);
+              this.caseList = res.data;
+
+              if( this.caseList.length === 0){
+                  
+                  this.$swal({
+                    icon: 'question',
+                    title: '沒有符合的搜尋結果',
+                  })
+              }
+
+          })
+          .catch( err => {
+              console.error(err);
+          });
+
+
+    }
+    
 }
-</script>
 
-<style scoped>
-/* @import "/node_modules/bootstrap/dist/css/bootstrap.min.css"; */
-</style>
+
+</script>

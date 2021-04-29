@@ -1,5 +1,5 @@
 <template>
-    <li class="favBtnBlock">
+    <li class="favBtnBlock kolFavBlock">
         <fa-icon 
             :icon="['far', 'heart']" 
             class="favIcon likeIcon" 
@@ -26,13 +26,18 @@ export default {
     methods:{
         favAdd(){
             this.commonFun();
-            let addAPI = "";
+            console.log(this.contentId);
 
-            if(this.definedId === "company"){
+            let addAPI = `http://kolperation.rocket-coding.com/api/AddThisSCToMyFavorites/${this.contentId}`;
+
+            if( this.definedId === "company" ){
                 addAPI = `http://kolperation.rocket-coding.com/api/AddThisCompanyToMyFavorites/${this.contentId}`
             }
-            else{
+            if (this.defineId === "case"){
                 addAPI = `http://kolperation.rocket-coding.com/api/AddThisSCToMyFavorites/${this.contentId}`
+            }
+            if (this.definedId === "kol"){
+                addAPI = `http://kolperation.rocket-coding.com/api/AddThisKOLToMyFavorites/${this.contentId}`
             }
 
             this.$http
@@ -50,14 +55,20 @@ export default {
         },
         favRemove(){
             this.commonFun();
+            console.log(this.contentId);
+            
             let removeAPI = "";
 
-            if(this.definedId === "company"){
+            if( this.definedId === "company" ){
                 removeAPI = `http://kolperation.rocket-coding.com/api/RemoveThisCompanyFromMyFavorites/${this.contentId}`
             }
-            else{
+            if ( this.definedId === "case" ){
                 removeAPI = `http://kolperation.rocket-coding.com/api/RemoveThisSCFromMyFavorites/${this.contentId}`
             }
+            if( this.definedId === "kol" ){
+                removeAPI = `http://kolperation.rocket-coding.com/api/RemoveThisKOLFromMyFavorites/${this.contentId}`
+            }
+            
 
             this.$http
               .delete(removeAPI,this.config)
@@ -88,10 +99,13 @@ export default {
     },
     data(){
         return{
-            'favBool'  : this.boolStr,
+            'favBool'  : null,
             'config'   : null,
             'userToken': null,
         }
+    },
+    created(){
+        this.favBool = this.boolStr;
     }
 }
 </script>

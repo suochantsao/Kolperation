@@ -33,7 +33,7 @@ export default {
         this.$router.push({ 
             path: "/kolplat/searchresult",
             query: {
-                "channelTags": `${this.channelList},`,
+                "channelTags": `${this.channelList}`,
                 "sectorTags" : `${this.sectorList}`,
             }
         }),

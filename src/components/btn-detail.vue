@@ -12,6 +12,7 @@
 
 <script>
 export default {
+    inject:['reload'],
     name: 'btnDetail',
     props: [
         'caseId'
@@ -29,13 +30,23 @@ export default {
               .then( res => {
                   console.log(res);
                   console.log("拒絕合作成功");
+                  this.successAlert('已拒絕合作');
+                  this.reload();
               })
               .catch( err => {
                   console.error(err);
               })
             
+        },
+        successAlert(str){
+            this.$swal({
+                position: 'top-end',
+                icon: 'success',
+                title: str,
+                showConfirmButton: false,
+                timer: 1800
+            })
         }
-
     },
     data(){
         return{

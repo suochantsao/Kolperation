@@ -32,16 +32,35 @@ import Kol_saveCase      from '../views/Kol_saveCase.vue'
 import Kol_passCase      from '../views/Kol_passCase.vue'
 import Kol_setting       from '../views/Kol_setting.vue'
 import Kol_firmDetail    from '../views/Kol_firmDetail.vue'
-
-// KOL Search
 import Kol_searchPlat    from '../views/Kol_searchPlat.vue'
 import Kol_searchSector  from '../views/Kol_searchSector.vue'
 import Kol_searchLoad    from '../views/Kol_searchLoad.vue' 
 import Kol_searchResult  from '../views/Kol_searchResult.vue'
 
+// Firm
+import Firm               from '../views/Firm.vue'
+import Firm_msg           from '../views/Firm_msg.vue'
+import Firm_consult       from '../views/Firm_consult.vue'
+import Firm_consultDetail from '../views/Firm_consultDetail.vue'
+import Firm_success       from '../views/Firm_success.vue'
+import Firm_successDetail from '../views/Firm_successDetail.vue'
+import Firm_searchPlat    from '../views/Firm_searchPlat.vue'
+import Firm_searchSector  from '../views/Firm_searchSector.vue'
+import Firm_searchFans    from '../views/Firm_searchFans.vue'
+import Firm_searchLoad    from '../views/Firm_searchLoad.vue'
+import Firm_searchResult  from '../views/Firm_searchResult.vue'
+import Firm_saveKol       from '../views/Firm_saveKol.vue'
+import Firm_kolDetail     from '../views/Firm_kolDetail.vue'
+import Firm_passCase      from '../views/Firm_passCase.vue'
+import Firm_setting       from '../views/Firm_setting.vue'
+import Firm_msgDialog     from '../views/Firm_msgDialog.vue'
+import Firm_addCase       from '../views/Firm_addCase.vue'
+import Firm_editCase      from '../views/Firm_editCase.vue'
+
 // * Router
 Vue.use(VueRouter)
 const routes = [
+    
     {
         path: '/',
         name: 'Home',
@@ -185,7 +204,99 @@ const routes = [
             }
             
         ]
-    }
+    },
+    {
+        path: '/firmplat',
+        name: 'FirmPlat',
+        component: Firm,
+        children:[
+            {
+                path: 'msg',
+                name: 'Firm_msg',
+                component: Firm_msg
+            },
+            {
+                path: 'msgdialog',
+                name: 'Firm_msgDialog',
+                component: Firm_msgDialog
+            },
+            {
+                path: 'consult',
+                name: 'Firm_consult',
+                component: Firm_consult
+            },
+            {
+                path: 'consultdetail',
+                name: 'firmConsultDetail',
+                component: Firm_consultDetail
+            },
+            {
+                path: 'success',
+                name: 'Firm_success',
+                component: Firm_success
+            },
+            {
+                path: 'successdetail',
+                name: 'Firm_successDetail',
+                component: Firm_successDetail
+            },
+            {
+                path: 'searchplat',
+                name: 'Firm_searchPlat',
+                component: Firm_searchPlat
+            },
+            {
+                path: 'searchsector',
+                name: 'Firm_searchSector',
+                component: Firm_searchSector
+            },
+            {
+                path: 'searchfans',
+                name: 'Firm_searchFans',
+                component: Firm_searchFans
+            },
+            {
+                path: 'searchloader',
+                name: 'Firm_searchLoad',
+                component: Firm_searchLoad
+            },
+            {
+                path: 'searchresult',
+                name: 'Firm_searchResult',
+                component: Firm_searchResult
+            },
+            {
+                path: 'savekol',
+                name: 'Firm_saveKol',
+                component: Firm_saveKol
+            },
+            {
+                path: 'koldetail',
+                name: 'Firm_kolDetail',
+                component: Firm_kolDetail
+            },
+            {
+                path: 'passcase',
+                name: 'Firm_passCase',
+                component: Firm_passCase
+            },
+            {
+                path: 'setting',
+                name: 'Firm_setting',
+                component: Firm_setting
+            },
+            {
+                path: 'addcase',
+                name: 'Firm_addCase',
+                component: Firm_addCase
+            },
+            {
+                path: 'editcase',
+                name: 'Firm_editCase',
+                component: Firm_editCase
+            }
+        ]
+    },
 ]
 
 const router = new VueRouter({

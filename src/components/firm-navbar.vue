@@ -4,13 +4,13 @@
             <fa-icon icon="bars" class="icon hamIcon" />
         </li>
         <li class="avatar">
-            <img width="90%" :src="user.KOLavatar" alt="" srcset="">
-            <span>{{user.Username}}</span>
+            <img width="90%" src="https://blush.design/api/download?shareUri=lWYd9h26cKmtH3pi&c=Hair_0%7E9b5120_Skin_0%7Ef6cbc3&w=500&h=500&fm=png" alt="" srcset="">
+            <span>{{name}}</span>
         </li>
 
         <ul class="countBlock">
             <li class="countItem">
-                <span class="descript">正在洽談件數</span>
+                <span class="descript">執行中案件數</span>
                 <span class="count">{{caseCount.goingCases}}</span>
             </li>
             <li class="countItem successItem">
@@ -19,25 +19,19 @@
             </li>
         </ul>
 
-        <router-link to="/kolplat/savefirm">
-        <li class="navBtn">
-            <fa-icon icon="briefcase" class="icon" />
-            <span>儲存公司</span>
-        </li>
-        </router-link>
-        <router-link to="/kolplat/savecase">
+        <router-link to="/firmplat/savekol">
         <li class="navBtn">
             <fa-icon icon="heart" class="icon" />
-            <span>儲存案件</span>
+            <span>儲存KOL</span>
         </li>
         </router-link>
-        <router-link to="/kolplat/passcase">
+        <router-link to="/firmplat/passcase">
         <li class="navBtn">
             <fa-icon icon="calendar-check" class="icon" />
             <span>過往案件</span>
         </li>
         </router-link>
-        <router-link to="/kolplat/setting">
+        <router-link to="/firmplat/setting">
         <li class="navBtn">
             <fa-icon icon="cog" class="icon" />
             <span>帳號設定</span>
@@ -57,10 +51,10 @@
 
 <script>
 export default {
-    name: 'kolNavbar',
+    name: 'firmNavbar',
     props:[
         'caseCount',
-        'user'
+        'name'
     ],
     methods:{
         logOut(){

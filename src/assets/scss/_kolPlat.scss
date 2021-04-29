@@ -57,12 +57,12 @@
             }
         }
         .selectTab{
-            color: $brand_blue;
-            border-bottom: 3px solid $brand_blue;
+            color: $brand_lightBlue;
+            border-bottom: 3px solid $brand_lightBlue;
         }
         .tab:hover{
-            color: $brand_blue;
-            border-bottom: 3px solid $brand_blue;
+            color: $brand_lightBlue;
+            border-bottom: 3px solid $brand_lightBlue;
             transition:all .2s ease-in-out;
 
         }
@@ -104,6 +104,7 @@
                 display: block;
                 margin: 0 auto;
                 padding-top: 10%;
+                border-radius: 50%;
             }
             span{
                 display: block;
@@ -190,7 +191,7 @@
 .kolMesBlock{
     background-color: $nav_bgc;
     width: 68%;
-    height: 900px;
+    // height: 900px;
     // overflow-y: scroll;
     // border: 1px solid pink;
 
@@ -684,8 +685,8 @@
             
             p{
                 margin: 2% 2% 0% 0%;
-                background-color: $brand_blue;
-                border: 2px solid $brand_blue;
+                background-color: $brand_lightBlue;
+                border: 2px solid $brand_lightBlue;
             }
         }
         .btnBlock{
@@ -709,7 +710,7 @@
                 padding: 6% 3%;
                 color: white;
                 border-radius: 5px;
-                background-color: $brand_lightBlue;
+                background-color: $tab_color;
                 // border: 1px solid pink;
             }
         }
@@ -948,7 +949,7 @@
             }
             .createDate{
                 display: block;
-                margin: 80% 15% 0 15%;
+                margin: 70% 15% 0 15%;
                 padding: 3%;
                 text-align: center;
                 color: white;
@@ -1217,6 +1218,10 @@
 // Scroll Style
 .scrollStyle::-webkit-scrollbar {
     background-color: $brand_lightBlue;
+}
+
+.scrollGrey::-webkit-scrollbar {
+    background-color: $tab_color;
 }
 
 .scrollSpecial::-webkit-scrollbar {
