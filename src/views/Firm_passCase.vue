@@ -26,22 +26,18 @@ export default {
     data(){
         return{
             'successList': [],
-            'userToken': null,
         }
     },
     created(){
-        this.userToken = window.localStorage.getItem('token');
-        const successAPI   = 'http://kolperation.rocket-coding.com/api/GetCompanySuccessfulCases';
-        const config   = { headers: { Authorization: `Bearer ${this.userToken}` } };
+        const userToken  = window.localStorage.getItem('token');
+        const config     = { headers: { Authorization: `Bearer ${userToken}` } };
 
-        console.log(this.userToken);
+        const successAPI = 'http://kolperation.rocket-coding.com/api/GetCompanySuccessfulCases';
 
         this.$http
           .get( successAPI, config)
           .then( res => {
               console.log(res);
-            //   this.successList = res.data
-            //   console.log(this.successList);
           })
           .catch( err => {
                   console.error(err);

@@ -183,7 +183,7 @@
         .inputBlock{
             background-color: $brand_blue;
             .btnBlock{
-                margin-top: 18%;
+                margin-top: 12%;
                 .btn{
                     border: 3px solid $brand_lightBlue;
                 }
@@ -196,11 +196,11 @@
         margin: 0 auto 5% auto;
         width: 100%;
         .applyArea{
-            height: 23%;
             display: flex;
             flex-wrap: wrap;
-            padding: 1% 4% 0 4%;
+            padding: 1% 4% 2% 4%;
             overflow-x: auto;
+            height: 19%;
         }
         .padUsing{
             color: $nav_bgc;
@@ -214,6 +214,7 @@
                         padding: 6% 0;
                         margin: 6% 0;
                         background-color: $brand_blue;
+                        cursor: pointer;
                         .icon{
                             margin-left: 13%;
                             color: white;

@@ -288,7 +288,7 @@ export default {
                     .then( res => {
                         console.log('照片上傳成功');
                         console.log(res);
-                        this.confirmChange(res.data)
+                        this.confirmChange(res.data);
                         // this.successAlert('個人頭像更新成功')
                     })
                     .catch( err => {

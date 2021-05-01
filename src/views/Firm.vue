@@ -4,7 +4,7 @@
        <div class="kolContent firmContent">
            <firm-navbar
             :caseCount="casesNum" 
-            :name="userName"
+            :user="userItem"
            ></firm-navbar>
 
            <router-view />
@@ -20,7 +20,6 @@ import FirmNavbar from '../components/firm-navbar.vue'
 
 export default {
     name: 'Firm',
-    
     components: {
         FirmHeader,
         FirmNavbar 
@@ -32,7 +31,7 @@ export default {
             successCases : null
         },
         'userToken': null,
-        'userName': null,
+        'userItem' : null,
         }
     },
     created(){
@@ -48,7 +47,6 @@ export default {
             console.log('CASE NUM GET SUCCEED');
             this.casesNum.goingCases   = res.data.OnGoingCases;
             this.casesNum.successCases = res.data.SuccessfulCases; 
-            // console.log(res);
         })
         .catch( err => {
             console.error(err);
@@ -58,12 +56,11 @@ export default {
         .get(firmAPI,config)
         .then( res => {
             console.log(res.data);
-            this.userName = res.data.Company;
+            this.userItem = res.data;
         })
         .catch( err => {
             console.error(err);
         });
-
     }
 }
 

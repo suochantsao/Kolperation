@@ -28,9 +28,6 @@ export default {
         this.channelList = this.$route.query.channels;
         this.sectorList  = this.$route.query.sectors;
         this.fansList    = this.$route.query.fans;
-        console.log(this.channelList);
-        console.log(this.sectorList);
-        console.log(this.fansList);
 
         setTimeout(()=>
         this.$router.push({ 

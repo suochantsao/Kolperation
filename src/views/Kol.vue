@@ -17,6 +17,11 @@ import kolHeader from '../components/kol-header.vue'
 import KolNavbar from '../components/kol-navbar.vue'
 
 export default {
+  inject:['reload'],
+  components: { 
+    kolHeader,
+    KolNavbar,
+  },
   data(){
     return{
       'casesNum': {
@@ -24,17 +29,9 @@ export default {
         successCases : null
       },
       'userToken': null,
-      'userName' : null,
       'userItem' : null,
-
     }
   },
-  components: { 
-    kolHeader,
-    KolNavbar,
-  },
-  inject:['reload']
-  ,
   created(){
       this.userToken = window.localStorage.getItem('token');
 
@@ -45,10 +42,8 @@ export default {
       this.$http
         .get(casesAPI,config)
         .then( res => {
-          console.log('CASE NUM GET SUCCEED');
           this.casesNum.goingCases   = res.data.OnGoingCases;
           this.casesNum.successCases = res.data.SuccessfulCases; 
-          // console.log(res);
         })
         .catch( err => {
           console.error(err);
@@ -59,14 +54,10 @@ export default {
         .then( res => {
           this.userItem = res.data[0];
           console.log(res.data[0]);
-          // console.log('USER INFO GET SUCCEED');
-          // console.log(this.userName);
         })
         .catch( err => {
           console.error(err);
         });
-    
   }
-  
 }
 </script>

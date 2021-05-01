@@ -67,6 +67,9 @@ export default {
             localStorage.clear()
         }
 
+    },
+    created(){
+        console.log(this.user);
     }
 }
 </script>

@@ -8,7 +8,12 @@
                 <img width="60%" src="https://blush.design/api/download?shareUri=Qnt8NFR94jtAwxnw&c=Hair_0%7E9b5120-0.1.0%7E0f0f0f-0.1.1%7Ec38741-0.1.2%7Ec38741_Skin_0%7E7d4439-0.1.0%7Ef6cbc3-0.1.1%7Ec26e5e-0.1.2%7E7d4439&w=800&h=800&fm=png">                
                 <ul class="conditionBlock">
                     <h1>{{caseDetail.Title}}</h1>
-                    <li>{{caseDetail.Company}}</li>
+
+                    <li 
+                      class="companyName"
+                      @click="linkToFirm"
+                    >{{caseDetail.Company}}</li>
+                    
                     <li class="budget">合作預算： ${{caseDetail.Budget}}</li>
                     <li class="needsNum">截止日期： {{dateStr}}</li>
 
@@ -30,18 +35,17 @@
                 <ul class="caseDetail">
                     <li class="blockTitle">合作內容</li>
                     <p>{{caseDetail.Detail}}<br/>
-                        1.文章以正面回饋為主，體驗中如有任何建議請直接反應<br/>
-                        2.標題上請勿出現類似邀稿，試用文字<br/>
-                        3.文章連結與圖文須同意我們作為廣告連結(Google & FB) 或使用.修改或重製您提供的照片.影音等素材或引用部分內容使用於後續銷售宣傳 
+                        
                     </p>
                     <ul class="btnBlock">
                         <a>
                         <li 
                           class="applyBtn"
+                          :class=" btnStyle === true ? 'disableStyle' : '' "
                           @click="applyCase"
                         >
                             <fa-icon :icon="['far', 'handshake']" class="icon" />
-                            <span>我要報名</span>
+                            <span>{{btnStr}}</span>
                         </li>
                         </a>
                         <a>
@@ -79,6 +83,7 @@
 </template>
 
 <script>
+// Components
 import btnAddFav from '../components/btn-addFav.vue';
 import KolChannelItem from '../components/kol-channelItem.vue';
 
@@ -128,6 +133,33 @@ export default {
               })
 
         },
+        linkToFirm(){
+            this.$router.push({ 
+            path: "/kolplat/firmdetail",
+            query: {
+                "firm": `${this.firmGuid}`,
+                "company" : `${this.companyId}`,
+            }
+        })
+        },
+        definedStr(){
+            if( this.statusId === 1 ){
+                this.btnStr = '確認合作';
+                this.btnStyle = false;
+            }
+            else if( this.statusId === 0 ){
+                this.btnStr = '已經報名'
+                this.btnStyle = true;
+            }
+            else if( this.statusId === 3 ){
+                this.btnStr = '公司婉拒'
+                this.btnStyle = true;
+            }
+            else{
+                this.btnStr = '我要報名';
+                this.btnStyle = false;
+            }
+        },
         routerSet(){
             this.$router.back(-1);
         },
@@ -144,12 +176,17 @@ export default {
     data(){
         return{
             'caseDetail'  : null,
+            'companyId'   : null,
+            'firmGuid'    : null,
             'dateStr'     : null,
             'favBool'     : null,
             'caseId'      : null,
             'msgId'       : null,
             'config'      : null,
             'userToken'   : null,
+            'statusId'    : null,
+            'btnStr'      : null,
+            'btnStyle'    : null,
             'channelList' : [],
         }
     },
@@ -159,7 +196,6 @@ export default {
         this.config     = { headers: { Authorization: `Bearer ${this.userToken}` } };
 
         const detailAPI = `http://kolperation.rocket-coding.com/api/GetSponsoredContent/${this.caseId}`;
-        const platAPI   = 'http://kolperation.rocket-coding.com/api/TagChannels';
 
         this.$http
           .get(detailAPI,this.config)
@@ -168,17 +204,13 @@ export default {
               this.dateStr     = this.caseDetail.EndTime.slice(0,10).replace(/-/g,".");
               this.favBool     = this.caseDetail.Favorite;
               this.channelList = this.caseDetail.Channels;
+              this.statusId    = this.caseDetail.CoopStatus;
+              this.companyId   = this.caseDetail.CompanyId;
+              this.firmGuid    = this.caseDetail.Guid;
+
+              this.definedStr();
 
               console.log(res.data);
-          })
-          .catch( err => {
-              console.error(err);
-          });
-
-        this.$http
-          .get(platAPI,this.config)
-          .then( () => {
-            //   console.log(res.data);
           })
           .catch( err => {
               console.error(err);

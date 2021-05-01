@@ -25,7 +25,6 @@ export default {
       console.log(this.$route.query.loadPath)
 
       setTimeout(()=>{
-        // console.log(this.$route);
         this.pathStr = this.$route.query.loadPath
         this.$router.push({ path: `/${this.pathStr}`})
       }

@@ -130,11 +130,12 @@
 </template>
 
 <script>
+// Components
 import Multiselect from '@vueform/multiselect/dist/multiselect.vue2.js'
 
 export default {
-    inject:['reload'],
     name:'kolSetting',
+    inject:['reload'],
     components: {
         Multiselect,
     },

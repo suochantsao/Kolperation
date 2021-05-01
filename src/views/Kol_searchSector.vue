@@ -79,7 +79,7 @@
                     </li>
 
                 </ul>
-                <!-- to="/kolplat/searchloader" -->
+                
                 <router-link 
                   :to="{ name: 'Kol_searchLoader', query: { channels: `${channelItem}`, sectors: `${gameId}${videoId}${sportsId}${foodsId}${techId}${fashionId}${lifeId}${petsId}`}}"
                 >

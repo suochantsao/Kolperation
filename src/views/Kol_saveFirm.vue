@@ -26,15 +26,14 @@ export default {
     data(){
         return{
             'saveFirmList': [],
-            'caseId': null,
-            'userToken': null,
+            'caseId'      : null,
         }
     },
     created(){
-        this.userToken = window.localStorage.getItem('token');
-        const saveFirmAPI   = 'http://kolperation.rocket-coding.com/api/GetKOLFavoriteCompanies';
-        const firmTagAPI   = 'http://kolperation.rocket-coding.com/api/TagSectors';
-        const config   = { headers: { Authorization: `Bearer ${this.userToken}` } };
+        const userToken   = window.localStorage.getItem('token');
+        const saveFirmAPI = 'http://kolperation.rocket-coding.com/api/GetKOLFavoriteCompanies';
+        const firmTagAPI  = 'http://kolperation.rocket-coding.com/api/TagSectors';
+        const config      = { headers: { Authorization: `Bearer ${userToken}` } };
 
         this.$http
           .get( saveFirmAPI, config)

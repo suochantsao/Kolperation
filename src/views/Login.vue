@@ -88,8 +88,6 @@
 </template>
 
 <script>
-// let userToken = {};
-
 export default {
     name: 'login',
     data(){
@@ -194,7 +192,6 @@ export default {
             })
         }
     }
-
 }
 </script>
 

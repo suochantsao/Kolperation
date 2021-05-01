@@ -69,6 +69,7 @@ import KolKolReply from '../components/kol-kolReply.vue';
 
 export default {
     name: 'msgDialog',
+    inject:['reload'],
     methods:{
         confirmCase(){
 
@@ -109,7 +110,6 @@ export default {
                   console.log(res);
                   console.log("寄出訊息成功");
                   this.sendMsg = '';
-                //   this.reload();
 
               })
               .catch( err => {

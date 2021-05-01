@@ -136,11 +136,10 @@
 
 <script>
 export default {
-    inject:['reload'],
     name:'kolSetting',
+    inject:['reload'],
     methods:{
         resetCode(){
-
             this.$swal({
                 title: '請輸入您的新密碼',
                 input: 'password',
@@ -178,7 +177,7 @@ export default {
                       })
             }})
         },
-        confirmChange(){
+        confirmChange(picName){
             
             const changeAPI = `http://kolperation.rocket-coding.com/api/PutCompany/${this.firmUserId}`
 
@@ -190,10 +189,10 @@ export default {
                 "Email": this.infoData.Email,
                 "Phone": this.infoData.Phone,
                 "PersonInCharge": this.infoData.PersonInCharge,
+                "CompanyLogo": picName,
                 // "ChannelTags":"03,05",
                 // "SectorTags": "06,07,08",
                 // "Website":"xxxx"
-                // "CompanyLogo": "fff.png",
                 // "Address": "",
             }
             console.log(infoItem);
@@ -226,14 +225,27 @@ export default {
                 if (result.isConfirmed) {
                     console.log(result.value);
 
+                    const profileName = result.value.name;
+                    const fileObj     = result.value;
+                    const formData    = new FormData();
+
+                    const newConfig   = { 
+                        headers: { 
+                            Authorization: `Bearer ${this.userToken}`,
+                            'Content-Type': `multipart/from-data`
+                        } 
+                    }
+                    formData.append('file',fileObj,profileName);
+                    console.log(formData.get('file'));
+
                     const uploadAPI = `http://kolperation.rocket-coding.com/api/UploadFile`;
 
                     this.$http
-                    .post(uploadAPI,result.value,this.config)
+                    .post(uploadAPI,formData,newConfig)
                     .then( res => {
                         console.log('照片上傳成功');
                         console.log(res);
-                        this.successAlert('個人頭像更新成功')
+                        this.confirmChange(res.data);
                     })
                     .catch( err => {
                         console.error(err);

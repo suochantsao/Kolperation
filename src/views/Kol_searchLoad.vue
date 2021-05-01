@@ -26,8 +26,6 @@ export default {
     created(){
         this.channelList = this.$route.query.channels;
         this.sectorList  = this.$route.query.sectors;
-        console.log(this.channelList);
-        console.log(this.sectorList);
 
         setTimeout(()=>
         this.$router.push({ 

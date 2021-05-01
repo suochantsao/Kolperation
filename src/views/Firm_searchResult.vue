@@ -51,16 +51,17 @@ export default {
         },
         showAllResult(){
             const searchAPI    = `http://kolperation.rocket-coding.com/api/GetKOLsList`;
+
             this.$http
-            .get(searchAPI ,this.config)
-            .then( res => {
-                console.log('全部案件搜尋結果');
-                console.log(res);
-                this.kolList = res.data;
-            })
-            .catch( err => {
-                console.error(err);
-            });
+              .get(searchAPI ,this.config)
+              .then( res => {
+                  console.log('全部案件搜尋結果');
+                  console.log(res);
+                  this.kolList = res.data;
+              })
+              .catch( err => {
+                  console.error(err);
+              });
         }
     },
     data(){
@@ -75,15 +76,15 @@ export default {
         const sectorList  = this.$route.query.sectorTags;
         const fansList    = this.$route.query.Fans;
     
-        let correctChannels = channelItem.slice(0,channelItem.length-2);
-        let correctSector   = sectorList.slice(0,sectorList.length-1);
-        let correctFans     = fansList.slice(0,fansList.length-1);
+        const correctChannels  = channelItem.slice(0,channelItem.length-1);
+        const correctSectors   = sectorList.slice(0,sectorList.length-1);
+        const correctFans      = fansList.slice(0,fansList.length-1);
         
         console.log(correctChannels);
-        console.log(correctSector);
+        console.log(correctSectors);
         console.log(correctFans);
 
-        let searchAPI    = `http://kolperation.rocket-coding.com/api/GetKOLsList?channelTags=${correctChannels}&sectorTags=${correctSector}&Fans=${correctFans}`;
+        let searchAPI    = `http://kolperation.rocket-coding.com/api/GetKOLsList?channelTags=${correctChannels}&sectorTags=${correctSectors}&Fans=${correctFans}`;
 
         this.userToken   = window.localStorage.getItem('token');
         this.config      = { headers: { Authorization: `Bearer ${this.userToken}` } };

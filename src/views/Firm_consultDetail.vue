@@ -30,12 +30,7 @@
             <ul class="caseInfo">
                 <ul class="caseDetail">
                     <li class="blockTitle">合作內容</li>
-                    <p>{{caseDetail.Detail}}<br/>
-                        1.文章以正面回饋為主，體驗中如有任何建議請直接反應<br/>
-                        2.標題上請勿出現類似邀稿，試用文字<br/>
-                        3.文章連結與圖文須同意我們作為廣告連結(Google & FB) 或使用.修改或重製您提供的照片.影音等素材或引用部分內容使用於後續銷售宣傳<br/>
-                        4.標題上請勿出現類似邀稿，試用文字
-                    </p>
+                    <p>{{caseDetail.Detail}}</p>
                 </ul>
                 <ul class="caseRequire">
                     <li class="blockTitle">需求條件</li>
@@ -74,15 +69,10 @@
             <div class="mesArea alertArea applyArea scrollGrey">
                 
                 <firm-kol-avatar
-                    :caseItem="item"
+                    :kolInfo = "item"
                     :key="item.SponsoredContentId"
                     v-for="item in inviteCaseList" 
                 ></firm-kol-avatar>
-                <!-- <kol-invite-item
-                    :caseItem="item"
-                    :key="item.SponsoredContentId"
-                    v-for="item in inviteCaseList" 
-                ></kol-invite-item> -->
                 
             </div>
 
@@ -106,6 +96,7 @@
 </template>
 
 <script>
+// Components
 import FirmKolApply from '../components/firm-kolApply.vue';
 import FirmKolAvatar from '../components/firm-kolAvatar.vue';
 import KolChannelItem from '../components/kol-channelItem.vue';
@@ -141,16 +132,17 @@ export default {
     },
     data(){
         return{
-            'caseDetail'   : null,
-            'dateStr'      : null,
-            'favBool'      : null,
-            'caseId'       : null,
-            'msgId'        : null,
-            'config'       : null,
-            'userToken'    : null,
-            'applyKolList' : [],
-            'coopKolList'  : [],
-            'channelList'  : [],
+            'caseDetail'    : null,
+            'dateStr'       : null,
+            'favBool'       : null,
+            'caseId'        : null,
+            'msgId'         : null,
+            'config'        : null,
+            'userToken'     : null,
+            'applyKolList'  : [],
+            'coopKolList'   : [],
+            'inviteCaseList': [],
+            'channelList'   : [],
         }
     },
     created(){
@@ -164,12 +156,13 @@ export default {
         this.$http
           .get(detailAPI,this.config)
           .then( res => {
-              this.caseDetail   = res.data;
-              this.dateStr      = this.caseDetail.EndTime.slice(0,10).replace(/-/g,".");
-              this.favBool      = this.caseDetail.Favorite;
-              this.channelList  = this.caseDetail.Channels;
-              this.applyKolList = this.caseDetail.PeopleApplied;
-              this.coopKolList  = this.caseDetail.PeopleCoopWith;
+              this.caseDetail     = res.data;
+              this.dateStr        = this.caseDetail.EndTime.slice(0,10).replace(/-/g,".");
+              this.favBool        = this.caseDetail.Favorite;
+              this.channelList    = this.caseDetail.Channels;
+              this.applyKolList   = this.caseDetail.PeopleApplied;
+              this.inviteCaseList = this.caseDetail.PeopleInvited; 
+              this.coopKolList    = this.caseDetail.PeopleCoopWith;
 
               console.log(res.data);
           })
@@ -182,7 +175,6 @@ export default {
           .then( res => {
               console.log('成功取得KOL邀請');
               console.log(res);
-            //   console.log(res.data);
           })
           .catch( err => {
               console.error(err);

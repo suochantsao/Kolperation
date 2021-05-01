@@ -18,7 +18,7 @@
                 </ul>
                 <ul>
                     <btn-add-fav
-                    :boolStr   = "favBool"
+                    :boolStr   = true
                     :definedId = "kolStr"
                     :contentId = "kolId"
                     ></btn-add-fav>
@@ -74,6 +74,11 @@ import FirmPlatItem  from '../components/firm-platItem.vue'
 
 export default {
     name: 'kolDetail',
+    components: { 
+        btnAddFav,
+        FirmPlatItem 
+
+    },
     methods:{
         routerSet(){
             this.$router.back(-1);
@@ -97,22 +102,22 @@ export default {
                             console.log(sponId);
                             let sponObj = {
                                 "SponsoredContentId": sponId,
-                                "KolId": this.kolId
+                                // "KolId": this.kolId
                             }
 
-                            const inviteAPI = `http://kolperation.rocket-coding.com/api/PostMessagebyCompany`
-
+                            // const msgAPI    = `http://kolperation.rocket-coding.com/api/PostMessagebyCompany`
+                            const inviteAPI = `http://kolperation.rocket-coding.com/api/CompanyInvited/${this.kolId}`
                             this.$http
                             .post(inviteAPI,sponObj,this.config)
                             .then( res => {
                                 console.log(res);
                                 console.log("邀請KOL成功");
-                                this.msgId = res.data[0].MsgId;
+                                // this.msgId = res.data[0].MsgId;
                                 this.successAlert();
-                                this.$router.push({ 
-                                    path: "/firmplat/msgdialog",
-                                    query: { "msg": this.msgId }
-                                })
+                                // this.$router.push({ 
+                                //     path: "/firmplat/msgdialog",
+                                //     query: { "msg": this.msgId }
+                                // })
 
                             })
                             .catch( err => {
@@ -131,11 +136,6 @@ export default {
                 timer: 1800
             });
         }
-    },
-    components: { 
-        btnAddFav,
-        FirmPlatItem 
-
     },
     data(){
         return{
@@ -195,8 +195,9 @@ export default {
               
                 this.channelList = this.kolDetail.Channels;
                 this.kolName     = this.kolDetail.Username;
-                this.successNum  = this.kolDetail.CoopSuccessTimes;
+                this.successNum  = this.kolDetail.CoopTimes;
                 this.fansNum     = this.kolDetail.Channels[0].FansNumber;
+                this.favBool     = this.kolDetail.Favorite;
                 
           })
           .catch( err => {

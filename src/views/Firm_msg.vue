@@ -24,13 +24,12 @@ export default {
     data(){
         return{
             'msgList'  : [],
-            'userToken': null,
         }
     },
     created(){
-        this.userToken = window.localStorage.getItem('token');
-        const msgAPI   = 'http://kolperation.rocket-coding.com/api/GetMessageHistories';
-        const config   = { headers: { Authorization: `Bearer ${this.userToken}` } };
+        const userToken = window.localStorage.getItem('token');
+        const msgAPI    = 'http://kolperation.rocket-coding.com/api/GetMessageHistories';
+        const config    = { headers: { Authorization: `Bearer ${userToken}` } };
 
         this.$http
           .get(msgAPI,config)
@@ -41,28 +40,6 @@ export default {
           .catch( err => {
               console.error(err);
           })
-
-        // this.$http
-        //  .get(
-        //      `http://kolperation.rocket-coding.com/api/TagSectors`,
-        //      config
-        //  )
-        //  .then( res => {
-        //      console.log('產業別標籤如下');
-        //      console.log(res);
-             
-        //  })
-
-        // this.$http
-        //  .get(
-        //      `http://kolperation.rocket-coding.com/api/TagChannels`,
-        //      config
-        //  )
-        //  .then( res => {
-        //      console.log('平台別標籤如下');
-        //      console.log(res);
-        //  })
-
     }
 
 }

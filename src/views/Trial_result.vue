@@ -17,7 +17,9 @@
 </template>
 
 <script>
+// Components
 import trialItem from '../components/trial-item.vue';
+
 export default {
     name: 'trial_result',
     components: { 
@@ -54,15 +56,11 @@ export default {
                     title: '沒有符合的搜尋結果',
                   })
               }
-
           })
           .catch( err => {
               console.error(err);
           });
-
-
     }
-    
 }
 
 

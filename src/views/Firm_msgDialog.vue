@@ -14,14 +14,12 @@
                 </li>
                 <ul class="btnBlock">
                     <li class="detailBtn">
-                    <!-- <router-link 
-                      :to="{ name: 'Firm_sucessDetail', query: { msg: this.caseId }}"
-                    > -->
-                    <a>
+                    <router-link 
+                      :to="{ name: 'Firm_successDetail', query: { msg: this.caseId }}"
+                    >
                         <fa-icon icon="list-ul" class="icon" />
                         <span>案件詳細資料</span>
-                    </a>
-                    <!-- </router-link> -->
+                    </router-link>
                     </li>
 
                     <li 
@@ -70,11 +68,13 @@
 import FirmFirmReply from '../components/firm-firmReply.vue'
 
 export default {
-    inject:['reload'],
     name: 'msgDialog',
+    inject:['reload'],
+    components: { 
+        FirmFirmReply 
+    },
     methods:{
         confirmCase(){
-
             const confirmAPI = `http://kolperation.rocket-coding.com/api/CompanyInvited/${this.kolId}`
             
             let confirmObj = {
@@ -136,9 +136,6 @@ export default {
             })
         }
     },
-    components: { 
-        FirmFirmReply 
-    },
     data(){
         return{
             'userToken': null,
@@ -154,7 +151,6 @@ export default {
         }
     },
     created(){
-        console.log(this.$route.query.msg);
         this.msgId = this.$route.query.msg;
         this.userToken = window.localStorage.getItem('token');
         this.config   = { headers: { Authorization: `Bearer ${this.userToken}` } };

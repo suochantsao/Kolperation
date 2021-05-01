@@ -20,6 +20,7 @@
 </template>
 
 <script>
+// Components
 import homeHeader  from '../components/home-header.vue'
 import homeContent from '../components/home-content.vue'
 import homeFooter  from '../components/home-footer.vue'

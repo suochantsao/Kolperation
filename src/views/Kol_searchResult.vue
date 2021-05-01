@@ -45,20 +45,20 @@ export default {
     methods:{
         researchFun(){
             this.$router.push({ path: '/kolplat/searchPlat' })
-
         },
         showAllResult(){
             const searchAPI    = `http://kolperation.rocket-coding.com/api/GetSponsoredContentsList`;
+
             this.$http
-            .get(searchAPI ,this.config)
-            .then( res => {
-                console.log('全部案件搜尋結果');
-                console.log(res);
-                this.caseList = res.data;
-            })
-            .catch( err => {
-                console.error(err);
-            });
+              .get(searchAPI ,this.config)
+              .then( res => {
+                  console.log('全部案件搜尋結果');
+                  console.log(res);
+                  this.caseList = res.data;
+              })
+              .catch( err => {
+                  console.error(err);
+              });
         }
     },
     data(){
@@ -71,11 +71,8 @@ export default {
     created(){
         const channelItem = this.$route.query.channelTags;
         const sectorList  = this.$route.query.sectorTags;
-        console.log(channelItem);
-        console.log(sectorList);
 
         let searchAPI    = `http://kolperation.rocket-coding.com/api/GetSponsoredContentsList?channelTags=${channelItem}&sectorTags=${sectorList}`;
-        // const allFirmAPI = `http://kolperation.rocket-coding.com/api/GetCompaniesList`
         this.userToken   = window.localStorage.getItem('token');
         this.config      = { headers: { Authorization: `Bearer ${this.userToken}` } };
 

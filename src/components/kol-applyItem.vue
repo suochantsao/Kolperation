@@ -5,11 +5,11 @@
 
             <li class="itemTitle">{{caseItem.CaseTitle}}</li>
             <li class="firmName">{{caseItem.CompanyName}}</li>
-            <li class="firmName statusStr">目前狀態：等候回覆中</li>
+            <li class="firmName statusStr">目前狀態：{{currentStatus}}</li>
 
         </ul>
 
-        <router-link :to="{ name: 'Kol_sucessDetail', query: { msg: this.caseId }}">
+        <router-link :to="{ name: 'Kol_consultDetail', query: { msg: this.caseId }}">
         <li class="btn">
             <fa-icon icon="list-ul" class="icon" />
             <span>詳細資訊</span>
@@ -26,12 +26,23 @@ export default {
     ],
     data(){
         return{
-            'caseId': null,
+            'caseId'       : null,
+            'coopStatusId' : null,
+            'currentStatus': null, 
         }
     },
     created(){
         console.log(this.caseItem);
-        this.caseId = this.caseItem.SponsoredContentId;
+        this.caseId        = this.caseItem.SponsoredContentId;
+        this.coopStatusId  = this.caseItem.CoopStatus;
+        
+        if( this.coopStatusId === 0){
+            this.currentStatus = '等候回覆中'
+        }
+        else{
+            this.currentStatus = '公司婉拒合作'
+        }
+        
     }
 }
 </script>

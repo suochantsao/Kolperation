@@ -8,7 +8,12 @@
                 <img width="60%" src="https://blush.design/api/download?shareUri=Qnt8NFR94jtAwxnw&c=Hair_0%7E9b5120-0.1.0%7E0f0f0f-0.1.1%7Ec38741-0.1.2%7Ec38741_Skin_0%7E7d4439-0.1.0%7Ef6cbc3-0.1.1%7Ec26e5e-0.1.2%7E7d4439&w=800&h=800&fm=png">                
                 <ul class="conditionBlock">
                     <h1>{{caseDetail.Title}}</h1>
-                    <li>{{caseDetail.Company}}</li>
+
+                    <li 
+                      class="companyName"
+                      @click="linkToFirm"
+                    >{{caseDetail.Company}}</li>
+
                     <li class="budget">合作預算： ${{caseDetail.Budget}}</li>
                     <li class="needsNum">截止日期： {{dateStr}}</li>
 
@@ -60,10 +65,29 @@
 </template>
 
 <script>
+// Components
 import btnAddFav from '../components/btn-addFav.vue';
 import KolChannelItem from '../components/kol-channelItem.vue';
 
 export default {
+    components: { 
+        btnAddFav,
+        KolChannelItem 
+    },
+    methods:{
+        routerSet(){
+            this.$router.back(-1);
+        },
+        linkToFirm(){
+            this.$router.push({ 
+            path: "/kolplat/firmdetail",
+            query: {
+                "firm": `${this.firmGuid}`,
+                "company" : `${this.companyId}`,
+            }
+        });
+        },
+    },
     data(){
         return{
             'dateStr'     : null,
@@ -72,6 +96,8 @@ export default {
             'caseDetail'  : null,
             'caseId'      : null,
             'favBool'     : null,
+            'companyId'   : null,
+            'firmGuid'    : null,
             'channelList' : [],
             'definedStr' : "case",
         }
@@ -81,17 +107,17 @@ export default {
         this.config    = { headers: { Authorization: `Bearer ${this.userToken}` } };
         this.caseId    = this.$route.query.msg;
 
-        // console.log(this.);
-
         const detailAPI  = `http://kolperation.rocket-coding.com/api/GetSponsoredContent/${this.caseId}`;
 
         this.$http
           .get(detailAPI,this.config)
           .then( res => {
-              this.caseDetail = res.data;
-              this.favBool    = this.caseDetail.Favorite;
-              this.dateStr    = res.data.EndTime.slice(0,10).replace(/-/g,".");
+              this.caseDetail  = res.data;
+              this.favBool     = this.caseDetail.Favorite;
+              this.dateStr     = res.data.EndTime.slice(0,10).replace(/-/g,".");
               this.channelList = this.caseDetail.Channels;
+              this.companyId   = this.caseDetail.CompanyId;
+              this.firmGuid    = this.caseDetail.Guid;
 
               console.log(res.data);
               console.log(this.favBool);
@@ -99,17 +125,6 @@ export default {
           .catch( err => {
               console.error(err);
           })
-    },
-    components: { 
-        btnAddFav,
-        KolChannelItem 
-    },
-    methods:{
-        routerSet(){
-            this.$router.back(-1);
-        }
     }
-
-
 }
 </script>

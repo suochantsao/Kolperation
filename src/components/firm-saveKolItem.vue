@@ -9,7 +9,7 @@
                 :channels = "channelList"
             ></firm-plat-item>
             
-            <li class="firmMsg sucessDate corpNum">過往合作次數： {{caseItem.CoopTimes}} 次</li>
+            <li class="firmMsg sucessDate corpNum">過往合作次數： {{coopTimes}} 次</li>
 
         </ul>
 
@@ -54,15 +54,16 @@ export default {
             'definedStr'  : 'kol',
             'kolId'       : null,
             'kolGuid'     : null,
+            'coopTimes'   : null,
             'channelList' : [],
-
         }
     },
     created(){
         this.channelList = this.caseItem.Channels;
         this.kolId       = this.caseItem.KOLId;
         this.kolGuid     = this.caseItem.Guid;
-        // console.log(this.kolId);
+        this.coopTimes   = this.caseItem.CoopTimes;
+        console.log(this.coopTimes);
     }
     
 

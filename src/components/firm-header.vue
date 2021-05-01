@@ -35,7 +35,7 @@
                   @click="tabChange(2)"
                 >
                     <fa-icon icon="check-square" class="icon" />
-                    <span>成功洽談</span>
+                    <span>已完結案件</span>
                 </li>    
                 </router-link>
 

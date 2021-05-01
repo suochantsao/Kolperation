@@ -39,13 +39,13 @@ export default {
     data(){
         return{
             'workingCaseList': [],
-            'userToken': null,
         }
     },
     created(){
-        this.userToken  = window.localStorage.getItem('token');
-        const caseAPI   = 'http://kolperation.rocket-coding.com/api/GetSponsoredContentsByCompany';
-        const config    = { headers: { Authorization: `Bearer ${this.userToken}` } };
+        const userToken  = window.localStorage.getItem('token');
+        const config     = { headers: { Authorization: `Bearer ${userToken}` } };
+
+        const caseAPI    = 'http://kolperation.rocket-coding.com/api/GetSponsoredContentsByCompany';
 
         this.$http
           .get( caseAPI, config)
@@ -56,7 +56,6 @@ export default {
           .catch( err => {
               console.error(err);
           });
-
     }
     
     

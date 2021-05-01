@@ -77,7 +77,6 @@
 
         </ul>
         
-        <!-- <router-link to="/trial/loader" class="txtBlue"> -->
         <router-link 
           :to="{ name: 'Loader', query: { channels: `${channelItem}`, sectors: `${gameId}${videoId}${sportsId}${foodsId}${techId}${fashionId}${lifeId}${petsId}`}}"
           class="txtBlue"

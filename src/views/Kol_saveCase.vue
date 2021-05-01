@@ -24,13 +24,13 @@ export default {
     data(){
         return{
             'saveCaseList': [],
-            'userToken': null,
         }
     },
     created(){
-        this.userToken = window.localStorage.getItem('token');
-        const saveCaseAPI   = 'http://kolperation.rocket-coding.com/api/GetKOLFavoriteSCs';
-        const config   = { headers: { Authorization: `Bearer ${this.userToken}` } };
+        const userToken   = window.localStorage.getItem('token');
+        const config      = { headers: { Authorization: `Bearer ${userToken}` } };
+
+        const saveCaseAPI = 'http://kolperation.rocket-coding.com/api/GetKOLFavoriteSCs';
 
         this.$http
           .get( saveCaseAPI, config)

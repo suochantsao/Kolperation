@@ -72,37 +72,35 @@ export default {
     methods:{
         routerSet(){
             this.$router.back(-1);
-        },
+        }
     },
     components: { 
         btnAddFav,
         KolSectorItem,
-
     },
     data(){
         return{
-            'saveBool'   : true,
-            'companyId'  : null,
-            'firmDetail' : null,
-            'firmName'   : null,
-            'firmEmail'  : '暫不提供',
-            'firmIntro'  : '暫不提供',
-            'firmContact': '暫不提供',
-            'firmAddress': '暫不提供',
-            'firmCellphone'  : '暫不提供',
-            'successNum' : 0,
-            'sectorList' : [],
-            'firmStr'    : 'company',
+            'saveBool'      : true,
+            'companyId'     : null,
+            'firmDetail'    : null,
+            'firmName'      : null,
+            'successNum'    : 0,
+            'sectorList'    : [],
+            'firmEmail'     : '暫不提供',
+            'firmIntro'     : '暫不提供',
+            'firmContact'   : '暫不提供',
+            'firmAddress'   : '暫不提供',
+            'firmCellphone' : '暫不提供',
+            'firmStr'       : 'company',
 
         }
     },
     created(){
         this.companyId  = this.$route.query.company;
-
+        
         const firmGuid  = this.$route.query.firm;
         const userToken = window.localStorage.getItem('token');
         const config    = { headers: { Authorization: `Bearer ${userToken}` } };
-    
         const firmAPI   = `http://kolperation.rocket-coding.com/api/GetCompany/${firmGuid}`
 
         this.$http
@@ -134,9 +132,6 @@ export default {
                 this.firmName    = this.firmDetail.Company;
                 this.successNum  = this.firmDetail.CoopSuccessTimes;
                 this.saveBool    = this.firmDetail.Favorite;
-              
-
-            //   console.log(this.firmIntro);
           })
           .catch( err => {
                   console.error(err);

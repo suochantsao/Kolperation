@@ -14,7 +14,7 @@
 </template>
 
 <script>
-
+// Components
 import homeHeader  from '../components/home-header.vue'
 import homeFooter  from '../components/home-footer.vue'
 

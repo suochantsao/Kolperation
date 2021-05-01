@@ -5,6 +5,7 @@
 </template>
 
 <script>
+// Components
 import PageLoader from '../components/Page-loader.vue'
 
 export default {
@@ -28,7 +29,7 @@ export default {
         this.$router.push({ 
             path: "/trial/result",
             query: {
-                "channelTags": `${this.channelList},`,
+                "channelTags": `${this.channelList}`,
                 "sectorTags" : `${this.sectorList}`,
             }
         }),

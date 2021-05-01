@@ -97,14 +97,14 @@
             margin: 1% auto 20% auto;
             height: 150px;
             border-radius: 50%;
-            background-color: white;
-            box-shadow: 5px 5px 10px $shadow_color;
             // border: 1px solid rgb(143, 63, 76);
             img{
                 display: block;
                 margin: 0 auto;
-                padding-top: 10%;
+                background-color: white;
+                // padding-top: 8%;
                 border-radius: 50%;
+                box-shadow: 5px 5px 10px $shadow_color;
             }
             span{
                 display: block;
@@ -191,7 +191,7 @@
 .kolMesBlock{
     background-color: $nav_bgc;
     width: 68%;
-    // height: 900px;
+    height: 1000px;
     // overflow-y: scroll;
     // border: 1px solid pink;
 
@@ -560,7 +560,7 @@
 .msgDialogBlock{
     background-color: $nav_bgc;
     width: 68%;
-    height: 900px;
+    // height: 900px;
     overflow-y: scroll;
 
     .icon{
@@ -773,6 +773,14 @@
                         background-color: $brand_blue;
                     }
                 }
+                .companyName{
+                    color: $brand_lightBlue;
+                    font-weight: bolder;
+                }
+                .companyName:hover{
+                    color: $pink_bgc;
+                    cursor: pointer;
+                }
             }
             
         }
@@ -816,6 +824,7 @@
                         }
                         span{
                             margin: auto 0 auto 5%;
+                            letter-spacing: 2px;
                         }
                         
                     }
@@ -826,6 +835,10 @@
                         box-shadow: 5px 5px 10px $shadow_color;
                         cursor: pointer;
                         
+                    }
+                    .disableStyle{
+                        background-color: $nav_bgc;
+                        pointer-events: none;
                     }
                     .askBtn{
                         color: $brand_lightBlue;
