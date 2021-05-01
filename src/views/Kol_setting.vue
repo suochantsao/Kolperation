@@ -12,7 +12,7 @@
         </ul>
         <div class="mesArea alertArea userInfoArea">
             <ul class="picBlock">
-                <img width="70%" :src="infoData.KOLavatar" alt="" srcset="">
+                <img width="70%" :src="userAvatar" alt="" srcset="">
                 <li>
                     <span 
                       class="uploadBtn"
@@ -58,47 +58,50 @@
                 </li>
                 <li 
                   class="infoItem socialMediaItem"
-                  :class="fbBool === true ? 'usingMediaItem' : '' "
                 >
                     <fa-icon :icon="['fab', 'facebook-square']" class="icon" />
                     <input 
                     type="text" 
                     placeholder="Facebook 帳號"
+                    v-model="fbAccount"
                     >
                     <fa-icon icon="users" class="icon urlBlock" />
                     <input 
                     type="text" 
                     placeholder="Facebook 粉絲人數"
+                    v-model="fbFansNum"
                     >
                 </li>
                 <li 
                   class="infoItem socialMediaItem"
-                  :class="igBool === true ? 'usingMediaItem' : '' "
                 >
                     <fa-icon :icon="['fab', 'instagram']" class="icon" />
                     <input 
                     type="text" 
                     placeholder="Instagram 帳號"
+                    v-model="igAccount"
                     >
                     <fa-icon icon="users" class="icon urlBlock" />
                     <input 
                     type="text" 
                     placeholder="Instagram 粉絲人數"
+                    v-model="igFansNum"
                     >
                 </li>
                 <li 
                   class="infoItem socialMediaItem"
-                  :class="ytBool === true ? 'usingMediaItem' : '' "
                 >
                     <fa-icon :icon="['fab', 'youtube']" class="icon" />
                     <input 
                     type="text" 
                     placeholder="YouTube 帳號"
+                    v-model="ytAccount"
                     >
                     <fa-icon icon="users" class="icon urlBlock" />
                     <input 
                     type="text" 
                     placeholder="YouTube 粉絲人數"
+                    v-model="ytFansNum"
                     >
                 </li>
                 <li class="infoItem">
@@ -218,7 +221,7 @@ export default {
                       })
             }})
         },
-        confirmChange(picName){
+        confirmChange(){
             
             const changeAPI = `http://kolperation.rocket-coding.com/api/PutKOL/${this.kolUserId}`
 
@@ -228,13 +231,22 @@ export default {
                 "Phone": this.infoData.Phone,
                 "Username": this.infoData.Username,
                 "KOLProfile": this.infoData.KOLProfile,
-                "Avatar": picName,
-                "SectorTags": "01,05",
+                "Avatar": this.userAvatar,
                 "ChannelDetails": [
                     {
                         "ChannelId": 1,
-                        "Url": null,
-                        "FansNumber":200000
+                        "Url": this.fbAccount,
+                        "FansNumber":this.fbFansNum
+                    },
+                    {
+                        "ChannelId": 2,
+                        "Url": this.igAccount,
+                        "FansNumber": this.igFansNum
+                    },
+                    {
+                        "ChannelId": 3,
+                        "Url": this.ytAccount,
+                        "FansNumber": this.ytFansNum
                     }
                 ]
             }
@@ -287,9 +299,8 @@ export default {
                     .post(uploadAPI,formData,newConfig)
                     .then( res => {
                         console.log('照片上傳成功');
-                        console.log(res);
-                        this.confirmChange(res.data);
-                        // this.successAlert('個人頭像更新成功')
+                        console.log(res.data);
+                        this.userAvatar = res.data;
                     })
                     .catch( err => {
                         console.error(err);
@@ -309,14 +320,21 @@ export default {
     },
     data(){
         return{
-            'infoData' : null,
-            'kolUserId': null,
-            'userToken': null,
-            'config'   : null,
-            'dateStr'  : null,
-            'fbBool'   : false,
-            'igBool'   : false,
-            'ytBool'   : false,
+            'infoData'   : null,
+            'kolUserId'  : null,
+            'userToken'  : null,
+            'config'     : null,
+            'dateStr'    : null,
+            'userAvatar' : null,
+            'fbAccount'  : null,
+            'igAccount'  : null,
+            'ytAccount'  : null,
+            'fbFansNum'  : null,
+            'igFansNum'  : null,
+            'ytFansNum'  : null,
+            'fbBool'     : false,
+            'igBool'     : false,
+            'ytBool'     : false,
         }
     },
     created(){
@@ -329,12 +347,19 @@ export default {
           .get(userAPI,this.config)
           .then( res => {
             console.log('USER INFO GET SUCCEED');
-            this.infoData  = res.data[0];
-            this.kolUserId = this.infoData.KolId;
-            this.dateStr   = this.infoData.JoinedDate.slice(0,10).replace(/-/g,".");
-            this.fbBool    = this.infoData.Channels[0].booling;
-            this.igBool    = this.infoData.Channels[1].booling;
-            this.ytBool    = this.infoData.Channels[2].booling;
+            this.infoData   = res.data[0];
+            this.kolUserId  = this.infoData.KolId;
+            this.userAvatar = this.infoData.KOLavatar;
+            this.dateStr    = this.infoData.JoinedDate.slice(0,10).replace(/-/g,".");
+            this.fbBool     = this.infoData.Channels[0].booling;
+            this.igBool     = this.infoData.Channels[1].booling;
+            this.ytBool     = this.infoData.Channels[2].booling;
+            this.fbAccount  = this.infoData.Channels[0].Url;
+            this.igAccount  = this.infoData.Channels[1].Url;
+            this.ytAccount  = this.infoData.Channels[2].Url;
+            this.fbFansNum  = this.infoData.Channels[0].FansNumber;
+            this.igFansNum  = this.infoData.Channels[1].FansNumber;
+            this.ytFansNum  = this.infoData.Channels[2].FansNumber;
 
             console.log(this.infoData);
           })

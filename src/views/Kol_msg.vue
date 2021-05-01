@@ -35,6 +35,7 @@ export default {
           .get(msgAPI,config)
           .then( res => {
               this.msgList = res.data;
+              console.log(this.msgList);
           })
           .catch( err => {
               console.error(err);

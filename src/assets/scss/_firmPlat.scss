@@ -329,6 +329,8 @@
 }
 .firmAddBlock{
     .caseInfo{
+        height: 75%;
+        overflow: hidden;
         .picBlock{
             margin: 5% 0 0 8%;
             display: flex;
@@ -364,7 +366,8 @@
             }
         }
         .inputBlock{
-            margin-top: 5%;
+            margin-top: 7%;
+            padding-bottom: 5%;
             display: flex;
             background-color: $brand_blue;
             // border: 1px solid pink;

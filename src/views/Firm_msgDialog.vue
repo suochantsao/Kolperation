@@ -5,7 +5,7 @@
         </a>
         <div class="dialogArea">
             <ul class="userInfo">
-                <img width="18%" src="https://blush.design/api/download?shareUri=UJFfjsWIEtdRN23W&c=Hair_0%7E9b5120_Skin_0%7Ec26e5e&w=800&h=800&fm=png" alt="">
+                <img width="18%" :src="msgObject.KOLavatar" alt="">
                 <li class="caseBlock">
                     <span class="firmTitle">{{msgObject.Title}}</span>
                     <a href="#">
@@ -15,7 +15,7 @@
                 <ul class="btnBlock">
                     <li class="detailBtn">
                     <router-link 
-                      :to="{ name: 'Firm_successDetail', query: { msg: this.caseId }}"
+                      :to="{ name: 'firmConsultDetail', query: { msg: this.caseId }}"
                     >
                         <fa-icon icon="list-ul" class="icon" />
                         <span>案件詳細資料</span>
@@ -25,10 +25,11 @@
                     <li 
                       class="confirmBtn"
                       @click="confirmCase"
+                      :class=" btnStyle === true ? 'disableStyle' : '' "
                     >
                     <router-link to="/firmplat/msg">
                         <fa-icon icon="check-circle" class="icon" />
-                        <span>確認洽談成功</span>
+                        <span>{{btnStr}}</span>
                     </router-link>
                     </li>
                 </ul>
@@ -40,6 +41,7 @@
                 >目前尚未有對話記錄</li>
                 
                 <firm-firm-reply
+                  :avatar  = "userAvatar"
                   :eachMsg = "item"
                   :key="item.MsgContentId"
                   v-for="item in msgList" 
@@ -138,16 +140,19 @@ export default {
     },
     data(){
         return{
-            'userToken': null,
-            'config'   : null,
-            'msgObject': null,
-            'sendMsg'  : null,
-            'sender'   : null,
-            'msgId'    : null,
-            'caseId'   : null,
-            'kolId'    : null,
-            'msgAlert' : null,
-            'msgList'  : [],
+            'userToken'  : null,
+            'config'     : null,
+            'msgObject'  : null,
+            'sendMsg'    : null,
+            'sender'     : null,
+            'msgId'      : null,
+            'caseId'     : null,
+            'kolId'      : null,
+            'msgAlert'   : null,
+            'btnStr'     : null,
+            'btnStyle'   : null,
+            'userAvatar' : null,
+            'msgList'    : [],
         }
     },
     created(){
@@ -160,11 +165,28 @@ export default {
         this.$http
           .get( msgDetailAPI, this.config)
           .then( res => {
-              this.msgObject = res.data[0];
-              this.msgList   = this.msgObject.Message;
-              this.msgAlert  = this.msgList.length;
-              this.caseId    = this.msgObject.SponsoredContentId;
-              this.kolId     = this.msgObject.KolId;
+              this.msgObject  = res.data[0];
+              this.msgList    = this.msgObject.Message;
+              this.msgAlert   = this.msgList.length;
+              this.caseId     = this.msgObject.SponsoredContentId;
+              this.kolId      = this.msgObject.KolId;
+              this.userAvatar = this.msgObject.KOLavatar;
+
+
+              const statusId = this.msgObject.CoopStatus;
+              if ( statusId === 2 ){
+                  this.btnStr = '已洽談過案件';
+                  this.btnStyle = true;
+              }
+              else if ( statusId === 1 ){
+                  this.btnStr = '等候對方回覆';
+                  this.btnStyle = true;
+              }
+              else{
+                  this.btnStr = '確認洽談成功';
+                  this.btnStyle = false;
+              }
+              
 
               console.log('獲取訊息詳細內容成功');
               console.log(this.msgObject);

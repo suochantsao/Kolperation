@@ -1,6 +1,6 @@
 <template>
     <ul class="caseItem">
-        <img width="18%" src="https://blush.design/api/download?shareUri=ohIQ2_4rspulZPQE&bg=f5f5f5&w=800&h=800&fm=png" alt="">
+        <img width="18%" :src="caseItem.ProductPicture" alt="">
         <ul class="strBlock">
 
             <li class="itemTitle">{{caseItem.Title}}</li>

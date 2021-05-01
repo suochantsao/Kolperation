@@ -5,7 +5,7 @@
         </a>
         <div class="dialogArea">
             <ul class="userInfo">
-                <img width="18%" src="https://blush.design/api/download?shareUri=UJFfjsWIEtdRN23W&c=Hair_0%7E9b5120_Skin_0%7Ec26e5e&w=800&h=800&fm=png" alt="">
+                <img width="18%" :src="msgObject.CompanyLogo" alt="">
                 <li class="caseBlock">
                     <span class="firmTitle">{{msgObject.Title}}</span>
                     <a href="#">
@@ -24,11 +24,12 @@
 
                     <li 
                       class="confirmBtn"
+                      :class=" btnStyle === true ? 'disableStyle' : '' "
                       @click="confirmCase"
                     >
                     <router-link to="/kolplat/msg">
                         <fa-icon icon="check-circle" class="icon" />
-                        <span>確認洽談成功</span>
+                        <span>{{btnStr}}</span>
                     </router-link>
                     </li>
                 </ul>
@@ -40,6 +41,7 @@
                 >目前尚未有對話記錄</li>
                 
                 <kol-kol-reply
+                  :avatar  = "userAvatar"
                   :eachMsg = "item"
                   :key="item.MsgContentId"
                   v-for="item in msgList" 
@@ -72,7 +74,6 @@ export default {
     inject:['reload'],
     methods:{
         confirmCase(){
-
             const confirmAPI = `http://kolperation.rocket-coding.com/api/KolAppliedTo/${this.caseId}`
             
             this.$http
@@ -80,7 +81,6 @@ export default {
               .then( res => {
                   console.log(res);
                   console.log("確認合作成功");
-                  this.reload();
                   this.successAlert('確認合作成功')
 
               })
@@ -120,39 +120,61 @@ export default {
         routerSet(){
             this.$router.back(-1);
         },
+        successAlert(str){
+            this.$swal({
+                position: 'top-end',
+                icon: 'success',
+                title: str,
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
     },
     components: { 
         KolKolReply 
     },
     data(){
         return{
-            'userToken': null,
-            'config'   : null,
-            'msgObject': null,
-            'sendMsg'  : null,
-            'sender'   : null,
-            'msgId'    : null,
-            'caseId'   : null,
-            'msgAlert' : null,
-            'msgList'  : [],
+            'userToken'  : null,
+            'config'     : null,
+            'msgObject'  : null,
+            'sendMsg'    : null,
+            'sender'     : null,
+            'msgId'      : null,
+            'caseId'     : null,
+            'msgAlert'   : null,
+            'btnStr'     : null,
+            'btnStyle'   : null,
+            'userAvatar' : null,
+            'msgList'    : [],
         }
     },
     created(){
         console.log(this.$route.query.msg);
-        this.msgId = this.$route.query.msg;
+        this.msgId     = this.$route.query.msg;
         this.userToken = window.localStorage.getItem('token');
-        this.config   = { headers: { Authorization: `Bearer ${this.userToken}` } };
+        this.config    = { headers: { Authorization: `Bearer ${this.userToken}` } };
         
         const msgDetailAPI = `http://kolperation.rocket-coding.com/api/GetMessageHistory/${this.msgId}`
 
         this.$http
           .get( msgDetailAPI, this.config)
           .then( res => {
-              this.msgObject = res.data[0];
-              this.msgList   = this.msgObject.Message;
-              this.msgAlert  = this.msgList.length;
-              this.caseId    = this.msgObject.SponsoredContentId;
+              this.msgObject  = res.data[0];
+              this.msgList    = this.msgObject.Message;
+              this.msgAlert   = this.msgList.length;
+              this.caseId     = this.msgObject.SponsoredContentId;
+              this.userAvatar = this.msgObject.CompanyLogo
 
+              const statusId  = this.msgObject.CoopStatus;
+              if ( statusId === 42 || statusId === 0){
+                  this.btnStr = '已報名此案件';
+                  this.btnStyle = true;
+              }
+              else{
+                  this.btnStr = '確認洽談成功';
+                  this.btnStyle = false;
+              }
               console.log(this.msgObject);
               console.log('獲取訊息詳細內容成功');
           })

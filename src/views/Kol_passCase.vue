@@ -3,7 +3,11 @@
         <h2 class="sucessH2">過往成功案件總覽</h2>
         <div class="mesArea alertArea sucessArea scrollStyle scrollSpecial">
             
-            <kol-pass-case>
+            <kol-pass-case
+              :caseItem="item"
+              :key="item.SponsoredContentId"
+              v-for="item in passCaseList"
+            >
             </kol-pass-case>
             
         </div>

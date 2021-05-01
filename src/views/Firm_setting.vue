@@ -12,7 +12,7 @@
         </ul>
         <div class="mesArea alertArea userInfoArea">
             <ul class="picBlock">
-                <img width="70%" :src="infoData.CompanyLogo" alt="" srcset="">
+                <img width="70%" :src="userAvatar" alt="" srcset="">
                 <li>
                     <span 
                       class="uploadBtn"
@@ -177,7 +177,7 @@ export default {
                       })
             }})
         },
-        confirmChange(picName){
+        confirmChange(){
             
             const changeAPI = `http://kolperation.rocket-coding.com/api/PutCompany/${this.firmUserId}`
 
@@ -189,7 +189,7 @@ export default {
                 "Email": this.infoData.Email,
                 "Phone": this.infoData.Phone,
                 "PersonInCharge": this.infoData.PersonInCharge,
-                "CompanyLogo": picName,
+                "CompanyLogo": this.userAvatar,
                 // "ChannelTags":"03,05",
                 // "SectorTags": "06,07,08",
                 // "Website":"xxxx"
@@ -236,7 +236,6 @@ export default {
                         } 
                     }
                     formData.append('file',fileObj,profileName);
-                    console.log(formData.get('file'));
 
                     const uploadAPI = `http://kolperation.rocket-coding.com/api/UploadFile`;
 
@@ -245,7 +244,7 @@ export default {
                     .then( res => {
                         console.log('照片上傳成功');
                         console.log(res);
-                        this.confirmChange(res.data);
+                        this.userAvatar = res.data;
                     })
                     .catch( err => {
                         console.error(err);
@@ -265,13 +264,14 @@ export default {
     },
     data(){
         return{
-            'infoData' : null,
-            'firmUserId': null,
-            'userToken': null,
-            'config'   : null,
-            'fbBool'   : false,
-            'igBool'   : false,
-            'ytBool'   : false,
+            'infoData'   : null,
+            'firmUserId' : null,
+            'userToken'  : null,
+            'userAvatar' : null,
+            'config'     : null,
+            'fbBool'     : false,
+            'igBool'     : false,
+            'ytBool'     : false,
         }
     },
     created(){
@@ -287,6 +287,7 @@ export default {
             console.log(res);
             this.infoData   = res.data;
             this.firmUserId = this.infoData.ComId;
+            this.userAvatar = this.infoData.CompanyLogo;
             this.fbBool     = this.infoData.Channels[0].booling;
             this.igBool     = this.infoData.Channels[1].booling;
             this.ytBool     = this.infoData.Channels[2].booling;

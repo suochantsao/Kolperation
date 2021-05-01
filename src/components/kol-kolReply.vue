@@ -4,7 +4,7 @@
         class="dialogStyle" 
         :class= "senderId === 0 ? 'dpNone' : '' " 
         >
-            <img width="16%" src="https://blush.design/api/download?shareUri=UJFfjsWIEtdRN23W&c=Hair_0%7E9b5120_Skin_0%7Ec26e5e&w=800&h=800&fm=png" alt="">
+            <img width="16%" :src="avatar" alt="">
             <p>{{eachMsg.Message}}</p>
         </li>
 
@@ -22,7 +22,8 @@
 export default {
     name: 'kolReply',
     props:[
-        'eachMsg'
+        'eachMsg',
+        'avatar'
     ],
     data(){
         return{

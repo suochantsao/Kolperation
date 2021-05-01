@@ -1,11 +1,11 @@
 <template>
     <ul class="caseItem">
-        <img width="18%" src="https://blush.design/api/download?shareUri=ohIQ2_4rspulZPQE&bg=f5f5f5&w=800&h=800&fm=png" alt="">
+        <img width="18%" :src="caseItem.CompanyLogo" alt="">
         <ul class="strBlock">
 
-            <li class="itemTitle">KOL共享空間體驗合作</li>
-            <li class="firmName">優雅客新北台北橋創業空間</li>
-            <li class="firmMsg sucessDate corpNum cdDate">2021.05.05 洽談成功</li>
+            <li class="itemTitle">{{caseItem.CaseTitle}}</li>
+            <li class="firmName">{{caseItem.CompanyName}}</li>
+            <li class="firmMsg sucessDate corpNum cdDate">{{this.dateStr}} 洽談成功</li>
 
         </ul>
 
@@ -24,12 +24,14 @@
             />
         </li>
             
-            <a href="#">
+            <router-link
+              :to="{ name: 'Kol_sucessDetail', query: { msg: this.caseId }}"
+            >
             <li class="btn">
                 <fa-icon icon="list-ul" class="icon" />
-                <span>公司詳情</span>
+                <span>案件詳情</span>
             </li>    
-            </a>
+            </router-link>
             
         </ul>
     </ul>
@@ -38,19 +40,21 @@
 <script>
 export default {
     name: "kolPassItem",
+    props:[
+        'caseItem'
+    ],
     data(){
         return{
-            // 'dateStr'  : null,
-            // 'caseId'   : null,
-            'favBool'  : true,
+            'caseId'   : null,
+            'dateStr'  : null,
+            'favBool'  : null,
 
         }
     },
     created(){
-        // this.dateStr    = this.caseItem.SuccessDate.slice(0,10).replace(/-/g,".");
-        // this.caseId     = this.caseItem.SponsoredContentId;
-        // this.favBool    = this.boolStr;
-
+        this.dateStr    = this.caseItem.SuccessDate.slice(0,10).replace(/-/g,".");
+        this.favBool    = this.caseItem.Favorite;
+        this.caseId     = this.caseItem.SponsoredContentId;
     }
 
 }

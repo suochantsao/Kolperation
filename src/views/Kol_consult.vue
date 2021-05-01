@@ -63,7 +63,7 @@ export default {
           .get( applyCaseAPI, config)
           .then( res => {
               this.applyCaseList = res.data
-            //   console.log(this.applyCaseList);
+              console.log(this.applyCaseList);
           })
           .catch( err => {
               console.error(err);

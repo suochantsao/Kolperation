@@ -5,7 +5,7 @@
         </a>
         <div class="consultDetArea">
             <ul class="caseBasic">
-                <img width="60%" src="https://blush.design/api/download?shareUri=gI7WaKemxel_NeIp&c=Hair_0%7E0f0f0f-0.1.0%7Ec38741-0.1.1%7E878787-0.1.2%7E711515_Skin_0%7Ec26e5e-0.1.0%7Ec26e5e-0.1.1%7E7d4439-0.1.2%7E7d4439&w=800&h=800&fm=png">                
+                <img width="60%" :src="casePic">                
                 <ul class="conditionBlock">
                     <h1>{{caseDetail.Title}}</h1>
                     <li>{{caseDetail.Company}}</li>
@@ -138,7 +138,7 @@ export default {
             'caseId'        : null,
             'msgId'         : null,
             'config'        : null,
-            'userToken'     : null,
+            'casePic'       : null,
             'applyKolList'  : [],
             'coopKolList'   : [],
             'inviteCaseList': [],
@@ -163,6 +163,7 @@ export default {
               this.applyKolList   = this.caseDetail.PeopleApplied;
               this.inviteCaseList = this.caseDetail.PeopleInvited; 
               this.coopKolList    = this.caseDetail.PeopleCoopWith;
+              this.casePic        = this.caseDetail.Picture;
 
               console.log(res.data);
           })

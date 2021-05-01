@@ -19,7 +19,6 @@ export default {
     ],
     methods:{
         confirmCase(){
-            // console.log(this.caseId);
             this.userToken = window.localStorage.getItem('token');
             this.config = { headers: { Authorization: `Bearer ${this.userToken}` } };
 

@@ -1,7 +1,7 @@
 <template>
     <!-- <router-link :to="{ name: 'Kol_sucessDetail', query: { msg: this.caseId }}"> -->
     <ul class="caseItem" @click="routerPage">
-        <img width="18%" src="https://blush.design/api/download?shareUri=ohIQ2_4rspulZPQE&bg=f5f5f5&w=800&h=800&fm=png" alt="">
+        <img width="18%" :src="caseItem.CompanyLogo" alt="">
         <ul class="strBlock">
 
             <li class="itemTitle">{{caseItem.CaseTitle}}</li>
@@ -14,12 +14,12 @@
             <li class="favBtnBlock">
                 <fa-icon 
                     :icon="['far', 'heart']" 
-                    class="favIcon likeIcon" 
+                    class="favIcon likeIcon noShowIcon" 
                     :class="!favBool === false ? 'dpNone' : '' "
                 />
                 <fa-icon 
                     :icon="['fas', 'heart']" 
-                    class="favIcon likeIcon selectedIcon" 
+                    class="favIcon likeIcon selectedIcon noShowIcon" 
                     :class="!favBool === true ? 'dpNone' : '' "
                 />
             </li>

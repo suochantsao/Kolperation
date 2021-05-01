@@ -434,6 +434,7 @@
                     .btn{
                         width: 150px;
                         padding: 10% 0;
+                        cursor: pointer;
                         // border: 1px solid pink;
         
                         .icon{
@@ -445,7 +446,9 @@
                     color: $pink_bgc;
                     margin: 0 0 42% 65%;
                     font-size: $font-m;
-                    
+                }
+                .noShowIcon{
+                    color: white;
                 }
 
             }
@@ -641,7 +644,11 @@
             .confirmBtn{
                 background-color: $pink_bgc;
                 border: 2px solid $pink_bgc;
-
+            }
+            .disableStyle{
+                background-color: $nav_bgc;
+                pointer-events: none;
+                border: white 2px solid;
             }
         }
     }

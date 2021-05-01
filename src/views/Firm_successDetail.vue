@@ -5,7 +5,7 @@
         </a>
         <div class="consultDetArea">
             <ul class="caseBasic">
-                <img width="60%" src="https://blush.design/api/download?shareUri=Qnt8NFR94jtAwxnw&c=Hair_0%7E9b5120-0.1.0%7E0f0f0f-0.1.1%7Ec38741-0.1.2%7Ec38741_Skin_0%7E7d4439-0.1.0%7Ef6cbc3-0.1.1%7Ec26e5e-0.1.2%7E7d4439&w=800&h=800&fm=png">                
+                <img width="60%" :src="caseDetail.Picture">                
                 <ul class="conditionBlock">
                     <h1>{{caseDetail.Title}}</h1>
                     <li>{{caseDetail.Company}}</li>
@@ -16,12 +16,7 @@
                         :channels = "channelList"
                     ></kol-channel-item>
                 </ul>
-                <li class="favBtnBlock">
-                    <fa-icon 
-                        :icon="['fas', 'edit']" 
-                        class="favIcon likeIcon editIcon" 
-                    />
-                </li>
+                
             </ul>
 
             <ul class="caseInfo">

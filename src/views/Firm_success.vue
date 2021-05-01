@@ -27,13 +27,13 @@ export default {
     data(){
         return{
             'successList': [],
-            'userToken': null,
         }
     },
     created(){
-        this.userToken = window.localStorage.getItem('token');
-        const successAPI   = 'http://kolperation.rocket-coding.com/api/GetCompanySuccessfulCasesTop10';
-        const config   = { headers: { Authorization: `Bearer ${this.userToken}` } };
+        const userToken  = window.localStorage.getItem('token');
+        const config     = { headers: { Authorization: `Bearer ${userToken}` } };
+
+        const successAPI = 'http://kolperation.rocket-coding.com/api/GetCompanySuccessfulCasesTop10';
 
         this.$http
           .get( successAPI, config)

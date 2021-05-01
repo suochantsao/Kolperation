@@ -12,7 +12,7 @@
         </ul>
         <div class="mesArea alertArea caseInfo">
             <ul class="picBlock">
-                <img width="70%" src="https://blush.design/api/download?shareUri=WIf-GdxI4gF7Mdhy&c=Hair_0%7Ec38741-0.7%7E0f0f0f-0.8%7Effc943-0.9%7E878787_Skin_0%7Ec26e5e-0.7%7Ef6cbc3-0.8%7Ec26e5e-0.9%7Eecafa3&w=800&h=800&fm=png" alt="">
+                <img width="70%" :src="picName" alt="">
                 <li class="uploadPicBtn">
                     <span 
                       class="uploadBtn"
@@ -87,7 +87,8 @@
                 <ul class="selectBlock">
                     <li class="multieBlock">
                         <Multiselect
-                            v-model="value"
+                            v-model="fansNum.value"
+                            v-bind="fansNum"
                             mode="tags"
                             placeholder="請選擇粉絲人數"
                             :searchable="true"
@@ -102,7 +103,8 @@
                     </li>
                     <li class="multieBlock">
                         <Multiselect
-                            v-model="value"
+                            v-model="channelObj.value"
+                            v-bind="channelObj"
                             mode="tags"
                             placeholder="請選擇使用平台"
                             :searchable="true"
@@ -112,7 +114,8 @@
                     </li>
                     <li class="multieBlock">
                         <Multiselect
-                            v-model="value"
+                            v-model="sectorObj.value"
+                            v-bind="sectorObj"
                             mode="tags"
                             placeholder="請選擇產業類別"
                             :searchable="true"
@@ -188,9 +191,20 @@ export default {
             });
         },
         editCase(){
-            
-            const editAPI = `http://kolperation.rocket-coding.com/api/PutSponsoredContent/${this.caseId}`
+            let channel = this.channelObj.value;
+            let sector  = this.sectorObj.value;
+            let fans    = this.fansNum.value;
 
+            channel.forEach((item)=>{
+                this.channelTags += `${item},`;
+            })
+            sector.forEach((item)=>{
+                this.sectorTags += `${item},`
+            })
+            fans.forEach((item)=>{
+                this.fansNum += `${item},`
+            })
+            
             let caseInfo = {
                 
                 "Title": this.caseDetail.Title,
@@ -206,6 +220,8 @@ export default {
                 "ScId": this.caseId,
             }
             console.log(caseInfo);
+
+            const editAPI = `http://kolperation.rocket-coding.com/api/PutSponsoredContent/${this.caseId}`;
 
             this.$http
               .put(editAPI,caseInfo,this.config)
@@ -276,16 +292,26 @@ export default {
             })
             .then((result) => {
                 if (result.isConfirmed) {
-                    console.log(result.value);
+                    const profileName = result.value.name;
+                    const fileObj     = result.value;
+                    const formData    = new FormData();
+
+                    const newConfig   = { 
+                        headers: { 
+                            Authorization: `Bearer ${this.userToken}`,
+                            'Content-Type': `multipart/from-data`
+                        } 
+                    }
+                    formData.append('file',fileObj,profileName);
 
                     const uploadAPI = `http://kolperation.rocket-coding.com/api/UploadFile`;
 
                     this.$http
-                    .post(uploadAPI,result.value,this.config)
+                    .post(uploadAPI,formData,newConfig)
                     .then( res => {
                         console.log('照片上傳成功');
                         console.log(res);
-                        this.successAlert('個人頭像更新成功')
+                        this.picName = res.data;
                     })
                     .catch( err => {
                         console.error(err);
@@ -312,6 +338,10 @@ export default {
             'caseId'       : null,
             'caseDetail'   : null,
             'dateStr'      : null,
+            'picName'      : null,
+            'fansNum'      : { value : [] },
+            'channelObj'   : { value : [] },
+            'sectorObj'    : { value : [] },
         }
     },
     created(){
@@ -375,8 +405,9 @@ export default {
           .get(caseAPI, this.config)
           .then( res => {
               console.log(res);
-              this.caseDetail = res.data;
-              this.dateStr    = this.caseDetail.EndTime.slice(0,10).replace(/-/g,".");
+              this.caseDetail       = res.data;
+              this.dateStr          = this.caseDetail.EndTime.slice(0,10).replace(/-/g,".");
+              this.picName          = this.caseDetail.Picture;
           })
           .catch( err => {
               console.error(err);

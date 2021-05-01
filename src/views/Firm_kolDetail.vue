@@ -5,7 +5,7 @@
         </a>
         <div class="firmDetArea consultDetArea firmDetArea">
             <ul class="caseBasic">
-                <img width="30%" src="https://blush.design/api/download?shareUri=UJFfjsWIEtdRN23W&c=Hair_0%7E9b5120_Skin_0%7Ec26e5e&w=800&h=800&fm=png">                
+                <img width="30%" :src="avatar">                
                 <ul class="conditionBlock">
                     <h1>{{kolName}}</h1>
                     
@@ -148,6 +148,7 @@ export default {
             'kolGuid'       : null,
             'userToken'     : null,
             'config'        : null,
+            'avatar'        : null,
             'firmEmail'     : '暫不提供',
             'kolIntro'      : '暫不提供',
             'firmContact'   : '暫不提供',
@@ -198,6 +199,7 @@ export default {
                 this.successNum  = this.kolDetail.CoopTimes;
                 this.fansNum     = this.kolDetail.Channels[0].FansNumber;
                 this.favBool     = this.kolDetail.Favorite;
+                this.avatar      = this.kolDetail.KOLavatar;
                 
           })
           .catch( err => {
