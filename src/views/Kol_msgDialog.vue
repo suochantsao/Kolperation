@@ -39,6 +39,8 @@
                 <li
                  :class= "msgAlert === 0 ? 'nonMsgAlert' : 'dpNone' " 
                 >目前尚未有對話記錄</li>
+
+                <li class="nonMsgAlert" id="onlineStr"></li>
                 
                 <kol-kol-reply
                   :avatar  = "userAvatar"
@@ -51,9 +53,11 @@
                     <input 
                       type="text" 
                       v-model="sendMsg"  
+                      id="sendText"
                     >
+                      <!-- @click="sendText" -->
                     <a
-                      @click="sendText"
+                      id="sendClick"
                     >
                     <span>送出</span>
                     </a>
@@ -68,6 +72,9 @@
 // Components
 import KolKolReply from '../components/kol-kolReply.vue';
 
+// Signal R 
+import signalR from '~/Scripts/jquery.signalR-2.2.2.min.js';
+import temJS from '~/signalr/js';
 
 export default {
     name: 'msgDialog',
@@ -89,32 +96,31 @@ export default {
               })
             
         },
-        sendText(){
+        textData(sender,msgStr){
             console.log(this.sendMsg);
             
             let msgInfo = {
                
-                "MsgId"  : this.msgId,
-                "Message": this.sendMsg,
-                "Sender" : 0
+                "Message": msgStr,
+                "Sender" : sender
 
             }
 
             this.msgList.push(msgInfo);
 
-            const sentMsgAPI = `http://kolperation.rocket-coding.com/api/ChatbyKOL`
+            // const sentMsgAPI = `http://kolperation.rocket-coding.com/api/ChatbyKOL`
 
-            this.$http
-              .post(sentMsgAPI,msgInfo,this.config)
-              .then( res => {
-                  console.log(res);
-                  console.log("寄出訊息成功");
-                  this.sendMsg = '';
+            // this.$http
+            //   .post(sentMsgAPI,msgInfo,this.config)
+            //   .then( res => {
+            //       console.log(res);
+            //       console.log("寄出訊息成功");
+            //       this.sendMsg = '';
 
-              })
-              .catch( err => {
-                  console.error(err);
-              })
+            //   })
+            //   .catch( err => {
+            //       console.error(err);
+            //   })
 
         },
         routerSet(){
@@ -181,8 +187,45 @@ export default {
           .catch( err => {
                   console.error(err);
           })
-
         
+        var chat = $.connection.chathub;
+          
+            //group
+            chat.client.sendMsgBack = function (message, character) {
+                this.textData(character,message)
+            };
+            chat.client.notify = function (message) {
+                noticeMsg(message);
+            };
+            var noticeMsg = function (message) {
+                $("#onlineStr").append(message);
+            };
+            var groupId = this.msgId;
+            var whoIam  = this.sender;
+
+            $.connection.hub.start()
+                .done(function () {
+                    chat.server.join(groupId);
+                    chat.server.notify("對方上線了", groupId);
+                })
+                .fail(function () {
+                    noticeMsg("連線失敗。");
+                });
+            $.connection.hub.connectionSlow(function () {
+                noticeMsg("連線不穩..");
+            });
+
+            $("#sendClick").on("click", function () {
+                chat.server.sendMsg($('#sendText').val(), whoIam, groupId)
+                    .done(function () {
+                        $('#sendText').val('');
+                    })
+                    .fail(function (e) {
+                        noticeMsg(e)
+                    })
+            })
+
     }
 }
+
 </script>
