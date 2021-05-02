@@ -150,8 +150,8 @@ export default {
         this.userToken  = window.localStorage.getItem('token');
         this.config     = { headers: { Authorization: `Bearer ${this.userToken}` } };
 
-        const detailAPI   = `http://kolperation.rocket-coding.com/api/GetOnGoingCoopSC/${this.caseId}`;
-        const kolApplyAPI = `http://kolperation.rocket-coding.com/api/GetCompanyOnGoingCoopsDetailView`;
+        const detailAPI   = `https://kolperation.rocket-coding.com/api/GetOnGoingCoopSC/${this.caseId}`;
+        const kolApplyAPI = `https://kolperation.rocket-coding.com/api/GetCompanyOnGoingCoopsDetailView`;
 
         this.$http
           .get(detailAPI,this.config)

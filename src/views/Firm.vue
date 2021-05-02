@@ -37,8 +37,8 @@ export default {
     created(){
         this.userToken = window.localStorage.getItem('token');
 
-        const casesAPI = 'http://kolperation.rocket-coding.com/api/GetCasesNum'
-        const firmAPI  = 'http://kolperation.rocket-coding.com/api/GetCompanyforEditing'
+        const casesAPI = 'https://kolperation.rocket-coding.com/api/GetCasesNum'
+        const firmAPI  = 'https://kolperation.rocket-coding.com/api/GetCompanyforEditing'
         const config   = { headers: { Authorization: `Bearer ${this.userToken}` } };
 
         this.$http

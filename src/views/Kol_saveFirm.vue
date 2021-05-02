@@ -31,8 +31,8 @@ export default {
     },
     created(){
         const userToken   = window.localStorage.getItem('token');
-        const saveFirmAPI = 'http://kolperation.rocket-coding.com/api/GetKOLFavoriteCompanies';
-        const firmTagAPI  = 'http://kolperation.rocket-coding.com/api/TagSectors';
+        const saveFirmAPI = 'https://kolperation.rocket-coding.com/api/GetKOLFavoriteCompanies';
+        const firmTagAPI  = 'https://kolperation.rocket-coding.com/api/TagSectors';
         const config      = { headers: { Authorization: `Bearer ${userToken}` } };
 
         this.$http

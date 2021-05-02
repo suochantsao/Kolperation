@@ -32,7 +32,7 @@ export default {
     },
     created(){
         this.userToken = window.localStorage.getItem('token');
-        const successAPI   = 'http://kolperation.rocket-coding.com/api/GetKOLsuccessfulCasesTop10';
+        const successAPI   = 'https://kolperation.rocket-coding.com/api/GetKOLsuccessfulCasesTop10';
         const config   = { headers: { Authorization: `Bearer ${this.userToken}` } };
 
         this.$http

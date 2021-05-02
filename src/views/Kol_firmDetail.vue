@@ -101,7 +101,7 @@ export default {
         const firmGuid  = this.$route.query.firm;
         const userToken = window.localStorage.getItem('token');
         const config    = { headers: { Authorization: `Bearer ${userToken}` } };
-        const firmAPI   = `http://kolperation.rocket-coding.com/api/GetCompany/${firmGuid}`
+        const firmAPI   = `https://kolperation.rocket-coding.com/api/GetCompany/${firmGuid}`
 
         this.$http
           .get( firmAPI, config)

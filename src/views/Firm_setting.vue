@@ -163,7 +163,7 @@ export default {
                     }
                     console.log(newCode);
                     
-                    const setCodeAPI = `http://kolperation.rocket-coding.com/api/PutCompanyPass/${this.firmUserId}`
+                    const setCodeAPI = `https://kolperation.rocket-coding.com/api/PutCompanyPass/${this.firmUserId}`
             
                     this.$http
                       .put(setCodeAPI,newCode,this.config)
@@ -179,7 +179,7 @@ export default {
         },
         confirmChange(){
             
-            const changeAPI = `http://kolperation.rocket-coding.com/api/PutCompany/${this.firmUserId}`
+            const changeAPI = `https://kolperation.rocket-coding.com/api/PutCompany/${this.firmUserId}`
 
             let infoItem = {
                 
@@ -237,7 +237,7 @@ export default {
                     }
                     formData.append('file',fileObj,profileName);
 
-                    const uploadAPI = `http://kolperation.rocket-coding.com/api/UploadFile`;
+                    const uploadAPI = `https://kolperation.rocket-coding.com/api/UploadFile`;
 
                     this.$http
                     .post(uploadAPI,formData,newConfig)
@@ -278,7 +278,7 @@ export default {
         this.userToken = window.localStorage.getItem('token');
         this.config    = { headers: { Authorization: `Bearer ${this.userToken}` } };
 
-        const firmAPI  = 'http://kolperation.rocket-coding.com/api/GetCompanyforEditing'
+        const firmAPI  = 'https://kolperation.rocket-coding.com/api/GetCompanyforEditing'
 
         this.$http
           .get(firmAPI,this.config)

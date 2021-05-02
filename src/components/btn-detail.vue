@@ -23,7 +23,7 @@ export default {
             this.userToken = window.localStorage.getItem('token');
             this.config = { headers: { Authorization: `Bearer ${this.userToken}` } };
 
-            const refuseAPI = `http://kolperation.rocket-coding.com/api/KolRefused/${this.caseId}`
+            const refuseAPI = `https://kolperation.rocket-coding.com/api/KolRefused/${this.caseId}`
             
             this.$http
               .delete(refuseAPI,this.config)

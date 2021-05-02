@@ -30,7 +30,6 @@
 import kolInviteItem from '../components/kol-inviteItem.vue'
 import KolApplyItem from '../components/kol-applyItem.vue';
 
-
 export default {
     components: { 
         kolInviteItem,
@@ -45,8 +44,8 @@ export default {
     },
     created(){
         this.userToken        = window.localStorage.getItem('token');
-        const inviteCaseAPI   = 'http://kolperation.rocket-coding.com/api/GetKOLinvitatedCoop';
-        const applyCaseAPI    = 'http://kolperation.rocket-coding.com/api/GetKOLsentCoop';
+        const inviteCaseAPI   = 'https://kolperation.rocket-coding.com/api/GetKOLinvitatedCoop';
+        const applyCaseAPI    = 'https://kolperation.rocket-coding.com/api/GetKOLsentCoop';
         const config          = { headers: { Authorization: `Bearer ${this.userToken}` } };
 
         this.$http

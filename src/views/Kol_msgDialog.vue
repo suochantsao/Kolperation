@@ -52,12 +52,12 @@
                 <li class="btnBlock">
                     <input 
                       type="text" 
-                      v-model="sendMsg"  
+                      v-model="sendMsg"
                       id="sendText"
                     >
                       <!-- @click="sendText" -->
                     <a
-                      id="sendClick"
+                      @click="signalrFun"
                     >
                     <span>送出</span>
                     </a>
@@ -73,15 +73,30 @@
 import KolKolReply from '../components/kol-kolReply.vue';
 
 // Signal R 
-import signalR from '~/Scripts/jquery.signalR-2.2.2.min.js';
-import temJS from '~/signalr/js';
+import jQuery from "jquery";
+const $ = jQuery;
+window.$ = $;
+
+var chat      = '';
+var noticeMsg = '';
+var groupId   = this.msgId;
+var whoIam    = this.sender;
 
 export default {
     name: 'msgDialog',
     inject:['reload'],
     methods:{
+        signalrFun(){
+            chat.server.sendMsg($('#sendText').val(), whoIam, groupId)
+            .done(function () {
+                $('#sendText').val('');
+            })
+            .fail(function (e) {
+                noticeMsg(e)
+            })
+        },
         confirmCase(){
-            const confirmAPI = `http://kolperation.rocket-coding.com/api/KolAppliedTo/${this.caseId}`
+            const confirmAPI = `https://kolperation.rocket-coding.com/api/KolAppliedTo/${this.caseId}`
             
             this.$http
               .put(confirmAPI,this.caseId,this.config)
@@ -108,7 +123,7 @@ export default {
 
             this.msgList.push(msgInfo);
 
-            // const sentMsgAPI = `http://kolperation.rocket-coding.com/api/ChatbyKOL`
+            // const sentMsgAPI = `https://kolperation.rocket-coding.com/api/ChatbyKOL`
 
             // this.$http
             //   .post(sentMsgAPI,msgInfo,this.config)
@@ -161,7 +176,7 @@ export default {
         this.userToken = window.localStorage.getItem('token');
         this.config    = { headers: { Authorization: `Bearer ${this.userToken}` } };
         
-        const msgDetailAPI = `http://kolperation.rocket-coding.com/api/GetMessageHistory/${this.msgId}`
+        const msgDetailAPI = `https://kolperation.rocket-coding.com/api/GetMessageHistory/${this.msgId}`
 
         this.$http
           .get( msgDetailAPI, this.config)
@@ -188,7 +203,7 @@ export default {
                   console.error(err);
           })
         
-        var chat = $.connection.chathub;
+         chat = $.connection.chathub;
           
             //group
             chat.client.sendMsgBack = function (message, character) {
@@ -197,11 +212,10 @@ export default {
             chat.client.notify = function (message) {
                 noticeMsg(message);
             };
-            var noticeMsg = function (message) {
+            noticeMsg = function (message) {
                 $("#onlineStr").append(message);
             };
             var groupId = this.msgId;
-            var whoIam  = this.sender;
 
             $.connection.hub.start()
                 .done(function () {
@@ -214,16 +228,6 @@ export default {
             $.connection.hub.connectionSlow(function () {
                 noticeMsg("連線不穩..");
             });
-
-            $("#sendClick").on("click", function () {
-                chat.server.sendMsg($('#sendText').val(), whoIam, groupId)
-                    .done(function () {
-                        $('#sendText').val('');
-                    })
-                    .fail(function (e) {
-                        noticeMsg(e)
-                    })
-            })
 
     }
 }

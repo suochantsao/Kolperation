@@ -172,7 +172,7 @@ export default {
                     } 
                     else if (result.isDenied) {
 
-                        const closeAPI = `http://kolperation.rocket-coding.com/api/CloseSponsoredContent/${this.caseId}`
+                        const closeAPI = `https://kolperation.rocket-coding.com/api/CloseSponsoredContent/${this.caseId}`
 
                         this.$http
                         .put(closeAPI,this.caseId,this.config)
@@ -221,7 +221,7 @@ export default {
             }
             console.log(caseInfo);
 
-            const editAPI = `http://kolperation.rocket-coding.com/api/PutSponsoredContent/${this.caseId}`;
+            const editAPI = `https://kolperation.rocket-coding.com/api/PutSponsoredContent/${this.caseId}`;
 
             this.$http
               .put(editAPI,caseInfo,this.config)
@@ -250,7 +250,7 @@ export default {
                     } 
                     else if (result.isDenied) {
                         
-                        const delAPI = `http://kolperation.rocket-coding.com/api/DeleteSponsoredContent/${this.caseId}`
+                        const delAPI = `https://kolperation.rocket-coding.com/api/DeleteSponsoredContent/${this.caseId}`
 
                         if( this.caseDetail.PeopleCoopWith !== 0){
                             
@@ -304,7 +304,7 @@ export default {
                     }
                     formData.append('file',fileObj,profileName);
 
-                    const uploadAPI = `http://kolperation.rocket-coding.com/api/UploadFile`;
+                    const uploadAPI = `https://kolperation.rocket-coding.com/api/UploadFile`;
 
                     this.$http
                     .post(uploadAPI,formData,newConfig)
@@ -350,9 +350,9 @@ export default {
         this.caseId    = this.$route.query.case;
         console.log(this.caseId);
 
-        const channelAPI = `http://kolperation.rocket-coding.com/api/TagChannels`
-        const sectorAPI  = `http://kolperation.rocket-coding.com/api/TagSectors`
-        const caseAPI    = `http://kolperation.rocket-coding.com/api/GetOnGoingCoopSC/${this.caseId}`
+        const channelAPI = `https://kolperation.rocket-coding.com/api/TagChannels`
+        const sectorAPI  = `https://kolperation.rocket-coding.com/api/TagSectors`
+        const caseAPI    = `https://kolperation.rocket-coding.com/api/GetOnGoingCoopSC/${this.caseId}`
 
         // Channels GET
         this.$http

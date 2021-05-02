@@ -30,7 +30,7 @@ export default {
         const userToken   = window.localStorage.getItem('token');
         const config      = { headers: { Authorization: `Bearer ${userToken}` } };
 
-        const saveCaseAPI = 'http://kolperation.rocket-coding.com/api/GetKOLFavoriteSCs';
+        const saveCaseAPI = 'https://kolperation.rocket-coding.com/api/GetKOLFavoriteSCs';
 
         this.$http
           .get( saveCaseAPI, config)

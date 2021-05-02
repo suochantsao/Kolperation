@@ -95,7 +95,7 @@ export default {
     },
     methods:{
         applyCase(){
-            const applyAPI = `http://kolperation.rocket-coding.com/api/KolAppliedTo/${this.caseId}`
+            const applyAPI = `https://kolperation.rocket-coding.com/api/KolAppliedTo/${this.caseId}`
             
             this.$http
               .put(applyAPI,this.caseId,this.config)
@@ -112,7 +112,7 @@ export default {
         },
         contactFirm(){
 
-            const contactFirmAPI = `http://kolperation.rocket-coding.com/api/PostMessagebyKOL`
+            const contactFirmAPI = `https://kolperation.rocket-coding.com/api/PostMessagebyKOL`
 
             let contactItem = {
                 "SponsoredContentId": this.caseId
@@ -199,7 +199,7 @@ export default {
         this.userToken  = window.localStorage.getItem('token');
         this.config     = { headers: { Authorization: `Bearer ${this.userToken}` } };
 
-        const detailAPI = `http://kolperation.rocket-coding.com/api/GetSponsoredContent/${this.caseId}`;
+        const detailAPI = `https://kolperation.rocket-coding.com/api/GetSponsoredContent/${this.caseId}`;
 
         this.$http
           .get(detailAPI,this.config)

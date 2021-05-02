@@ -45,7 +45,7 @@ export default {
     methods:{
         refuseKol(){
 
-            const refuseAPI = `http://kolperation.rocket-coding.com/api/CompanyRefused/${this.coopId}`
+            const refuseAPI = `https://kolperation.rocket-coding.com/api/CompanyRefused/${this.coopId}`
 
             this.$http
               .delete(refuseAPI,this.config)
@@ -62,7 +62,7 @@ export default {
         },
         confirmCase(){
 
-            const confirmAPI = `http://kolperation.rocket-coding.com/api/CompanyInvited/${this.kolId}`
+            const confirmAPI = `https://kolperation.rocket-coding.com/api/CompanyInvited/${this.kolId}`
             
             let confirmObj = {
                 "SponsoredContentId": this.caseId,

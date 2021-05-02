@@ -30,8 +30,8 @@ export default {
     },
     created(){
         this.userToken = window.localStorage.getItem('token');
-        const saveKolAPI   = 'http://kolperation.rocket-coding.com/api/GetCompanyFavoriteKOLs';
         const config   = { headers: { Authorization: `Bearer ${this.userToken}` } };
+        const saveKolAPI   = 'https://kolperation.rocket-coding.com/api/GetCompanyFavoriteKOLs';
 
         this.$http
           .get( saveKolAPI, config)

@@ -51,10 +51,11 @@
                 <li class="btnBlock">
                     <input 
                       type="text" 
-                      v-model="sendMsg"  
+                      v-model="sendMsg"
+                      id="sendText"
                     >
                     <a
-                      @click="sendText"
+                      @click="signalrFun"
                     >
                     <span>送出</span>
                     </a>
@@ -69,6 +70,16 @@
 // Components
 import FirmFirmReply from '../components/firm-firmReply.vue'
 
+// Signal R 
+import jQuery from "jquery";
+const $ = jQuery;
+window.$ = $;
+
+var chat      = '';
+var noticeMsg = '';
+var groupId   = this.msgId;
+var whoIam    = this.sender;
+
 export default {
     name: 'msgDialog',
     inject:['reload'],
@@ -76,8 +87,17 @@ export default {
         FirmFirmReply 
     },
     methods:{
+        signalrFun(){
+            chat.server.sendMsg($('#sendText').val(), whoIam, groupId)
+            .done(function () {
+                $('#sendText').val('');
+            })
+            .fail(function (e) {
+                noticeMsg(e)
+            })
+        },
         confirmCase(){
-            const confirmAPI = `http://kolperation.rocket-coding.com/api/CompanyInvited/${this.kolId}`
+            const confirmAPI = `https://kolperation.rocket-coding.com/api/CompanyInvited/${this.kolId}`
             
             let confirmObj = {
                 "SponsoredContentId":this.caseId,
@@ -96,33 +116,33 @@ export default {
                   console.error(err);
               })
         },
-        sendText(){
+        textData(sender,msgStr){
             console.log(this.sendMsg);
             
             let msgInfo = {
                
-                "MsgId"  : this.msgId,
-                "Message": this.sendMsg,
-                "Sender" : 1
+                // "MsgId"  : this.msgId,
+                "Message": msgStr,
+                "Sender" : sender
 
             }
             console.log(this.config);
             
             this.msgList.push(msgInfo);
 
-            const sentMsgAPI = `http://kolperation.rocket-coding.com/api/ChatbyCompany`
+            // const sentMsgAPI = `https://kolperation.rocket-coding.com/api/ChatbyCompany`
 
-            this.$http
-              .post(sentMsgAPI,msgInfo,this.config)
-              .then( res => {
-                  console.log(res);
-                  console.log("寄出訊息成功");
-                  this.sendMsg = '';
+            // this.$http
+            //   .post(sentMsgAPI,msgInfo,this.config)
+            //   .then( res => {
+            //       console.log(res);
+            //       console.log("寄出訊息成功");
+            //       this.sendMsg = '';
 
-              })
-              .catch( err => {
-                  console.error(err);
-              })
+            //   })
+            //   .catch( err => {
+            //       console.error(err);
+            //   })
 
         },
         routerSet(){
@@ -160,7 +180,7 @@ export default {
         this.userToken = window.localStorage.getItem('token');
         this.config   = { headers: { Authorization: `Bearer ${this.userToken}` } };
         
-        const msgDetailAPI = `http://kolperation.rocket-coding.com/api/GetMessageHistory/${this.msgId}`
+        const msgDetailAPI = `https://kolperation.rocket-coding.com/api/GetMessageHistory/${this.msgId}`
 
         this.$http
           .get( msgDetailAPI, this.config)
@@ -195,7 +215,31 @@ export default {
                   console.error(err);
           })
 
-        
+        chat = $.connection.chathub;
+          
+            //group
+            chat.client.sendMsgBack = function (message, character) {
+                this.textData(character,message)
+            };
+            chat.client.notify = function (message) {
+                noticeMsg(message);
+            };
+            noticeMsg = function (message) {
+                $("#onlineStr").append(message);
+            };
+            var groupId = this.msgId;
+
+            $.connection.hub.start()
+                .done(function () {
+                    chat.server.join(groupId);
+                    chat.server.notify("對方上線了", groupId);
+                })
+                .fail(function () {
+                    noticeMsg("連線失敗。");
+                });
+            $.connection.hub.connectionSlow(function () {
+                noticeMsg("連線不穩..");
+            });
     }
 }
 </script>

@@ -32,7 +32,7 @@ export default {
         const userToken   = window.localStorage.getItem('token');
         const config      = { headers: { Authorization: `Bearer ${userToken}` } };
         
-        const passCaseAPI = 'http://kolperation.rocket-coding.com/api/GetKOLsuccessfulCases';
+        const passCaseAPI = 'https://kolperation.rocket-coding.com/api/GetKOLsuccessfulCases';
 
         this.$http
           .get( passCaseAPI, config)

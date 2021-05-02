@@ -135,7 +135,7 @@ export default {
             console.log(this.phoneNum);
             console.log(this);
 
-            const signUpAPI = 'http://kolperation.rocket-coding.com/api/KOLRegister';
+            const signUpAPI = 'https://kolperation.rocket-coding.com/api/KOLRegister';
 
             let signUpItem = {
                 "AccountId": {},

@@ -28,7 +28,7 @@ export default {
     },
     created(){
         const userToken = window.localStorage.getItem('token');
-        const msgAPI    = 'http://kolperation.rocket-coding.com/api/GetMessageHistories';
+        const msgAPI    = 'https://kolperation.rocket-coding.com/api/GetMessageHistories';
         const config    = { headers: { Authorization: `Bearer ${userToken}` } };
 
         this.$http

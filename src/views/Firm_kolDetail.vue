@@ -106,7 +106,7 @@ export default {
                             }
 
                             // const msgAPI    = `http://kolperation.rocket-coding.com/api/PostMessagebyCompany`
-                            const inviteAPI = `http://kolperation.rocket-coding.com/api/CompanyInvited/${this.kolId}`
+                            const inviteAPI = `https://kolperation.rocket-coding.com/api/CompanyInvited/${this.kolId}`
                             this.$http
                             .post(inviteAPI,sponObj,this.config)
                             .then( res => {
@@ -167,8 +167,8 @@ export default {
         this.userToken = window.localStorage.getItem('token');
         this.config    = { headers: { Authorization: `Bearer ${this.userToken}` } };
     
-        const kolAPI   = `http://kolperation.rocket-coding.com/api/GetKOL/${this.kolGuid}`
-        const caseAPI  = `http://kolperation.rocket-coding.com/api/GetSponsoredContentsByCompany`
+        const kolAPI   = `https://kolperation.rocket-coding.com/api/GetKOL/${this.kolGuid}`
+        const caseAPI  = `https://kolperation.rocket-coding.com/api/GetSponsoredContentsByCompany`
 
         this.$http
           .get( kolAPI, this.config)

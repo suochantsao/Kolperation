@@ -106,7 +106,7 @@ export default {
 
             const userName = this.userAccount;
             const userCode = this.userCode;
-            const loginAPI = 'http://kolperation.rocket-coding.com/api/Login';
+            const loginAPI = 'https://kolperation.rocket-coding.com/api/Login';
 
             this.$http
               .post(loginAPI,{
@@ -140,7 +140,7 @@ export default {
 
         },
         resetCode(){
-            const forgotAPI = 'http://kolperation.rocket-coding.com/SendEmail';
+            const forgotAPI = 'https://kolperation.rocket-coding.com/SendEmail';
             
             this.$swal({
                 title: '請輸入電子郵件信箱',

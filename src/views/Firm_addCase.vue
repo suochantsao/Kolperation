@@ -173,7 +173,7 @@ export default {
             }
             console.log(caseInfo);
 
-            const addAPI = `http://kolperation.rocket-coding.com/api/PostSponsoredContent`
+            const addAPI = `https://kolperation.rocket-coding.com/api/PostSponsoredContent`
 
             this.$http
               .post(addAPI,caseInfo,this.config)
@@ -215,7 +215,7 @@ export default {
                     }
                     formData.append('file',fileObj,profileName);
 
-                    const uploadAPI = `http://kolperation.rocket-coding.com/api/UploadFile`;
+                    const uploadAPI = `https://kolperation.rocket-coding.com/api/UploadFile`;
 
                     this.$http
                     .post(uploadAPI,formData,newConfig)
@@ -264,8 +264,8 @@ export default {
         this.userToken = window.localStorage.getItem('token');
         this.config    = { headers: { Authorization: `Bearer ${this.userToken}` } };
 
-        const channelAPI = `http://kolperation.rocket-coding.com/api/TagChannels`
-        const sectorAPI  = `http://kolperation.rocket-coding.com/api/TagSectors`
+        const channelAPI = `https://kolperation.rocket-coding.com/api/TagChannels`
+        const sectorAPI  = `https://kolperation.rocket-coding.com/api/TagSectors`
 
         // Channels GET
         this.$http

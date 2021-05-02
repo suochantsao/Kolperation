@@ -47,7 +47,7 @@ export default {
             this.$router.push({ path: '/kolplat/searchPlat' })
         },
         showAllResult(){
-            const searchAPI    = `http://kolperation.rocket-coding.com/api/GetSponsoredContentsList`;
+            const searchAPI    = `https://kolperation.rocket-coding.com/api/GetSponsoredContentsList`;
 
             this.$http
               .get(searchAPI ,this.config)
@@ -72,7 +72,7 @@ export default {
         const channelItem = this.$route.query.channelTags;
         const sectorList  = this.$route.query.sectorTags;
 
-        let searchAPI    = `http://kolperation.rocket-coding.com/api/GetSponsoredContentsList?channelTags=${channelItem}&sectorTags=${sectorList}`;
+        let searchAPI    = `https://kolperation.rocket-coding.com/api/GetSponsoredContentsList?channelTags=${channelItem}&sectorTags=${sectorList}`;
         this.userToken   = window.localStorage.getItem('token');
         this.config      = { headers: { Authorization: `Bearer ${this.userToken}` } };
 

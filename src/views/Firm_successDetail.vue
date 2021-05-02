@@ -106,8 +106,8 @@ export default {
         this.userToken  = window.localStorage.getItem('token');
         this.config     = { headers: { Authorization: `Bearer ${this.userToken}` } };
 
-        const detailAPI   = `http://kolperation.rocket-coding.com/api/GetOnGoingCoopSC/${this.caseId}`;
-        const successAPI = `http://kolperation.rocket-coding.com/api/GetSuccessCoopSC/${this.caseId}`;
+        const detailAPI   = `https://kolperation.rocket-coding.com/api/GetOnGoingCoopSC/${this.caseId}`;
+        const successAPI  = `https://kolperation.rocket-coding.com/api/GetSuccessCoopSC/${this.caseId}`;
 
         this.$http
           .get(detailAPI,this.config)

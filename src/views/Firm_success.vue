@@ -33,7 +33,7 @@ export default {
         const userToken  = window.localStorage.getItem('token');
         const config     = { headers: { Authorization: `Bearer ${userToken}` } };
 
-        const successAPI = 'http://kolperation.rocket-coding.com/api/GetCompanySuccessfulCasesTop10';
+        const successAPI = 'https://kolperation.rocket-coding.com/api/GetCompanySuccessfulCasesTop10';
 
         this.$http
           .get( successAPI, config)

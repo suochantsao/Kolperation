@@ -45,7 +45,7 @@ export default {
         const userToken  = window.localStorage.getItem('token');
         const config     = { headers: { Authorization: `Bearer ${userToken}` } };
 
-        const caseAPI    = 'http://kolperation.rocket-coding.com/api/GetSponsoredContentsByCompany';
+        const caseAPI    = 'https://kolperation.rocket-coding.com/api/GetSponsoredContentsByCompany';
 
         this.$http
           .get( caseAPI, config)

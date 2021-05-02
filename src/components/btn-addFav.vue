@@ -28,16 +28,16 @@ export default {
             this.commonFun();
             console.log(this.contentId);
 
-            let addAPI = `http://kolperation.rocket-coding.com/api/AddThisSCToMyFavorites/${this.contentId}`;
+            let addAPI = `https://kolperation.rocket-coding.com/api/AddThisSCToMyFavorites/${this.contentId}`;
 
             if( this.definedId === "company" ){
-                addAPI = `http://kolperation.rocket-coding.com/api/AddThisCompanyToMyFavorites/${this.contentId}`
+                addAPI = `https://kolperation.rocket-coding.com/api/AddThisCompanyToMyFavorites/${this.contentId}`
             }
             if (this.defineId === "case"){
-                addAPI = `http://kolperation.rocket-coding.com/api/AddThisSCToMyFavorites/${this.contentId}`
+                addAPI = `https://kolperation.rocket-coding.com/api/AddThisSCToMyFavorites/${this.contentId}`
             }
             if (this.definedId === "kol"){
-                addAPI = `http://kolperation.rocket-coding.com/api/AddThisKOLToMyFavorites/${this.contentId}`
+                addAPI = `https://kolperation.rocket-coding.com/api/AddThisKOLToMyFavorites/${this.contentId}`
             }
 
             this.$http
@@ -60,13 +60,13 @@ export default {
             let removeAPI = "";
 
             if( this.definedId === "company" ){
-                removeAPI = `http://kolperation.rocket-coding.com/api/RemoveThisCompanyFromMyFavorites/${this.contentId}`
+                removeAPI = `https://kolperation.rocket-coding.com/api/RemoveThisCompanyFromMyFavorites/${this.contentId}`
             }
             if ( this.definedId === "case" ){
-                removeAPI = `http://kolperation.rocket-coding.com/api/RemoveThisSCFromMyFavorites/${this.contentId}`
+                removeAPI = `https://kolperation.rocket-coding.com/api/RemoveThisSCFromMyFavorites/${this.contentId}`
             }
             if( this.definedId === "kol" ){
-                removeAPI = `http://kolperation.rocket-coding.com/api/RemoveThisKOLFromMyFavorites/${this.contentId}`
+                removeAPI = `https://kolperation.rocket-coding.com/api/RemoveThisKOLFromMyFavorites/${this.contentId}`
             }
             
 

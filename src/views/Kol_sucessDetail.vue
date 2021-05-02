@@ -103,7 +103,7 @@ export default {
         this.config    = { headers: { Authorization: `Bearer ${this.userToken}` } };
         this.caseId    = this.$route.query.msg;
 
-        const detailAPI  = `http://kolperation.rocket-coding.com/api/GetSponsoredContent/${this.caseId}`;
+        const detailAPI  = `https://kolperation.rocket-coding.com/api/GetSponsoredContent/${this.caseId}`;
 
         this.$http
           .get(detailAPI,this.config)

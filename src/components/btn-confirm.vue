@@ -22,7 +22,7 @@ export default {
             this.userToken = window.localStorage.getItem('token');
             this.config = { headers: { Authorization: `Bearer ${this.userToken}` } };
 
-            const confirmAPI = `http://kolperation.rocket-coding.com/api/KolAppliedTo/${this.caseId}`
+            const confirmAPI = `https://kolperation.rocket-coding.com/api/KolAppliedTo/${this.caseId}`
             
             this.$http
               .put(confirmAPI,this.caseId,this.config)

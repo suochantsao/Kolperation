@@ -166,7 +166,7 @@ export default {
                         }
                         ,1500);
 
-                        const delUserAPI = `http://kolperation.rocket-coding.com/api/DeleteKOLAccount/${this.kolUserId}`
+                        const delUserAPI = `https://kolperation.rocket-coding.com/api/DeleteKOLAccount/${this.kolUserId}`
 
                         this.$http
                         .delete(delUserAPI,this.config)
@@ -207,7 +207,7 @@ export default {
                     }
                     console.log(newCode);
                     
-                    const setCodeAPI = `http://kolperation.rocket-coding.com/api/PutKOLPass/${this.kolUserId}`
+                    const setCodeAPI = `https://kolperation.rocket-coding.com/api/PutKOLPass/${this.kolUserId}`
             
                     this.$http
                       .put(setCodeAPI,newCode,this.config)
@@ -223,7 +223,7 @@ export default {
         },
         confirmChange(){
             
-            const changeAPI = `http://kolperation.rocket-coding.com/api/PutKOL/${this.kolUserId}`
+            const changeAPI = `https://kolperation.rocket-coding.com/api/PutKOL/${this.kolUserId}`
 
             let infoItem = {
                 "KolId": this.kolUserId,
@@ -293,7 +293,7 @@ export default {
                     formData.append('file',fileObj,profileName);
                     console.log(formData.get('file'));
 
-                    const uploadAPI = `http://kolperation.rocket-coding.com/api/UploadFile`;
+                    const uploadAPI = `https://kolperation.rocket-coding.com/api/UploadFile`;
 
                     this.$http
                     .post(uploadAPI,formData,newConfig)
@@ -341,7 +341,7 @@ export default {
         this.userToken = window.localStorage.getItem('token');
         this.config    = { headers: { Authorization: `Bearer ${this.userToken}` } };
 
-        const userAPI  = 'http://kolperation.rocket-coding.com/api/GetKOLforEditing'
+        const userAPI  = 'https://kolperation.rocket-coding.com/api/GetKOLforEditing'
 
         this.$http
           .get(userAPI,this.config)

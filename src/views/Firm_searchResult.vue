@@ -50,7 +50,7 @@ export default {
 
         },
         showAllResult(){
-            const searchAPI    = `http://kolperation.rocket-coding.com/api/GetKOLsList`;
+            const searchAPI    = `https://kolperation.rocket-coding.com/api/GetKOLsList`;
 
             this.$http
               .get(searchAPI ,this.config)
@@ -84,7 +84,7 @@ export default {
         console.log(correctSectors);
         console.log(correctFans);
 
-        let searchAPI    = `http://kolperation.rocket-coding.com/api/GetKOLsList?channelTags=${correctChannels}&sectorTags=${correctSectors}&Fans=${correctFans}`;
+        let searchAPI    = `https://kolperation.rocket-coding.com/api/GetKOLsList?channelTags=${correctChannels}&sectorTags=${correctSectors}&Fans=${correctFans}`;
 
         this.userToken   = window.localStorage.getItem('token');
         this.config      = { headers: { Authorization: `Bearer ${this.userToken}` } };

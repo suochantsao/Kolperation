@@ -38,7 +38,7 @@ export default {
         console.log(channelItem);
         console.log(sectorList);
 
-        let  searchAPI   = `http://kolperation.rocket-coding.com/api/GetSponsoredContentsPreview?channelTags=${channelItem}&sectorTags=${sectorList}`;
+        let  searchAPI   = `https://kolperation.rocket-coding.com/api/GetSponsoredContentsPreview?channelTags=${channelItem}&sectorTags=${sectorList}`;
         this.userToken   = window.localStorage.getItem('token');
         this.config      = { headers: { Authorization: `Bearer ${this.userToken}` } };
 
