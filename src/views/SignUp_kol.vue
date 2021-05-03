@@ -133,7 +133,6 @@ export default {
             console.log(this.psw);
             console.log(this.email);
             console.log(this.phoneNum);
-            console.log(this);
 
             const signUpAPI = 'https://kolperation.rocket-coding.com/api/KOLRegister';
 
@@ -143,34 +142,34 @@ export default {
                 "Password": {},
                 "Email": {},
                 "Phone": {}, 
-                "ChannelDetails": [
-                    {
-                        "ChannelId": '',
-                    },
-                    {
-                        "ChannelId":'',
-                    },
-                    {
-                        "ChannelId":'',
-                    }
-                ] 
+                // "ChannelDetails": [
+                //     {
+                //         "ChannelId": '',
+                //     },
+                //     {
+                //         "ChannelId":'',
+                //     },
+                //     {
+                //         "ChannelId":'',
+                //     }
+                // ] 
             }
 
             signUpItem.AccountId = this.userAccount;
-            signUpItem.Username  = this. userName;
+            signUpItem.Username  = this.userName;
             signUpItem.Password  = this.psw;
             signUpItem.Email     = this.email;
             signUpItem.Phone     = this.phoneNum;
 
-            if( this.fbBool === true ){
-                signUpItem.ChannelDetails[0].ChannelId = 1;
-            }
-            if( this.igBool === true ){
-                signUpItem.ChannelDetails[1].ChannelId = 2;
-            }
-            if( this.ytBool === true ){
-                signUpItem.ChannelDetails[2].ChannelId = 3;
-            }
+            // if( this.fbBool === true ){
+            //     signUpItem.ChannelDetails[0].ChannelId = 1;
+            // }
+            // if( this.igBool === true ){
+            //     signUpItem.ChannelDetails[1].ChannelId = 2;
+            // }
+            // if( this.ytBool === true ){
+            //     signUpItem.ChannelDetails[2].ChannelId = 3;
+            // }
 
             console.log(signUpItem);
 

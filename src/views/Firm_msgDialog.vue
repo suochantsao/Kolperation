@@ -54,8 +54,10 @@
                       v-model="sendMsg"
                       id="sendText"
                     >
+                      <!-- @click="signalrFun" -->
+                      <!-- id =sendBtn -->
                     <a
-                      @click="signalrFun"
+                      @click="sendText"
                     >
                     <span>送出</span>
                     </a>
@@ -71,14 +73,14 @@
 import FirmFirmReply from '../components/firm-firmReply.vue'
 
 // Signal R 
-import jQuery from "jquery";
-const $ = jQuery;
-window.$ = $;
+// import'signalr'
+// import jQuery from "jquery";
+// const $ = jQuery;
+// window.$ = $;
 
-var chat      = '';
-var noticeMsg = '';
-var groupId   = this.msgId;
-var whoIam    = this.sender;
+// var chat      = '';
+// var noticeMsg = '';
+
 
 export default {
     name: 'msgDialog',
@@ -87,15 +89,15 @@ export default {
         FirmFirmReply 
     },
     methods:{
-        signalrFun(){
-            chat.server.sendMsg($('#sendText').val(), whoIam, groupId)
-            .done(function () {
-                $('#sendText').val('');
-            })
-            .fail(function (e) {
-                noticeMsg(e)
-            })
-        },
+        // signalrFun(){
+        //     chat.server.sendMsg($('#sendText').val(), this.sender, this.msgId)
+        //     .done(function () {
+        //         $('#sendText').val('');
+        //     })
+        //     .fail(function (e) {
+        //         noticeMsg(e)
+        //     })
+        // },
         confirmCase(){
             const confirmAPI = `https://kolperation.rocket-coding.com/api/CompanyInvited/${this.kolId}`
             
@@ -116,33 +118,31 @@ export default {
                   console.error(err);
               })
         },
-        textData(sender,msgStr){
-            console.log(this.sendMsg);
-            
+        sendText(){
             let msgInfo = {
                
-                // "MsgId"  : this.msgId,
-                "Message": msgStr,
-                "Sender" : sender
+                "MsgId"  : this.msgId,
+                "Message": this.sendMsg,
+                "Sender" : 1,
 
             }
-            console.log(this.config);
+            console.log(msgInfo);
             
             this.msgList.push(msgInfo);
 
-            // const sentMsgAPI = `https://kolperation.rocket-coding.com/api/ChatbyCompany`
+            const sentMsgAPI = `https://kolperation.rocket-coding.com/api/ChatbyCompany`
 
-            // this.$http
-            //   .post(sentMsgAPI,msgInfo,this.config)
-            //   .then( res => {
-            //       console.log(res);
-            //       console.log("寄出訊息成功");
-            //       this.sendMsg = '';
+            this.$http
+              .post(sentMsgAPI,msgInfo,this.config)
+              .then( res => {
+                  console.log(res);
+                  console.log("寄出訊息成功");
+                  this.sendMsg = '';
 
-            //   })
-            //   .catch( err => {
-            //       console.error(err);
-            //   })
+              })
+              .catch( err => {
+                  console.error(err);
+              })
 
         },
         routerSet(){
@@ -192,7 +192,6 @@ export default {
               this.kolId      = this.msgObject.KolId;
               this.userAvatar = this.msgObject.KOLavatar;
 
-
               const statusId = this.msgObject.CoopStatus;
               if ( statusId === 2 ){
                   this.btnStr = '已洽談過案件';
@@ -202,9 +201,22 @@ export default {
                   this.btnStr = '等候對方回覆';
                   this.btnStyle = true;
               }
-              else{
+              else if ( statusId === 0 ){
                   this.btnStr = '確認洽談成功';
                   this.btnStyle = false;
+              }
+              else if ( statusId === 3 ){
+                  this.btnStr = '已拒絕此合作';
+                  this.btnStyle = true;
+              }
+              else if ( statusId === 4 ){
+                  this.btnStr = '已被婉拒合作';
+                  this.btnStyle = true;
+              }
+              else if ( statusId === 42 ){
+                  this.btnStr = '邀請合作案件';
+                  this.btnStyle = false;
+
               }
               
 
@@ -215,31 +227,44 @@ export default {
                   console.error(err);
           })
 
-        chat = $.connection.chathub;
+        // var chat = $.connection.chathub;
+        // var connection = $.hubConnection('https://kolperation.rocket-coding.com/');
+        // var demoChatHubProxy = connection.createHubProxy('demoChatHub');
           
-            //group
-            chat.client.sendMsgBack = function (message, character) {
-                this.textData(character,message)
-            };
-            chat.client.notify = function (message) {
-                noticeMsg(message);
-            };
-            noticeMsg = function (message) {
-                $("#onlineStr").append(message);
-            };
-            var groupId = this.msgId;
+        //     //group
+        //     chat.client.sendMsgBack = function (message, character) {
+        //         this.textData(character,message)
+        //     };
+        //     chat.client.notify = function (message) {
+        //         noticeMsg(message);
+        //     };
+        //     var noticeMsg = function (message) {
+        //         $("#onlineStr").append(message);
+        //     };
+        //     var groupId = this.msgId;
+        //     var whoIam = this.sender;
 
-            $.connection.hub.start()
-                .done(function () {
-                    chat.server.join(groupId);
-                    chat.server.notify("對方上線了", groupId);
-                })
-                .fail(function () {
-                    noticeMsg("連線失敗。");
-                });
-            $.connection.hub.connectionSlow(function () {
-                noticeMsg("連線不穩..");
-            });
+        //     $.connection.hub.start()
+        //         .done(function () {
+        //             chat.server.join(groupId);
+        //             chat.server.notify("對方上線了", groupId);
+        //         })
+        //         .fail(function () {
+        //             noticeMsg("連線失敗。");
+        //         });
+        //     $.connection.hub.connectionSlow(function () {
+        //         noticeMsg("連線不穩..");
+        //     });
+
+        //     $("#sendBtn").on("click", function () {
+        //         chat.server.sendMsg($('#sendText').val(), whoIam, groupId)
+        //             .done(function () {
+        //                 $('#sendText').val('');
+        //             })
+        //             .fail(function (e) {
+        //                 noticeMsg(e)
+        //             })
+        //     })
     }
 }
 </script>

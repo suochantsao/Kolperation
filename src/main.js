@@ -16,6 +16,15 @@ Vue.use(BootstrapVue)
 // import 'bootstrap/dist/css/bootstrap.css'
 // import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+// Signal R
+// import jq from 'jquery';
+// window.$ = jq;
+// import jQuery from "jquery";
+// const $ = jQuery;
+// window.$ = $;
+// window.$ = window.jQuery = require("jquery")
+
+
 // VueForm multiselect
 import VueCompositionAPI from '@vue/composition-api'
 Vue.use(VueCompositionAPI)

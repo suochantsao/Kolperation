@@ -119,10 +119,18 @@ export default {
 
                 this.userId    = res.data.Character;
                 this.userToken = res.data.Token;
+                const codeCheck = res.data.Check;
+
                 console.log(this.userId);
                 localStorage.setItem('token', res.data.Token)
 
-                if( this.userId === 0 ){
+                if ( codeCheck === 1 && this.userId === 0){
+                    this.$router.push({ path: `/loader?loadPath=kolplat/setting`})
+                }
+                else if ( codeCheck === 1 && this.userId === 1){
+                    this.$router.push({ path: `/loader?loadPath=firmplat/setting`})
+                }
+                else if ( this.userId === 0 ){
                     this.$router.push({ path: `/loader?loadPath=kolplat/msg`})
                 }
                 else if ( this.userId === 1 ){

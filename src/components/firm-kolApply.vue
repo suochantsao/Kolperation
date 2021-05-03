@@ -1,6 +1,6 @@
 <template>
     <ul class="caseItem" >
-        <img width="22%" src="https://blush.design/api/download?shareUri=UJFfjsWIEtdRN23W&c=Hair_0%7E9b5120_Skin_0%7Ec26e5e&w=800&h=800&fm=png" alt="">
+        <img width="22%" :src="kolInfo.KOLavatar" alt="">
         <ul class="strBlock">
 
             <li class="itemTitle">{{kolInfo.Username}}</li>

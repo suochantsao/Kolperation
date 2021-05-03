@@ -2,7 +2,9 @@
     <header class="kolHeader firmHeader">
             <h1>
                 <img class="logo" src="../assets/img/logo.svg">
-                <span class="brandName">KOLperation</span>
+                <router-link class="txtBlue" to="/">
+                    <span class="brandName">KOLperation</span>
+                </router-link>
             </h1>
             <ul class="tabBlock">
 

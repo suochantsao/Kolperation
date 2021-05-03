@@ -102,13 +102,12 @@ export default {
                             console.log(sponId);
                             let sponObj = {
                                 "SponsoredContentId": sponId,
-                                // "KolId": this.kolId
                             }
 
                             // const msgAPI    = `http://kolperation.rocket-coding.com/api/PostMessagebyCompany`
                             const inviteAPI = `https://kolperation.rocket-coding.com/api/CompanyInvited/${this.kolId}`
                             this.$http
-                            .post(inviteAPI,sponObj,this.config)
+                            .put(inviteAPI,sponObj,this.config)
                             .then( res => {
                                 console.log(res);
                                 console.log("邀請KOL成功");

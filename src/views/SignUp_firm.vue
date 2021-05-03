@@ -152,6 +152,7 @@ export default {
                 "Cellphone": {},
                 // "ChannelTags": ,  
             }
+            console.log(signUpItem);
 
             signUpItem.AccountId    = this.userAccount;
             signUpItem.Password     = this.psw;
