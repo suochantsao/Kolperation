@@ -1,14 +1,12 @@
 <template>
     <li class="firmName firmLable">
         <fa-icon 
-          :icon="['fas', 'gamepad']" 
+          :icon="['fas', item.TagIcon]" 
           class="icon lableIcon" 
           :key= item.TagIcon
           v-for="item in sectors"
           @click="test"
         />
-        <!-- <fa-icon icon="building" class="icon lableIcon" />
-        <fa-icon icon="video" class="icon lableIcon" /> -->
     </li>
 </template>
 

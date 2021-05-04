@@ -2,6 +2,7 @@
     <ul class="resultBlock contentBlock">
         <li class="resultItem">
             <fa-icon icon="utensils" class="icon " />
+            <!-- <img :src="pic" class="icon "> -->
             <span class="caseTitle">{{caseItem.Title}}</span>
             <router-link to="/login">
                 <span class="caseDescrip">合作詳情</span>
@@ -15,6 +16,12 @@ export default {
     name: 'trialItem',
     props:[
         'caseItem'
-    ]
+    ],
+    data(){
+        return{
+            'pic': this.caseItem.Picture,
+        }
+    }
+
 }
 </script>

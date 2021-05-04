@@ -183,7 +183,6 @@ export default {
 
         },
         resetCode(){
-
             this.$swal({
                 title: '請輸入您的新密碼',
                 input: 'password',
@@ -196,14 +195,20 @@ export default {
                 }
             })
             .then((result) => {
-                if (result.isConfirmed) {
+                const codeStr = result.value.trim();
+                if ( codeStr === '' ){
+                    this.$swal({
+                        icon: 'question',
+                        title: '修改失敗',
+                        text: '密碼欄位不能為空',
+                    })
+                }
+                else if ( result.isConfirmed ) {
                     console.log(result.value);
                     
                     let newCode = {
                         "UserId": this.kolUserId,
-                        // "OldPassword": "lol",
                         "NewPassword": result.value,
-                        // "NewPasswordConfirmation": "lol"
                     }
                     console.log(newCode);
                     
@@ -219,7 +224,8 @@ export default {
                       .catch( err => {
                           console.error(err);
                       })
-            }})
+                }
+            })
         },
         confirmChange(){
             
@@ -326,6 +332,7 @@ export default {
             'config'     : null,
             'dateStr'    : null,
             'userAvatar' : null,
+            'codeCheck'  : null,
             'fbAccount'  : null,
             'igAccount'  : null,
             'ytAccount'  : null,
@@ -360,12 +367,19 @@ export default {
             this.fbFansNum  = this.infoData.Channels[0].FansNumber;
             this.igFansNum  = this.infoData.Channels[1].FansNumber;
             this.ytFansNum  = this.infoData.Channels[2].FansNumber;
+            this.codeCheck  = this.infoData.Check;
+
+            if ( this.codeCheck === 1 ){
+                this.resetCode()
+            }
 
             console.log(this.infoData);
+
           })
           .catch( err => {
             console.error(err);
           });
+        
     }
 }
 </script>

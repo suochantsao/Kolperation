@@ -34,7 +34,7 @@
                     </li>
                 </ul>
             </ul>
-            <ul class="dialogDetail dialogOutside">
+            <ul class="dialogDetail dialogOutside scrollWhite">
                 
                 <li
                  :class= "msgAlert === 0 ? 'nonMsgAlert' : 'dpNone' " 

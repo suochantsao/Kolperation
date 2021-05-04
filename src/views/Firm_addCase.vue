@@ -10,7 +10,7 @@
                 <span>確認新增</span>
             </li>
         </ul>
-        <div class="mesArea alertArea caseInfo">
+        <div class="mesArea alertArea caseInfo scrollWhite">
             <ul class="picBlock">
                 <img width="70%" :src="picName" alt="">
                 <li class="uploadPicBtn">

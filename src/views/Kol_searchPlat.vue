@@ -23,7 +23,7 @@
                        @click="selectPlat('ig')"
                     >
                         <img width="100%" src="../assets/img/instagram.svg" alt="">
-                        <span>instagram</span>
+                        <span>Instagram</span>
                     </li>
 
                     <li 

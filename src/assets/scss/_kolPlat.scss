@@ -295,6 +295,7 @@
             img{
                 padding: 3% 2% 3% 6%;
                 background-color: white;
+                height: 140px;
                 // border: 1px solid pink;
             }
             .strBlock{
@@ -401,7 +402,8 @@
 
             img{
                 // padding: 3% 0% 3% 5%;
-                padding: 7% 8% 7% 8%;
+                // height: 140px;
+                padding: 5% 8%;
                 border-radius: 20px 0 0 20px;
                 background-color: $grey_bgc;
             }
@@ -724,6 +726,8 @@
     }
     .dialogOutside{
         padding: 3% 0;
+        height: 500px;
+        overflow-y: auto;
     }
 
 }
@@ -737,7 +741,9 @@
             display: flex;
             padding: 5% 4%;
             // border: 1px solid pink;
-        
+            img{
+                padding: 0 5% 0 2%;
+            }
             .conditionBlock{
                 width: 28%;
                 // border: 1px solid pink;

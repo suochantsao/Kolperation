@@ -152,14 +152,20 @@ export default {
                 }
             })
             .then((result) => {
-                if (result.isConfirmed) {
+                const codeStr = result.value.trim();
+                if ( codeStr === '' ){
+                    this.$swal({
+                        icon: 'question',
+                        title: '修改失敗',
+                        text: '密碼欄位不能為空',
+                    })
+                }
+                else if (result.isConfirmed) {
                     console.log(result.value);
                     
                     let newCode = {
                         "UserId": this.firmUserId,
                         "NewPassword": result.value,
-                        // "OldPassword": "lol",
-                        // "NewPasswordConfirmation": "lol"
                     }
                     console.log(newCode);
                     
@@ -268,6 +274,7 @@ export default {
             'firmUserId' : null,
             'userToken'  : null,
             'userAvatar' : null,
+            'codeCheck'  : null,
             'config'     : null,
             'fbBool'     : false,
             'igBool'     : false,
@@ -291,6 +298,12 @@ export default {
             this.fbBool     = this.infoData.Channels[0].booling;
             this.igBool     = this.infoData.Channels[1].booling;
             this.ytBool     = this.infoData.Channels[2].booling;
+            this.codeCheck  = this.infoData.Check;
+
+            if ( this.codeCheck === 1 ){
+                this.resetCode()
+            
+            }
 
             console.log(this.firmUserId);
           })

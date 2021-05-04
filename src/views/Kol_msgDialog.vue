@@ -34,7 +34,7 @@
                     </li>
                 </ul>
             </ul>
-            <ul class="dialogDetail dialogOutside">
+            <ul class="dialogDetail dialogOutside scrollWhite">
                 
                 <li
                  :class= "msgAlert === 0 ? 'nonMsgAlert' : 'dpNone' " 
@@ -187,8 +187,9 @@ export default {
               this.caseId     = this.msgObject.SponsoredContentId;
               this.userAvatar = this.msgObject.CompanyLogo
 
-              const statusId  = this.msgObject.CoopStatus;
-              if ( statusId === 0){
+              let statusId  = this.msgObject.CoopStatus;
+
+              if ( statusId === 0 ){
                   this.btnStr = '已報名此案件';
                   this.btnStyle = true;
               }
@@ -196,7 +197,7 @@ export default {
                   this.btnStr = '確認洽談成功';
                   this.btnStyle = false;
               }
-              else if ( status === 2 ){
+              else if ( statusId === 2 ){
                   this.btnStr = '已經成功洽談';
                   this.btnStyle = true;
               }

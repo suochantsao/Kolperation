@@ -5,7 +5,7 @@
         </a>
         <div class="firmDetArea consultDetArea firmDetArea">
             <ul class="caseBasic">
-                <img width="30%" src="https://blush.design/api/download?shareUri=UJFfjsWIEtdRN23W&c=Hair_0%7E9b5120_Skin_0%7Ec26e5e&w=800&h=800&fm=png">                
+                <img width="30%" :src="firmPic">                
                 <ul class="conditionBlock">
                     <h1>{{firmName}}</h1>
                     <kol-sector-item
@@ -80,10 +80,11 @@ export default {
     },
     data(){
         return{
-            'saveBool'      : true,
+            'saveBool'      : '',
             'companyId'     : null,
             'firmDetail'    : null,
             'firmName'      : null,
+            'firmPic'       : null,
             'successNum'    : 0,
             'sectorList'    : [],
             'firmEmail'     : '暫不提供',
@@ -117,8 +118,6 @@ export default {
               }
               if( this.firmDetail.Email !== null ){
                   this.firmEmail   = this.firmDetail.Email;
-                  console.log(this.firmDetail.Cellphone);
-
               }
               if( this.firmDetail.PersonInCharge !== null ){
                   this.firmContact = this.firmDetail.PersonInCharge;
@@ -127,11 +126,19 @@ export default {
                   this.firmAddress = this.firmDetail.Address;
               }
               
-              
                 this.sectorList  = this.firmDetail.Sectors;
                 this.firmName    = this.firmDetail.Company;
                 this.successNum  = this.firmDetail.CoopSuccessTimes;
-                this.saveBool    = this.firmDetail.Favorite;
+                this.firmPic     = this.firmDetail.CompanyLogo;
+                const mdfkBool   = this.firmDetail.Favorite;
+                console.log(mdfkBool);
+                if( mdfkBool === true ){
+                    this.saveBool = true
+                }
+                else if ( mdfkBool === false ){
+                    this.saveBool = false
+                }
+                console.log(this.saveBool);
           })
           .catch( err => {
                   console.error(err);

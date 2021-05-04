@@ -243,7 +243,9 @@
                 flex-direction: column;
                 // border: 1px solid pink;
                 margin: 2% 4% 2% 1% ;
-                
+                img{
+                    height: 140px;
+                }
                 span{
                     text-align: center;
                     font-family: NotoSansCJKtc-Medium;
@@ -330,7 +332,7 @@
 .firmAddBlock{
     .caseInfo{
         height: 75%;
-        overflow: hidden;
+        overflow-y: auto;
         .picBlock{
             margin: 5% 0 0 8%;
             display: flex;
@@ -367,7 +369,7 @@
         }
         .inputBlock{
             margin-top: 7%;
-            padding-bottom: 5%;
+            padding-bottom: 3%;
             display: flex;
             background-color: $brand_blue;
             // border: 1px solid pink;

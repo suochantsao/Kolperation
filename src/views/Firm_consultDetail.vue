@@ -5,7 +5,7 @@
         </a>
         <div class="consultDetArea">
             <ul class="caseBasic">
-                <img width="60%" :src="casePic">                
+                <img width="55%" :src="casePic">                
                 <ul class="conditionBlock">
                     <h1>{{caseDetail.Title}}</h1>
                     <li>{{caseDetail.Company}}</li>

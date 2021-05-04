@@ -3,13 +3,13 @@
         <fa-icon 
             :icon="['far', 'heart']" 
             class="favIcon likeIcon" 
-            :class="!favBool === false ? 'dpNone' : '' "
+            :class="!boolStr === false ? 'dpNone' : '' "
             @click="favAdd"
         />
         <fa-icon 
             :icon="['fas', 'heart']" 
             class="favIcon likeIcon selectedIcon" 
-            :class="!favBool === true ? 'dpNone' : '' "
+            :class="!boolStr === true ? 'dpNone' : '' "
             @click="favRemove"
         />
     </li>
@@ -92,20 +92,18 @@ export default {
             })
         },
         commonFun(){
-            this.favBool = !this.favBool;
+            this.boolStr = !this.boolStr;
             this.userToken = window.localStorage.getItem('token');
             this.config = { headers: { Authorization: `Bearer ${this.userToken}` } };
         }
     },
     data(){
         return{
-            'favBool'  : null,
             'config'   : null,
             'userToken': null,
         }
     },
     created(){
-        this.favBool = this.boolStr;
     }
 }
 </script>

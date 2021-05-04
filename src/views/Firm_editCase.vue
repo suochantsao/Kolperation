@@ -213,10 +213,10 @@ export default {
                 "Detail": this.caseDetail.Detail,
                 "PersonInCharge": this.caseDetail.PersonInCharge,
                 "EndTime": this.dateStr,
-                "MinimumRequirement": "目前沒有",
-                "ChannelTags": "01,02",
-                "SectorTags": "06,07",
-                "ProductPicture":"picturename",
+                // "MinimumRequirement": "目前沒有",
+                // "ChannelTags": "01,02",
+                // "SectorTags": "06,07",
+                "ProductPicture":this.picName,
                 "ScId": this.caseId,
             }
             console.log(caseInfo);
