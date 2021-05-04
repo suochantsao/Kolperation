@@ -60,6 +60,7 @@ import Firm_editCase      from '../views/Firm_editCase.vue'
 // * Router
 Vue.use(VueRouter)
 const routes = [
+    { path: '*', redirect: '/' },
     
     {
         path: '/',
@@ -301,6 +302,8 @@ const routes = [
 
 const router = new VueRouter({
     routes,
+    mode: 'history',
+    hash: false,
     scrollBehavior () {
         return { x: 0, y: 0 }
     }

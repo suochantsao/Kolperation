@@ -1,6 +1,6 @@
 <template>
     <div class="kolMesBlock firmMsgBlock">
-        <h2 class="sucessH2">洽談成功案件總覽</h2>
+        <h2 class="sucessH2">已完結案件總覽</h2>
         <span class="sucessDescript">僅顯示近期內的成功洽談案件</span>
         <div class="mesArea alertArea sucessArea scrollStyle scrollSpecial">
          
