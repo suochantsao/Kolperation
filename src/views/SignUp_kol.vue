@@ -38,7 +38,7 @@
                 <fa-icon icon="envelope" class="icon" />
                 <input 
                   type="text" 
-                  placeholder="請輸入電子信箱"
+                  placeholder="請輸入電子信箱（真實信箱）"
                   v-model="email"
                 >
             </li>
@@ -142,17 +142,6 @@ export default {
                 "Password": {},
                 "Email": {},
                 "Phone": {}, 
-                // "ChannelDetails": [
-                //     {
-                //         "ChannelId": '',
-                //     },
-                //     {
-                //         "ChannelId":'',
-                //     },
-                //     {
-                //         "ChannelId":'',
-                //     }
-                // ] 
             }
 
             signUpItem.AccountId = this.userAccount;
@@ -161,15 +150,30 @@ export default {
             signUpItem.Email     = this.email;
             signUpItem.Phone     = this.phoneNum;
 
-            // if( this.fbBool === true ){
-            //     signUpItem.ChannelDetails[0].ChannelId = 1;
-            // }
-            // if( this.igBool === true ){
-            //     signUpItem.ChannelDetails[1].ChannelId = 2;
-            // }
-            // if( this.ytBool === true ){
-            //     signUpItem.ChannelDetails[2].ChannelId = 3;
-            // }
+            if( this.fbBool === true ){
+                const channelObj = [];
+                const obj= {
+                    "ChannelId":1
+                };
+                channelObj.push(obj);
+                signUpItem.ChannelDetails = channelObj;
+            }
+            if( this.igBool === true ){
+                const channelObj = [];
+                const obj= {
+                    "ChannelId":2
+                };
+                channelObj.push(obj);
+                signUpItem.ChannelDetails = channelObj;
+            }
+            if( this.ytBool === true ){
+                const channelObj = [];
+                const obj= {
+                    "ChannelId":3
+                };
+                channelObj.push(obj);
+                signUpItem.ChannelDetails = channelObj;
+            }
 
             console.log(signUpItem);
 

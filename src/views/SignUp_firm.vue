@@ -38,7 +38,7 @@
                 <fa-icon icon="envelope" class="icon" />
                 <input 
                   type="text" 
-                  placeholder="請輸入電子信箱"
+                  placeholder="請輸入電子信箱（真實信箱）"
                   v-model="email"
                 >
             </li>

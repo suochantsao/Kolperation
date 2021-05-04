@@ -39,6 +39,8 @@
                 <li
                  :class= "msgAlert === 0 ? 'nonMsgAlert' : 'dpNone' " 
                 >目前尚未有對話記錄</li>
+
+                <li id="onlineStr"></li>
                 
                 <firm-firm-reply
                   :avatar  = "userAvatar"
