@@ -1,28 +1,45 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  
+  <router-view v-if="isRouterAlive" />
+  
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import login from './views/Login.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data(){
+    return{
+      'token': null,
+      'isRouterAlive': true,
+    }
+  },
+  provide(){
+    return{
+      reload: this.reload
+    };
+  },
+  methods:{
+    test(){
+      console.log(login.token);
+      console.log(this.token);
+    },
+    reload(){
+      this.isRouterAlive = false;
+      this.$nextTick( () => {
+        this.isRouterAlive = true;
+      })
+    }
   }
+  
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+/* CSS */
+@import "../css/main.min.css";
+
+
 </style>

@@ -1,0 +1,33 @@
+// Font
+@font-face{
+    font-family: NotoSansCJKtc-Medium;
+    src: local('NotoSansCJKtc-Medium');
+}
+@font-face{
+    font-family: NotoSansCJKtc-DemiLight;
+    src: local('NotoSansCJKtc-DemiLight');
+}
+@font-face{
+    font-family: NotoSansCJKtc-Light;
+    src: local('NotoSansCJKtc-Light');
+}
+
+// Color
+$brand_blue:#344068;
+$brand_lightBlue:#86D1DA;
+$dark_grey:#484848;
+$nav_bgc:#E6E6E6;
+$tab_color: #b6b6b6;
+$shadow_color:#607D8B;
+$pink_bgc:#e095b4;
+$grey_bgc:#F5F5F5;
+$google_red: #a81f1f;
+$fb_blue: #3651aa;
+
+// Font Size
+$font-s: 0.75rem;
+$font-m: 1.5rem;
+$font-l: 2rem;
+
+$font-tab:1.2rem;
+

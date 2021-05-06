@@ -1,0 +1,170 @@
+.trialContent{
+    // height: 650px;
+    margin: 5% auto;
+    // background-color: $nav_bgc;
+    border-radius: 20px;
+    border: 5px solid $nav_bgc;
+
+    h2{
+        margin: 4% 0 0 5%;
+        // border: 1px solid pink;
+    }
+
+    .titleDescrip{
+        display: block;
+        margin: 2% 0 0 5.5%;
+        letter-spacing: 0.1rem;
+        font-family: NotoSansCJKtc-Light;
+
+    }
+    .socialBlock{
+        // border: 1px solid pink;
+
+        .socialItem{
+            width: 28%;
+            display: flex;
+            flex-direction: column;
+            margin: 0 3% 0 3%;
+            padding: 3% 3% 2% 3%;
+            border: 5px solid white;
+            transition:all .15s ease-in-out;
+            cursor: pointer;
+
+            span{
+                display: block;
+                text-align: center;
+                padding: 5% 0;
+                margin: 8% 0 0 1%;
+                font-family: NotoSansCJKtc-Medium;
+            }
+
+        }
+        .selectItem{
+            border-radius: 5%;
+            border: 5px solid $brand_lightBlue;
+            transition:all .15s ease-in-out;
+
+        }
+    }
+    .contentBlock{
+        margin: 8% auto 5% auto;
+        max-width: 800px;
+        display: flex;
+    }
+
+    .nxtBtn{
+        display: block;
+        width: 17%;
+        margin: 6% 0 4% 75%;
+        color: $brand_blue;
+        line-height: 2rem;
+        text-align: center;
+        font-family: NotoSansCJKtc-Medium;
+        border-radius: 300px;
+        border: 3px solid $brand_lightBlue;
+        cursor: pointer;
+    }
+    .nxtBtn:hover{
+        color: white;
+        background-color: $brand_lightBlue;
+        transition:all .3s ease-in-out;
+    }
+    .industryBlock{
+        margin: 5% auto 0% auto;
+        // border: 1px solid pink;
+
+        .industItem{
+            display: flex;
+            flex-direction: column;
+            height: 9rem;
+            width: 9rem;
+            border-radius: 50%;
+            margin: 0 3%;
+            border: 5px solid $nav_bgc;
+            transition:all .15s ease-in-out;
+            cursor: pointer;
+            
+            .icon{
+                // margin: 5% 20%;
+                color: $brand_blue;
+                font-size: 3.5rem;
+                padding: 20% 26% 10% 26%;
+                // border: 1px solid pink;
+            }
+
+            .lineStyle{
+                padding-left: 31%;
+            }
+
+            span{
+                padding: 0 25%;
+                color: $brand_blue;
+                text-align: center;
+                font-family: NotoSansCJKtc-Medium;
+            }
+        }
+        .selectItem{
+            border: 5px solid $brand_lightBlue;
+        }
+
+    }
+    .resultBlock{
+        display: flex;
+        flex-direction: column;
+        margin: 2% auto;
+        // border: 1px solid pink;
+
+        .resultItem{
+            display: flex;
+            margin: 3% 0 0 1%;
+            // padding: 3%;
+            border-radius: 10px;
+            color: $brand_blue;
+            border: 5px solid $brand_lightBlue;
+
+            .icon{
+                font-size: 4rem;
+                padding: 3% 4%;
+                margin: 3% 3% 3% 5%;
+                color: white;
+                border-radius: 50%;
+                background-color: $brand_lightBlue;
+                // border: 1px solid pink;
+            }
+            .caseTitle{
+                width: 40%;
+                margin-left: 5%;
+                font-size: $font-m;
+                line-height: 10rem;
+                font-family: NotoSansCJKtc-Medium;
+
+            }
+            .caseDescrip{
+                display: block;
+                color: $brand_blue;
+                width: 130px;
+                margin: 40% 22%;
+                text-align: center;
+                // padding: 2% 20%;
+                border-radius: 300px;
+                line-height: 3rem;
+                border: 3px solid $brand_blue;
+            }
+
+
+        }
+
+    }
+    a{
+        text-decoration: none;
+    }
+    .moreBtn{
+        text-align: center;
+        margin: 4% 35%;
+        line-height: 3rem;
+        border-radius: 300px;
+        background-color: $brand_blue;
+        color: white;
+    }
+}
+

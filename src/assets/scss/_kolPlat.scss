@@ -1,0 +1,1259 @@
+.kolHeader{
+    max-width: 1550px;
+    margin: 0 auto;
+    padding: 0 3% 0 5%;
+    display: flex;
+    // border: 1px solid pink;
+
+    h1{
+        display: flex;
+        margin: 4% 10% 4% 0;
+        padding-right: 5%;
+        cursor: default;
+        // border: 1px solid pink;
+
+        .logo{
+            padding-right: 8%;
+
+        }
+        .brandName{
+            color: $brand_blue;
+            line-height: 3.5rem;
+            font-size: $font-m;
+            font-family: NotoSansCJKtc-Medium;
+            // border: pink solid 1px;
+        }
+    }
+
+    .tabBlock{
+        display: flex;
+        width: 100%;
+        font-family: NotoSansCJKtc-Medium;
+        align-items: flex-end;
+        // border: 1px solid pink;
+
+        a{
+            width: 100%;
+            text-decoration: none;
+        }
+
+        li{
+            display: flex;
+            padding: 8% 0;
+            margin-left: 8%;
+            color: $tab_color;
+            font-size: $font-tab;
+            border-bottom: 3px solid $tab_color;
+            // border: 1px solid pink;
+
+            span{
+                display: block;
+            }
+            .icon{
+                margin: 0 5% 0 22%;
+            }
+            .specIcon{
+                margin-left: 18%;
+            }
+        }
+        .selectTab{
+            color: $brand_lightBlue;
+            border-bottom: 3px solid $brand_lightBlue;
+        }
+        .tab:hover{
+            color: $brand_lightBlue;
+            border-bottom: 3px solid $brand_lightBlue;
+            transition:all .2s ease-in-out;
+
+        }
+    }
+    
+}
+.kolContent{
+    display: flex;
+    height: 100%;
+
+    .navbar{
+        width: 32%;
+        background-color: $brand_lightBlue;
+        color: white;
+        // overflow-y: hidden;
+        // overflow-x: hidden;
+        // border: 1px solid pink;
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        .hamIcon{
+            color: $brand_lightBlue;
+            // color: white;
+            margin: 5% 0 0 90%;
+            font-size: $font-m;
+            // cursor: pointer;
+            // border: 1px solid pink;
+        }
+        .avatar{
+            width: 150px;
+            margin: 1% auto 20% auto;
+            height: 150px;
+            border-radius: 50%;
+            // border: 1px solid rgb(143, 63, 76);
+            img{
+                display: block;
+                margin: 0 auto;
+                background-color: white;
+                // padding-top: 8%;
+                border-radius: 50%;
+                box-shadow: 5px 5px 10px $shadow_color;
+            }
+            span{
+                display: block;
+                margin-top: 16%;
+                padding: 3% 0;
+                color: white;
+                text-align: center;
+                font-size: $font-l;
+                font-family: NotoSansCJKtc-Medium;
+                // border: 1px solid pink;
+
+            }
+        }
+        .countBlock{
+            display: flex;
+            width: 60%;
+            margin: 0 auto 10% auto;
+            // border: 1px solid pink;
+
+            .countItem{
+                display: flex;
+                flex-direction: column;
+                margin: 0 auto;
+                padding: 8% 5%;
+                border-radius: 20px;
+                background-color: $tab_color;
+                font-family: NotoSansCJKtc-DemiLight;
+                box-shadow: 5px 5px 10px $shadow_color;
+
+                .count{
+                    display: block;
+                    text-align: center;
+                    padding-top: 15%;
+                    font-size: $font-m;
+                    font-family: NotoSansCJKtc-Medium;
+                }
+            }
+            .successItem{
+                background-color: $pink_bgc;
+            }
+            
+        }
+        .navBtn{
+            width: 52%;
+            margin: 4% auto 0 auto;
+            padding: 3% 0;
+            display: flex;
+            border-radius: 300px;
+            color: $brand_lightBlue;
+            background-color: white;
+            // border: 1px solid pink;
+
+            .icon{
+                display: block;
+                margin: 0 5% 0 32%;
+                // border: 1px solid pink;
+            }
+            span{
+                display: block;
+                // border: 1px solid pink;
+
+            }
+        }
+        .logoutBtn{
+            margin: 20% auto;
+            color: white;
+            background-color: $brand_blue;
+        }
+        
+    }
+    .navBtn:hover{
+        color: $brand_blue;
+        font-weight: bolder;
+        transition:all .1s ease-in-out;
+        box-shadow: 5px 5px 10px $shadow_color;
+    }
+    .logoutBtn:hover{
+        color: $brand_blue;
+        background-color: white;
+        transition:all .3s ease-in-out;
+    }
+    
+}
+.kolMesBlock{
+    background-color: $nav_bgc;
+    width: 68%;
+    height: 1000px;
+    // overflow-y: scroll;
+    // border: 1px solid pink;
+
+    h2{
+        margin: 7% 10% 3% 10%;
+        letter-spacing: 0.1rem;
+        color: $brand_blue;
+        font-size: $font-l;
+        font-family: NotoSansCJKtc-Medium;
+    }
+    .topTitle{
+        margin: 6% 10% 3% 10%;
+    }
+    .alertArea{
+        margin: 0 10%;
+        height: 33%;
+        overflow-y: auto;
+        border-radius: 20px;
+        background-color: white;
+        // border: 2px solid pink;
+
+        .caseItem{
+            display: flex;
+            margin: 4% 6%;
+            color: $brand_blue;
+            background-color: white;
+            border-radius: 20px;
+            border: 3px solid $brand_lightBlue;
+            box-shadow: 1px 2px 8px $shadow_color;
+            
+            img{
+                margin-right: 4%;
+                padding: 4% 15%;
+                border-radius: 20px 0 0 20px;
+                background-color: $grey_bgc;
+                // border: 3px solid pink;
+            }
+            .strBlock{
+                margin: auto 0;
+                // border: 3px solid pink;
+                
+                .itemTitle{
+                    margin: 12% auto 0 auto;
+                    letter-spacing: 0.1rem;
+                    font-size: $font-m;
+                    font-family: NotoSansCJKtc-Medium;
+                    // border: 1px solid pink;
+                }
+
+                .firmName{
+                    margin: 5% auto;
+                    padding-left: 1%;
+                }
+
+                .btnBlock{
+                    display: flex;
+                    width: 300px;
+                    margin: 8% auto;
+                    // border: 1px solid pink;
+                    a{
+                        // display: block;
+                        margin-right: 5%;
+                        padding: 4% 5%;  
+                        border-radius: 300px;
+                        letter-spacing: 0.1rem;
+                        color: white;
+                        background-color: $brand_lightBlue;
+                        // border: 1px solid pink;
+                    }
+                    a:hover{
+                        box-shadow: 2px 2px 8px $shadow_color;
+                        font-weight: bolder;
+
+                    }
+                    
+                    .btn{
+                        display: flex;
+                        width: 110px;
+                        padding-left: 6%;
+                        // border: 1px solid pink;
+                        span{
+                            display: block;
+                            padding-left: 8%;
+                        }
+                    }
+                    
+                    .infoBtn{
+                        background-color: $pink_bgc;
+                    }
+
+                
+                }
+            }
+        }
+    }
+    .mesArea{
+        height: 80%;
+        // border: 1px solid pink;
+        .caseItem{
+
+            img{
+                padding: 3% 2% 3% 6%;
+                background-color: white;
+                height: 140px;
+                // border: 1px solid pink;
+            }
+            .strBlock{
+                width: 38%;
+                // margin-right: 5%;
+                .itemTitle{
+                    margin-top: 5%;
+                }
+                .firmMsg{
+                    width: 100%;
+                    margin-top: 5%;
+                    font-size: $font-s;
+                    color: $dark_grey;
+                    // border: 1px solid pink;
+                }
+                
+            }
+            a{
+                display: flex;
+                margin: 5% 0 5% 6%;
+                align-items: flex-end;
+                // border: 1px solid pink;
+                
+                .btn{
+                    display: flex;
+                    width: 120px;
+                    margin: 0;
+                    padding: 12% 0;
+                    border-radius: 300px;
+                    text-align: center;
+                    color: white;
+                    background-color: $brand_lightBlue;
+                    // border: 1px solid pink;
+    
+    
+                    span{
+                        margin-left: 5%;
+                        letter-spacing: 0.1rem;
+                    }
+                    .icon{
+                        margin-left: 26%;
+                    }
+                }
+            }
+            
+            .btn:hover{
+                background-color: $brand_blue;
+                transition:all .3s ease-in-out;
+                box-shadow: 2px 2px 8px $shadow_color;
+            }
+        }
+    }
+    .applyArea{
+        height: 33%;
+        
+        .caseItem{
+            
+            .strBlock{
+                margin: auto 0;
+
+                .itemTitle{
+                    margin-top: 5%;
+                }
+
+                .statusStr{
+                    font-weight: bold;
+                }
+            }
+            a{
+                display: flex;
+                margin: 5% 0 5% 2%;
+                align-items: flex-end;
+                // border: 1px solid pink;
+                
+                .btn{
+                    width: 150px;
+                    margin: 0;
+                    padding: 10% 0;
+                    // border: 1px solid pink;
+    
+    
+                    span{
+                        margin-left: 5%;
+                        letter-spacing: 0.1rem;
+                    }
+                    .icon{
+                        margin-left: 20%;
+                    }
+                }
+            }
+            
+        }
+        
+    }
+    .sucessArea{
+        margin: 0 6%;
+        background-color: $nav_bgc;
+        
+        .caseItem{
+
+            a{
+                margin: 0;
+            }
+
+            img{
+                // padding: 3% 0% 3% 5%;
+                // height: 140px;
+                padding: 5% 8%;
+                border-radius: 20px 0 0 20px;
+                background-color: $grey_bgc;
+            }
+
+            .strBlock{
+                margin: auto 0;
+
+                .itemTitle{
+                    margin-top: 0;
+                }
+                // border: 1px solid pink;
+                .sucessDate{
+                    width: 80%;
+                    margin-top: 10%;
+                    padding: 4% 3%;
+                    text-align: center;
+                    color: white;
+                    font-size: 1rem;
+                    letter-spacing: 0.1rem;
+                    background-color: $pink_bgc;
+                    box-shadow: $dark_grey 6px 6px 0px 0px;
+
+                }
+            }
+            .sucessBtnBlock{
+                margin: auto 0;
+                // border: 1px solid pink;
+
+                a{
+                    .btn{
+                        width: 150px;
+                        padding: 10% 0;
+                        cursor: pointer;
+                        // border: 1px solid pink;
+        
+                        .icon{
+                            margin-left: 18%;
+                        }
+                    }
+                }
+                .likeIcon{
+                    color: $pink_bgc;
+                    margin: 0 0 42% 65%;
+                    font-size: $font-m;
+                }
+                .noShowIcon{
+                    color: white;
+                }
+
+            }
+        }
+        
+    }
+    .saveFirmArea{
+        margin: 3% 10% 0 10%;
+        background-color: white;
+
+        .caseItem{
+
+            img{
+                padding: 3% 5%;
+
+            }
+            .strBlock{
+
+                .firmLable{
+                    margin: 8% auto 4% auto;
+                    font-size: $font-m;
+
+                    .lableIcon{
+                        margin-right: 6%;
+                        color: $brand_lightBlue;
+
+                    }
+                }
+                .corpNum{
+                    width: 60%;
+                    margin-top: 6%;
+                    color: $brand_blue;
+                    border: 2px solid $brand_blue;
+                    font-size: $font-s;
+                    background-color: white;
+                }
+            }
+            .sucessBtnBlock{
+                .likeIcon{
+                    margin: 5% 0 40% 65%;
+                }
+                .btn{
+                    margin: 0 10% 0 0;
+                }
+                
+            }
+        }
+    }
+    .saveCaseArea{
+        height: 80%;
+
+        .caseItem{
+            img{
+                padding: 7% 8%;
+                border-radius: 20px 0 0 20px;
+                background-color: $grey_bgc;
+            }
+            .strBlock{
+                margin: auto 3% auto 0;
+                
+                .firmName{
+                    margin-bottom: 8%;
+                }
+
+                .cdDate{
+                    width: 80%;
+                    padding: 3% 2%;
+                    text-align: center;
+                    font-size: $font-s;
+                    font-weight: bolder;
+                    letter-spacing: 0.1rem;
+                    color: $google_red;
+                    border: 2px solid $google_red;
+                    box-shadow: $google_red 3px 3px 0px 0px;
+                }
+            }
+        }
+        .saveCaseBtn{
+            margin: auto 5% auto 0;
+            // border: 1px solid pink;
+            .likeIcon{
+                margin: 10% 0 25% 65%;
+                font-size: $font-m;
+                color: $pink_bgc;
+                cursor: pointer;
+            }
+            .unlikeIcon{
+                color: $brand_blue;
+            }
+            .unlikeIcon:hover{
+                color: $pink_bgc;
+            }
+            .btn{
+                margin: 35% 0 0 0;
+                width: 135px;
+                
+            }
+        }
+    }
+    .sucessDescript{
+        display: block;
+        margin-left: 10.5%;
+        color: $brand_blue;
+        letter-spacing: 0.1rem;
+        
+    }
+    .sucessH2{
+        margin: 7% 10% 1.5% 10%;
+            
+    }
+}
+.msgDialogBlock{
+    background-color: $nav_bgc;
+    width: 68%;
+    // height: 900px;
+    overflow-y: scroll;
+
+    .icon{
+        padding: 2.5% 3%;
+        font-size: $font-m;
+        color: $brand_blue;
+    }
+    .userInfo{
+        width: 82.5%;
+        margin: 1% auto 5% auto;
+        display: flex;
+        // border: 2px solid pink;
+
+        img{
+            padding: 1%;
+            margin: 0 3% 0 5%;
+            border-radius: 50%;
+            background-color: white;
+        }
+        .caseBlock{
+            display: flex;
+            flex-direction: column;
+            margin: auto 8% auto 0;
+            color: $brand_blue;
+            // border: 2px solid pink;
+
+            a{
+                color: $brand_blue;
+                text-decoration: none;
+            }
+            .firmTitle{
+                width: 280px;
+                margin: 4% 0;
+                font-size: $font-m;
+                font-family: NotoSansCJKtc-Medium;
+                letter-spacing: 0.1rem;
+            }
+        }
+        .btnBlock{
+            display: flex;
+            flex-direction: column;
+            margin: auto 0 auto 2%;
+            align-items: left;
+            // border: 2px solid pink;
+            
+            li{
+                width: 100%;
+                margin: 4% auto;
+                padding: 5% 15%;
+                border-radius: 300px;
+                text-align: center;
+                letter-spacing: 0.1rem;
+                word-break: keep-all;
+                // border: 2px solid pink;
+            }
+            a{
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                color: white;
+                // border: 1px solid pink;
+            }
+            .icon{
+                color: white;
+                font-size: $font-tab;
+                margin-right: 2%;
+            }
+            .detailBtn{
+                background-color: white;
+                border: 2px solid $brand_lightBlue;
+                a{
+                    color: $brand_lightBlue;
+                }
+                .icon{
+                    color: $brand_lightBlue;
+                }
+            }
+            .confirmBtn{
+                background-color: $pink_bgc;
+                border: 2px solid $pink_bgc;
+            }
+            .disableStyle{
+                background-color: $nav_bgc;
+                pointer-events: none;
+                border: white 2px solid;
+            }
+        }
+    }
+    .dialogDetail{
+        width: 82.5%;
+        margin: 0 auto 0 auto;
+        background-color: white;
+
+        .nonMsgAlert{
+            margin: 0 auto;
+            padding: 5% 0 2% 0;
+            text-align: center;
+            color: $brand_blue;
+            font-size: $font-tab;
+            font-family: NotoSansCJKtc-DemiLight;
+            // border: 1px solid pink;
+
+        }
+
+        .dialogStyle{
+            display: flex;
+            color: $brand_blue;
+            font-family: NotoSansCJKtc-DemiLight;
+            // border:  1px solid pink;
+            img{
+                padding: 2%;
+                // border: 1px solid pink;
+            }
+            p{
+                padding: 3% 5%;
+                margin: 5% 0 5% 2%;
+                letter-spacing: 0.1rem;
+                line-height: $font-tab;
+                border-radius: 5px;
+                border: 2px solid $brand_lightBlue;
+            }
+        }
+        .myReply{
+            color: white;
+            justify-content: flex-end;
+            
+            p{
+                margin: 2% 2% 0% 0%;
+                background-color: $brand_lightBlue;
+                border: 2px solid $brand_lightBlue;
+            }
+        }
+        .btnBlock{
+            width: 82.5%;
+            margin: 8% auto 1% auto;
+            display: flex;
+            // border: 1px solid pink;
+            input{
+                width: 80%;
+                margin: 0 3%;
+                padding: 0 0 8% 2%;
+                line-height: $font-l;
+                font-size: $font-tab;
+                outline: none;
+                border-radius: 5px;
+                border: 2px solid $brand_lightBlue;
+            }
+            a{
+                margin: auto 0;
+                display: block;
+                padding: 6% 3%;
+                color: white;
+                border-radius: 5px;
+                background-color: $tab_color;
+                // border: 1px solid pink;
+            }
+        }
+    }
+    .dialogOutside{
+        padding: 3% 0;
+        height: 500px;
+        overflow-y: auto;
+    }
+
+}
+.consultDetailBlock{
+    .consultDetArea{
+        width: 82.5%;
+        margin: 0 auto 5% auto;
+        background-color: white;
+        
+        .caseBasic{
+            display: flex;
+            padding: 5% 4%;
+            // border: 1px solid pink;
+            img{
+                padding: 0 5% 0 2%;
+            }
+            .conditionBlock{
+                width: 28%;
+                // border: 1px solid pink;
+                h1{
+                    margin: 5% 0;
+                    // color: $brand_blue;
+                    font-size: $font-m;
+                    font-family: NotoSansCJKtc-Medium;
+                }
+                .budget{
+                    margin: 15% 0 8% 0;
+                    padding: 2% 2% 2% 8%;
+                    line-height: $font-m;
+                    font-size: $font-s;
+                    font-weight: bolder;
+                    letter-spacing: 0.1rem;
+                    box-shadow: $brand_blue 6px 6px 0px 0px;
+                    color: white;
+                    background-color: $pink_bgc;
+                }
+                .needsNum{
+                    padding: 2% 2% 2% 8%;
+                    font-size: $font-s;
+                    line-height: $font-m;
+                    letter-spacing: 0.1rem;
+                    box-shadow: $brand_blue 6px 6px 0px 0px;
+                    color: white;
+                    background-color: $brand_lightBlue;
+                }
+                .mediaRequest{
+                    margin: 12% 0 5% 0;
+                    // border: 1px solid pink;
+                    .icon{
+                        margin-right: 3%;
+                        padding: 2.5%;
+                        width: $font-m;
+                        height: $font-m;
+                        color: white;
+                        border-radius: 60%;
+                        background-color: $brand_blue;
+                    }
+                }
+                .companyName{
+                    color: $brand_lightBlue;
+                    font-weight: bolder;
+                }
+                .companyName:hover{
+                    color: $pink_bgc;
+                    cursor: pointer;
+                }
+            }
+            
+        }
+        .caseInfo{
+            display: flex;
+            padding: 2% 5%;
+            // border: 1px solid pink;
+
+            .blockTitle{
+                font-size: $font-m;
+            }
+            
+            .caseDetail{
+                width: 70%;
+                padding: 3% 2% 3% 5%;
+                // border: 1px solid pink;
+                p{
+                    margin: 7% 1%;
+                    color: $brand_blue;
+                    line-height: $font-tab;
+                    letter-spacing: 0.1rem;
+                }
+                
+                .btnBlock{
+                    margin: 7% 0 4% 0;
+                    display: flex;
+                    // border: 1px solid pink;
+                    a{
+                        width: 50%;
+                        color: white;
+                    }
+                    li{
+                        display: flex;
+                        margin: 0 8% 0 0;
+                        padding: 5% 0 5% 15%;
+                        border-radius: 300px;
+                        background-color: $brand_lightBlue;
+
+                        .icon{
+                            color: white;
+                        }
+                        span{
+                            margin: auto 0 auto 5%;
+                            letter-spacing: 2px;
+                        }
+                        
+                    }
+                    .applyBtn{
+                        background-color: $pink_bgc;
+                    }
+                    .applyBtn:hover{
+                        box-shadow: 5px 5px 10px $shadow_color;
+                        cursor: pointer;
+                        
+                    }
+                    .disableStyle{
+                        background-color: $nav_bgc;
+                        pointer-events: none;
+                    }
+                    .askBtn{
+                        color: $brand_lightBlue;
+                        background-color: white;
+                        border: 2px solid $brand_lightBlue;
+                        .icon{
+                            color: $brand_lightBlue;
+                        }
+                        
+                    }
+                    .askBtn:hover{
+                        color: white;
+                        background-color: $brand_blue;
+                        border: 2px solid $brand_blue;
+                        box-shadow: 5px 5px 10px $shadow_color;
+                        cursor: pointer;
+                        
+                    }
+                    
+
+                }
+            }
+            .caseRequire{
+                width: 50%;
+                padding: 3% 2%;
+                // border: 1px solid pink;
+
+                .requireBlock{
+                    margin: 10% 15% 8% 2%;
+                    padding: 5% 6%;
+                    background-color: $nav_bgc;
+                    // border: 1px solid pink;
+
+                    li{
+                        display: flex;
+                        margin: 6%;
+                        span{
+                            color: $brand_blue;
+                            margin: auto 0 auto 5%;
+                            font-size: $font-s;
+                            font-family: NotoSansCJKtc-Medium;
+                        }
+                        .icon{
+                            width: 25px;
+                            height: 25px;
+                            padding: 5%;
+                            border-radius: 50%;
+                            color: $tab_color;
+                            background-color: white;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+}
+.kolSetBlock{
+    .setTitle{
+        display: flex;
+        margin: 7% 10% 3% 11%;
+        // border: 1px solid pink;
+        h1{
+            font-size: $font-l;
+        }
+        li{
+            width: 12%;
+            margin-left: 63%;
+            padding: 2% 3%;
+            display: flex;
+            align-items: center;
+            border-radius: 300px;
+            color: white;
+            cursor: pointer;
+
+        }
+        span{
+            margin-left: 11%;
+        }
+    }
+    .userInfoArea{
+        display: flex;
+        .picBlock{
+            width: 45%;
+            // border: 1px solid pink;
+
+            img{
+                padding: 5%;
+                text-align: center;
+                margin: 10%;
+                border-radius: 300px;
+                border: 4px solid $brand_lightBlue;
+            }
+            li{
+                display: flex;
+                margin: 2% 12%;
+                // border: 1px solid pink;
+
+                span{
+                    padding: 5% 9%;
+                    margin: 0 auto;
+                    border-radius: 300px;
+                    color: white;
+                    background-color: $brand_lightBlue;
+                    cursor: pointer;
+                    border: 1px solid $brand_lightBlue;
+                }
+                .uploadBtn:hover{
+                    background-color: $brand_blue;
+                }
+                .removeBtn{
+                    color: $pink_bgc;
+                    background-color: white;
+                    border: 2px solid $pink_bgc;
+                }
+                .removeBtn:hover{
+                    color: white;
+                    background-color: $pink_bgc;
+                }
+
+            }
+            .createDate{
+                display: block;
+                margin: 70% 15% 0 15%;
+                padding: 3%;
+                text-align: center;
+                color: white;
+                font-size: 1rem;
+                letter-spacing: 0.1rem;
+                background-color: $pink_bgc;
+                box-shadow: $dark_grey 6px 6px 0px 0px;
+            }
+        }
+        .inputBlock{
+            width: 55%;
+            padding: 4%;
+            background-color: $brand_lightBlue;
+            
+            .infoItem{
+                display: flex;
+                margin: 4% auto;
+                // border: 1px solid pink;
+        
+                .icon{
+                    padding: 3% 3% 3% 5%;
+                    font-size: 1rem;
+                    color: $brand_blue;
+                    background-color: white;
+                    font-size: $font-tab;
+                    // border: 1px solid pink;
+                }
+                input{
+                    width: 100%;
+                    outline: none;
+                    border: none;
+                    line-height: $font-l;
+
+                }
+            }
+            .cantChange{
+                pointer-events: none;
+                .icon{
+                    color: $tab_color;
+                }
+                input{
+                    color: $tab_color;
+                }
+            }
+            .socialMediaItem{
+                // border: 1px solid $brand_blue;
+                
+                .urlBlock{
+                    padding: 0 auto;
+                    border-left: 2px double $nav_bgc;
+                }
+            }
+            .usingMediaItem{
+                .icon{
+                    color: $brand_lightBlue;
+                }
+                input{
+                    color: $brand_lightBlue;
+                }
+            }
+            
+            .btnBlock{
+                display: flex;
+                margin-top: 34%;
+                // border: 1px solid pink;
+
+                .btn{
+                    width: 30%;
+                    padding: 4% 5%;
+                    text-align: center;
+                    margin: 0 auto;
+                    color: $brand_blue;
+                    font-weight: bolder;
+                    background-color: white;
+                    border-radius: 300px;
+                    border: 2px solid $brand_blue;
+                    cursor: pointer;
+
+                    .icon{
+                        margin-right: 8%;
+                    }
+                }
+                .btn:hover{
+                    color: white;
+                    background-color: $brand_blue;
+                }
+                .delBtn{
+                    color: $google_red;
+                    background-color: white;
+                    border: 2px solid $google_red;
+                }
+                .delBtn:hover{
+                    color: white;
+                    background-color: $google_red;
+                    
+                }
+            }
+        }
+
+    }
+}
+.firmDetailBlock{
+    .firmDetArea{
+        .caseBasic{
+            padding: 5% 4% 0 4%;
+            img{
+                padding:  0 5%;
+            }
+            .conditionBlock{
+                margin: auto 16% auto 0;
+                // border: 1px solid pink;
+                .successNum{
+                    text-align: center;
+                    font-size: $font-tab;
+                    padding: 5% 6%;
+                    
+                }
+            }
+        }
+        .caseInfo{
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            .caseDetail{
+                padding: 3% 2% 0% 5%;
+                p{
+                    margin: 4% 0;
+                    padding: 6%;
+                    background-color: $nav_bgc;
+                }
+            }
+            .caseRequire{
+                width: 100%;
+                padding: 3% 2% 0% 5%;
+
+                .requireBlock{
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin: 3% 10% 8% 0%;
+                    padding: 3% 6%;;
+                    background-color: $brand_lightBlue;
+                    li{
+                        margin: 2% 0 0 0;
+                        width: 38%;
+
+                        .icon{
+                            width: 35px;
+                            height: 35px;
+                            padding: 3%;
+                        }
+                        span{
+                            color: white;
+                            font-size: 1rem;
+                        }
+                    }
+                    .longArea{
+                        width: 59%;
+                        margin-left: 3%;
+                    }
+                }
+            }
+        }
+    }
+}
+.searchfirmBlock{
+    margin: 8% 10% 0 10%;
+    // height: 750px;
+    background-color: white;
+
+    .titleDescrip{
+        margin: 5% 0 0 10%;
+    }
+    .contentBlock{
+        padding: 0% 8%;
+        
+    }
+    .searchFirmArea{
+        width: 80%;
+        padding: 0;
+        .industItem{
+            width: 7rem;
+            height: 7rem;
+            margin: 0 auto;
+            transition:all .15s ease-in-out;
+
+            .icon{
+                border: 1px solid transparent;
+                text-align: center;
+                font-size: 2.5rem;
+                margin: 0 auto;
+                padding: 20% 20% 10% 20%;
+            }
+        }
+    }
+    .resultTopArea{
+        display: flex;
+        margin-top: 2%;
+        // border: 1px solid pink;
+        li{
+            width: 50%;
+            padding: 3% 5%;
+        }
+        .btnArea{
+            margin-top: 3%;
+            display: flex;
+            justify-content: space-evenly;
+            span{
+                display: block;
+                margin: auto 0;
+                padding: 5% 8%;
+                color: white;
+                background-color: $brand_blue;
+                border-radius: 300px;
+                cursor: pointer;
+            }
+            span:hover{
+                background-color: $brand_lightBlue;
+                transition:all .15s ease-in-out;
+            }
+            .allBtn{
+                color: $brand_blue;
+                background-color: white;
+                border: 2px solid $brand_blue;
+            }
+            .allBtn:hover{
+                color: $brand_lightBlue;
+                background-color: white;
+                border: 2px solid $brand_lightBlue;
+                transition:all .15s ease-in-out;
+
+            }
+            
+        }
+    }
+    .searchResult{
+        margin: 0 0% 0% 1%;
+        height: 580px;
+        overflow-y: auto;
+
+    }
+}
+.searchSec{
+    margin-top: 3%;
+}
+.searchLoader{
+    padding: 1%;
+}
+
+// FavBtn Style
+.favBtnBlock{
+    margin: 1% 0 0 5%;
+
+    .favIcon{
+        font-size: $font-m;
+        cursor: pointer;
+        // border: 1px solid pink;
+    }
+    .favIcon:hover{
+        color: $pink_bgc;
+    }
+    .selectedIcon{
+        color: $pink_bgc;
+    }
+}
+
+// Scroll Style
+.scrollStyle::-webkit-scrollbar {
+    background-color: $brand_lightBlue;
+}
+
+.scrollGrey::-webkit-scrollbar {
+    background-color: $tab_color;
+}
+
+.scrollSpecial::-webkit-scrollbar {
+    background-color: $nav_bgc;
+}
+
+.scrollWhite::-webkit-scrollbar {
+    background-color: transparent;
+}

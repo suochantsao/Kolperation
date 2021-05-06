@@ -1,0 +1,174 @@
+.signUpKOL{
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+
+    a{
+        text-decoration: none;
+    }
+    
+
+}
+.signUpBlock{
+    width: 50%;
+    padding: 7% 8% 5% 8%;
+    box-sizing: border-box;
+    color: white;
+    background-color: $brand_lightBlue;
+
+
+    h2{
+        margin-bottom: 15%;
+        font-size: $font-m;  
+        letter-spacing: 0.1rem;  
+    }
+    .socialDescript{
+        display: block;
+        margin: 10% 0 7% 0;
+        font-size: 1.2rem;
+    }
+    .wrnDescript{
+        display: block;
+        margin-bottom: 0;
+        padding: 5% 0 0 0;
+        color: $google_red;
+        font-size: $font-s;
+        text-align: center;
+        font-family: NotoSansCJKtc-DemiLight;
+
+    }
+    .signUpItem{
+        display: flex;
+        margin: 4% auto;
+        color: $brand_blue;
+
+        .icon{
+            padding: 2.5% 3%;
+            font-size: 1rem;
+            background-color: white;
+            // border: 1px solid pink;
+        }
+        input{
+            width: 100%;
+            outline: none;
+            border: none;
+        }
+    }
+    .wrongItem{
+        border: 2px solid red;
+    }
+    .socialBlock{
+        display: flex;
+        // border: 1px solid pink;
+
+        .socialItem{
+            width: 25%;
+            margin: 0 2%;
+            padding: 5% 0 4% 6%;
+            border-radius: 5%;
+            border: 3px solid $nav_bgc;
+            cursor: pointer;
+            
+            span{
+                font-size: 0.5rem;
+            }
+        }
+        .selectItem{
+            border: 3px solid $brand_blue;
+
+        }
+    }
+    .signUpBtn{
+        display: block;
+        margin: 10% auto 3% auto;
+        padding: 4% 0;
+        text-align: center;
+        letter-spacing: 0.1rem;
+        border-radius: 300px;
+        color: white;
+        background-color: $brand_blue;
+    }
+    .signUpBtn:hover{
+        color: $brand_lightBlue;
+        background-color: white;
+        transition:all .1s ease-in-out;
+        box-shadow: 5px 5px 10px $shadow_color;
+    }
+    .dpNone{
+        display: none;
+    }
+    
+}
+
+.logoBlock{
+    width: 50%;
+    box-sizing: border-box;
+    color: $brand_blue;
+
+    .crossIcon{
+        font-size: $font-m;
+        margin: 11% 0 0 91%;
+        color: $brand_lightBlue;
+    }
+    .crossIcon:hover{
+        color: $brand_blue;
+    }
+    .logoContent{
+        width: 80%;
+        margin: 0 auto;
+        // border: 1px solid pink;
+
+        .logo{
+            margin: 5% 0 0 4%;
+        }
+    
+        .imgBlock{
+            width: 100%;
+            margin: 23% auto 15% auto;
+            // border: 1px solid pink;
+        }
+    
+        h1{
+            color: $brand_blue;
+            margin: 2% 0 0 4%;
+        }
+        span{
+            display: block;
+            text-align: center;
+            margin-bottom: 20%;
+        }
+    }
+    
+}
+
+.signUpFirm{
+
+    .firmStyle{
+        background-color: $brand_blue;
+
+        .selectItem{
+            border: 3px solid $brand_lightBlue;
+            cursor: pointer;
+        }
+        .signUpBtn{
+            background-color: $brand_lightBlue;
+        }
+        .signUpBtn:hover{
+            color: $brand_blue;
+            background-color: white;
+            transition:all .1s ease-in-out;
+            box-shadow: 5px 5px 10px $shadow_color;
+        }
+        .crossIcon{
+            color: $brand_blue;
+        }   
+    }
+
+    .firmCross{
+        color: $brand_blue;
+    }
+    .firmCross:hover{
+        color: $brand_lightBlue;
+    }
+}
+    
