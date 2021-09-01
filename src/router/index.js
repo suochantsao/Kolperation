@@ -1,312 +1,255 @@
 // * Framework and other tools
-import Vue       from 'vue'
-import VueRouter from 'vue-router'
-
-// * Views
-import Home from '../views/Home.vue'
-
-// Trial
-import Trial         from '../views/Trial.vue'
-import Trial_first   from '../views/Trial_first.vue'
-import Trial_second  from '../views/Trial_second.vue'
-import Trial_loader  from '../views/Trial_loader.vue'
-import Trial_result  from '../views/Trial_result.vue'
-
-// Login and Sign Up
-import Login         from '../views/Login.vue'
-import SignUp        from '../views/SignUp.vue'
-import SignUp_kol    from '../views/SignUp_kol.vue'
-import SignUp_firm   from '../views/SignUp_firm.vue'
-import SignUp_loader from '../views/SignUp_loader.vue'
-
-// KOL
-import Kol               from '../views/Kol.vue'
-import Kol_msg           from '../views/Kol_msg.vue'
-import Kol_msgDialog     from '../views/Kol_msgDialog.vue'
-import Kol_consult       from '../views/Kol_consult.vue'
-import Kol_consultDetail from '../views/Kol_consultDetail.vue'
-import Kol_sucess        from '../views/Kol_sucess.vue'
-import Kol_sucessDetail  from '../views/Kol_sucessDetail.vue'
-import Kol_saveFirm      from '../views/Kol_saveFirm.vue'
-import Kol_saveCase      from '../views/Kol_saveCase.vue'
-import Kol_passCase      from '../views/Kol_passCase.vue'
-import Kol_setting       from '../views/Kol_setting.vue'
-import Kol_firmDetail    from '../views/Kol_firmDetail.vue'
-import Kol_searchPlat    from '../views/Kol_searchPlat.vue'
-import Kol_searchSector  from '../views/Kol_searchSector.vue'
-import Kol_searchLoad    from '../views/Kol_searchLoad.vue' 
-import Kol_searchResult  from '../views/Kol_searchResult.vue'
-
-// Firm
-import Firm               from '../views/Firm.vue'
-import Firm_msg           from '../views/Firm_msg.vue'
-import Firm_consult       from '../views/Firm_consult.vue'
-import Firm_consultDetail from '../views/Firm_consultDetail.vue'
-import Firm_success       from '../views/Firm_success.vue'
-import Firm_successDetail from '../views/Firm_successDetail.vue'
-import Firm_searchPlat    from '../views/Firm_searchPlat.vue'
-import Firm_searchSector  from '../views/Firm_searchSector.vue'
-import Firm_searchFans    from '../views/Firm_searchFans.vue'
-import Firm_searchLoad    from '../views/Firm_searchLoad.vue'
-import Firm_searchResult  from '../views/Firm_searchResult.vue'
-import Firm_saveKol       from '../views/Firm_saveKol.vue'
-import Firm_kolDetail     from '../views/Firm_kolDetail.vue'
-import Firm_passCase      from '../views/Firm_passCase.vue'
-import Firm_setting       from '../views/Firm_setting.vue'
-import Firm_msgDialog     from '../views/Firm_msgDialog.vue'
-import Firm_addCase       from '../views/Firm_addCase.vue'
-import Firm_editCase      from '../views/Firm_editCase.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
 
 // * Router
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 const routes = [
-    { path: '*', redirect: '/' },
-    
-    {
-        path: '/',
-        name: 'Home',
-        component: Home
-    },
-    {
-        path: '/login',
-        name: 'Login',
-        component: Login
-    },
-    {
-        path: '/loader',
-        name: 'SignUp_loader',
-        component: SignUp_loader
-    },
-    {
-        path: '/trial',
-        name: 'Trial',
-        component: Trial,
-        redirect: '/trial/first',
-        children:[
-            {
-                path: 'first',
-                name: 'First',
-                component: Trial_first
-            },
-            {
-                path: 'second',
-                name: 'Second',
-                component: Trial_second
-            },
-            {
-                path: 'loader',
-                name: 'Loader',
-                component: Trial_loader
-            },
-            {
-                path: 'result',
-                name: 'Result',
-                component: Trial_result
-            }
-        ]
-    },
-    {
-        path: '/signup',
-        name: 'SignUp',
-        component: SignUp,
-        children:[
-            {
-                path: 'kol',
-                name: 'SignUp_kol',
-                component: SignUp_kol
-            },
-            {
-                path: 'firm',
-                name: 'SignUp_firm',
-                component: SignUp_firm
-            }
-        ]
-    },
-    {
-        path: '/kolplat',
-        name: 'KolPlat',
-        component: Kol,
-        children:[
-            {
-                path: 'msg',
-                name: 'Kol_msg',
-                component: Kol_msg
-            },
-            {
-                path: 'msgDialog',
-                name: 'Kol_msgDialog',
-                component: Kol_msgDialog
-            },
-            {
-                path: 'consult',
-                name: 'Kol_consult',
-                component: Kol_consult
-            },
-            {
-                path: 'consultDetail',
-                name: 'Kol_consultDetail',
-                component: Kol_consultDetail
-            },
-            {
-                path: 'sucess',
-                name: 'Kol_sucess',
-                component: Kol_sucess
-            },
-            {
-                path: 'sucessDetail',
-                name: 'Kol_sucessDetail',
-                component: Kol_sucessDetail
-            },
-            {
-                path: 'savefirm',
-                name: 'Kol_saveFirm',
-                component: Kol_saveFirm
-            },
-            {
-                path: 'savecase',
-                name: 'Kol_saveCase',
-                component: Kol_saveCase
-            },
-            {
-                path: 'passcase',
-                name: 'Kol_passCase',
-                component: Kol_passCase
-            },
-            {
-                path: 'setting',
-                name: 'Kol_setting',
-                component: Kol_setting
-                
-            },
-            {
-                path: 'firmdetail',
-                name: 'Kol_firmDetail',
-                component: Kol_firmDetail
-            },
-            {
-                path: 'searchplat',
-                name: 'Kol_searchPlat',
-                component: Kol_searchPlat,
-            },
-            {
-                path: 'searchsector',
-                name: 'Kol_searchSector',
-                component: Kol_searchSector,
-            },
-            {
-                path: 'searchloader',
-                name: 'Kol_searchLoader',
-                component: Kol_searchLoad,
-            },
-            {
-                path: 'searchresult',
-                name: 'Kol_searchResult',
-                component: Kol_searchResult
-            }
-            
-        ]
-    },
-    {
-        path: '/firmplat',
-        name: 'FirmPlat',
-        component: Firm,
-        children:[
-            {
-                path: 'msg',
-                name: 'Firm_msg',
-                component: Firm_msg
-            },
-            {
-                path: 'msgdialog',
-                name: 'Firm_msgDialog',
-                component: Firm_msgDialog
-            },
-            {
-                path: 'consult',
-                name: 'Firm_consult',
-                component: Firm_consult
-            },
-            {
-                path: 'consultdetail',
-                name: 'firmConsultDetail',
-                component: Firm_consultDetail
-            },
-            {
-                path: 'success',
-                name: 'Firm_success',
-                component: Firm_success
-            },
-            {
-                path: 'successdetail',
-                name: 'Firm_successDetail',
-                component: Firm_successDetail
-            },
-            {
-                path: 'searchplat',
-                name: 'Firm_searchPlat',
-                component: Firm_searchPlat
-            },
-            {
-                path: 'searchsector',
-                name: 'Firm_searchSector',
-                component: Firm_searchSector
-            },
-            {
-                path: 'searchfans',
-                name: 'Firm_searchFans',
-                component: Firm_searchFans
-            },
-            {
-                path: 'searchloader',
-                name: 'Firm_searchLoad',
-                component: Firm_searchLoad
-            },
-            {
-                path: 'searchresult',
-                name: 'Firm_searchResult',
-                component: Firm_searchResult
-            },
-            {
-                path: 'savekol',
-                name: 'Firm_saveKol',
-                component: Firm_saveKol
-            },
-            {
-                path: 'koldetail',
-                name: 'Firm_kolDetail',
-                component: Firm_kolDetail
-            },
-            {
-                path: 'passcase',
-                name: 'Firm_passCase',
-                component: Firm_passCase
-            },
-            {
-                path: 'setting',
-                name: 'Firm_setting',
-                component: Firm_setting
-            },
-            {
-                path: 'addcase',
-                name: 'Firm_addCase',
-                component: Firm_addCase
-            },
-            {
-                path: 'editcase',
-                name: 'Firm_editCase',
-                component: Firm_editCase
-            }
-        ]
-    },
-]
+  { path: "*", redirect: "/" },
+
+  {
+    path: "/",
+    name: "Home",
+    component: () => import("../views/Home.vue"),
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: () => import("../views/Login.vue"),
+  },
+  {
+    path: "/loader",
+    name: "SignUp_loader",
+    component: () => import("../views/SignUp_loader.vue"),
+  },
+  {
+    path: "/trial",
+    name: "Trial",
+    component: () => import("../views/Trial.vue"),
+    redirect: "/trial/first",
+    children: [
+      {
+        path: "first",
+        name: "First",
+        component: () => import("../views/Trial_first.vue"),
+      },
+      {
+        path: "second",
+        name: "Second",
+        component: () => import("../views/Trial_second.vue"),
+      },
+      {
+        path: "loader",
+        name: "Loader",
+        component: () => import("../views/Trial_loader.vue"),
+      },
+      {
+        path: "result",
+        name: "Result",
+        component: () => import("../views/Trial_result.vue"),
+      },
+    ],
+  },
+  {
+    path: "/signup",
+    name: "SignUp",
+    component: () => import("../views/SignUp.vue"),
+    children: [
+      {
+        path: "kol",
+        name: "SignUp_kol",
+        component: () => import("../views/SignUp_kol.vue"),
+      },
+      {
+        path: "firm",
+        name: "SignUp_firm",
+        component: () => import("../views/SignUp_firm.vue"),
+      },
+    ],
+  },
+  {
+    path: "/kolplat",
+    name: "KolPlat",
+    component: () => import("../views/Kol.vue"),
+    children: [
+      {
+        path: "msg",
+        name: "Kol_msg",
+        component: () => import("../views/Kol_msg.vue"),
+      },
+      {
+        path: "msgDialog",
+        name: "Kol_msgDialog",
+        component: () => import("../views/Kol_msgDialog.vue"),
+      },
+      {
+        path: "consult",
+        name: "Kol_consult",
+        component: () => import("../views/Kol_consult.vue"),
+      },
+      {
+        path: "consultDetail",
+        name: "Kol_consultDetail",
+        component: () => import("../views/Kol_consultDetail.vue"),
+      },
+      {
+        path: "sucess",
+        name: "Kol_sucess",
+        component: () => import("../views/Kol_sucess.vue"),
+      },
+      {
+        path: "sucessDetail",
+        name: "Kol_sucessDetail",
+        component: () => import("../views/Kol_sucessDetail.vue"),
+      },
+      {
+        path: "savefirm",
+        name: "Kol_saveFirm",
+        component: () => import("../views/Kol_saveFirm.vue"),
+      },
+      {
+        path: "savecase",
+        name: "Kol_saveCase",
+        component: () => import("../views/Kol_saveCase.vue"),
+      },
+      {
+        path: "passcase",
+        name: "Kol_passCase",
+        component: () => import("../views/Kol_passCase.vue"),
+      },
+      {
+        path: "setting",
+        name: "Kol_setting",
+        component: () => import("../views/Kol_setting.vue"),
+      },
+      {
+        path: "firmdetail",
+        name: "Kol_firmDetail",
+        component: () => import("../views/Kol_firmDetail.vue"),
+      },
+      {
+        path: "searchplat",
+        name: "Kol_searchPlat",
+        component: () => import("../views/Kol_searchPlat.vue"),
+      },
+      {
+        path: "searchsector",
+        name: "Kol_searchSector",
+        component: () => import("../views/Kol_searchSector.vue"),
+      },
+      {
+        path: "searchloader",
+        name: "Kol_searchLoader",
+        component: () => import("../views/Kol_searchLoad.vue"),
+      },
+      {
+        path: "searchresult",
+        name: "Kol_searchResult",
+        component: () => import("../views/Kol_searchResult.vue"),
+      },
+    ],
+  },
+  {
+    path: "/firmplat",
+    name: "FirmPlat",
+    component: () => import("../views/Firm.vue"),
+    children: [
+      {
+        path: "msg",
+        name: "Firm_msg",
+        component: () => import("../views/Firm_msg.vue"),
+      },
+      {
+        path: "msgdialog",
+        name: "Firm_msgDialog",
+        component: () => import("../views/Firm_msgDialog.vue"),
+      },
+      {
+        path: "consult",
+        name: "Firm_consult",
+        component: () => import("../views/Firm_consult.vue"),
+      },
+      {
+        path: "consultdetail",
+        name: "firmConsultDetail",
+        component: () => import("../views/Firm_consultDetail.vue"),
+      },
+      {
+        path: "success",
+        name: "Firm_success",
+        component: () => import("../views/Firm_success.vue"),
+      },
+      {
+        path: "successdetail",
+        name: "Firm_successDetail",
+        component: () => import("../views/Firm_successDetail.vue"),
+      },
+      {
+        path: "searchplat",
+        name: "Firm_searchPlat",
+        component: () => import("../views/Firm_searchPlat.vue"),
+      },
+      {
+        path: "searchsector",
+        name: "Firm_searchSector",
+        component: () => import("../views/Firm_searchSector.vue"),
+      },
+      {
+        path: "searchfans",
+        name: "Firm_searchFans",
+        component: () => import("../views/Firm_searchFans.vue"),
+      },
+      {
+        path: "searchloader",
+        name: "Firm_searchLoad",
+        component: () => import("../views/Firm_searchLoad.vue"),
+      },
+      {
+        path: "searchresult",
+        name: "Firm_searchResult",
+        component: () => import("../views/Firm_searchResult.vue"),
+      },
+      {
+        path: "savekol",
+        name: "Firm_saveKol",
+        component: () => import("../views/Firm_saveKol.vue"),
+      },
+      {
+        path: "koldetail",
+        name: "Firm_kolDetail",
+        component: () => import("../views/Firm_kolDetail.vue"),
+      },
+      {
+        path: "passcase",
+        name: "Firm_passCase",
+        component: () => import("../views/Firm_passCase.vue"),
+      },
+      {
+        path: "setting",
+        name: "Firm_setting",
+        component: () => import("../views/Firm_setting.vue"),
+      },
+      {
+        path: "addcase",
+        name: "Firm_addCase",
+        component: () => import("../views/Firm_addCase.vue"),
+      },
+      {
+        path: "editcase",
+        name: "Firm_editCase",
+        component: () => import("../views/Firm_editCase.vue"),
+      },
+    ],
+  },
+];
 
 const router = new VueRouter({
-    routes,
-    mode: 'history',
-    hash: false,
-    scrollBehavior () {
-        return { x: 0, y: 0 }
-    }
-})
+  routes,
+  mode: "history",
+  hash: false,
+  scrollBehavior() {
+    return { x: 0, y: 0 };
+  },
+});
 
-export default router
+export default router;
